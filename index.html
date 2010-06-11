@@ -1,0 +1,67 @@
+<html>
+<head>
+  <title>CC Search</title>
+  <link rel="stylesheet" href="style.css" type="text/css" media="screen" title="no title" charset="utf-8">
+</head>
+<body>
+  <div id="header">
+    <img src="cc-search.png" alt="CC Search" />
+  </div>
+  <div id="mainContent">
+    <div id="search">
+      <form>
+        <input type="text" id="query" />
+        <select name="engine" id="engine-select">
+          <option>Google</option>
+          <option>Google Images</option>
+          <option>Flickr</option>
+          <option>Yahoo!</option>
+          <option>Wikimedia Commons</option>
+          <option>Jamendo</option>
+          <option>Blip.tv</option>
+        </select>
+        <input type="submit" id="submit" value="Search" />
+        <br/>
+        <fieldset id="right"> 
+          <small>
+          <strong>Find content I can:</strong>
+        	          <input type="checkbox" name="comm" value="" id="comm" checked="checked" onclick="setCommDeriv()" /> 
+                    <label for="comm"  onclick="setCommDeriv()">use for <em>commercial purposes</em>;</label>
+                    <input type="checkbox" name="deriv" value="" id="deriv" checked="checked"  onclick="setCommDeriv()" /> 
+                    <label for="deriv" onclick="setCommDeriv()"><em>modify</em>, <em>adapt</em>, or <em>build upon</em>.</label><br/> 
+          </small>
+    	  </fieldset>
+      </form>
+    </div>
+    <div id="help">
+      <div class="column">
+        <h1><br/>What is this?</h1>
+        <p>CC Search is a tool that provides quick and direct access to Creative Commons licensed&nbsp;content.</p>
+        <p>The metadata our licenses provide allow content providers easy ways to search within their libraries for licensed content.</p>
+
+        <p>With CC Search, we give you direct access to the freely licensed content available from many of the world's top content providers.</p>
+
+        <p><a href="http://example.com/">Learn more</a> about how this works.</p>
+      </div>
+      <div class="column">
+        <h1><br/>Sites that use CC</h1>
+        <ul>
+          <li><a href="http://google.com">Google</a></li>
+          <li><a href="http://google.com">Google Images</a></li>
+          <li><a href="http://google.com">Yahoo!</a></li>
+          <li><a href="http://google.com">Flickr</a></li>
+          <li><a href="http://google.com">Blip.tv</a></li>
+          <li><a href="http://google.com">Jamendo</a></li>
+          <li><a href="http://google.com">Wikimedia Commons</a></li>
+        </ul>
+      </div>
+      <div class="column wrong">
+        <h1>This isn't what I was looking for!</h1>
+        <p><a href="http://example.com/"><strong>Click here</strong></a> to learn more about how to change CC Search as your default search from browsers such as Firefox.</p>
+      </div>
+    </div>
+    
+    <div id="footer">CC</div>
+  </div>
+</body>
+</html>

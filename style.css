@@ -1,0 +1,103 @@
+body {
+	background: #fff;
+	font: 14px helvetica, arial, sans-serif;
+	line-height: 1.5;
+	margin: 0;
+	padding: 0;
+	color: #333;
+}
+
+h1 {
+	line-height: 1.15;
+	padding-bottom: 0.25em;
+}
+
+a {
+	text-decoration: none;
+	color: #1F5E99;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+#header {
+	background: #5AA322;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.96, #5aa322), color-stop(1.05, #050));
+	background: -moz-linear-gradient(top, #5aa322 97%, #050 105%);
+	padding-top: 55px;
+	text-align: center;
+	padding-bottom: 30px;
+}
+
+#mainContent {
+	width: 960px;
+	margin: 75px auto 0;
+	text-align: center;
+}
+
+#search {
+	display: inline-block;
+}
+
+#search fieldset {
+	padding-top: 15px;
+	border: none;
+}
+
+#search input, #search option {
+	font-size: 125%;
+}
+
+#query {
+	width: 400px;
+	padding: 3px;
+}
+
+#submit {
+	font-size: 125%;
+}
+
+#help {
+	margin-top: 75px;
+	text-align: left;
+	overflow-y: auto;
+}
+
+.column {
+	width: 290px;
+	margin-left: 40px;
+	float: left;
+}
+
+#help .column:first-child { margin-left: 0; }
+
+.wrong {
+	background-color: #FEE0A2;
+	padding: 0 15px;
+	margin-top: 9px;
+	width: 260px;
+	-webkit-border-radius: 7px;
+	-webkit-box-shadow: inset 0 2px 3px rgba(128, 128, 128, 0.35);
+	-moz-border-radius: 7px;
+	-moz-box-shadow: inset 0 2px 3px rgba(128, 128, 128, 0.35);
+}
+
+.column h1 {
+	border-bottom: 1px dashed #aaa;
+}
+
+.wrong h1 {
+	padding-top: 0;
+	margin-top: 10px;
+	color: rgba(32, 32, 32, 0.8);
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.65);
+	border-bottom-color: rgba(32, 32, 32, 0.4);
+}
+
+#footer {
+	margin-top: 50px;
+	border-top: 1px solid #aaa;
+	padding: 15px 0 50px;
+	text-align: left;
+}
