@@ -1,38 +1,81 @@
 <html>
 <head>
   <title>CC Search</title>
-  <link rel="stylesheet" href="style.css" type="text/css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="style.css" type="text/css" media="screen" title="no title" charset="utf-8" />
+  <script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="search.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
   <div id="header">
     <img src="cc-search.png" alt="CC Search" />
   </div>
-  <div id="mainContent">
+  <div class="mainContent">
     <div id="search">
-      <form>
+      <form onsubmit="return doSearch()">
         <input type="text" id="query" />
-        <select name="engine" id="engine-select">
-          <option>Google</option>
-          <option>Google Images</option>
-          <option>Flickr</option>
-          <option>Yahoo!</option>
-          <option>Wikimedia Commons</option>
-          <option>Jamendo</option>
-          <option>Blip.tv</option>
-        </select>
+        <div id="engine">
+          <p><strong>Search Provider:</strong></p>
+          <select name="engine" id="engineSelect" onchange="setEngine(this)">
+            <option value="google">Google</option>
+            <option value="googleimg">Google Images</option>
+            <option value="flickr">Flickr</option>
+            <option value="yahoo">Yahoo!</option>
+            <option value="wikimedia">Wikimedia Commons</option>
+            <option value="jamendo">Jamendo</option>
+            <option value="blip">Blip.tv</option>
+          </select>
+        </div>
+        <!-- <div id="engineInfo">
+          <div class="google">
+            <p><strong>Google</strong>, text and media search.</p>
+          </div>
+          <div class="googleimg">
+            <p><strong>Google Images</strong>, image search.</p>
+          </div>
+          <div class="flickr">
+            <p><strong>Flickr</strong>, image search.</p>
+          </div>
+          <div class="yahoo">
+            <p><strong>Yahoo!</strong>, text and media search.</p>
+          </div>
+          <div class="wikimedia">
+            <p><strong>Wikimedia Commons</strong>, text and media search.</p>
+          </div>
+          <div class="jamendo">
+            <p><strong>Jamendo</strong>, music search.</p>
+          </div>
+          <div class="blip">
+            <p><strong>Blip.tv</strong>, video search.</p>
+          </div>
+        </div> -->
         <input type="submit" id="submit" value="Search" />
         <br/>
-        <fieldset id="right"> 
+        <fieldset id="permissions"> 
           <small>
-          <strong>Find content I can:</strong>
-        	          <input type="checkbox" name="comm" value="" id="comm" checked="checked" onclick="setCommDeriv()" /> 
-                    <label for="comm"  onclick="setCommDeriv()">use for <em>commercial purposes</em>;</label>
-                    <input type="checkbox" name="deriv" value="" id="deriv" checked="checked"  onclick="setCommDeriv()" /> 
-                    <label for="deriv" onclick="setCommDeriv()"><em>modify</em>, <em>adapt</em>, or <em>build upon</em>.</label><br/> 
+            <strong>Find content I can:</strong>
+          	<input type="checkbox" name="comm" value="" id="comm" checked="checked" onclick="setCommDeriv()" /> 
+            <label for="comm"  onclick="setCommDeriv()">use for <em>commercial purposes</em>;</label>
+            <input type="checkbox" name="deriv" value="" id="deriv" checked="checked"  onclick="setCommDeriv()" /> 
+            <label for="deriv" onclick="setCommDeriv()"><em>modify</em>, <em>adapt</em>, or <em>build upon</em>.</label><br/> 
           </small>
     	  </fieldset>
       </form>
     </div>
+  </div>
+  <div id="resultsRow">
+    <p><strong>Flickr</strong> &mdash; <a href="#"><small><em>More results...</em></small></a></p>
+    <div class="images">
+      <img src="http://farm2.static.flickr.com/1288/4690791013_73a7bd5851_s.jpg" />
+      <img src="http://farm2.static.flickr.com/1288/4690791013_73a7bd5851_s.jpg" />
+      <img src="http://farm2.static.flickr.com/1288/4690791013_73a7bd5851_s.jpg" />
+      <img src="http://farm2.static.flickr.com/1288/4690791013_73a7bd5851_s.jpg" />
+      <img src="http://farm2.static.flickr.com/1288/4690791013_73a7bd5851_s.jpg" />
+      <img src="http://farm2.static.flickr.com/1288/4690791013_73a7bd5851_s.jpg" />
+      <img src="http://farm2.static.flickr.com/1288/4690791013_73a7bd5851_s.jpg" />
+      <img src="http://farm2.static.flickr.com/1288/4690791013_73a7bd5851_s.jpg" />
+    </div>
+  </div>
+  <div class="mainContent" style="margin-top:0">
     <div id="help">
       <div class="column">
         <h1><br/>What is this?</h1>
@@ -44,15 +87,16 @@
         <p><a href="http://example.com/">Learn more</a> about how this works.</p>
       </div>
       <div class="column">
-        <h1><br/>Sites that use CC</h1>
+        <h1><br/>Sites with CC search</h1>
         <ul>
-          <li><a href="http://google.com">Google</a></li>
-          <li><a href="http://google.com">Google Images</a></li>
-          <li><a href="http://google.com">Yahoo!</a></li>
-          <li><a href="http://google.com">Flickr</a></li>
-          <li><a href="http://google.com">Blip.tv</a></li>
-          <li><a href="http://google.com">Jamendo</a></li>
-          <li><a href="http://google.com">Wikimedia Commons</a></li>
+          <li><a href="http://google.com">Blip.tv</a><br/><small>Video search</small></li>
+          <li><a href="http://google.com">Flickr</a><br/><small>Image search</small></li>
+          <li><a href="http://google.com">Google</a><br/><small>Web and media search</small></li>
+          <li><a href="http://google.com">Google Images</a><br/><small>Image search</small></li>
+          <li><a href="http://google.com">Jamendo</a><br/><small>Audio search</small></li>
+          <li><a href="http://google.com">SpinXpress</a><br/><small>Audio search</small></li>
+          <li><a href="http://google.com">Wikimedia Commons</a><br/><small>Media search</small></li>
+          <li><a href="http://google.com">Yahoo!</a><br/><small>Web and media search</small></li>
         </ul>
       </div>
       <div class="column wrong">
@@ -61,7 +105,28 @@
       </div>
     </div>
     
-    <div id="footer">CC</div>
+    <div id="footer">
+      <span id="contact-support"> 
+         <a href="http://translate.creativecommons.org/projects/ccsearch"> 
+            Help Translate               </a> 
+         | 
+         <a href="http://creativecommons.org/contact"> 
+            Contact               </a> 
+         |
+         <a href="https://support.creativecommons.org/donate"> 
+            Support CC               </a> 
+         |
+         <a href="http://creativecommons.org/policies"> 
+            Policies               </a> 
+         |
+         <a href="http://creativecommons.org/privacy"> 
+            Privacy               </a> 
+         |
+         <a href="http://creativecommons.org/terms"> 
+            Terms of Use               </a> 
+      </span>
+      
+    </div>
   </div>
 </body>
 </html>

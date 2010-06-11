@@ -25,12 +25,13 @@ a:hover {
 	background: #5AA322;
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.96, #5aa322), color-stop(1.05, #050));
 	background: -moz-linear-gradient(top, #5aa322 97%, #050 105%);
-	padding-top: 55px;
+/*	padding-top: 55px;*/
+	padding-top: 25px;
 	text-align: center;
 	padding-bottom: 30px;
 }
 
-#mainContent {
+.mainContent {
 	width: 960px;
 	margin: 75px auto 0;
 	text-align: center;
@@ -38,6 +39,7 @@ a:hover {
 
 #search {
 	display: inline-block;
+	position: relative;
 }
 
 #search fieldset {
@@ -46,7 +48,8 @@ a:hover {
 }
 
 #search input, #search option {
-	font-size: 125%;
+	font-family: helvetica, arial, sans-serif;
+	font-size: 200%;
 }
 
 #query {
@@ -56,10 +59,69 @@ a:hover {
 
 #submit {
 	font-size: 125%;
+	font-family: helvetica, arial, sans-serif;
+}
+
+#engine {
+	display: inline-block;
+	text-align: left;
+	margin: 0 5px;
+}
+#engine p {
+	margin: 0;
+	font-size: 12px;
+	padding-left: 2px;
+}
+#engineInfo {
+	position: absolute;
+	width: 150px;
+	padding: 5px 10px;
+	margin-top: 0.4em;
+	border: 1px solid #bbb;
+	text-align: left;
+	background-color: #eaeaea;
+	-webkit-border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 3px #bbb;
+}
+#engineInfo p {
+	padding: 0;
+	margin: 0;
+}
+
+#engineInfo div { display: none;}
+
+#permissions {
+	padding: 0;
+	margin: 0;
+	text-align: left;
+}
+
+#permissions input { margin-right: 0;}
+
+#resultsRow {
+	background-color: #e8e8e8;
+	min-height: 140px;
+	margin: 25px 0;
+	padding: 5px;
+	-webkit-box-shadow: 0 0 5px #999;
+/*	-webkit-border-radius: 5px;*/
+	text-align: center;
+}
+
+#resultsRow .images img {
+	margin-right: 10px;
+	border: 1px solid rgba(31, 94, 153, 0.5);
+	padding: 1px;
+/*	-webkit-box-shadow: 0 0 5px #1F5E99;*/
+}
+
+#resultsRow .images img:hover {
+	border: 1px solid rgba(31, 94, 153, 1.0);
+
 }
 
 #help {
-	margin-top: 75px;
+/*	margin-top: 75px;*/
 	text-align: left;
 	overflow-y: auto;
 }
@@ -68,6 +130,14 @@ a:hover {
 	width: 290px;
 	margin-left: 40px;
 	float: left;
+}
+
+.column ul {
+	padding-left: 1.25em;
+	line-height: 1.25;
+}
+.column ul li {
+	margin-bottom: 0.5em;
 }
 
 #help .column:first-child { margin-left: 0; }
@@ -96,8 +166,8 @@ a:hover {
 }
 
 #footer {
-	margin-top: 50px;
-	border-top: 1px solid #aaa;
-	padding: 15px 0 50px;
+	margin-top: 75px;
+	border-top: 1px solid #bbb;
+	padding: 8px 0 50px;
 	text-align: left;
 }
