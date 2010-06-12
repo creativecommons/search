@@ -33,7 +33,7 @@ a:hover {
 
 .mainContent {
 	width: 960px;
-	margin: 75px auto 0;
+	margin: 55px auto 0;
 	text-align: center;
 }
 
@@ -53,7 +53,7 @@ a:hover {
 }
 
 #query {
-	width: 400px;
+	width: 100%;
 	padding: 3px;
 }
 
@@ -90,13 +90,19 @@ a:hover {
 
 #engineInfo div { display: none;}
 
-#permissions {
+fieldset {
 	padding: 0;
 	margin: 0;
 	text-align: left;
+	font-size: small;
 }
 
 #permissions input { margin-right: 0;}
+
+#engines p { margin: 0;}
+#engines label { padding-right: 10px;}
+
+#engines { line-height: 2.25;}
 
 #resultsRow {
 	background-color: #eee;
@@ -121,7 +127,7 @@ a:hover {
 }
 
 #help {
-/*	margin-top: 75px;*/
+	margin-top: 35px;
 	text-align: left;
 	overflow-y: auto;
 }

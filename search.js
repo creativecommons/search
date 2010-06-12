@@ -6,7 +6,7 @@ $(function() {
 	var queryPos = $("#query").position();
 	var queryWidth = $("#query").innerWidth();
 	
-	$("#engineInfo").css("left", $("#engine").position().left + 7);
+//	$("#engineInfo").css("left", $("#engine").position().left + 7);
 //	$("#engineInfo").width($("#engine").width() - 32);
 	
 })
@@ -145,7 +145,7 @@ function setupQuery() {
 	   setEngine(e);
 	}
 	else{
-	   setEngine(engine);
+	   setEngine(default_engine);
 	}
 	
 	updateCommDerivCheckboxes();
@@ -213,11 +213,11 @@ function setEngine(e) {
 	}
 	try { id(previous).className="inactive"; } catch(err) {}
 	//id(engine).className="active";
-	
+
 	$("#engineInfo ." + previous).hide();
 	$("#engineInfo ." + engine).show();
 	
-	$("option[value=" + engine + "]").attr("selected", true);
+	$("input[value=" + engine + "]").attr("checked", true);
 	
 	saveSettings();
 	
