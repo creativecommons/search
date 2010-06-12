@@ -99,10 +99,30 @@ fieldset {
 
 #permissions input { margin-right: 0;}
 
+#engines input { margin-right: 4px;}
 #engines p { margin: 0;}
-#engines label { padding-right: 10px;}
+#engines label { padding-right: 3px; }
 
 #engines { line-height: 2.25;}
+
+#engines .engineDesc {
+	display: inline-block;
+	line-height: 1.4;
+	padding-right: 5px;
+	font-size: 11px;
+	color: #555;
+}
+
+#engines .engineDesc strong { font-size: 13px; color: #333;}
+
+#engines label:first-child .engineDesc { border: none;}
+
+#engines .engineRadio {
+	display: inline-block;
+	line-height: 0.85;
+	border-left: 1px solid #e6e6e6;
+	padding-left: 3px;
+}
 
 #resultsRow {
 	background-color: #eee;
