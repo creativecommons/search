@@ -1,3 +1,4 @@
+<!doctype html>
 <html>
 <head>
   <title>CC Search</title>
@@ -12,7 +13,7 @@
   <div class="mainContent">
     <div id="search">
       <form onsubmit="return doSearch()">
-        <input type="text" id="query" />
+        <input type="text" id="query" placeholder="Enter your search query "/>
         <!-- <div id="engine">
           <p><strong>Search Provider:</strong></p>
           <select name="engine" id="engineSelect" onchange="setEngine(this)">
@@ -97,7 +98,7 @@
           <br/>
           <label>
             <div class="engineRadio">
-              <input type="radio" onclick="setEngine(this)" name="myengine" value="wikimedia"><br/>&nbsp;
+              <input type="radio" onclick="setEngine(this)" name="myengine" value="wikimediacommons"><br/>&nbsp;
             </div>
             <div class="engineDesc"><strong>Wikimedia Commons</strong><br/>Media Search</div>
           </label>
@@ -140,14 +141,14 @@
       <div class="column">
         <h1><br/>Sites with CC search</h1>
         <ul>
-          <li><a href="http://google.com">Blip.tv</a><br/><small>Video search</small></li>
-          <li><a href="http://google.com">Flickr</a><br/><small>Image search</small></li>
+          <li><a href="http://blip.tv">Blip.tv</a><br/><small>Video search</small></li>
+          <li><a href="http://flickr.com">Flickr</a><br/><small>Image search</small></li>
           <li><a href="http://google.com">Google</a><br/><small>Web and media search</small></li>
-          <li><a href="http://google.com">Google Images</a><br/><small>Image search</small></li>
-          <li><a href="http://google.com">Jamendo</a><br/><small>Audio search</small></li>
-          <li><a href="http://google.com">SpinXpress</a><br/><small>Audio search</small></li>
-          <li><a href="http://google.com">Wikimedia Commons</a><br/><small>Media search</small></li>
-          <li><a href="http://google.com">Yahoo!</a><br/><small>Web and media search</small></li>
+          <li><a href="http://images.google.com">Google Images</a><br/><small>Image search</small></li>
+          <li><a href="http://jamendo.com">Jamendo</a><br/><small>Audio search</small></li>
+          <li><a href="http://spinxpress.com">SpinXpress</a><br/><small>Audio search</small></li>
+          <li><a href="http://commons.wikimedia.org">Wikimedia Commons</a><br/><small>Media search</small></li>
+          <li><a href="http://yahoo.com">Yahoo!</a><br/><small>Web and media search</small></li>
         </ul>
       </div>
       <div class="column wrong">
