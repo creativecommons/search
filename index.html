@@ -16,13 +16,16 @@
         <div id="engine">
           <p><strong>Search Provider:</strong></p>
           <select name="engine" id="engineSelect" onchange="setEngine(this)">
+            <option value="blip">Blip.tv</option>
+            <option value="flickr">Flickr</option>
+            <option value="fotopedia">Fotopedia</option>
             <option value="google">Google</option>
             <option value="googleimg">Google Images</option>
-            <option value="flickr">Flickr</option>
-            <option value="yahoo">Yahoo!</option>
-            <option value="wikimediacommons">Wikimedia Commons</option>
             <option value="jamendo">Jamendo</option>
-            <option value="blip">Blip.tv</option>
+            <option value="openclipart">Open Clip Art Library</option>
+            <option value="spin">SpinXpress</option>
+            <option value="wikimediacommons">Wikimedia Commons</option>
+            <option value="yahoo">Yahoo!</option>
           </select>
         </div>
         <!-- <div id="engineInfo">
@@ -54,9 +57,9 @@
           <small>
             <strong>Find content I can:</strong>
           	<input type="checkbox" name="comm" value="" id="comm" checked="checked" onclick="setCommDeriv()" /> 
-            <label for="comm"  onclick="setCommDeriv()">use for <em>commercial purposes</em>;</label>
+            <label for="comm"  onclick="setCommDeriv()">Use for <em>commercial purposes</em>;</label>
             <input type="checkbox" name="deriv" value="" id="deriv" checked="checked"  onclick="setCommDeriv()" /> 
-            <label for="deriv" onclick="setCommDeriv()"><em>modify</em>, <em>adapt</em>, or <em>build upon</em>.</label><br/> 
+            <label for="deriv" onclick="setCommDeriv()"><em>Modify</em>, <em>adapt</em>, or <em>build upon</em>.</label><br/> 
           </small>
     	  </fieldset>
       </form>
@@ -77,14 +80,16 @@
       <div class="column">
         <h1>Where can I find content?</h1>
         <ul>
-          <li><a href="http://blip.tv">Blip.tv</a><br/><small>Video search</small></li> 
-          <li><a href="http://flickr.com">Flickr</a><br/><small>Image search</small></li> 
-          <li><a href="http://google.com">Google</a><br/><small>Web and media search</small></li> 
-          <li><a href="http://images.google.com">Google Images</a><br/><small>Image search</small></li> 
-          <li><a href="http://jamendo.com">Jamendo</a><br/><small>Audio search</small></li> 
-          <li><a href="http://spinxpress.com">SpinXpress</a><br/><small>Audio search</small></li> 
-          <li><a href="http://commons.wikimedia.org">Wikimedia Commons</a><br/><small>Media search</small></li> 
-          <li><a href="http://yahoo.com">Yahoo!</a><br/><small>Web and media search</small></li>
+          <li><a href="http://blip.tv">Blip.tv</a><br/><small>Video</small></li> 
+          <li><a href="http://flickr.com">Flickr</a><br/><small>Image</small></li> 
+          <li><a href="http://fotopedia.com">Fotopedia</a><br/><small>Image</small></li> 
+          <li><a href="http://google.com">Google</a><br/><small>Media</small></li> 
+          <li><a href="http://images.google.com">Google Images</a><br/><small>Image</small></li> 
+          <li><a href="http://jamendo.com">Jamendo</a><br/><small>Audio</small></li> 
+          <li><a href="http://openclipart.org">Open Clip Art Library</a><br/><small>Vector Image</small></li> 
+          <li><a href="http://spinxpress.com">SpinXpress</a><br/><small>Audio</small></li> 
+          <li><a href="http://commons.wikimedia.org">Wikimedia Commons</a><br/><small>Media</small></li> 
+          <li><a href="http://yahoo.com">Yahoo!</a><br/><small>Media</small></li>
         </ul>
       </div>
       <div class="column wrong">
