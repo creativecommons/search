@@ -9,6 +9,9 @@ $(function() {
 //	$("#engineInfo").css("left", $("#engine").position().left + 7);
 //	$("#engineInfo").width($("#engine").width() - 32);
 	
+	// pick a random search engine
+	setEngine(engines[Math.floor(Math.random() * engines.length)]);
+	
 })
 
 
