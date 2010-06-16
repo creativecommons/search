@@ -18,7 +18,7 @@ $(function() {
  * 
  */
 
-var engines = ["google", "googleimg", "yahoo", "flickr", "blip", "jamendo", "spin", "openclipart"];
+var engines = ["google", "googleimg", "yahoo", "flickr", "blip", "jamendo", "spin", "openclipart", "wikimediacommons", "fotopedia"];
 //defaults:
 var engine = "";
 var comm = 1;
@@ -253,21 +253,20 @@ function updateCommDerivCheckboxes(){
 function modRights() {
 	
 	switch (engine) {
-	     
-		case "google":
 
-            // Google apparently doesn't like .-() appended to the
-            // as_rights query string variable, so if neither the
-            // commercial or deriv checkboxes are checked then rights
-            // should just be empty.
-            if ( id('comm').checked == false && id('deriv').checked == false ) {
-                rights = "";
-                break;
-            }
+		case "google":
+			// Google apparently doesn't like .-() appended to the
+			// as_rights query string variable, so if neither the
+			// commercial or deriv checkboxes are checked then rights
+			// should just be empty.
+			if ( id('comm').checked == false && id('deriv').checked == false ) {
+				rights = "";
+				break;
+			}
 
 			//.-(cc_noncommercial|cc_nonderived)
 			rights = ".-(";
-			
+
 			if (id('comm').checked) {
 				rights += "cc_noncommercial";
 			}
@@ -275,25 +274,25 @@ function modRights() {
 				(id('comm').checked) ? rights += "|" : null;
 				rights += "cc_nonderived";
 			}
-			
+
 			rights += ")";
 			break;
-			
-			
+
+
 		case "googleimg":
 			//.-(cc_noncommercial|cc_nonderived)
 
-            // Google apparently doesn't like .-() appended to the
-            // as_rights query string variable, so if neither the
-            // commercial or deriv checkboxes are checked then rights
-            // should just be empty.
-            if ( id('comm').checked == false && id('deriv').checked == false ) {
-                rights = "";
-                break;
-            }
+			// Google apparently doesn't like .-() appended to the
+			// as_rights query string variable, so if neither the
+			// commercial or deriv checkboxes are checked then rights
+			// should just be empty.
+			if ( id('comm').checked == false && id('deriv').checked == false ) {
+				rights = "";
+				break;
+			}
 
 			rights = ".-(";
-			
+
 			if (id('comm').checked) {
 				rights += "cc_noncommercial";
 			}
@@ -301,11 +300,11 @@ function modRights() {
 				(id('comm').checked) ? rights += "|" : null;
 				rights += "cc_nonderived";
 			}
-			
+
 			rights += ")";
-		   break;
-			
-			
+			break;
+
+
 		case "yahoo":
 			rights = "&";
 			if (id('comm').checked) {
@@ -315,7 +314,7 @@ function modRights() {
 				rights += "ccs=e";
 			}
 			break;
-			
+
 		case "flickr":
 			rights = "l=";
 			if (id('comm').checked) {
@@ -325,27 +324,20 @@ function modRights() {
 				rights += "deriv";
 			}
 			break;
-		case "owlmm":
-			rights = "license_type=";
-			if (id('comm').checked) {
-				rights += "comm";
-			}
-			if (id('deriv').checked) {
-				rights += "deriv";
-			}
-			break;
+
 		case "blip":
-		   rights = "license=1,6,7"; // by,by-sa,pd
-		   if (!id('comm').checked && !id('deriv').checked) {
-			   rights += ",2,3,4,5"; // by-nd,by-nc-nd,by-nc-,by-nc-sa
-		   } else if (id('comm').checked && !id('deriv').checked) {
-			   rights += ",2"; // by-nd
-		   } else if(!id('comm').checked && id('deriv').checked){ // deriv must be checked
-			   rights += ",4,5"; // by-nc,by-nc-sa
-		   }
-		   //else: case: both true
-		   //we just leave it at by, by-sa, pd
-		   break;
+			rights = "license=1,6,7"; // by,by-sa,pd
+			if (!id('comm').checked && !id('deriv').checked) {
+				rights += ",2,3,4,5"; // by-nd,by-nc-nd,by-nc-,by-nc-sa
+			} else if (id('comm').checked && !id('deriv').checked) {
+				rights += ",2"; // by-nd
+			} else if(!id('comm').checked && id('deriv').checked){ // deriv must be checked
+				rights += ",4,5"; // by-nc,by-nc-sa
+			}
+			//else: case: both true
+			//we just leave it at by, by-sa, pd
+			break;
+			
 		case "jamendo":
 			rights = "";
 			//note: apparently they don't check the values of these vars, they just check to see if they're defined
@@ -354,15 +346,16 @@ function modRights() {
 				rights += "license_minrights_d=on&";
 			}
 			/*else{
-				rights += "license_minrights_d=off&";
+			rights += "license_minrights_d=off&";
 			}*/
 			if (id('comm').checked) {
 				rights += "license_minrights_c=on";
 			}
 			/*else{
-				rights += "license_minrights_c=off";
+			rights += "license_minrights_c=off";
 			}*/
 			break;
+			
 		case "ccmixter":
 			rights = "";
 			// everything on ccmixter permits derivs
@@ -370,6 +363,7 @@ function modRights() {
 				rights += "+attribution";
 			}
 			break;
+		
 		case "spin":
 			rights = "_license=";
 			if (!id('comm').checked && !id('deriv').checked) {
@@ -383,19 +377,30 @@ function modRights() {
 			}
 			break;
 
-			/* Add Jon's two new engines */
-        case "openclipart":
-            rights = "+publicdomain";
-            // everything on ocal is pd 
-            /* if (id('comm').checked) {
-	       rights += "+attribution";
-	       } */
-            break;
-	case "wikimediacommons":
-		rights = "";
-	if (rights.length < 5) rights = "";
+		case "openclipart":
+			rights = "+publicdomain";
+			break;
+
+		case "wikimediacommons":
+			rights = "";
+			if (rights.length < 5) rights = "";
+			break;
+
+		case "fotopedia":
+			rights = "";
+			if (id('comm').checked && id('deriv').checked) {
+				rights = "reuse_commercial_modify";
+			} else if (id('comm').checked && !id('deriv').checked) {
+				rights = "reuse_commercial";
+			} else if (!id('comm').checked && id('deriv').checked) {
+				rights = "reuse_modify"
+			} else {
+				rights = "reuse";
+			}
+			break;
+
 	}
-	
+
 }
 
 // "main logic", no turning back.
@@ -415,9 +420,9 @@ function doSearch() {
 		modRights();
 
 		switch (engine) {
-         case "openclipart":
-             url = 'http://openclipart.org/cchost/media/tags/' + query.value + rights;
-             break;
+			case "openclipart":
+		    url = 'http://openclipart.org/cchost/media/tags/' + query.value + rights;
+		    break;
                 
 			case "spin":
 				url = 'http://www.spinxpress.com/getmedia' + rights + '_searchwords=' + query.value
@@ -428,7 +433,7 @@ function doSearch() {
 				break;
 				
 			case "jamendo":
-			    url ='http://www.jamendo.com/tag/' + query.value + '?' + rights + '&location_country=all&order=rating_desc';
+			  url ='http://www.jamendo.com/tag/' + query.value + '?' + rights + '&location_country=all&order=rating_desc';
 				break;
 				
 			case "blip":
@@ -450,10 +455,14 @@ function doSearch() {
 			case "googleimg":
 			   url = 'http://images.google.com/images?as_q=' + query.value + '&as_rights=(cc_publicdomain|cc_attribute|cc_sharealike' + ((id('comm').checked) ? "" : "|cc_noncommercial") + ((id('deriv').checked) ? "" : "|cc_nonderived") + ')' + rights;
 			   break;
+			
 			case "wikimediacommons":
 				url ='http://commons.wikimedia.org/w/index.php?title=Special%3ASearch&redirs=0&search=' + query.value + '&fulltext=Search&ns0=1&ns6=1&ns14=1&title=Special%3ASearch&advanced=1&fulltext=Advanced+search';
 				break;
 
+			case "fotopedia":
+				url = 'http://www.fotopedia.com/search?q=' + query.value + '&human_license=' + rights;
+				break;
 
 			case "google":
 			default:
