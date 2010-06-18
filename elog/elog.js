@@ -19,6 +19,7 @@ $(function() {
 	// now set up event handlers
 	$("#query").blur (function() { log("query_changed"); });
 	$("#engineSelect").change (function() { log("engine_changed"); });
+	$("input[name=engine]").click(function() { log("engine_changed"); });
 	$("#submit").click (function() { log("submit_clicked"); });
 	$("#comm").click (function() { log("commercial_clicked"); });
 	$("#deriv").click (function() { log("deriv_clicked"); });
