@@ -218,7 +218,7 @@ function setEngine(e) {
 	$("#engineInfo ." + previous).hide();
 	$("#engineInfo ." + engine).show();
 	
-	$("option[value=" + engine + "]").attr("selected", true);
+	$("input[value=" + engine + "]").attr("checked", true);
 	
 	saveSettings();
 }

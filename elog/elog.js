@@ -26,6 +26,6 @@ $(function() {
 })
 
 function log(value) {
-	console.log (baseUrl + "id=" + id + "&event=" + value);
+	//console.log (baseUrl + "id=" + id + "&event=" + value);
 	$.get(baseUrl + "id=" + id + "&event=" + value);
 }
