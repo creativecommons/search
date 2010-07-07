@@ -140,7 +140,7 @@ function setupQuery() {
 	}
 	
 	// grab cookie and setup default engine
-//	getSettings();
+	getSettings();
 	if (e){
 	   setEngine(e);
 	}
@@ -148,33 +148,14 @@ function setupQuery() {
 	   setEngine(engine);
 	}
 	
-	updateCommDerivCheckboxes();
-
-	lang = getQueryStrVariable('lang');
-	
 	// set commercial + derivative checkboxes
-	if (docom != 'false') {
-		$('#comm').attr("checked", true);
-	} else {
-		$('#comm').attr("checked", false);
-	}
-	if (doder != 'false') {
-		$('#deriv').attr("checked", true);
-	} else {
-		$('#deriv').attr("checked", false);
-	}
+	updateCommDerivCheckboxes(docom, doder);
+
+	//lang = getQueryStrVariable('lang');
 	
-	query.val(qs);
-	
-	// if ((query.value == "") || (query.value == "null") || !(query.value)) {
-	// 	query.value = d;
-	// 	window.results.location.href = 'intro.php';
-	// } else if (query.value != d){
-	// 	query.className = "active";
-	// 	
-	// 	// since there's query data...
-	// 	doSearch();
-	// }
+	// Only insert query variable if nothing else is in the search entry
+	// Should solve back button problems	
+	if (query.val().length < 1) query.val(qs);
 }
 
 // bell
@@ -202,12 +183,12 @@ function resetQuery() {
 function setEngine(e) {
 	var previous = engine;
 
-    var query = $("#query");
-    if (query.hasClass("inactive")) {
-        query.val(default_query);
-				query.addClass("active");
-				query.removeClass("inactive");
-    }
+  var query = $("#query");
+  if (query.hasClass("inactive")) {
+    query.val(default_query);
+		query.addClass("active");
+		query.removeClass("inactive");
+  }
 	
 	if (typeof e == "string") {
 		engine = e;
@@ -236,12 +217,12 @@ function setCommDeriv() {
    saveSettings();
 }
 
-function updateCommDerivCheckboxes(){
-   if(comm == 1)
+function updateCommDerivCheckboxes(comOverride, derivOverride){
+   if((comm == 1) || (comOverride != 'false'))
       $('#comm').attr("checked", true);
    else
       $('#comm').attr("checked", false);
-   if(deriv == 1)
+   if((deriv == 1) || (derivOverride != 'false'))
       $('#deriv').attr("checked", true);
    else
       $('#deriv').attr("checked", false);
