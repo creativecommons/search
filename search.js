@@ -208,7 +208,7 @@ function setEngine(e) {
 	$("input[value=" + engine + "]").attr("checked", true);
 
 
-	if (e == "_random") engine = "_random";	
+	//if (e == "_random") engine = "_random";	
 	saveSettings();
 }
 
