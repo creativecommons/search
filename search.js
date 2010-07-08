@@ -10,7 +10,7 @@ $(function() {
 //	$("#engineInfo").width($("#engine").width() - 32);
 	
 	// pick a random search engine
-	setEngine(engines[Math.floor(Math.random() * engines.length)]);
+	//setEngine(engines[Math.floor(Math.random() * engines.length)]);
 	
 })
 
@@ -31,7 +31,7 @@ var url = "";
 var lang = "";
 
 var default_query = "flowers";
-var default_engine = "google";
+var default_engine = "_random";
 //var default_comm = 1;
 //var default_deriv = 1;
 
@@ -70,9 +70,9 @@ function getCookie(name) {
 }
 ////
 
-var cookie_name = 'ccsearch';
+var cookie_name = '__ccsearch';
 var cookie_break_text = "[-]";
-var cookie_domain = '.creativecommons.org';
+var cookie_domain = 'labs.creativecommons.org';
 //var cookie_domain = '';
 
 function saveSettings(){
@@ -80,7 +80,6 @@ function saveSettings(){
 	cookieDate.setFullYear(2020,0,1);
 	
 	cookieText = engine + cookie_break_text + comm + cookie_break_text + deriv;
-	
 	setCookie(cookie_name, cookieText, cookieDate, '/', cookie_domain);
 }
 
@@ -103,7 +102,10 @@ function getSettings(){
    }
    
 	if (engine == null || !engine || engine == ""){
-	   engine = default_engine;
+	   //engine = default_engine;
+	   engine = "_random";
+
+	   //engine = engines[Math.floor(Math.random() * engines.length)];
 	}
    
 }
@@ -191,7 +193,11 @@ function setEngine(e) {
   }
 	
 	if (typeof e == "string") {
-		engine = e;
+		if (e == "_random") {
+			engine = engines[Math.floor(Math.random() * engines.length)];
+		} else {
+			engine = e;
+		}
 	} else {
 		engine = e.value;
 	}
@@ -200,7 +206,9 @@ function setEngine(e) {
 	$("#engineInfo ." + engine).show();
 	
 	$("input[value=" + engine + "]").attr("checked", true);
-	
+
+
+	if (e == "_random") engine = "_random";	
 	saveSettings();
 }
 
@@ -218,11 +226,11 @@ function setCommDeriv() {
 }
 
 function updateCommDerivCheckboxes(comOverride, derivOverride){
-   if((comm == 1) || (comOverride != 'false'))
+   if((comm == 1))
       $('#comm').attr("checked", true);
    else
       $('#comm').attr("checked", false);
-   if((deriv == 1) || (derivOverride != 'false'))
+   if((deriv == 1))
       $('#deriv').attr("checked", true);
    else
       $('#deriv').attr("checked", false);
