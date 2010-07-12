@@ -54,14 +54,18 @@
             <p><strong>Blip.tv</strong>, video search.</p>
           </div>
         </div> -->
-        <br/>
-        <fieldset id="permissions"> 
-            <strong>Find content I can:</strong><br/>
-          	<input type="checkbox" name="comm" value="" id="comm" checked="checked" onclick="setCommDeriv()" /> 
-            <label for="comm"  onclick="setCommDeriv()">Use for <em>commercial purposes</em>;</label>
-            <input type="checkbox" name="deriv" value="" id="deriv" checked="checked"  onclick="setCommDeriv()" /> 
-            <label for="deriv" onclick="setCommDeriv()"><em>Modify</em>, <em>adapt</em>, or <em>build upon</em>.</label><br/> 
-    	  </fieldset>
+        <div id="secondaryOptions">
+          <fieldset id="permissions"> 
+            <small>
+              <strong>Find content I can:</strong>
+            	<input type="checkbox" name="comm" value="" id="comm" checked="checked" onclick="setCommDeriv()" /> 
+              <label for="comm"  onclick="setCommDeriv()">Use for <em>commercial purposes</em>;</label>
+              <input type="checkbox" name="deriv" value="" id="deriv" checked="checked"  onclick="setCommDeriv()" /> 
+              <label for="deriv" onclick="setCommDeriv()"><em>Modify</em>, <em>adapt</em>, or <em>build upon</em>.</label><br/> 
+            </small>
+      	  </fieldset>
+      	  <div id="beta"><a href="http://search.creativecommons.org/?noBeta=1">Switch to previous search interface</a></div>
+    	  </div>
     	  <fieldset id="engines">
     	    <p style="text-align:left;"><strong>Search Provider:</strong></p>
           <label>
