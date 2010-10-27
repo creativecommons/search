@@ -1,0 +1,4 @@
+rights:
+  default = u'archive,pocompile,suggest,view'
+  ewieder = u'admin,archive,assign,commit,pocompile,review,suggest,translate,view'
+  nobody = u'view'

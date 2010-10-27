@@ -1,0 +1,267 @@
+# ccSearch English-US PO File
+# This file is distributed under the same license as the ccSearch package.
+# Copyright (C) 2006 Creative Commons
+# Jon Phillips <jon@rejon.org>, 2006
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-08-13 17:29+0000\n"
+"PO-Revision-Date: 2009-03-11 15:01+0000\n"
+"Last-Translator: Bob Chao <bobchao@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"X-Generator: Pootle 1.3-svn\n"
+
+#: index.php:68
+msgid "Help Translate"
+msgstr "協助翻譯"
+
+#: index.php:93
+msgid "Creative Commons"
+msgstr "Creative Commons"
+
+#: index.php:93
+msgid "Search"
+msgstr "搜尋"
+
+#: index.php:109
+msgid "Enter search query"
+msgstr "輸入欲搜尋的關鍵字詞"
+
+#: index.php:127
+msgid "Only show search results"
+msgstr "只顯示搜尋結果頁面"
+
+#: index.php:133
+#, fuzzy
+msgid "ccSearch"
+msgstr "搜尋"
+
+#: index.php:135
+msgid "by <a href=\"http://creativecommons.org/\">Creative Commons</a>"
+msgstr "by <a href=\"http://creativecommons.org\">Creative Commons</a>"
+
+#: index.php:141
+msgid "Go"
+msgstr ""
+
+#: index.php:144
+msgid "Understand your search results"
+msgstr "深入瞭解創用 CC 搜尋"
+
+#: index.php:146
+msgid "(info)"
+msgstr ""
+
+#: index.php:147 index.php:170
+#, fuzzy
+msgid "Understand Your Search Results"
+msgstr "深入瞭解創用 CC 搜尋"
+
+#: index.php:154
+msgid "I want something that I can..."
+msgstr ""
+
+#: index.php:157
+#, fuzzy
+msgid "use for <em>commercial purposes</em>"
+msgstr "搜尋可以作為商業用途的素材。"
+
+#: index.php:161
+msgid "<em>modify</em>, <em>adapt</em>, or <em>build upon</em>"
+msgstr ""
+
+#: index.php:172
+msgid ""
+"<em>You should always verify that the work you are re-using has a Creative "
+"Commmons license attached to it</em>.  Search.creativecommons.org offers "
+"convenient access to search services provided by other independent "
+"organizations. Selecting\n"
+"different search options within the result list&mdash;particularly Image\n"
+"search for Google and Yahoo&mdash;may lead to the inclusion of results\n"
+"which are not Creative Commons licensed.  <a href=\"http://wiki."
+"creativecommons.org/CcSearch\">Learn more &raquo</a>."
+msgstr ""
+
+#: index.php:177
+msgid ""
+"<em>Can't find what you're looking for?</em>  This search tool is not "
+"exhaustive&mdash;there are plenty more <a href=\"http://wiki.creativecommons."
+"org/Content_Curators\">Creative Commons Content Directories &raquo</a>"
+msgstr ""
+
+#: index.php:186
+msgid "Learn about setting your Firefox search engine"
+msgstr ""
+
+#: index.php:192
+msgid "Contact"
+msgstr "連絡我們"
+
+#: index.php:196
+msgid "Support CC"
+msgstr "支持 CC"
+
+#: index.php:200
+msgid "Policies"
+msgstr ""
+
+#: index.php:204
+msgid "Privacy"
+msgstr ""
+
+#: index.php:208
+msgid "Terms of Use"
+msgstr ""
+
+#: index.php:220
+#, fuzzy
+msgid "Google Web Search"
+msgstr "網路搜尋"
+
+#: index.php:220 index.php:221
+msgid "Google"
+msgstr "Google"
+
+#: index.php:220 index.php:222
+msgid "Web"
+msgstr ""
+
+#: index.php:221
+#, fuzzy
+msgid "Google Image Search"
+msgstr "圖片搜尋"
+
+#: index.php:221 index.php:223
+msgid "Image"
+msgstr ""
+
+#: index.php:222
+msgid "Web Search"
+msgstr "網路搜尋"
+
+#: index.php:222
+msgid "Yahoo"
+msgstr "Yahoo"
+
+#: index.php:223
+#, fuzzy
+msgid "Flickr Image Search"
+msgstr "圖片搜尋"
+
+#: index.php:223
+msgid "flickr"
+msgstr "flickr"
+
+#: index.php:224
+#, fuzzy
+msgid "Blip.tv Video Search"
+msgstr "影片搜尋"
+
+#: index.php:224
+msgid "blip.tv"
+msgstr "blip.tv"
+
+#: index.php:224
+msgid "Video"
+msgstr ""
+
+#: index.php:225
+#, fuzzy
+msgid "Jamendo Music Search"
+msgstr "音樂搜尋"
+
+#: index.php:225
+msgid "jamendo"
+msgstr "jamendo"
+
+#: index.php:225
+msgid "Music"
+msgstr ""
+
+#: index.php:226
+#, fuzzy
+msgid "Spin Xpress Media Search"
+msgstr "多媒體搜尋"
+
+#: index.php:226
+msgid "Media"
+msgstr ""
+
+#: index.php:228 index.php:230
+msgid "Music Search"
+msgstr "音樂搜尋"
+
+#: index.php:228
+msgid "ccMixter"
+msgstr "ccMixter"
+
+#: index.php:229
+msgid "Clip Art Search"
+msgstr "美工圖片搜尋"
+
+#: index.php:229
+msgid "Open Clip Art Library"
+msgstr "開放美工圖庫"
+
+#: index.php:237
+msgid "CCSEARCH REQUIRES A BROWSER WHICH SUPPORTS IFRAMES."
+msgstr ""
+
+#: intro.php:51
+msgid "Learn About Creative Commons"
+msgstr "了解創用 CC"
+
+#: intro.php:54
+#, fuzzy
+msgid ""
+"For a quick intro to Creative Commons, check out this short video, entitled "
+"\"<a href=\"http://creativecommons.org/videos/wanna-work-together\" target="
+"\"_new\">Wanna Work Together?</a>\""
+msgstr ""
+"想了解創用 CC？請看這段短片：「<a href=\"http://support.creativecommons.org/"
+"videos#wwt\" target=\"_new\">Wanna Work Together?</a>」"
+
+#: intro.php:59
+msgid "Using CC Search with Firefox"
+msgstr "以 Firefox 快速搜尋創用 CC 素材"
+
+#: intro.php:62
+msgid ""
+"For a quick explanation of how to use this search with Firefox, including <a "
+"href=\"http://wiki.creativecommons.org/Firefox_and_CC_Search\" target=\"_new"
+"\">how to change your search engine</a>, watch this video.</a>"
+msgstr ""
+"這段影片介紹如何利用 Firefox 快速搜尋創用 CC 素材，也告訴你<a  href=\"http://"
+"wiki.creativecommons.org/Firefox_and_CC_Search\" target=\"_new\">如何更換搜尋"
+"引擎</a>。快瞧瞧吧！"
+
+#: cc-language-ui.php:179
+msgid "Language"
+msgstr "語言"
+
+#~ msgid "Remove Frame"
+#~ msgstr "脫離頁框"
+
+#~ msgid "go"
+#~ msgstr "搜尋"
+
+#~ msgid "Browse directories of licensed images, sounds, videos and more"
+#~ msgstr "瀏覽各種以創用 CC 條款授權的圖片、音效、影片等素材"
+
+#~ msgid "Content Directories"
+#~ msgstr "素材目錄"
+
+#~ msgid "Thanks for using CC Search via %sFirefox%s."
+#~ msgstr "感謝您以 %sFirefox%s 使用創用 CC 搜尋"
+
+#~ msgid "Search for works I can modify, adapt, or build upon."
+#~ msgstr "搜尋可以修改、創作衍生著作的素材。"
+
+#~ msgid "What is this?"
+#~ msgstr "這是什麼東西？"

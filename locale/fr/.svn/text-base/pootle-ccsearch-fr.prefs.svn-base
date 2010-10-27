@@ -1,0 +1,6 @@
+rights:
+  Steren = u'archive,commit,pocompile,review,suggest,translate,view'
+  default = u'archive,pocompile,suggest,view'
+  fdechelle = u'admin,archive,commit,pocompile,review,suggest,translate,view'
+  melanieddr = u'admin,archive,commit,pocompile,review,suggest,translate,view'
+  nobody = u'view'

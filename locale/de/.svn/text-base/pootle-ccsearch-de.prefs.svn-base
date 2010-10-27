@@ -1,0 +1,7 @@
+rights:
+  default = u'archive,pocompile,suggest,view'
+  jhweitzmann = u'admin,archive,assign,commit,overwrite,pocompile,review,suggest,translate,view'
+  john = u'admin,archive,assign,commit,overwrite,pocompile,review,suggest,translate,view'
+  mthorne = u'admin,archive,assign,commit,overwrite,pocompile,review,suggest,translate,view'
+  nkinkade = u'admin,archive,assign,commit,overwrite,pocompile,review,suggest,translate,view'
+  nobody = u'view'

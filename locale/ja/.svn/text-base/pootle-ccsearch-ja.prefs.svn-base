@@ -1,0 +1,5 @@
+rights:
+  Maki = u'admin,archive,assign,commit,overwrite,pocompile,review,suggest,translate,view'
+  default = u'archive,pocompile,suggest,view'
+  nobody = u'view'
+  noguchiy = u'admin,archive,assign,commit,overwrite,pocompile,review,suggest,translate,view'
