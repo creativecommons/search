@@ -59,6 +59,7 @@ a:hover {
 #search {
 	display: inline-block;
 	position: relative;
+  width: 670px;
 }
 
 #search fieldset {
