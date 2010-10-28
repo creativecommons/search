@@ -10,7 +10,7 @@
 
 // Quick and dirty user id for a single page load session s
 var id = 'xxxxxGxx'.replace(/[xy]/g, function(c) {var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);return v.toString(16);}).toUpperCase();
-var baseUrl = '/sites/default/themes/cc/heatmap/elog.php?';
+var baseUrl = '/demos/search/search2/elog/elog.php?';
 
 $(function() {
 	// page has loaded! 
