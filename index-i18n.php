@@ -98,13 +98,6 @@ textdomain("ccsearch");
             </div>
             <div class="engineDesc"><strong>Wikimedia Commons</strong><br/><?php echo _('Media'); ?></div>
           </label>
-          <label>
-            <div class="engineRadio">
-              <input type="radio" onclick="setEngine(this)" name="engine" value="yahoo"><br/>&nbsp;
-            </div>
-            <div class="engineDesc"><strong>Yahoo!</strong><br/><?php echo _('Web'); ?></div>
-          </label>
-
           <p><br/><input type="submit" id="submit" value="<?php echo _('Search'); ?>" /></p>
     	  </fieldset>
       </form>
