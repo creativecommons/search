@@ -21,7 +21,7 @@ $(function() {
  * 
  */
 
-var engines = ["google", "googleimg", "yahoo", "flickr", "blip", "jamendo", "spin", "openclipart", "wikimediacommons", "fotopedia"];
+var engines = ["google", "googleimg", "flickr", "blip", "jamendo", "spin", "openclipart", "wikimediacommons", "fotopedia"];
 //defaults:
 var engine = "";
 var comm = 1;
@@ -158,7 +158,7 @@ function setupQuery() {
 	// Only insert query variable if nothing else is in the search entry
 	// Should solve back button problems	
 	if (query.val().length < 1) query.val(qs);
-}
+
 
 // bell
 function wakeQuery() {

@@ -132,7 +132,10 @@ fieldset {
 
 #engines input { margin-right: 4px;}
 #engines p { margin: 0;}
-#engines label { padding-right: 3px; }
+#engines label { 
+  display: inline-block;
+  padding-right: 3px; 
+}
 
 #engines { line-height: 2.25;}
 
