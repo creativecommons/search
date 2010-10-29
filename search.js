@@ -11,8 +11,14 @@ $(function() {
 	
 	// pick a random search engine
 	//setEngine(engines[Math.floor(Math.random() * engines.length)]);
-	
-})
+
+	// hide all the radio btutons if JS is enabled
+	$(".engine input").hide();
+
+	$(".engine").click(function() {
+		setEngine($(this).find("input").first().attr("id"));
+	});
+});
 
 
 /*
@@ -158,7 +164,7 @@ function setupQuery() {
 	// Only insert query variable if nothing else is in the search entry
 	// Should solve back button problems	
 	if (query.val().length < 1) query.val(qs);
-
+}
 
 // bell
 function wakeQuery() {
@@ -207,6 +213,8 @@ function setEngine(e) {
 	
 	$("input[value=" + engine + "]").attr("checked", true);
 
+	$(".engine").removeClass("selected");
+	$("input[value=" + engine + "]").parents(".engine").addClass("selected");
 
 	//if (e == "_random") engine = "_random";	
 	saveSettings();
@@ -470,3 +478,4 @@ function doSearch() {
 	}
 	return false;
 }
+
