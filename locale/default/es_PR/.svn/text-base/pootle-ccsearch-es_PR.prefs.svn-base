@@ -1,0 +1,4 @@
+rights:
+  chloe = u'admin,archive,assign,commit,pocompile,review,suggest,translate,view'
+  default = u'archive,pocompile,suggest,view'
+  nobody = u'view'

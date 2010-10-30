@@ -1,0 +1,57 @@
+#: index.php:172
+msgid ""
+"_: suggested by sslam\n"
+"<em>You should always verify that the work you are re-using has a Creative "
+"Commmons license attached to it</em>.  Search.creativecommons.org offers "
+"convenient access to search services provided by other independent "
+"organizations. Selecting\n"
+"different search options within the result list&mdash;particularly Image\n"
+"search for Google and Yahoo&mdash;may lead to the inclusion of results\n"
+"which are not Creative Commons licensed.  <a href=\"http://wiki."
+"creativecommons.org/CcSearch\">Learn more &raquo</a>."
+msgstr ""
+"<em>Всегда проверяйте наличие лицензии Creative Commons у материалов "
+"используемых Вами</em>.  ccПоиск (search.creativecommons.org) предлагает "
+"удобный доступ к поисковым службам предоставляемым другими независимыми "
+"организациями. Выбирая\n"
+"различные поисковые варианты в списке результатов, особенно &mdash;особенно "
+"Поиск картинок\n"
+"в Google и Yahoo&mdash;может включать материалы\n"
+"не использующие лицензию Creative Commons.<a "
+"href=\"http://wiki.creativecommons.org/CcSearch\">Узнать больше &raquo</a>."
+
+#: index.php:144
+msgid ""
+"_: suggested by Lvova\n"
+"Understand your search results"
+msgstr "Разобраться в результатах поиска"
+
+#: index.php:144
+msgid ""
+"_: suggested by Lvova\n"
+"Understand your search results"
+msgstr "Истолковать результаты поиска"
+
+#: index.php:147 index.php:170
+msgid ""
+"_: suggested by Lvova\n"
+"Understand Your Search Results"
+msgstr "Разбор результатов поиска"
+
+#: index.php:147 index.php:170
+msgid ""
+"_: suggested by Lvova\n"
+"Understand Your Search Results"
+msgstr "Истолкование результатов поиска"
+
+#: index.php:141
+msgid ""
+"_: suggested by TarzanASG\n"
+"Go"
+msgstr "Искать"
+
+#: index.php:161
+msgid ""
+"_: suggested by TarzanASG\n"
+"<em>modify</em>, <em>adapt</em>, or <em>build upon</em>"
+msgstr "<em>изменять</em>, <em>адаптировать</em> или <em>брать за основу</em>"

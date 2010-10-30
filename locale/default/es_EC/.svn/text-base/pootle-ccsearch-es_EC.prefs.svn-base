@@ -1,0 +1,5 @@
+rights:
+  default = u'archive,pocompile,suggest,view'
+  nobody = u'view'
+  rlramirez = u'admin,archive,commit,pocompile,review,suggest,translate,view'
+  vdgranda = u'admin,archive,commit,pocompile,review,suggest,translate,view'

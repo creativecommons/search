@@ -1,0 +1,4 @@
+rights:
+  default = u'archive,pocompile,suggest,view'
+  nathan = u'admin,archive,commit,pocompile,suggest,translate,view'
+  nobody = u'view'

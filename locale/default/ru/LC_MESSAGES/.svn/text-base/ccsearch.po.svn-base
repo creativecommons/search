@@ -1,0 +1,287 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-09-29 13:31-0400\n"
+"PO-Revision-Date: 2010-04-28 11:55+0000\n"
+"Last-Translator: Lvova Anastasiya <stasielvova@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Pootle 1.3-svn\n"
+
+msgid "lang.ru"
+msgstr "русский"
+
+#: index.php:68 intro.php:43
+msgid "Help Translate"
+msgstr "Помогите перевести"
+
+#: index.php:93
+msgid "Creative Commons"
+msgstr "Creative Commons"
+
+#: index.php:93
+msgid "Search"
+msgstr "Поиск"
+
+#: index.php:109
+msgid "Enter search query"
+msgstr "Введите поисковый запрос"
+
+#: index.php:127
+msgid "Only show search results"
+msgstr "Показывать только результаты поиска"
+
+# не переводим пока
+#: index.php:133
+msgid "ccSearch"
+msgstr "ccПоиск"
+
+#: index.php:135
+msgid "by <a href=\"http://creativecommons.org/\">Creative Commons</a>"
+msgstr "<a href=\"http://creativecommons.org/\">Creative Commons</a>"
+
+#: index.php:141
+msgid "Go"
+msgstr "Поиск"
+
+#: index.php:144
+msgid "Understand your search results"
+msgstr "Разобраться в результатах поиска"
+
+#: index.php:146
+msgid "(info)"
+msgstr "(сведения)"
+
+#: index.php:147 index.php:170
+msgid "Understand Your Search Results"
+msgstr "Разбор результатов поиска"
+
+#: index.php:154
+msgid "I want something that I can..."
+msgstr "Я ищу что-нибудь, что я могу..."
+
+#: index.php:157
+msgid "use for <em>commercial purposes</em>"
+msgstr "использовать в <em>коммерческих целях</em>"
+
+#: index.php:161
+msgid "<em>modify</em>, <em>adapt</em>, or <em>build upon</em>"
+msgstr ""
+"<em>изменять</em>, <em>адаптировать</em> или <em>использовать как "
+"основу</em>"
+
+#: index.php:172
+msgid ""
+"<em>You should always verify that the work you are re-using has a Creative "
+"Commmons license attached to it</em>.  Search.creativecommons.org offers "
+"convenient access to search services provided by other independent "
+"organizations. Selecting\n"
+"different search options within the result list&mdash;particularly Image\n"
+"search for Google and Yahoo&mdash;may lead to the inclusion of results\n"
+"which are not Creative Commons licensed.  <a href=\"http://wiki."
+"creativecommons.org/CcSearch\">Learn more &raquo</a>."
+msgstr ""
+"<em>Вам всегда следует проверять, есть ли у используемой вами работы "
+"лицензия Creative Commmons</em>. ccПоиск (search.creativecommons.org) "
+"предлагает удобный доступ к поисковым службам, предоставляемых другими "
+"независимыми организациями. Выбор\n"
+"иных поисковых настроек в списке результатов, особенно &mdash; при поиске по "
+"изображениям\n"
+"Google и Yahoo, может привести к включению  материалов,\n"
+"не лицензированных под Creative Commons.<a "
+"href=\"http://wiki.creativecommons.org/CcSearch\">Узнать больше &raquo</a>."
+
+#: index.php:177
+msgid ""
+"<em>Can't find what you're looking for?</em>  This search tool is not "
+"exhaustive&mdash;there are plenty more <a href=\"http://wiki.creativecommons."
+"org/Content_Curators\">Creative Commons Content Directories &raquo</a>"
+msgstr ""
+"<em>Не можете найти то, что искали?</em> Это не исчерпывающий поисковой "
+"инструмент &mdash; намного больше есть на <i><a "
+"href=\"http://wiki.creativecommons.org/Content_Curators\">Creative Commons "
+"Content Directories &raquo</a></i>"
+
+#: index.php:186
+msgid "Learn about setting your Firefox search engine"
+msgstr "Узнайте, как настроить поисковые средства в вашем Firefox"
+
+#: index.php:192
+msgid "Contact"
+msgstr "Контакты"
+
+# уходим от ассоциации с "эсес"
+#: index.php:196
+msgid "Support CC"
+msgstr "Поддержите Creative Commons"
+
+#: index.php:200
+msgid "Policies"
+msgstr "Принципы"
+
+#: index.php:204
+msgid "Privacy"
+msgstr "Конфиденциальность"
+
+#: index.php:208
+msgid "Terms of Use"
+msgstr "Условия использования"
+
+#: index.php:220
+msgid "Google Web Search"
+msgstr "Поиск Google"
+
+#: index.php:220 index.php:221
+msgid "Google"
+msgstr "Google"
+
+#: index.php:220 index.php:222
+msgid "Web"
+msgstr "Интернет"
+
+#: index.php:221
+msgid "Google Image Search"
+msgstr "Поиск по Картинкам Google"
+
+#: index.php:221 index.php:223
+msgid "Image"
+msgstr "Изображение"
+
+#: index.php:222
+msgid "Web Search"
+msgstr "Поиск в интернете"
+
+#: index.php:222
+msgid "Yahoo"
+msgstr "Yahoo"
+
+#: index.php:223
+msgid "Flickr Image Search"
+msgstr "Поиск по изображениям в Flickr"
+
+#: index.php:223
+msgid "flickr"
+msgstr "flickr"
+
+#: index.php:224
+msgid "Blip.tv Video Search"
+msgstr "Поиск по видео в Blip.tv"
+
+#: index.php:224
+msgid "blip.tv"
+msgstr "blip.tv"
+
+#: index.php:224
+msgid "Video"
+msgstr "Видео"
+
+#: index.php:225
+msgid "Jamendo Music Search"
+msgstr "Поиск музыки Jamendo"
+
+#: index.php:225
+msgid "jamendo"
+msgstr "jamendo"
+
+#: index.php:225
+msgid "Music"
+msgstr "Музыка"
+
+#: index.php:226
+msgid "Spin Xpress Media Search"
+msgstr "Поиск медиафайлов в Spin Xpress"
+
+#: index.php:226 index.php:227
+msgid "Media"
+msgstr "Медиафайлы"
+
+#: index.php:227
+msgid "Wikimedia Commons Media Search"
+msgstr "Поиск медиафайлов на Викискладе (<i>Wikimedia Commons</i>)"
+
+#: index.php:229 index.php:231
+msgid "Music Search"
+msgstr "Поиск музыки"
+
+#: index.php:229
+msgid "ccMixter"
+msgstr "ccMixter"
+
+#: index.php:230
+msgid "Clip Art Search"
+msgstr "Поиск Clip Art"
+
+#: index.php:230
+msgid "Open Clip Art Library"
+msgstr "Открытая библиотека Clip Art"
+
+#: index.php:238
+msgid "CCSEARCH REQUIRES A BROWSER WHICH SUPPORTS IFRAMES."
+msgstr "Для использования ссПоиска требуется браузер, поддерживающий iFrames."
+
+#: intro.php:66
+msgid "ccSearch Intro"
+msgstr "Введение в ccПоиск"
+
+#: intro.php:130
+msgid "Enter a Search Query Above To Get Started"
+msgstr "Чтобы начать, введите выше поисковой запрос"
+
+#: intro.php:133
+msgid ""
+"Please note that search.creativecommons.org is <em>not a search engine</em>, "
+"but rather offers convenient access to search services provided by other "
+"independent organizations. CC has no control over the results that are "
+"returned. <em>Do not assume that the results displayed in this search portal "
+"are under a CC license</em>. You should always verify that the work is "
+"actually under a CC license by following the link. Since there is no "
+"registration to use a CC license, CC has no way to determine what has and "
+"hasn't been placed under the terms of a CC license. If you are in doubt you "
+"should contact the copyright holder directly, or try to contact the site "
+"where you found the content."
+msgstr ""
+"Пожалуйста, помните, что search.creativecommons.org &mdash; <em>не поисковая "
+"машина</em>, а точка удобного доступа к поисковым службам других "
+"независимых организаций. Creative Commons не контролирует результаты поиска. "
+"<em>Не полагайтесь на то, что результаты поиска, отображаемые на этом "
+"поисковом портале, попадают под лицензию CC</em>. Всегда проверяйте, проходя "
+"по ссылке, в самом ли деле работа распространяется под лицензией CC. "
+"Поскольку использование лицензии CC не регистрируется, CC не имеет "
+"возможности определить, что размещено под условиями лицензии CC, а что "
+"&mdash; нет. Если вы сомневаетесь, свяжитесь непосредственно с "
+"правообладателем, или с сайтом, на котором вы нашли материал."
+
+#: intro.php:136
+msgid "About Creative Commons"
+msgstr "О Creative Commons"
+
+#: intro.php:140
+msgid ""
+"Creative Commons is a <em>nonprofit</em> corporation dedicated to making it "
+"easier for people to share and build upon the work of others, consistent "
+"with the rules of copyright."
+msgstr ""
+"Creative Commons &mdash; <em>некоммерческая</em> организация, прилагающая "
+"усилия к тому, чтобы людям было легче делиться произведениями и создавать "
+"производные на основе других работ, в соответствии с законодательством об "
+"авторских правах."
+
+#: intro.php:143
+msgid ""
+"We provide <em>free</em> licenses and other legal tools to mark creative "
+"work with the freedom the creator wants it to carry, so others can share, "
+"remix, use commercially, or any combination thereof."
+msgstr ""
+"Мы предлагаем <i>свободные</i> лицензии и другие правовые инструменты для "
+"пометки художественных работ согласно той свободе, которую пожелает внести "
+"их создатель, вследствие чего другие смогут распространять их, "
+"ремикшировать, использовать в коммерческих целях, в любых сочетаниях "
+"вышеназванного."
+
+#: cc-language-ui.php:179
+msgid "Language"
+msgstr "Язык"

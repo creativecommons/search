@@ -1,0 +1,8 @@
+rights:
+  FeiZhang = u'admin,archive,assign,commit,pocompile,review,suggest,translate,view'
+  cwang = u'admin,archive,assign,commit,pocompile,review,suggest,translate,view'
+  default = u'archive,pocompile,suggest,view'
+  nobody = u'view'
+  wangchunyan = u'admin,archive,assign,commit,pocompile,review,suggest,translate,view'
+  xingzhi = u'admin,archive,assign,commit,pocompile,review,suggest,translate,view'
+  zhengyi = u'admin,archive,assign,commit,pocompile,review,suggest,translate,view'

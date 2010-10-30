@@ -1,0 +1,4 @@
+rights:
+  default = u'archive,pocompile,suggest,view'
+  ivanlanin = u'admin,archive,assign,commit,overwrite,pocompile,review,suggest,translate,view'
+  nobody = u'view'

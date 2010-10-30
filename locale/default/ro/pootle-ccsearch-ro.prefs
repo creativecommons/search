@@ -1,0 +1,7 @@
+rights:
+  Bogdan = u'admin,archive,commit,pocompile,review,suggest,translate,view'
+  adelada = u'admin,archive,commit,pocompile,review,suggest,translate,view'
+  andreealisievici = u'admin,archive,commit,pocompile,review,suggest,translate,view'
+  default = u'archive,pocompile,suggest,view'
+  nobody = u'view'
+  vlardfr = u'admin,archive,commit,pocompile,review,suggest,translate,view'

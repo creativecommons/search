@@ -1,0 +1,12 @@
+rights:
+  PH = u'admin,archive,assign,commit,overwrite,pocompile,review,suggest,translate,view'
+  arthit = u'admin,archive,assign,commit,overwrite,pocompile,review,suggest,translate,view'
+  default = u'suggest,translate,view'
+  guopai = u'admin,archive,assign,commit,overwrite,pocompile,review,suggest,translate,view'
+  hunt = u'suggest,translate,view'
+  markpeak = u'suggest,translate,view'
+  moui = u'archive,pocompile,review,suggest,translate,view'
+  nkinkade = u'admin,archive,assign,commit,overwrite,pocompile,review,suggest,translate,view'
+  nobody = u'view'
+  pastmorning = u'suggest,translate,view'
+  phisite = u'admin,archive,assign,commit,overwrite,pocompile,review,suggest,translate,view'

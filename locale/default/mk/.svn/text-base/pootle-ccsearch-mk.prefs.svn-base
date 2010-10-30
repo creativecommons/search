@@ -1,0 +1,5 @@
+rights:
+  default = u'archive,pocompile,suggest,view'
+  filips = u'admin,archive,assign,commit,overwrite,pocompile,review,suggest,translate,view'
+  kire = u'admin,archive,assign,commit,overwrite,pocompile,review,suggest,translate,view'
+  nobody = u'view'

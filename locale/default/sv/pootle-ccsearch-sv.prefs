@@ -1,0 +1,5 @@
+rights:
+  default = u'view, suggest, archive, pocompile'
+  jonsson = u'view, suggest, translate, review, archive, pocompile, admin, commit'
+  nobody = u'view'
+  klang = u'view, suggest, translate, overwrite, review, archive, pocompile, assign, admin, commit'

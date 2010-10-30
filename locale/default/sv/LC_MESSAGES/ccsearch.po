@@ -1,0 +1,124 @@
+# ccSearch English-US PO File
+# This file is distributed under the same license as the ccSearch package.
+# Copyright (C) 2006 Creative Commons
+# Jon Phillips <jon@rejon.org>, 2006
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: ccSearch\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-09-18 17:06-0700\n"
+"PO-Revision-Date: 2010-05-27 16:38+0000\n"
+"Last-Translator: Jon Phillips <jon@rejon.org>\n"
+"Language-Team: English <cc-devel@lists.ibiblio.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: index.php:62
+msgid "Help Translate"
+msgstr "Help Translate"
+
+#: index.php:81 index.php:158
+msgid "Creative Commons"
+msgstr "Creative Commons"
+
+#: index.php:81
+msgid "Search"
+msgstr "Sök"
+
+#: index.php:95
+msgid "Thanks for using CC Search via %sFirefox%s."
+msgstr "Tack för att du använder CC Sök via %sFirefox%s."
+
+#: index.php:111
+msgid "Search for works I can use for commercial purposes."
+msgstr "Sök efter verk jag kan använda kommersiellt."
+
+#: index.php:115
+msgid "Search for works I can modify, adapt, or build upon."
+msgstr "Sök efter verk jag kan ändra, bearbeta eller bygga vidare på."
+
+#: index.php:123
+msgid "Understand your search results"
+msgstr "Förstå dina sökresultat"
+
+#: index.php:125 index.php:126
+msgid "What is this?"
+msgstr "Vad är detta?"
+
+#: index.php:129
+msgid "Browse directories of licensed images, sounds, videos and more"
+msgstr "Bläddra i kataloger med bild, ljud, video med mera"
+
+#: index.php:130 index.php:131
+msgid "Content Directories"
+msgstr "Innehållskataloger"
+
+#: index.php:133
+msgid "Only show search results"
+msgstr "Visa enbart sökresultat"
+
+#: index.php:134 index.php:135
+msgid "Remove Frame"
+msgstr "Ta bort ram"
+
+#: index.php:140 index.php:141
+msgid "Web Search"
+msgstr "Webbsökning"
+
+#: index.php:140
+msgid "Google"
+msgstr "Google"
+
+#: index.php:141
+msgid "Yahoo"
+msgstr "Yahoo"
+
+#: index.php:142
+msgid "Image Search"
+msgstr "Bildsökning"
+
+#: index.php:142
+msgid "flickr"
+msgstr "flickr"
+
+#: index.php:143
+msgid "Video Search"
+msgstr "Videosökning"
+
+#: index.php:143
+msgid "blip.tv"
+msgstr "blip.tv"
+
+#: index.php:144 index.php:147 index.php:148
+msgid "Music Search"
+msgstr "Musiksökning"
+
+#: index.php:145
+msgid "Media Search"
+msgstr "Mediasökning"
+
+#: index.php:147
+msgid "jamendo"
+msgstr "jamendo"
+
+#: index.php:148
+msgid "ccMixter"
+msgstr "ccMixter"
+
+#: index.php:149
+msgid "Clip Art Search"
+msgstr "Clip art-sökning"
+
+#: index.php:149
+msgid "Open Clip Art Library"
+msgstr "Open Clip Art Library"
+
+#: index.php:158
+msgid "Contact"
+msgstr "Kontakt"
+
+#: cc-language-ui.php:178
+msgid "Language"
+msgstr "Språk"

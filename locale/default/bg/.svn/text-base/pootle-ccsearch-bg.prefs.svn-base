@@ -1,0 +1,4 @@
+rights:
+  default = u'archive,pocompile,suggest,view'
+  dragoslava = u'archive,pocompile,review,suggest,translate,view'
+  nobody = u'view'

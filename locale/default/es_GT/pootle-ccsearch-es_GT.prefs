@@ -1,0 +1,4 @@
+rights:
+  RenataAvila = u'admin,archive,assign,pocompile,review,suggest,translate,view'
+  default = u'archive,pocompile,suggest,view'
+  nobody = u'view'

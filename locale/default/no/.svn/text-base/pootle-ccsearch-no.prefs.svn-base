@@ -1,0 +1,5 @@
+rights:
+  admin = u'admin,archive,commit,pocompile,suggest,view'
+  default = u'archive,pocompile,suggest,view'
+  gisle = u'archive,commit,pocompile,review,suggest,translate,view'
+  nobody = u'view'

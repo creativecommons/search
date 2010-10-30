@@ -1,0 +1,5 @@
+rights:
+  blindjustice = u'admin,archive,assign,commit,overwrite,pocompile,review,suggest,translate,view'
+  default = u'archive,pocompile,suggest,view'
+  herkko = u'admin,archive,assign,commit,overwrite,pocompile,review,suggest,translate,view'
+  nobody = u'view'

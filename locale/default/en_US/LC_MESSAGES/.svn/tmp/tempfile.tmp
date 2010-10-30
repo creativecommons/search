@@ -1,0 +1,230 @@
+# ccSearch English-US PO File
+# This file is distributed under the same license as the ccSearch package.
+# Copyright (C) 2006 Creative Commons
+# Jon Phillips <jon@rejon.org>, 2006
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ccSearch\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-08-13 17:29+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Jon Phillips <jon@rejon.org>\n"
+"Language-Team: English <cc-devel@lists.ibiblio.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: index.php:68
+msgid "Help Translate"
+msgstr "Help Translate"
+
+#: index.php:93
+msgid "Creative Commons"
+msgstr ""
+
+#: index.php:93
+msgid "Search"
+msgstr ""
+
+#: index.php:109
+msgid "Enter search query"
+msgstr ""
+
+#: index.php:127
+msgid "Only show search results"
+msgstr ""
+
+#: index.php:133
+msgid "ccSearch"
+msgstr ""
+
+#: index.php:135
+msgid "by <a href=\"http://creativecommons.org/\">Creative Commons</a>"
+msgstr ""
+
+#: index.php:141
+msgid "Go"
+msgstr ""
+
+#: index.php:144
+msgid "Understand your search results"
+msgstr ""
+
+#: index.php:146
+msgid "(info)"
+msgstr ""
+
+#: index.php:147 index.php:170
+msgid "Understand Your Search Results"
+msgstr ""
+
+#: index.php:154
+msgid "I want something that I can..."
+msgstr ""
+
+#: index.php:157
+msgid "use for <em>commercial purposes</em>"
+msgstr ""
+
+#: index.php:161
+msgid "<em>modify</em>, <em>adapt</em>, or <em>build upon</em>"
+msgstr ""
+
+#: index.php:172
+msgid ""
+"<em>You should always verify that the work you are re-using has a Creative "
+"Commmons license attached to it</em>.  Search.creativecommons.org offers "
+"convenient access to search services provided by other independent "
+"organizations. Selecting\n"
+"different search options within the result list&mdash;particularly Image\n"
+"search for Google and Yahoo&mdash;may lead to the inclusion of results\n"
+"which are not Creative Commons licensed.  <a href=\"http://wiki."
+"creativecommons.org/CcSearch\">Learn more &raquo</a>."
+msgstr ""
+
+#: index.php:177
+msgid ""
+"<em>Can't find what you're looking for?</em>  This search tool is not "
+"exhaustive&mdash;there are plenty more <a href=\"http://wiki.creativecommons."
+"org/Content_Curators\">Creative Commons Content Directories &raquo</a>"
+msgstr ""
+
+#: index.php:186
+msgid "Learn about setting your Firefox search engine"
+msgstr ""
+
+#: index.php:192
+msgid "Contact"
+msgstr ""
+
+#: index.php:196
+msgid "Support CC"
+msgstr ""
+
+#: index.php:200
+msgid "Policies"
+msgstr ""
+
+#: index.php:204
+msgid "Privacy"
+msgstr ""
+
+#: index.php:208
+msgid "Terms of Use"
+msgstr ""
+
+#: index.php:220
+msgid "Google Web Search"
+msgstr ""
+
+#: index.php:220 index.php:221
+msgid "Google"
+msgstr ""
+
+#: index.php:220 index.php:222
+msgid "Web"
+msgstr ""
+
+#: index.php:221
+msgid "Google Image Search"
+msgstr ""
+
+#: index.php:221 index.php:223
+msgid "Image"
+msgstr ""
+
+#: index.php:222
+msgid "Web Search"
+msgstr ""
+
+#: index.php:222
+msgid "Yahoo"
+msgstr ""
+
+#: index.php:223
+msgid "Flickr Image Search"
+msgstr ""
+
+#: index.php:223
+msgid "flickr"
+msgstr ""
+
+#: index.php:224
+msgid "Blip.tv Video Search"
+msgstr ""
+
+#: index.php:224
+msgid "blip.tv"
+msgstr ""
+
+#: index.php:224
+msgid "Video"
+msgstr ""
+
+#: index.php:225
+msgid "Jamendo Music Search"
+msgstr ""
+
+#: index.php:225
+msgid "jamendo"
+msgstr ""
+
+#: index.php:225
+msgid "Music"
+msgstr ""
+
+#: index.php:226
+msgid "Spin Xpress Media Search"
+msgstr ""
+
+#: index.php:226
+msgid "Media"
+msgstr ""
+
+#: index.php:228 index.php:230
+msgid "Music Search"
+msgstr ""
+
+#: index.php:228
+msgid "ccMixter"
+msgstr ""
+
+#: index.php:229
+msgid "Clip Art Search"
+msgstr ""
+
+#: index.php:229
+msgid "Open Clip Art Library"
+msgstr ""
+
+#: index.php:237
+msgid "CCSEARCH REQUIRES A BROWSER WHICH SUPPORTS IFRAMES."
+msgstr ""
+
+#: intro.php:51
+msgid "Learn About Creative Commons"
+msgstr ""
+
+#: intro.php:54
+msgid ""
+"For a quick intro to Creative Commons, check out this short video, entitled "
+"\"<a href=\"http://creativecommons.org/videos/wanna-work-together\" target="
+"\"_new\">Wanna Work Together?</a>\""
+msgstr ""
+
+#: intro.php:59
+msgid "Using CC Search with Firefox"
+msgstr ""
+
+#: intro.php:62
+msgid ""
+"For a quick explanation of how to use this search with Firefox, including <a "
+"href=\"http://wiki.creativecommons.org/Firefox_and_CC_Search\" target=\"_new"
+"\">how to change your search engine</a>, watch this video.</a>"
+msgstr ""
+
+#: cc-language-ui.php:179
+msgid "Language"
+msgstr ""
