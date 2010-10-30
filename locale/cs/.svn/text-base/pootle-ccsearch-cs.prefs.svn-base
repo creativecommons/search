@@ -1,6 +1,0 @@
-rights:
-  admin = u'admin,archive,assign,commit,overwrite,pocompile,review,suggest,translate,view'
-  default = u'archive,pocompile,suggest,view'
-  mt = u'admin,archive,assign,commit,overwrite,pocompile,review,suggest,translate,view'
-  nkinkade = u'admin,archive,assign,commit,overwrite,pocompile,review,suggest,translate,view'
-  nobody = u'view'

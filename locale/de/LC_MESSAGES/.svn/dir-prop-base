@@ -1,8 +1,0 @@
-K 10
-svn:ignore
-V 19
-*.stats
-*.pending
-
-
-END

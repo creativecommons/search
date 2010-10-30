@@ -479,3 +479,34 @@ function doSearch() {
 	return false;
 }
 
+// i18n
+function grabOriginalLanguage() {
+    return document.getElementsByTagName('html')[0].lang.replace('-', '_');
+}
+
+function onLanguageChange() {
+    /* get value of the language */
+    var lang_chosen = grabChosenLanguage();
+    if (lang_chosen != grabOriginalLanguage()) {
+    /* do something useful with that */
+    var new_loc = location.href.split('?')[0];
+    new_loc = new_loc.split('#')[0]; /* Remove spurious "#" */
+    new_loc = new_loc + '?request=update&lang=' + lang_chosen;
+
+    window.location = new_loc;
+    }
+}
+
+function grabChosenLanguage() {
+    var select_box = document.getElementById('lang');
+    for (var i = 0 ; i < select_box.childNodes.length ; i++) {
+    var select_child = select_box.childNodes[i];
+    if (select_child.nodeType == 1) {
+        if (select_child.selected) {
+        return select_child.value;
+        }
+    }
+    }
+    return null;
+}
+
