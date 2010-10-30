@@ -1,18 +1,68 @@
 <?php
 
-$locale = isset($_GET['lang']) ? $_GET['lang'] : "en_US";
+#$locale = isset($_GET['lang']) ? $_GET['lang'] : "en_US";
 
-$locale = "$locale.utf8";
+#$locale = "$locale.utf8";
+#setlocale(LC_MESSAGES, $locale);
+#putenv("LANG=$locale");
+#$btd = bindtextdomain("ccsearch", "./locale");
+#textdomain("ccsearch");
 
-setlocale(LC_MESSAGES, $locale);
-putenv("LANG=$locale");
-$btd = bindtextdomain("ccsearch", "./locale");
-textdomain("ccsearch");
+$use_i18n = true;
+
+require_once('cc-defines.php');                                                                             
+require_once('cc-language.php');                                                                            
+require_once('cc-language-ui.php');             
+
+//language stuff--------------                                                                              
+if ($use_i18n) {
+  session_start();                                                                                          
+  
+  // This nastiness handles session storage                                                                 
+  $cc_lang = &$_SESSION['lang'];
+  if (DEBUG) {
+    echo "<pre>";                                                                                           
+    print_r($_SESSION);                                                                                     
+    echo "</pre>";
+  } 
+  
+  if ( ! isset($cc_lang) || isset($_REQUEST['update'] ) ) {                                                 
+    $cc_lang = new CCLanguage($_REQUEST['lang']);
+      if (DEBUG) echo "<p>created new object</p>";                                                          
+  }   
+  else                                                                                                      
+  {
+      if (DEBUG) echo "<p>Using session language</p>";                                                      
+      
+      if ( isset($_REQUEST['localepref']) ) {
+          $cc_lang->SetLocalePref($_REQUEST['localepref']);
+          if (DEBUG) echo "<p>set new locale pref</p>";
+      }
+
+      if ( isset($_REQUEST['lang']) ) {
+          $cc_lang->SetLanguage($_REQUEST['lang']);
+          if (DEBUG) echo "<p>set new language</p>";
+      }
+  }
+
+  $cc_lang->Init();
+  $cc_lang_selector =
+      new CCLanguageUISelector(&$cc_lang,
+                               "<div id=\"language_selector\">",
+                               "</div>", true, false);
+
+}
+
+
 
 ?>
 
 <!doctype html>
+<? if ($use_i18n) { ?>
+<html lang="<?php echo $cc_lang->get('_language_xml') ?>" xml:lang="<?php echo $cc_lang->get('_language_xml') ?>">
+<? } else { ?>
 <html>
+<? } ?>
 	<head>
 		<title>CC Search</title>
 		<link rel="stylesheet" href="style.css" type="text/css" media="screen" title="no title" charset="utf-8" />
@@ -39,7 +89,10 @@ textdomain("ccsearch");
 								<label for="deriv" onclick="setCommDeriv()"><?php echo _('<em>modify</em>, <em>adapt</em>, or <em>build upon</em>'); ?>.</label><br/> 
 							</small>
 						</fieldset>
-						<div id="beta"><a id="betaRevert" href="http://search.creativecommons.org/?noBeta=1">Switch to previous search interface</a></div>
+						<div id="beta"><a id="betaRevert" href="http://search.creativecommons.org/?noBeta=1">Switch to previous search interface</a>
+							<?php if ($use_i18n) $cc_lang_selector->output(); ?>
+
+						</div>
 					</div>
 					<fieldset id="engines">
 						<p style="text-align:left;"><strong><?php echo _('Search Provider:'); ?></strong></p>
