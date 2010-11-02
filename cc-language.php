@@ -179,14 +179,13 @@ class CCLanguage
             array('path' => $dir);
 	    
 	    
-	    
             foreach ( $lang_dirs as $lang_dir ) {
 	      $lang_name = basename($lang_dir);
 	      $lower_lang_name = strtolower($lang_name); // HTTP spec says
 	                                           // this is case-insensitive
 
 	      // if there is no readable mo file, then get the hell out
-	      if ( is_readable( "$lang_dir/LC_MESSAGES/$po_fn" ) ) {
+		  if ( is_readable( "$lang_dir/$po_fn" ) ) {
 		$this->
 		  _all_languages['locale'][$locale_pref]['language'][$lang_name] =
 		  array('path' => $lang_dir);
@@ -344,14 +343,18 @@ class CCLanguage
      */
     function GetPossibleLanguages()
     {
-        $lang_list = 
-        array_keys(
-        $this->_all_languages['locale'][$this->_locale_pref]['language']);
-
+        $lang_list = array_keys($this->_all_languages['locale']);
         $possible_langs = array();
 
-        foreach ( $lang_list as $item ) {
-        $possible_langs[$item] = $this->_all_languages[$item]['case_name'];
+		foreach ( $lang_list as $item ) {
+			if ($this->_all_languages['locale'][$item]['language']) {
+				if (strlen($item) > 2) {
+					$possible_langs[$item] = $item;
+				} else {
+					$possible_langs[$item] = $item . "_" . strtoupper($item);
+				}
+				//$possible_langs[$item] = $this->_all_languages['locale'][$item]['language'];
+			}
         }
     
     // This is dumb in that if it is selected for user preferences, it

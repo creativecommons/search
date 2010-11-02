@@ -1,6 +1,0 @@
-rights:
-  admin = u'admin,archive,assign,commit,overwrite,pocompile,review,suggest,translate,view'
-  chpapa = u'admin,archive,assign,commit,pocompile,review,suggest,translate,view'
-  default = u'archive,pocompile,suggest,view'
-  haggenso = u'admin,archive,assign,commit,pocompile,review,suggest,translate,view'
-  nobody = u'view'

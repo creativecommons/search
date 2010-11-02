@@ -1,7 +1,0 @@
-rights:
-  admin = u'view, suggest, translate, overwrite, review, archive, pocompile, assign, admin, commit'
-  default = u'view, suggest, archive, pocompile'
-  mt = u'view, suggest, translate, overwrite, review, archive, pocompile, assign, admin, commit'
-  nkinkade = u'view, suggest, translate, overwrite, review, archive, pocompile, assign, admin, commit'
-  nobody = u'view'
-  ropes81 = u'view, suggest, translate, overwrite, review, archive, pocompile, assign, admin, commit'

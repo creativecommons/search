@@ -1,0 +1,7 @@
+rights:
+  alexios = u'admin,archive,pocompile,suggest,translate,view'
+  default = u'archive,pocompile,suggest,view'
+  marinos = u'admin,archive,pocompile,suggest,translate,view'
+  nobody = u'view'
+  prodromos = u'admin,archive,pocompile,suggest,translate,view'
+  theodoros = u'admin,archive,pocompile,suggest,translate,view'

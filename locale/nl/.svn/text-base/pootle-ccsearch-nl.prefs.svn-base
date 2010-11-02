@@ -1,0 +1,4 @@
+rights:
+  default = u'archive,pocompile,suggest,view'
+  nobody = u'view'
+  paul = u'admin,archive,assign,commit,pocompile,review,suggest,translate,view'

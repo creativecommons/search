@@ -1,8 +1,0 @@
-rights:
-  admin = u'view, suggest, translate, overwrite, review, archive, pocompile, assign, admin, commit'
-  default = u'view, suggest, archive, pocompile'
-  nobody = u'view'
-  FedericoMorando = u'view, suggest, translate, overwrite, review, archive, pocompile, assign, admin, commit'
-# Pootle preferences for project cc_org, language it
-  DavideBardone = u'view, suggest, translate, overwrite, review, archive, pocompile, assign, admin, commit'
-  SSciacca82 = u'view, suggest, translate, overwrite, review, archive, pocompile, assign, commit'

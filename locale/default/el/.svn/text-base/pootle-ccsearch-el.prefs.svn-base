@@ -1,8 +1,0 @@
-rights:
-  alexios = u'view, suggest, translate, overwrite, review, archive, pocompile, assign, admin, commit'
-  default = u'view, suggest, archive, pocompile'
-  marinos = u'view, suggest, translate, overwrite, review, archive, pocompile, assign, admin, commit'
-  nobody = u'view'
-  prodromos = u'view, suggest, translate, overwrite, review, archive, pocompile, assign, admin, commit'
-  theodoros = u'view, suggest, translate, overwrite, review, archive, pocompile, assign, admin, commit'
-  nkinkade = u'view, suggest, translate, overwrite, review, archive, pocompile, assign, admin, commit'

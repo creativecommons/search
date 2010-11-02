@@ -1,4 +1,0 @@
-rights:
-  PAD = u'archive,pocompile,suggest,view'
-  default = u'archive,pocompile,suggest,view'
-  nobody = u'view'
