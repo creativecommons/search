@@ -1,5 +1,29 @@
 <?php
 
+// Lame hack to bind cc_org text domain to the directory it lives in
+// Is there a better place in this code for this?
+bindtextdomain("cc_org", "./cc_org");
+bind_textdomain_codeset("cc_org", 'UTF-8');
+
+function grab_string($old_lang,
+                     $temp_lang) {
+    // Totally lame non-thread-safe hack:
+    // That is to say, a threading Apache MPM with PHP will enjoy race conditions with this code!
+    // But hey - that's true with any use of gettext, generally speaking.
+	
+	$domain = "cc_org";
+	$string_id = "lang.$temp_lang";
+
+    putenv("LANGUAGE=$temp_lang");
+    putenv("LANG=$temp_lang");
+    setlocale(LC_MESSAGES, "$temp_lang.UTF-8");
+    $result = dgettext($domain, $string_id);
+    putenv("LANGUAGE=$old_lang");
+    putenv("LANG=$old_lang");
+    setlocale(LC_MESSAGES, "$old_lang.UTF-8");
+    return $result;
+}
+
 $queryLocale = isset($_GET['lang']) ? $_GET['lang'] : "en_US";
 
 $locale = "$queryLocale.utf8";
@@ -12,6 +36,8 @@ require_once('cc-language.php');
 
 $cc_lang = new CCLanguage($locale);
 $languages = $cc_lang->GetPossibleLanguages();
+
+
 
 ?>
 
@@ -50,7 +76,9 @@ $languages = $cc_lang->GetPossibleLanguages();
 							foreach ($languages as $key => $value) {
 								$selected = "";
 								if ($value . ".utf8" == $locale) $selected = "selected";
-								print '<option value="'.$value.'"'.$selected.'>'.$key.'</option>';
+
+								$lang_name = grab_string($queryLocale, $key);
+								print '<option value="'.$value.'"'.$selected.'>'.$lang_name.'</option>';
 							}
 							?>
 							</select>
