@@ -253,6 +253,8 @@ fieldset {
 	border-bottom: 1px dashed #aaa;
 }
 
+#remove, #add, #addressBar, #searchBar { display: none; }
+
 .wrong h1 {
 	padding-top: 0;
 	margin-top: 10px;

@@ -18,6 +18,36 @@ $(function() {
 	$(".engine").click(function() {
 		setEngine($(this).find("input").first().attr("id"));
 	});
+
+
+	// sniff browser and determine what information to display
+	var browser = $.browser;
+	if (browser.mozilla) {
+		if (browser.version.substr(0,3) == "1.9") {
+			$("#remove").show();
+		} else {
+			$("#add").show();
+			$("#searchBar").show();
+		}
+	} else {
+		$("#add").show();
+
+		if (browser.msie && browser.version.substr(0,1) > 6) {
+			$("#searchBar").show();
+		} else {
+			$("#addressBar").show();
+		}
+	}
+
+	$('#addOpenSearch').click(function() {
+	    if ((typeof window.external == "object") && ((typeof window.external.AddSearchProvider == "unknown") || (typeof window.external.AddSearchProvider == "function"))) {
+			window.external.AddSearchProvider("http://labs.creativecommons.org/demos/search/search-i18n/ccsearch.xml");
+		} else {
+			alert("Your browser does not support OpenSearch.");
+		}
+		
+		return false;
+	});
 });
 
 
