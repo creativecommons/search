@@ -15,12 +15,16 @@ function grab_string($old_lang,
 	$string_id = "lang.$temp_lang";
 
     putenv("LANGUAGE=$temp_lang");
-    putenv("LANG=$temp_lang");
     setlocale(LC_MESSAGES, "$temp_lang.UTF-8");
     $result = dgettext($domain, $string_id);
     putenv("LANGUAGE=$old_lang");
-    putenv("LANG=$old_lang");
-    setlocale(LC_MESSAGES, "$old_lang.UTF-8");
+	setlocale(LC_MESSAGES, "$old_lang.UTF-8");
+
+	if (strcmp($result, $string_id) == 0) { 
+		putenv("LANGUAGE=$temp_lang");
+		$result = dgettext("ccsearch", $string_id);
+		putenv("LANGUAGE=$old_lang");
+	}
     return $result;
 }
 
