@@ -48,6 +48,19 @@ $(function() {
 		
 		return false;
 	});
+	
+	$('#lang').change(function() {
+		/* get value of the language */
+		var lang_chosen = $("#lang").val();
+		if (lang_chosen != grabOriginalLanguage()) {
+		/* do something useful with that */
+		var new_loc = location.href.split('?')[0];
+		new_loc = new_loc.split('#')[0]; /* Remove spurious "#" */
+		new_loc = new_loc + '?lang=' + lang_chosen;
+
+		window.location = new_loc;
+		}
+	});
 });
 
 
@@ -514,18 +527,6 @@ function grabOriginalLanguage() {
     return document.getElementsByTagName('html')[0].lang.replace('-', '_');
 }
 
-function languageChanged() {
-    /* get value of the language */
-    var lang_chosen = $("#lang").val();
-    if (lang_chosen != grabOriginalLanguage()) {
-    /* do something useful with that */
-    var new_loc = location.href.split('?')[0];
-    new_loc = new_loc.split('#')[0]; /* Remove spurious "#" */
-    new_loc = new_loc + '?lang=' + lang_chosen;
-
-    window.location = new_loc;
-    }
-}
 
 function grabChosenLanguage() {
     var select_box = document.getElementById('lang');
