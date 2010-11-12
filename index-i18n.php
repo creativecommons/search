@@ -28,7 +28,8 @@ function grab_string($old_lang,
     return $result;
 }
 
-$queryLocale = isset($_GET['lang']) ? $_GET['lang'] : "en_US";
+$cookieLocale = isset($_COOKIE["__ccsearch_lang"]) ? $_COOKIE["__ccsearch_lang"] : "en_US";
+$queryLocale = isset($_GET['lang']) ? $_GET['lang'] : $cookieLocale; 
 
 $locale = "$queryLocale.utf8";
 setlocale(LC_MESSAGES, $locale);
@@ -41,7 +42,7 @@ require_once('cc-language.php');
 $cc_lang = new CCLanguage($locale);
 $languages = $cc_lang->GetPossibleLanguages();
 
-
+setcookie("__ccsearch_lang", $queryLocale, time() + 86400*30, '/', 'labs.creativecommons.org');
 
 ?>
 
