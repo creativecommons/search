@@ -50,7 +50,7 @@ setcookie("__ccsearch_lang", $queryLocale, time() + 86400*30, '/', 'labs.creativ
 <html lang="<?= $queryLocale ?>">
 	<head>
 		<title>CC Search</title>
-		<link rel="search" type="application/opensearchdescription+xml" title="Creative Commons Search Beta" href="http://labs.creativecommons.org/demos/search/search-i18n/ccsearch.xml">
+		<link rel="search" type="application/opensearchdescription+xml" title="Creative Commons Search Beta" href="http://labs.creativecommons.org/demos/search/ccsearch.xml">
 		<link rel="stylesheet" href="style.css" type="text/css" media="screen" title="no title" charset="utf-8" />
 		<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
 		<script src="search.js" type="text/javascript" charset="utf-8"></script>

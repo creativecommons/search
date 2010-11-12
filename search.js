@@ -41,7 +41,7 @@ $(function() {
 
 	$('#addOpenSearch').click(function() {
 	    if ((typeof window.external == "object") && ((typeof window.external.AddSearchProvider == "unknown") || (typeof window.external.AddSearchProvider == "function"))) {
-			window.external.AddSearchProvider("http://labs.creativecommons.org/demos/search/search-i18n/ccsearch.xml");
+			window.external.AddSearchProvider("http://labs.creativecommons.org/demos/search/ccsearch.xml");
 		} else {
 			alert("Your browser does not support OpenSearch.");
 		}

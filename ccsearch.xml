@@ -5,10 +5,10 @@
   <Developer>Creative Commons</Developer>
   <Description>Creative Commons Search Beta</Description> 
   <Contact>webmaster@creativecommons.org</Contact>
-  <Url type="text/html" method="get" template="http://labs.creativecommons.org/demos/search/search-i18n/?q={searchTerms}"/> 
-  <Image height="64" width="64" type="image/png">http://labs.creativecommons.org/demos/search/search-i18n/img/ccsearch_l.png</Image>
-  <Image height="16" width="16" type="image/x-icon">http://labs.creativecommons.org/demos/search/search-i18n/img/ccsearch_s.ico</Image>
+  <Url type="text/html" method="get" template="http://labs.creativecommons.org/demos/search/?q={searchTerms}"/> 
+  <Image height="64" width="64" type="image/png">http://labs.creativecommons.org/demos/search/img/ccsearch_l.png</Image>
+  <Image height="16" width="16" type="image/x-icon">http://labs.creativecommons.org/demos/search/img/ccsearch_s.ico</Image>
   <InputEncoding>UTF-8</InputEncoding> 
-  <moz:SearchForm>http://labs.creativecommons.org/demos/search/search-i18n/</moz:SearchForm> 
-  <Url type="application/opensearchdescription+xml" rel="self" template="http://labs.creativecommons.org/demos/search/search-i18n/ccsearch.xml"/> 
+  <moz:SearchForm>http://labs.creativecommons.org/demos/search/</moz:SearchForm> 
+  <Url type="application/opensearchdescription+xml" rel="self" template="http://labs.creativecommons.org/demos/search/ccsearch.xml"/> 
 </OpenSearchDescription>
