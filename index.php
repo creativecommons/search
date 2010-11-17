@@ -105,7 +105,7 @@ include('i18n.php');
 					<p><?php echo _('Please note that search.creativecommons.org is <em>not a search engine</em>, but rather offers convenient access to search services provided by other independent organizations. CC has no control over the results that are returned. <em>Do not assume that the results displayed in this search portal are under a CC license</em>. You should always verify that the work is actually under a CC license by following the link. Since there is no registration to use a CC license, CC has no way to determine what has and hasn\'t been placed under the terms of a CC license. If you are in doubt you should contact the copyright holder directly, or try to contact the site where you found the content.'); ?></p>
 				</div>
 			<div class="column">
-				<div id="remove" class="wrong">	
+<?php /* <div id="remove" class="wrong">	
 					<h1><?php echo _('Remove this from my browser!'); ?></h1>
 					<p><a href="http://wiki.creativecommons.org/Firefox_and_CC_Search"><?php echo _('<strong>Click here</strong></a> to find out how to change CC Search as your default search from browsers such as Firefox.'); ?></a></p>
 				</div>
@@ -114,9 +114,15 @@ include('i18n.php');
 					<p><a href="#" id="addOpenSearch"><strong>Add the ability</strong></a> to use CC Search from your browser's <span id="addressBar">address</span><span id="searchBar">search</span> bar.</p>
 					<p><b>Todo:</b> Add some more description here.</p>
 				</div>
+ */ ?>
+				<div id="remove" class="wrong">
+					<h1><?php echo _('Browser Support');?></h1>
+					<p><a href="#" id="addOpenSearch"><strong>Add the ability</strong></a> to use CC Search from your browser. Learn more about how this works <a href="http://wiki.creativecommons.org/CC_Search_Browser_Plugins">here</a>.</p>
+					<p><a href="http://wiki.creativecommons.org/Firefox_and_CC_Search"><?php echo _('<strong>Click here</strong></a> to find out how to change CC Search as your default search from browsers such as Firefox.'); ?></a></p>
+				</div>
 
 				<div id="translations" class="wrong">
-					<h1>Translations
+					<h1><?php echo _('Translations'); ?>
 						<select name="lang" id="lang">
 							<?php
 							foreach ($languages as $key => $value) {

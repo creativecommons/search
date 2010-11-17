@@ -21,6 +21,7 @@ $(function() {
 
 
 	// sniff browser and determine what information to display
+	/*
 	var browser = $.browser;
 	if (browser.mozilla) {
 		if (browser.version.substr(0,3) == "1.9") {
@@ -38,7 +39,7 @@ $(function() {
 			$("#addressBar").show();
 		}
 	}
-
+	*/
 	$('#addOpenSearch').click(function() {
 	    if ((typeof window.external == "object") && ((typeof window.external.AddSearchProvider == "unknown") || (typeof window.external.AddSearchProvider == "function"))) {
 			window.external.AddSearchProvider("http://labs.creativecommons.org/demos/search/ccsearch.xml");
