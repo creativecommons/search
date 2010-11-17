@@ -23,6 +23,7 @@ include('i18n.php');
 			<div id="search">
 				<form onsubmit="return doSearch()">
 					<input type="text" id="query" placeholder="<?php echo _('Enter your search query'); ?> "/>
+					<input type="submit" id="submit" value="<?php echo _('Search'); ?>" />
 					<div id="secondaryOptions">
 						<fieldset id="permissions"> 
 							<small>
@@ -93,7 +94,6 @@ include('i18n.php');
 							</div>
 							<div class="engineDesc"><label for="wikimediacommons"><strong>Wikimedia Commons</strong><br/><?php echo _('Media'); ?></label></div>
 						</div>
-						<p><br/><input type="submit" id="submit" value="<?php echo _('Search'); ?>" /></p>
 					</fieldset>
 				</form>
 			</div>

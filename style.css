@@ -72,12 +72,14 @@ a:hover {
 }
 
 #query {
-	width: 100%;
+	width: 500px;
 	padding: 3px;
   font-size: 200%;
+  vertical-align: middle;
 }
 
 #submit {
+  vertical-align: middle;
 	font-size:22px; 
 	font-family: helvetica, arial, sans-serif;
   background: #70b922;
@@ -94,7 +96,6 @@ a:hover {
 
   -webkit-box-shadow: 0 1px 0 #253d11;
   -moz-box-shadow: 0 1px 0 #253d11;
-
   cursor: pointer;
 }
 
@@ -141,12 +142,13 @@ fieldset {
 
 #secondaryOptions {
 	position: relative;
-	text-align: left;
+	text-align: center;
 }
 
 #permissions {
 	padding: 0;
 	margin: 0;
+  text-align: center !important;
 /*	text-align: left;*/
 }
 
