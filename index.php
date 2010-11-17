@@ -11,7 +11,7 @@ include('i18n.php');
 		<link rel="search" type="application/opensearchdescription+xml" title="Creative Commons Search Beta" href="http://labs.creativecommons.org/demos/search/ccsearch.xml">
 		<link rel="stylesheet" href="style.css" type="text/css" media="screen" title="no title" charset="utf-8" />
 	
-		<!--[if IE]>
+		<!--[if lte IE 7]>
 		<link rel="stylesheet" href="style-ie.css" type="text/css" media="screen" charset="utf-8" />
 		<![endif]-->
 
