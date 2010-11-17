@@ -42,55 +42,55 @@ include('i18n.php');
 						<p style="text-align:left;"><strong><?php echo _('Search Provider:'); ?></strong></p>
 						<div class="engine">
 							<div class="engineRadio">
-								<input type="radio" onclick="setEngine(this)" name="engine" value="blip" id="blip"><br/>&nbsp;
+								<input type="radio" onclick="setEngine(this)" name="engine" value="blip" id="blip">
 							</div>
 							<div class="engineDesc"><label for="blip"><strong>Blip.tv</strong><br/><?php echo _('Video'); ?></label></div>
 						</div>
 						<div class="engine">
 							<div class="engineRadio">
-								<input type="radio" onclick="setEngine(this)" name="engine" value="flickr" id="flickr"><br/>&nbsp;
+								<input type="radio" onclick="setEngine(this)" name="engine" value="flickr" id="flickr">
 							</div>
 							<div class="engineDesc"><label for="flickr"><strong>Flickr</strong><br/><?php echo _('Image'); ?></label></div>
 						</div>
 						<div class="engine">
 							<div class="engineRadio">
-								<input type="radio" onclick="setEngine(this)" name="engine" value="fotopedia" id="fotopedia"><br/>&nbsp;
+								<input type="radio" onclick="setEngine(this)" name="engine" value="fotopedia" id="fotopedia">
 							</div>
 							<div class="engineDesc"><label for="fotopedia"><strong>Fotopedia</strong><br/><?php echo _('Image'); ?></label></div>
 						</div>
 						<div class="engine">
 							<div class="engineRadio">
-								<input type="radio" onclick="setEngine(this)" name="engine" value="google" id="google"><br/>&nbsp;
+								<input type="radio" onclick="setEngine(this)" name="engine" value="google" id="google">
 							</div>
 							<div class="engineDesc"><label for="google"><strong>Google</strong><br/><?php echo _('Web'); ?></label></div>
 						</div>
 						<div class="engine">
 							<div class="engineRadio">
-								<input type="radio" onclick="setEngine(this)" name="engine" value="googleimg" id="googleimg"><br/>&nbsp;
+								<input type="radio" onclick="setEngine(this)" name="engine" value="googleimg" id="googleimg">
 							</div>
 							<div class="engineDesc"><label for="googleimg"><strong>Google Images</strong><br/><?php echo _('Image'); ?></label></div>
 						</div>
 						<div class="engine">
 							<div class="engineRadio">
-								<input type="radio" onclick="setEngine(this)" name="engine" value="jamendo" id="jamendo"><br/>&nbsp;
+								<input type="radio" onclick="setEngine(this)" name="engine" value="jamendo" id="jamendo">
 							</div>
 							<div class="engineDesc"><label for="jamendo"><strong>Jamendo</strong><br/><?php echo _('Music'); ?></label></div>
 						</div>
 						<div class="engine">
 							<div class="engineRadio">
-								<input type="radio" onclick="setEngine(this)" name="engine" value="openclipart" id="openclipart"><br/>&nbsp;
+								<input type="radio" onclick="setEngine(this)" name="engine" value="openclipart" id="openclipart">
 							</div>
 							<div class="engineDesc"><label for="openclipart"><strong>Open Clip Art Library</strong><br/><?php echo _('Image'); ?></label></div>
 						</div>
 						<div class="engine">
 							<div class="engineRadio">
-								<input type="radio" onclick="setEngine(this)" name="engine" value="spin" id="spin"><br/>&nbsp;
+								<input type="radio" onclick="setEngine(this)" name="engine" value="spin" id="spin">
 							</div>
 							<div class="engineDesc"><label for="spin"><strong>SpinXpress</strong><br/><?php echo _('Media'); ?></label></div>
 						</div>
 						<div class="engine">
 							<div class="engineRadio">
-								<input type="radio" onclick="setEngine(this)" name="engine" value="wikimediacommons" id="wikimediacommons"><br/>&nbsp;
+								<input type="radio" onclick="setEngine(this)" name="engine" value="wikimediacommons" id="wikimediacommons">
 							</div>
 							<div class="engineDesc"><label for="wikimediacommons"><strong>Wikimedia Commons</strong><br/><?php echo _('Media'); ?></label></div>
 						</div>
