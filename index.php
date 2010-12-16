@@ -23,12 +23,16 @@ include('i18n.php');
 	<body>
 		<div id="header">
 			<img src="cc-search.png" alt="CC Search" />
+		<div id="header_text"><span style="color: white;">Find content you can share, use and remix</span></div>
+<div style="position:absolute; left: 10px; top: 0px; padding: 1px 10px 0 10px; margin:4px 0 0 0; background-color: #223212; color:#fbff00; -webkit-box-shadow: 0 1px 0 rgba(120, 178, 62, 0.5), inset 0 2px 3px rgba(0, 0, 0, 0.45); text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5); -webkit-border-radius: 10px; -moz-border-radius:10px; height:20px; -moz-box-shadow: 0 1px 0 rgba(120, 178, 62, 0.5), inset 0 2px 3px rgba(0, 0, 0, 0.45);" id="switcher"><a id="betaSwitch" href="http://search.creativecommons.org/?noBeta=1" style="color:#fbff00;">Switch to tabbed search interface</a></div>
 		</div>
 		<div class="mainContent">
 			<div id="search">
-				<form onsubmit="return doSearch()">
+				<form id="search_form" onsubmit="return doSearch()">
 					<input type="text" id="query" placeholder="<?php echo _('Enter your search query'); ?> "/>
+<!--
 					<input type="submit" id="submit" value="<?php echo _('Search'); ?>" />
+-->
 					<div id="secondaryOptions">
 						<fieldset id="permissions"> 
 							<small>
@@ -39,12 +43,9 @@ include('i18n.php');
 								<label for="deriv" onclick="setCommDeriv()"><?php echo _('<em>modify</em>, <em>adapt</em>, or <em>build upon</em>'); ?>.</label><br/> 
 							</small>
 						</fieldset>
-						<div id="beta"><!-- <a id="betaRevert" href="http://search.creativecommons.org/?noBeta=1">Switch to previous search interface</a>
-							<br/> -->
-						</div>
 					</div>
 					<fieldset id="engines">
-						<p style="text-align:left;"><strong><?php echo _('Search Provider:'); ?></strong></p>
+						<p style="text-align:left;"><strong><?php echo _('Search using'); ?>:</strong></p>
 						<div class="engine">
 							<div class="engineRadio">
 								<input type="radio" onclick="setEngine(this)" name="engine" value="blip" id="blip">
@@ -106,28 +107,26 @@ include('i18n.php');
 		<div class="mainContent" style="margin-top:30px">
 			<div id="help">
 				<div class="column">
+<!--
 					<h1><?php echo _('What is this?'); ?></h1>
+-->
 					<p><?php echo _('Please note that search.creativecommons.org is <em>not a search engine</em>, but rather offers convenient access to search services provided by other independent organizations. CC has no control over the results that are returned. <em>Do not assume that the results displayed in this search portal are under a CC license</em>. You should always verify that the work is actually under a CC license by following the link. Since there is no registration to use a CC license, CC has no way to determine what has and hasn\'t been placed under the terms of a CC license. If you are in doubt you should contact the copyright holder directly, or try to contact the site where you found the content.'); ?></p>
 				</div>
 			<div class="column">
-<?php /* <div id="remove" class="wrong">	
-					<h1><?php echo _('Remove this from my browser!'); ?></h1>
-					<p><a href="http://wiki.creativecommons.org/Firefox_and_CC_Search"><?php echo _('<strong>Click here</strong></a> to find out how to change CC Search as your default search from browsers such as Firefox.'); ?></a></p>
-				</div>
-				<div id="add" class="wrong">
-					<h1><?php echo _('Add this to my browser!'); ?></h1>
-					<p><a href="#" id="addOpenSearch"><strong>Add the ability</strong></a> to use CC Search from your browser's <span id="addressBar">address</span><span id="searchBar">search</span> bar.</p>
-					<p><b>Todo:</b> Add some more description here.</p>
-				</div>
- */ ?>
 				<div id="remove" class="wrong">
+<!--
 					<h1><?php echo _('Browser Support');?></h1>
-					<p><a href="#" id="addOpenSearch"><strong>Add the ability</strong></a> to use CC Search from your browser. Learn more about how this works <a href="http://wiki.creativecommons.org/CC_Search_Browser_Plugins">here</a>.</p>
-					<p><a href="http://wiki.creativecommons.org/Firefox_and_CC_Search"><?php echo _('<strong>Click here</strong></a> to find out how to change CC Search as your default search from browsers such as Firefox.'); ?></a></p>
+-->
+					<p><?php echo _('<a href="#" id="addOpenSearch"><strong>Add CC Search</strong></a> to your browser.'); ?></strong></p>
+					<p><?php echo _('<a href="http://wiki.creativecommons.org/Firefox_and_CC_Search"><strong>Learn how</strong></a> to switch to or from CC Search in your Firefox search bar.'); ?></a></>
 				</div>
 
+				<div>
+<!--
 				<div id="translations" class="wrong">
-					<h1><?php echo _('Translations'); ?>
+					<h1>
+					<?php echo _('Translations'); ?>
+-->
 						<select name="lang" id="lang">
 							<?php
 							foreach ($languages as $key => $value) {
@@ -139,13 +138,15 @@ include('i18n.php');
 							}
 							?>
 						</select>
+<!--
 					</h1>
+-->
 				</div>
 			</div>
 		</div>
 		<div id="footer">
 			<span id="contact-support"> 
-				<a href="http://translate.creativecommons.org/projects/ccsearch"><?php echo _('Help Translate'); ?></a> 
+				<a href="http://www.transifex.net/projects/p/CC/"><?php echo _('Help Translate'); ?></a> 
 				| 
 				<a href="http://creativecommons.org/contact"> <?php echo _('Contact'); ?>               </a> 
 				|
@@ -156,6 +157,8 @@ include('i18n.php');
 				<a href="http://creativecommons.org/privacy"> <?php echo _('Privacy'); ?>               </a> 
 				|
 				<a href="http://creativecommons.org/terms"> <?php echo _('Terms of Use'); ?>               </a> 
+				|
+				<a href="http://wiki.creativecommons.org/CC_Search#Developers"> <?php echo _('Developers'); ?>               </a> 
 			</span>
 		</div>
 	</div>

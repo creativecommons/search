@@ -17,6 +17,7 @@ $(function() {
 
 	$(".engine").click(function() {
 		setEngine($(this).find("input").first().attr("id"));
+		doSearch();
 	});
 
 
@@ -208,6 +209,10 @@ function setupQuery() {
 	// Only insert query variable if nothing else is in the search entry
 	// Should solve back button problems	
 	if (query.val().length < 1 && qs) query.val(qs);
+
+	// Since we don't have a submit button, be nice to users and
+	// set focus in search box.
+	query.focus();
 }
 
 // bell
@@ -262,6 +267,9 @@ function setEngine(e) {
 
 	//if (e == "_random") engine = "_random";	
 	saveSettings();
+
+	//doSearch();
+
 }
 
 function setCommDeriv() {
