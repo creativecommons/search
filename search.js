@@ -72,7 +72,7 @@ $(function() {
  * 
  */
 
-var engines = ["google", "googleimg", "flickr", "blip", "jamendo", "spin", "openclipart", "wikimediacommons", "fotopedia"];
+var engines = ["google", "googleimg", "flickr", "blip", "jamendo", "spin", "openclipart", "wikimediacommons", "fotopedia", "europeana"];
 //defaults:
 var engine = "";
 var comm = 1;
@@ -449,6 +449,19 @@ function modRights() {
 				rights = "reuse";
 			}
 			break;
+		case "europeana":
+			rights = "";
+			if (comm && deriv) {
+				rights = "+AND+europeana_rights%3A*creative*+AND+NOT+europeana_rights%3A*nc*+AND+NOT+europeana_rights%3A*nd*";
+			} else if (comm && !deriv) {
+				rights = "+AND+europeana_rights%3A*creative*+AND+NOT+europeana_rights%3A*nc*";
+			} else if (!comm && deriv) {
+				rights = "+AND+europeana_rights%3A*creative*+AND+NOT+europeana_rights%3A*nd*"
+			} else {
+				rights = "+AND+europeana_rights%3A*creative*+";
+			}
+			
+			break;
 
 	}
 
@@ -515,6 +528,10 @@ function doSearch() {
 
 			case "fotopedia":
 				url = 'http://www.fotopedia.com/search?q=' + query.val() + '&human_license=' + rights;
+				break;
+
+			case "europeana":
+				url = 'http://www.europeana.eu/portal/brief-doc.html?start=1&view=table&query=' + query.val() + rights;
 				break;
 
 			case "google":
