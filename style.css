@@ -31,16 +31,9 @@ a:hover {
 	padding-bottom: 30px;
 }
 
-#header_text {
-	position: relative;
-	top: -35px;
-	left: 80px;
-	font-size: 13px;
-}
-
 .mainContent {
 /*	width: 960px;*/
-	width: 95%;
+	width: 86%;
 	min-width: 700px;
 	max-width: 1100px;
 /*	background-color: #eee;*/
@@ -247,9 +240,7 @@ fieldset {
 }
 
 #help p {
-/*
 	margin-bottom: 1.5em;
-*/
 	margin-top: 0;
 }
 
@@ -272,13 +263,9 @@ fieldset {
 
 .wrong {
 	background-color: #FEE0A2;
-	padding: 10px;
-	margin-bottom: 15px;
-/*
 	padding: 5px 15px;
 	margin-top: 9px;
-	margin-bottom: 5px;
-*/
+  margin-bottom: 15px;
 /*	width: 260px;*/
 /*	width: 40%;*/
 	-webkit-border-radius: 7px;
