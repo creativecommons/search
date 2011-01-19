@@ -1,9 +1,12 @@
 <?php
-include('i18n.php');
+
+include('i18n.npk.php');
+$languages = get_active_locales();
+
 ?>
 
 <!doctype html>
-<html lang="<?= $queryLocale ?>">
+<html lang="<?= $query_locale ?>">
 	<head>
 		<title>CC Search</title>
 	    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
@@ -23,16 +26,13 @@ include('i18n.php');
 	<body>
 		<div id="header">
 			<img src="cc-search.png" alt="CC Search" />
-		<div id="header_text"><span style="color: white;">Find content you can share, use and remix</span></div>
+		<div id="header_text"><span style="color: white;"><?php echo _('Find content you can share, use and remix'); ?></span></div>
 <div style="position:absolute; left: 10px; top: 0px; padding: 1px 10px 0 10px; margin:4px 0 0 0; background-color: #223212; color:#fbff00; -webkit-box-shadow: 0 1px 0 rgba(120, 178, 62, 0.5), inset 0 2px 3px rgba(0, 0, 0, 0.45); text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5); -webkit-border-radius: 10px; -moz-border-radius:10px; height:20px; -moz-box-shadow: 0 1px 0 rgba(120, 178, 62, 0.5), inset 0 2px 3px rgba(0, 0, 0, 0.45);" id="switcher"><a id="betaSwitch" href="http://search.creativecommons.org/?noBeta=1" style="color:#fbff00;">Switch to tabbed search interface</a></div>
 		</div>
 		<div class="mainContent">
 			<div id="search">
 				<form id="search_form" onsubmit="return doSearch()">
 					<input type="text" id="query" placeholder="<?php echo _('Enter your search query'); ?> "/>
-<!--
-					<input type="submit" id="submit" value="<?php echo _('Search'); ?>" />
--->
 					<div id="secondaryOptions">
 						<fieldset id="permissions"> 
 							<small>
@@ -107,40 +107,23 @@ include('i18n.php');
 		<div class="mainContent" style="margin-top:30px">
 			<div id="help">
 				<div class="column">
-<!--
-					<h1><?php echo _('What is this?'); ?></h1>
--->
 					<p><?php echo _('Please note that search.creativecommons.org is <em>not a search engine</em>, but rather offers convenient access to search services provided by other independent organizations. CC has no control over the results that are returned. <em>Do not assume that the results displayed in this search portal are under a CC license</em>. You should always verify that the work is actually under a CC license by following the link. Since there is no registration to use a CC license, CC has no way to determine what has and hasn\'t been placed under the terms of a CC license. If you are in doubt you should contact the copyright holder directly, or try to contact the site where you found the content.'); ?></p>
 				</div>
 			<div class="column">
 				<div id="remove" class="wrong">
-<!--
-					<h1><?php echo _('Browser Support');?></h1>
--->
 					<p><?php echo _('<a href="#" id="addOpenSearch"><strong>Add CC Search</strong></a> to your browser.'); ?></strong></p>
 					<p><?php echo _('<a href="http://wiki.creativecommons.org/Firefox_and_CC_Search"><strong>Learn how</strong></a> to switch to or from CC Search in your Firefox search bar.'); ?></a></>
 				</div>
 
 				<div>
-<!--
-				<div id="translations" class="wrong">
-					<h1>
-					<?php echo _('Translations'); ?>
--->
 						<select name="lang" id="lang">
 							<?php
-							foreach ($languages as $key => $value) {
-								$selected = "";
-								if ($value . ".utf8" == $locale) $selected = "selected";
-
-								$lang_name = grab_string($queryLocale, $key);
-								print '<option value="'.$value.'"'.$selected.'>'.$lang_name.'</option>';
+							foreach ( $languages as $code => $name ) {
+								$selected = ("{$code}.UTF-8" == $locale) ? 'selected="selected"' : '';
+								echo "<option value='$code' $selected>$name</option>\n";
 							}
 							?>
 						</select>
-<!--
-					</h1>
--->
 				</div>
 			</div>
 		</div>
