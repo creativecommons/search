@@ -1,4 +1,0 @@
-rights:
-  default = u'archive,pocompile,suggest,view'
-  flophi = u'admin,archive,commit,pocompile,review,suggest,translate,view'
-  nobody = u'view'

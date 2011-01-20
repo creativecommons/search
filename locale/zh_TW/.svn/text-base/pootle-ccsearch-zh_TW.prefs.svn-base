@@ -1,5 +1,0 @@
-rights:
-  admin = u'admin,archive,assign,commit,overwrite,pocompile,review,suggest,translate,view'
-  bobchaocc = u'archive,assign,commit,pocompile,review,suggest,translate,view'
-  default = u'archive,pocompile,suggest,view'
-  nobody = u'view'
