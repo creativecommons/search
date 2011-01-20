@@ -1,6 +1,6 @@
 <?php
 
-include('i18n.npk.php');
+include('i18n.php');
 $languages = get_active_locales();
 
 ?>

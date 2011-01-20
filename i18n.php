@@ -2,8 +2,17 @@
 
 define('PROJECT_NAME', 'ccsearch');
 define('DEFAULT_LANG', 'en');
-define('LOCALE_DIR', getcwd() . "/locale.npk/po");
+define('LOCALE_DIR', getcwd() . "/locale/po");
 
+/**
+ * An "active" locale is simply one with a compiled PO file.
+ * Getting a language to show up in the select box should be
+ * as simple as:
+ * 
+ * $ cd ./locale/po/<lang>/LC_MESSAGES/
+ * $ msgfmt -o ccsearch.mo ccsearch.po
+ *
+ */
 function get_active_locales() {
 
 	$locales = array();
