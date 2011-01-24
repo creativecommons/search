@@ -117,7 +117,7 @@ $languages = get_active_locales();
 					<p><?php echo _('<a href="http://wiki.creativecommons.org/Firefox_and_CC_Search"><strong>Learn how</strong></a> to switch to or from CC Search in your Firefox search bar.'); ?></a></>
 				</div>
 
-				<div>
+				<div id="translate">
 						<select name="lang" id="lang">
 							<?php
 							foreach ( $languages as $code => $name ) {

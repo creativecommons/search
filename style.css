@@ -309,20 +309,10 @@ fieldset {
 	border-bottom-color: rgba(32, 32, 32, 0.25);
 }
 
-#translations {
-  background-color: #ddd;
- }
-#translations h1 { 
-  border: none;
-  position: relative;
-  margin-bottom: 5px;
- }
+#translate {
+  padding-left: 7px;
+}
 
-#translations select {
-  position: absolute;
-  right: 0;
-  top: 5px;
- }
 #footer {
 	margin-top: 75px;
 	border-top: 1px solid #bbb;
