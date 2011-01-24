@@ -31,11 +31,19 @@ a:hover {
 	padding-bottom: 30px;
 }
 
+#header_logo {
+  position: relative;
+  width: 346px;
+  margin: 0 auto;
+}
+
 #header_text {
-	position: relative;
-	top: -35px;
-	left: 80px;
+	position: absolute;
+  bottom: 15px;
+	left: 125px;
 	font-size: 13px;
+  text-align: left;
+  width: 500px
 }
 
 .mainContent {
