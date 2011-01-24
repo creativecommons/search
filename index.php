@@ -126,13 +126,12 @@ $languages = get_active_locales();
 							}
 							?>
 						</select>
+						<a href="http://www.transifex.net/projects/p/CC/"><?php echo _('Help Translate'); ?></a> 
 				</div>
 			</div>
 		</div>
 		<div id="footer">
 			<span id="contact-support"> 
-				<a href="http://www.transifex.net/projects/p/CC/"><?php echo _('Help Translate'); ?></a> 
-				| 
 				<a href="http://creativecommons.org/contact"> <?php echo _('Contact'); ?>               </a> 
 				|
 				<a href="https://creativecommons.net/donate"> <?php echo _('Donate to CC'); ?>               </a> 
