@@ -182,6 +182,7 @@ function show_ffx_msg(){
 function setupQuery() {
 	var query = $("#query");
 	var qs = getQueryStrVariable('q');
+	qs = unescape(qs);
 	var moz = getQueryStrVariable('sourceid');
 	var e = getQueryStrVariable('engine');
 	var docom = getQueryStrVariable('commercial');
