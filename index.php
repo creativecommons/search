@@ -121,7 +121,7 @@ $languages = get_active_locales();
 						<select name="lang" id="lang">
 							<?php
 							foreach ( $languages as $code => $name ) {
-								$selected = ("{$code}.UTF-8" == $locale) ? 'selected="selected"' : '';
+								$selected = ($code == $query_locale) ? 'selected="selected"' : '';
 								echo "<option value='$code' $selected>$name</option>\n";
 							}
 							?>
