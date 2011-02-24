@@ -171,7 +171,7 @@ function getQueryStrVariable(variable) {
       return pair[1];
     }
   }
-	return null;
+  return '';
 }
 
 function show_ffx_msg(){
