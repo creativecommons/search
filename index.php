@@ -102,6 +102,12 @@ $languages = get_active_locales();
 							</div>
 							<div class="engineDesc"><label for="wikimediacommons"><strong>Wikimedia Commons</strong><br/><?php echo _('Media'); ?></label></div>
 						</div>
+						<div class="engine">
+							<div class="engineRadio">
+								<input type="radio" onclick="setEngine(this)" name="engine" value="europeana" id="europeana">
+							</div>
+							<div class="engineDesc"><label for="europeana"><strong>Europeana</strong><br/><?php echo _('Media'); ?></label></div>
+						</div>
 					</fieldset>
 				</form>
 			</div>
