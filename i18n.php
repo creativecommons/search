@@ -30,6 +30,8 @@ function get_active_locales() {
 		}
 	}
 
+	asort($locales);
+
 	return $locales;
 
 }
