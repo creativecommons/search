@@ -429,10 +429,6 @@ function modRights() {
 			}
 			break;
 
-		case "openclipart":
-			rights = "+publicdomain";
-			break;
-
 		case "wikimediacommons":
 			rights = "";
 			if (rights.length < 5) rights = "";
@@ -488,7 +484,7 @@ function doSearch() {
 
 		switch (engine) {
 			case "openclipart":
-		    url = 'http://openclipart.org/cchost/media/tags/' + query.val() + rights;
+		    url = 'http://openclipart.org/search?query=' + query.val();
 		    break;
                 
 			case "spin":
