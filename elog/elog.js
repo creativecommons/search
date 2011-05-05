@@ -23,7 +23,7 @@ $(function() {
 	$("#submit").click (function() { log("submit_clicked"); });
 	$("#comm").click (function() { log("commercial_clicked"); });
 	$("#deriv").click (function() { log("deriv_clicked"); });
-	$("#betaRevert").click (function() { log("beta_revert_clicked"); });
+	$("#betaSwitch").click (function() { log("beta_revert_clicked"); });
 })
 
 function log(value) {
