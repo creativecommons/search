@@ -11,7 +11,7 @@ $languages = get_active_locales();
 		<title>CC Search</title>
 	    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 
-		<link rel="search" type="application/opensearchdescription+xml" title="Creative Commons Search Beta" href="http://labs.creativecommons.org/demos/search/ccsearch.xml">
+		<link rel="search" type="application/opensearchdescription+xml" title="Creative Commons Search Beta" href="http://labs.creativecommons.org/demos/search/ccsearch.xml" />
 		<link rel="stylesheet" href="style.css" type="text/css" media="screen" title="no title" charset="utf-8" />
 	
 		<!--[if lte IE 7]>
@@ -152,6 +152,17 @@ $languages = get_active_locales();
 			</span>
 		</div>
 	</div>
+<script type="text/javascript"> 
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-2010376-2']);
+	_gaq.push(['_trackPageview']);
+ 
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
 </body>
 </html>
 
