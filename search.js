@@ -72,7 +72,7 @@ $(function() {
  * 
  */
 
-var engines = ["google", "googleimg", "flickr", "blip", "jamendo", "spin", "openclipart", "wikimediacommons", "fotopedia", "europeana"];
+var engines = ["google", "googleimg", "flickr", "blip", "jamendo", "spin", "openclipart", "wikimediacommons", "fotopedia", "europeana", "youtube"];
 //defaults:
 var engine = "";
 var comm = 1;
@@ -356,7 +356,6 @@ function modRights() {
 			rights += ")";
 			break;
 
-
 		case "yahoo":
 			rights = "&";
 			if (comm) {
@@ -531,6 +530,10 @@ function doSearch() {
 				url = 'http://www.europeana.eu/portal/brief-doc.html?start=1&view=table&query=' + query.val() + rights;
 				break;
 
+			case "youtube":
+				url = 'http://www.youtube.com/results?search_query=' + query.val() + ',creativecommons';
+				break;
+
 			case "google":
 			default:
 				url = 'http://google.com/search?as_rights=(cc_publicdomain|cc_attribute|cc_sharealike' + 
@@ -538,6 +541,7 @@ function doSearch() {
 							rights + '&q=' + query.val(); 
 				if (lang != null) url += '&hl=' + lang;
 				break;
+
 		}
 		window.location.href = url;
 //		document.getElementBy$('#stat').setAttribute('src','transparent.gif?engine='+engine+'&comm='+comm+'&deriv='+deriv+'&q='+query.value);
