@@ -56,6 +56,12 @@ $languages = get_active_locales();
 						</div>
 						<div class="engine">
 							<div class="engineRadio">
+								<input type="radio" onclick="setEngine(this)" name="engine" value="europeana" id="europeana">
+							</div>
+							<div class="engineDesc"><label for="europeana"><strong>Europeana</strong><br/><?php echo _('Media'); ?></label></div>
+						</div>
+						<div class="engine">
+							<div class="engineRadio">
 								<input type="radio" onclick="setEngine(this)" name="engine" value="flickr" id="flickr">
 							</div>
 							<div class="engineDesc"><label for="flickr"><strong>Flickr</strong><br/><?php echo _('Image'); ?></label></div>
@@ -101,12 +107,6 @@ $languages = get_active_locales();
 								<input type="radio" onclick="setEngine(this)" name="engine" value="wikimediacommons" id="wikimediacommons">
 							</div>
 							<div class="engineDesc"><label for="wikimediacommons"><strong>Wikimedia Commons</strong><br/><?php echo _('Media'); ?></label></div>
-						</div>
-						<div class="engine">
-							<div class="engineRadio">
-								<input type="radio" onclick="setEngine(this)" name="engine" value="europeana" id="europeana">
-							</div>
-							<div class="engineDesc"><label for="europeana"><strong>Europeana</strong><br/><?php echo _('Media'); ?></label></div>
 						</div>
 						<div class="engine">
 							<div class="engineRadio">
