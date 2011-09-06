@@ -17,6 +17,19 @@ function get_active_locales() {
 
 	$locales = array();
 
+	# Sometimes the locale name returned by locale_get_display_language()
+	# is ambiguous, as is the case with zh_TW, zh_HK and zh, which all
+	# return the precise same characters.  In these cases we'll just append
+	# a region.  This could potentially be done with
+	# locale_get_display_region(), but unfortunately the region name may be
+	# not precisely what we want.  For example zh_HK returns "Hong Kong SAR
+	# China", which is inconsistent with what we have on the chooser. So we
+	# have this fairly disagreeable, manual exception handling.
+	$add_region = array(
+		'zh_TW' => '(台灣)',
+		'zh_HK' => '(香港)'
+	);
+
 	// Just manually set up the default locale
 	$locales['en'] = 'English';
 
@@ -25,13 +38,18 @@ function get_active_locales() {
 		if ( is_dir(LOCALE_DIR . "/$dir") && preg_match("/^[a-z]{2,2}(_[A-Z]{2,4})?$/", $dir, $matches) ) {
 			$mo_file = LOCALE_DIR . "/$dir/LC_MESSAGES/" . PROJECT_NAME . ".mo";
 			if ( is_readable($mo_file) ) {
-				$locales[$dir] = locale_get_display_language($dir, $dir);
+				if ( array_key_exists($dir, $add_region) ) {
+					$locales[$dir] = locale_get_display_language($dir, $dir) . " {$add_region[$dir]}";
+				} else {
+					$locales[$dir] = locale_get_display_language($dir, $dir);
+				}
 			}
 		}
 	}
 
 	asort($locales);
 
+	
 	return $locales;
 
 }
