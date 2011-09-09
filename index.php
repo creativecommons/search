@@ -11,7 +11,7 @@ $languages = get_active_locales();
 		<title>CC Search</title>
 	    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 
-		<link rel="search" type="application/opensearchdescription+xml" title="Creative Commons Search Beta" href="http://labs.creativecommons.org/demos/search/ccsearch.xml" />
+		<link rel="search" type="application/opensearchdescription+xml" title="Creative Commons Search" href="http://search.creativecommons.org/ccsearch.xml" />
 		<link rel="stylesheet" href="style.css" type="text/css" media="screen" title="no title" charset="utf-8" />
 	
 		<!--[if lte IE 7]>

@@ -43,7 +43,7 @@ $(function() {
 	*/
 	$('#addOpenSearch').click(function() {
 	    if ((typeof window.external == "object") && ((typeof window.external.AddSearchProvider == "unknown") || (typeof window.external.AddSearchProvider == "function"))) {
-			window.external.AddSearchProvider("http://labs.creativecommons.org/demos/search/ccsearch.xml");
+			window.external.AddSearchProvider("http://search.creativecommons.org/ccsearch.xml");
 		} else {
 			alert("Your browser does not support OpenSearch.");
 		}
@@ -123,7 +123,7 @@ function getCookie(name) {
 
 var cookie_name = '__ccsearch';
 var cookie_break_text = "[-]";
-var cookie_domain = 'labs.creativecommons.org';
+var cookie_domain = 'search.creativecommons.org';
 //var cookie_domain = '';
 
 function saveSettings(){
