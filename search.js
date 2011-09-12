@@ -483,7 +483,7 @@ function doSearch() {
 
 		switch (engine) {
 			case "openclipart":
-		    url = 'http://openclipart.org/search?query=' + query.val();
+		    url = 'http://openclipart.org/search/?query=' + query.val();
 		    break;
                 
 			case "spin":
