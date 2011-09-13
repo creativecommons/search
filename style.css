@@ -39,11 +39,11 @@ a:hover {
 
 #header_text {
 	position: absolute;
-  bottom: 15px;
-	left: 125px;
-	font-size: 13px;
-  text-align: left;
-  width: 500px
+	bottom: 5px;
+	left: 145px;
+	font-size: 12px;
+	text-align: left;
+	width: 500px
 }
 
 .mainContent {
