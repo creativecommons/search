@@ -29,9 +29,6 @@ $languages = get_active_locales();
 				<img src="cc-search.png" alt="CC Search" />
 				<div id="header_text"><span style="color: white;"><?php echo _('Find content you can share, use and remix'); ?></span></div>
 			</div>
-<!--
-<div style="position:absolute; left: 10px; top: 0px; padding: 1px 10px 0 10px; margin:4px 0 0 0; background-color: #223212; color:#fbff00; -webkit-box-shadow: 0 1px 0 rgba(120, 178, 62, 0.5), inset 0 2px 3px rgba(0, 0, 0, 0.45); text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5); -webkit-border-radius: 10px; -moz-border-radius:10px; height:20px; -moz-box-shadow: 0 1px 0 rgba(120, 178, 62, 0.5), inset 0 2px 3px rgba(0, 0, 0, 0.45);" id="switcher"><a id="betaSwitch" href="http://search.creativecommons.org/?noBeta=1" style="color:#fbff00;">Switch to tabbed search interface</a></div>
--->
 		</div>
 		<div class="mainContent">
 			<div id="search">
@@ -50,12 +47,6 @@ $languages = get_active_locales();
 					</div>
 					<fieldset id="engines">
 						<p style="text-align:left;"><strong><?php echo _('Search using'); ?>:</strong></p>
-						<div class="engine">
-							<div class="engineRadio">
-								<input type="radio" onclick="setEngine(this)" name="engine" value="blip" id="blip">
-							</div>
-							<div class="engineDesc"><label for="blip"><strong>Blip.tv</strong><br/><?php echo _('Video'); ?></label></div>
-						</div>
 						<div class="engine">
 							<div class="engineRadio">
 								<input type="radio" onclick="setEngine(this)" name="engine" value="europeana" id="europeana">

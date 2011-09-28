@@ -72,7 +72,7 @@ $(function() {
  * 
  */
 
-var engines = ["google", "googleimg", "flickr", "blip", "jamendo", "spin", "openclipart", "wikimediacommons", "fotopedia", "europeana", "youtube"];
+var engines = ["google", "googleimg", "flickr", "jamendo", "spin", "openclipart", "wikimediacommons", "fotopedia", "europeana", "youtube"];
 //defaults:
 var engine = "";
 var comm = 1;
@@ -376,19 +376,6 @@ function modRights() {
 			}
 			break;
 
-		case "blip":
-			rights = "license=1,6,7"; // by,by-sa,pd
-			if (!comm && !deriv) {
-				rights += ",2,3,4,5"; // by-nd,by-nc-nd,by-nc-,by-nc-sa
-			} else if (comm && !deriv) {
-				rights += ",2"; // by-nd
-			} else if(!comm && deriv){ // deriv must be checked
-				rights += ",4,5"; // by-nc,by-nc-sa
-			}
-			//else: case: both true
-			//we just leave it at by, by-sa, pd
-			break;
-			
 		case "jamendo":
 			rights = "";
 			//note: apparently they don't check the values of these vars, they just check to see if they're defined
@@ -496,10 +483,6 @@ function doSearch() {
 				
 			case "jamendo":
 			  url ='http://www.jamendo.com/tag/' + query.val() + '?' + rights + '&location_country=all&order=rating_desc';
-				break;
-				
-			case "blip":
-				url = 'http://blip.tv/posts/view/?q=' + query.val() + '&section=/posts/view&sort=popularity&' + rights;
 				break;
 				
 			case "flickr":
