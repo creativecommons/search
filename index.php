@@ -3,6 +3,169 @@
 include('i18n.php');
 $languages = get_active_locales();
 
+/**
+ * If $engine is set in the request, then the user must have javascript turned
+ * off, else they would have gone directly to the search site, and not back to
+ * index.php.  This block handles those who don't uses javascript for whatever
+ * reason.
+ */
+if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
+
+	$engine = $_REQUEST['engine'];
+	$query = $_REQUEST['query'];
+	$comm = isset($_REQUEST['comm']) ? TRUE : FALSE;
+	$deriv = isset($_REQUEST['deriv']) ? TRUE : FALSE;
+        
+	// We never want the search to execute with the default text
+	if ( $query == "Enter search query" ) {
+		$query = "flowers";
+	}
+
+	$rights = modRights($engine, $comm, $deriv);
+
+	$url = "";
+        
+	switch ( $engine ) {
+
+		case "openclipart":
+			$url = 'http://openclipart.org/search/?query=' . $query;
+			break;
+
+		case "spin":
+			$url = 'http://www.spinxpress.com/getmedia' . $rights . '_searchwords=' . $query;
+			break;
+
+		case "jamendo":
+			$url = 'http://www.jamendo.com/tag/' . $query . '?' . $rights . '&location_country=all&order=rating_desc';
+			break;
+
+		case "flickr":
+			$url = 'http://flickr.com/search/?' . $rights . '&q=' . $query;
+			break;
+
+		case "wikimediacommons":
+			$url = 'http://commons.wikimedia.org/w/index.php?title=Special%3ASearch&redirs=0&search=' . $query . '&fulltext=Search&ns0=1&ns6=1&ns14=1&title=Special%3ASearch&advanced=1&fulltext=Advanced+search';
+			break;
+
+		case "fotopedia":
+			$url = 'http://www.fotopedia.com/search?q=' . $query . '&human_license=' . $rights;
+			break;
+
+		case "europeana":
+			$url = 'http://www.europeana.eu/portal/brief-doc.html?start=1&view=table&query=' . $query . $rights;
+			break;
+
+		case "youtube":
+			$url = 'http://www.youtube.com/results?search_query=' . $query . ',creativecommons';
+			break;
+
+		case "googleimg":
+			$url = 'http://images.google.com/images?q=';
+
+		case "google":
+		default:
+			$url = $url ? $url : 'http://google.com/search?q=';
+			$url .= $query . '&as_rights=' . $rights;
+			break;
+
+	}
+
+	header('Location: ' . $url);
+	exit;
+
+}
+
+/**
+ * Sets up the right query string for the various content providers.
+ */
+function modRights($engine, $comm, $deriv) {
+        
+	$rights = "";
+
+	switch ( $engine ) {
+
+		case "google":
+		case "googleimg":
+
+			$rights = "(cc_publicdomain|cc_attribute|cc_sharealike";
+			$extra_rights = ".-(";
+
+			if ( $comm ) {
+				$extra_rights .= "cc_noncommercial";
+			} else {
+				$rights .= "|cc_noncommercial";
+			}
+
+			if ( $deriv ) {
+				$extra_rights .= $comm ? "|cc_nonderived" : "cc_nonderived";
+			} else {
+				$rights .= "|cc_nonderived";
+			}
+
+			$rights .= ")";
+
+			if ( $extra_rights != ".-(" ) {
+				$extra_rights .= ")";
+				$rights .= $extra_rights;
+			}
+			
+			break;
+
+		case "flickr":
+			$rights = "l=";
+			$rights .= $comm ? "comm" : "";
+			$rights .= $deriv ? "deriv" : "";
+			$rights = ($rights == "l=") ? "l=cc" : $rights;
+			break;
+
+		case "jamendo":
+			$rights .= $comm ? "license_minrights_c=on&" : "";
+			$rights .= $deriv ? "license_minrights_d=on" : "";
+			break;
+
+		case "spin":
+			$rights = "_license=";
+			if ( ! $comm && ! $deriv ) {
+				$rights .= "11"; // by-nd,by-nc-nd,by-nc-,by-nc-sa
+			} else if ( $comm && ! $deriv ) {
+				$rights .= "8"; // by-nd
+			} else if ( ! $comm && $deriv ) {
+				$rights .= "9";
+			} else { 
+				$rights .= "10"; // by-nc,by-nc-sa
+			}
+			break;
+
+		case "fotopedia":
+			if ( $comm && $deriv ) {
+				$rights = "reuse_commercial_modify";
+			} else if ( $comm && ! $deriv ) {
+				$rights = "reuse_commercial";
+			} else if ( ! $comm && $deriv ) {
+				$rights = "reuse_modify";
+			} else {
+				$rights = "reuse";
+			}
+			break;
+
+		case "europeana":
+			if ( $comm && $deriv ) {
+				$rights = "+AND+europeana_rights%3A*creative*+AND+NOT+europeana_rights%3A*nc*+AND+NOT+europeana_rights%3A*nd*";
+			} else if ( $comm && ! $deriv ) {
+				$rights = "+AND+europeana_rights%3A*creative*+AND+NOT+europeana_rights%3A*nc*";
+			} else if ( ! $comm && $deriv ) {
+				$rights = "+AND+europeana_rights%3A*creative*+AND+NOT+europeana_rights%3A*nd*";
+			} else {
+				$rights = "+AND+europeana_rights%3A*creative*+";
+			}
+			break;
+
+	}
+
+	return $rights;
+
+}
+
 ?>
 
 <!doctype html>
@@ -32,8 +195,8 @@ $languages = get_active_locales();
 		</div>
 		<div class="mainContent">
 			<div id="search">
-				<form id="search_form" onsubmit="return doSearch()">
-					<input type="text" id="query" placeholder="<?php echo _('Enter your search query'); ?> "/>
+				<form id="search_form" method="get" onsubmit="return doSearch()">
+					<input type="text" id="query" name="query" placeholder="<?php echo _('Enter your search query'); ?> "/>
 					<div id="secondaryOptions">
 						<fieldset id="permissions"> 
 							<small>
