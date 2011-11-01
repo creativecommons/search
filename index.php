@@ -165,14 +165,29 @@ function modRights($engine, $comm, $deriv) {
 	return $rights;
 
 }
-
-?>
-
-<!doctype html>
-<html lang="<?= $query_locale ?>">
+    // adaptor code for cc-wp theme
+    if ( ! function_exists('bloginfo') ) {
+        function bloginfo ($param) {
+            if ( $param == 'home' )
+                print 'http://creativecommons.org';
+            if ( $param == 'stylesheet_directory' ) {
+                // print $theme_path . '/cc-wp';
+                print '/cc-wp';
+            }
+        }
+    }
+    if ( ! function_exists('get_http_security') ) {
+        function get_http_security () {
+            echo 'https';
+        }
+    }
+    include 'cc-wp/meta.php';
+    include 'header-doctype.php'; ?>
+<html lang="<?php echo $query_locale ?>">
 	<head>
 		<title>CC Search</title>
 	    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <?php include 'cc-wp/header-common.php'; ?>
 
 		<link rel="search" type="application/opensearchdescription+xml" title="Creative Commons Search" href="http://search.creativecommons.org/ccsearch.xml" />
 		<link rel="stylesheet" href="style.css" type="text/css" media="screen" title="no title" charset="utf-8" />
@@ -187,27 +202,45 @@ function modRights($engine, $comm, $deriv) {
 		<script src="elog/elog.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
-		<div id="header">
+	<div id="container">
+        <?php include 'cc-wp/page-nav.php'; ?>
+        <div id="main" role="main">
+            <div class="container">
+                <div class="sixteen columns">
+
+		<div class="first row">
+			<div id="search">
+				<form id="search_form" method="get" onsubmit="return doSearch()">
+            <div class="sixteen columns">
+            <div class="five columns alpha">
 			<div id="header_logo">
 				<img src="cc-search.png" alt="CC Search" />
 				<div id="header_text"><span style="color: white;"><?php echo _('Find content you can share, use and remix'); ?></span></div>
 			</div>
-		</div>
-		<div class="mainContent">
-			<div id="search">
-				<form id="search_form" method="get" onsubmit="return doSearch()">
+            </div>
+            <div class="eleven columns omega">
 					<input type="text" id="query" name="query" placeholder="<?php echo _('Enter your search query'); ?> "/>
 					<div id="secondaryOptions">
 						<fieldset id="permissions"> 
 							<small>
+                                <div class="eleven columns">
+                                <div class="four columns alpha">
 								<strong><?php echo _('I want something that I can...'); ?></strong>
+                                </div>
+
+                                <div class="seven columns omega">
 								<input type="checkbox" name="comm" value="" id="comm" checked="checked" onclick="setCommDeriv()" /> 
 								<label for="comm"  onclick="setCommDeriv()"><?php echo _('use for <em>commercial purposes</em>'); ?>;</label>
 								<input type="checkbox" name="deriv" value="" id="deriv" checked="checked"  onclick="setCommDeriv()" /> 
 								<label for="deriv" onclick="setCommDeriv()"><?php echo _('<em>modify</em>, <em>adapt</em>, or <em>build upon</em>'); ?>.</label><br/> 
+                                </div>
+                                </div>
 							</small>
 						</fieldset>
 					</div>
+                    </div>
+                    </div>
+
 					<fieldset id="engines">
 						<p style="text-align:left;"><strong><?php echo _('Search using'); ?>:</strong></p>
 						<div class="engine">
@@ -272,14 +305,15 @@ function modRights($engine, $comm, $deriv) {
 						</div>
 					</fieldset>
 				</form>
+                </div>
 			</div>
 		</div>
-		<div class="mainContent" style="margin-top:30px">
+		<div class="row">
 			<div id="help">
-				<div class="column">
+                <div class="eight columns alpha">
 					<p><?php echo _('Please note that search.creativecommons.org is <em>not a search engine</em>, but rather offers convenient access to search services provided by other independent organizations. CC has no control over the results that are returned. <em>Do not assume that the results displayed in this search portal are under a CC license</em>. You should always verify that the work is actually under a CC license by following the link. Since there is no registration to use a CC license, CC has no way to determine what has and hasn\'t been placed under the terms of a CC license. If you are in doubt you should contact the copyright holder directly, or try to contact the site where you found the content.'); ?></p>
 				</div>
-			<div class="column">
+            <div class="eight columns omega">
 				<div id="remove" class="wrong">
 					<p><?php echo _('<a href="#" id="addOpenSearch"><strong>Add CC Search</strong></a> to your browser.'); ?></strong></p>
 					<p><?php echo _('<a href="http://wiki.creativecommons.org/Firefox_and_CC_Search"><strong>Learn how</strong></a> to switch to or from CC Search in your Firefox search bar.'); ?></a></>
@@ -298,22 +332,15 @@ function modRights($engine, $comm, $deriv) {
 				</div>
 			</div>
 		</div>
-		<div id="footer">
-			<span id="contact-support"> 
-				<a href="http://creativecommons.org/contact"> <?php echo _('Contact'); ?>               </a> 
-				|
-				<a href="https://creativecommons.net/donate"> <?php echo _('Donate to CC'); ?>               </a> 
-				|
-				<a href="http://creativecommons.org/policies"> <?php echo _('Policies'); ?>            </a> 
-				|
-				<a href="http://creativecommons.org/privacy"> <?php echo _('Privacy'); ?>               </a> 
-				|
-				<a href="http://creativecommons.org/terms"> <?php echo _('Terms of Use'); ?>               </a> 
-				|
-				<a href="http://wiki.creativecommons.org/CC_Search#Developers"> <?php echo _('Developers'); ?>               </a> 
-			</span>
-		</div>
-	</div>
+
+
+                </div>
+            </div><!--! end of .container -->
+		</div><!--! end of #main -->
+
+<?php include 'cc-wp/page-footer.php'; ?>
+    </div> <!--! end of #container -->
+<?php include 'cc-wp/footer-codes.php'; ?>
 <script type="text/javascript"> 
 	var _gaq = _gaq || [];
 	_gaq.push(['_setAccount', 'UA-2010376-2']);

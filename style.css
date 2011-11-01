@@ -1,43 +1,15 @@
-body {
-	background: #fff;
-	font: 14px helvetica, arial, sans-serif;
-	line-height: 1.5em;
-	margin: 0;
-	padding: 0;
-	color: #333;
-}
-
-h1 {
-	line-height: 1.15;
-	padding-bottom: 0.25em;
-}
-
-a {
-	text-decoration: none;
-	color: #1F5E99;
-}
-
-a:hover {
-	text-decoration: underline;
-}
-
-#header {
-	background: #5AA322;
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.96, #5aa322), color-stop(1.05, #050)) #5aa322;
-	background: -moz-linear-gradient(top, #5aa322 97%, #050 105%) #5aa322;
-/*	padding-top: 55px;*/
-	padding-top: 5px;
-	text-align: center;
-	padding-bottom: 5px;
-}
-
 #header_logo {
-  position: relative;
-  width: 346px;
-  margin: 0 auto;
+    background: #5AA322;
+    position: relative;
+    padding: 10px;
+    margin: 0 auto 10px auto;
+    width: 258px;
+    text-align: center;
 }
+
 
 #header_text {
+display: none;
 	position: absolute;
 	bottom: 5px;
 	left: 145px;
@@ -46,35 +18,15 @@ a:hover {
 	width: 500px
 }
 
-.mainContent {
-/*	width: 960px;*/
-	width: 95%;
-	min-width: 700px;
-	max-width: 1100px;
-/*	background-color: #eee;*/
-	margin: 50px auto 0;
-	text-align: center;
-	position: relative;
-}
 
-#beta {
-	position: absolute;
-	right: -148px;
-	top: 1.5em;
-/*	background-color: #eaeaea;
-	padding: 0 10px;
-	height: 18px;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	-webkit-box-shadow: inset 0 0 3px #b3b3b3;
-	-moz-box-shadow: inset 0 0 3px #b3b3b3;
-	font-size: 0.85em;
-*/}
+#search_form input {
+    height: auto;
+}
 
 #search {
 	display: inline-block;
 	position: relative;
-  width: 690px;
+    margin-top: 10px;
 }
 
 #search fieldset {
@@ -83,14 +35,24 @@ a:hover {
 }
 
 #search input, #search option {
-	font-family: helvetica, arial, sans-serif;
+    height: 40px;
 }
 
 #query {
-	width: 500px;
+    clear: left;
+    display: block;
+    margin: 0 auto;
+	width: 95%;
 	padding: 3px;
-  font-size: 200%;
-  vertical-align: middle;
+    font-size: 200%;
+    vertical-align: middle;
+}
+
+label {
+    width: 100%;;
+    float: none;
+    vertical-align: top;
+    font-size: 90%;
 }
 
 #submit {
@@ -151,8 +113,6 @@ a:hover {
 fieldset {
 	padding: 0;
 	margin: 0;
-	text-align: left;
-/*	font-size: small;*/
 }
 
 #secondaryOptions {
@@ -164,7 +124,6 @@ fieldset {
 	padding: 0;
 	margin: 0;
   text-align: center !important;
-/*	text-align: left;*/
 }
 
 #permissions input { margin-right: 0;}
@@ -176,18 +135,30 @@ fieldset {
   padding-right: 3px; 
 }
 
-#engines { line-height: 2.25;}
+#engines { 
+    line-height: 2.25;
+    margin-left: -3px;
+    clear: left;
+}
 
 #engines .engine {
-  display: inline-block;
-  padding: 5px 2px 2px 0;
+  display: inline;
+  padding: 3px;
   min-width: 100px;
   border: 1px solid #ddd;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
-  margin-bottom: 5px;
+  margin: 3px;
+  min-height: 70px;
+  float: left;
+  width: 18.1%;
 }
+
+#engines .engine {
+    text-align: right;
+}
+
 #engines .engine:hover {
   background-color: #f0f0f0;
 }
@@ -248,35 +219,12 @@ fieldset {
 }
 
 #help {
-	padding-left: 12%;
-	margin-top: 35px;
-	text-align: left;
-	overflow-y: auto;
+    margin: 35px auto 0 auto;
 }
 
 #help p {
-/*
-	margin-bottom: 1.5em;
-*/
 	margin-top: 0;
 }
-
-.column {
-/*	width: 290px;*/
-	width: 40%;
-	margin-left: 4.5%;
-	float: left;
-}
-
-.column ul {
-	padding-left: 1.25em;
-	line-height: 1.25;
-}
-.column ul li {
-	margin-bottom: 0.5em;
-}
-
-#help .column:first-child { margin-left: 0; padding-top: 5px;}
 
 .wrong {
 	background-color: #FEE0A2;
@@ -310,7 +258,11 @@ fieldset {
 }
 
 #translate {
-  padding-left: 7px;
+}
+
+#translate #lang {
+    width: 60%;
+    margin-right: 4px;
 }
 
 #footer {
