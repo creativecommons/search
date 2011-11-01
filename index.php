@@ -211,7 +211,6 @@ function modRights($engine, $comm, $deriv) {
 		<div class="first row">
 			<div id="search">
 				<form id="search_form" method="get" onsubmit="return doSearch()">
-            <div class="sixteen columns">
             <div class="five columns alpha">
 			<div id="header_logo">
 				<img src="cc-search.png" alt="CC Search" />
@@ -238,13 +237,10 @@ function modRights($engine, $comm, $deriv) {
 							</small>
 						</fieldset>
 					</div>
-                    </div>
-                    </div>
+                </div>
 
-                    <div class="engineer">
 					<fieldset id="engines">
 						<p style="text-align:left;"><strong><?php echo _('Search using'); ?>:</strong></p>
-                        <div class="sixteen columns">
                         <div class="first row">
                         <div class="four columns alpha">
 						<div class="engine">
@@ -331,9 +327,7 @@ function modRights($engine, $comm, $deriv) {
 						</div>
                         </div>
                         </div>
-                        </div>
 					</fieldset>
-                    </div>
 				</form>
                 </div>
 			</div>
