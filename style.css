@@ -19,10 +19,6 @@ display: none;
 }
 
 
-#search_form input {
-    height: auto;
-}
-
 #search {
 	display: inline-block;
 	position: relative;

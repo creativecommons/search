@@ -182,7 +182,7 @@ function modRights($engine, $comm, $deriv) {
         }
     }
     include 'cc-wp/meta.php';
-    include 'header-doctype.php'; ?>
+    include 'cc-wp/header-doctype.php'; ?>
 <html lang="<?php echo $query_locale ?>">
 	<head>
 		<title>CC Search</title>
