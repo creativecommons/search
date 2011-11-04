@@ -211,13 +211,13 @@ function modRights($engine, $comm, $deriv) {
 		<div class="first row">
 			<div id="search">
 				<form id="search_form" method="get" onsubmit="return doSearch()">
-            <div class="six columns alpha">
+            <div class="seven columns alpha">
 			<div id="header_logo">
 				<img src="cc-search.png" alt="CC Search" />
 				<div id="header_text"><span style="color: white;"><?php echo _('Find content you can share, use and remix'); ?></span></div>
 			</div>
             </div>
-            <div class="ten columns omega re">
+            <div class="nine columns omega re">
 					<input type="text" id="query" name="query" placeholder="<?php echo _('Enter your search query'); ?> "/>
 					<div id="secondaryOptions">
 						<fieldset id="permissions"> 
