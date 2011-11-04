@@ -211,28 +211,26 @@ function modRights($engine, $comm, $deriv) {
 		<div class="first row">
 			<div id="search">
 				<form id="search_form" method="get" onsubmit="return doSearch()">
-            <div class="five columns alpha">
+            <div class="six columns alpha">
 			<div id="header_logo">
 				<img src="cc-search.png" alt="CC Search" />
 				<div id="header_text"><span style="color: white;"><?php echo _('Find content you can share, use and remix'); ?></span></div>
 			</div>
             </div>
-            <div class="eleven columns omega">
+            <div class="ten columns omega re">
 					<input type="text" id="query" name="query" placeholder="<?php echo _('Enter your search query'); ?> "/>
 					<div id="secondaryOptions">
 						<fieldset id="permissions"> 
 							<small>
-                                <div class="eleven columns">
-                                <div class="four columns alpha">
+                                <div class="statement">
 								<strong><?php echo _('I want something that I can...'); ?></strong>
                                 </div>
 
-                                <div class="seven columns omega">
+                                <div class="permoptions">
 								<input type="checkbox" name="comm" value="" id="comm" checked="checked" onclick="setCommDeriv()" /> 
 								<label for="comm"  onclick="setCommDeriv()"><?php echo _('use for <em>commercial purposes</em>'); ?>;</label>
 								<input type="checkbox" name="deriv" value="" id="deriv" checked="checked"  onclick="setCommDeriv()" /> 
 								<label for="deriv" onclick="setCommDeriv()"><?php echo _('<em>modify</em>, <em>adapt</em>, or <em>build upon</em>'); ?>.</label><br/> 
-                                </div>
                                 </div>
 							</small>
 						</fieldset>
