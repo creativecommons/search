@@ -1,19 +1,22 @@
 #header_logo {
     background: #5AA322;
     position: relative;
-    padding: 10px;
+    padding: 10px 10px 24px 10px;
     margin: 0 auto 10px auto;
     width: 258px;
     text-align: center;
+
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
 }
 
 
 #header_text {
-display: none;
 	position: absolute;
-	bottom: 5px;
-	left: 145px;
-	font-size: 12px;
+	bottom: 8px;
+	left: 30px;
+	font-size: 11.3px;
 	text-align: left;
 	width: 500px
 }
@@ -38,8 +41,9 @@ display: none;
     clear: left;
     display: block;
     margin: 0 auto;
-	width: 95%;
-	padding: 3px;
+	width: 98%;
+    min-width: 250px;
+	padding: 1%;
     font-size: 200%;
     vertical-align: middle;
 }
@@ -48,6 +52,7 @@ label {
     width: auto;
     float: none;
     font-size: 90%;
+    vertical-align: top;
 }
 
 #submit {
@@ -124,7 +129,7 @@ fieldset {
 #permissions {
 	padding: 0;
 	margin: 0;
-  text-align: center !important;
+    text-align: left !important;
 }
 
 #permissions input { margin-right: 0;}
@@ -132,6 +137,18 @@ fieldset {
 #engines input { margin-right: 4px; margin-left: 0;}
 #engines p { margin: 0;}
 #engines label { 
+}
+
+.statement {
+    padding-top: 2px;
+}
+.statement, .permoptions {
+    float: left;
+    margin-right: 6px;
+}
+
+.permoptions label {
+    vertical-align: top;
 }
 
 #engines { 
