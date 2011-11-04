@@ -3,7 +3,8 @@
     position: relative;
     padding: 10px 10px 24px 10px;
     margin: 0 auto 10px auto;
-    width: 258px;
+    width: 98%;
+    min-width: 250px;
     text-align: center;
 
   -webkit-border-radius: 6px;
@@ -15,7 +16,7 @@
 #header_text {
 	position: absolute;
 	bottom: 8px;
-	left: 30px;
+	left: 19%;
 	font-size: 11.3px;
 	text-align: left;
 	width: 500px
@@ -286,3 +287,4 @@ fieldset {
 	padding: 8px 0 50px;
 	text-align: left;
 }
+

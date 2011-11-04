@@ -217,7 +217,7 @@ function modRights($engine, $comm, $deriv) {
 				<div id="header_text"><span style="color: white;"><?php echo _('Find content you can share, use and remix'); ?></span></div>
 			</div>
             </div>
-            <div class="ten columns omega">
+            <div class="ten columns omega re">
 					<input type="text" id="query" name="query" placeholder="<?php echo _('Enter your search query'); ?> "/>
 					<div id="secondaryOptions">
 						<fieldset id="permissions"> 
