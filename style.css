@@ -42,7 +42,7 @@
     clear: left;
     display: block;
     margin: 0 auto;
-	width: 98%;
+	width: 100%;
     min-width: 250px;
 	padding: 1%;
     font-size: 200%;
@@ -169,7 +169,7 @@ fieldset {
   margin-bottom: 16px;
   min-height: 50px;
   float: left;
-  width: 90%;
+  width: 100%;
 }
 
 #engines .engine {
@@ -246,13 +246,7 @@ fieldset {
 	background-color: #FEE0A2;
 	padding: 10px;
 	margin-bottom: 15px;
-/*
-	padding: 5px 15px;
-	margin-top: 9px;
-	margin-bottom: 5px;
-*/
-/*	width: 260px;*/
-/*	width: 40%;*/
+    width: 100%;
 	-webkit-border-radius: 7px;
 	-webkit-box-shadow: inset 0 2px 3px rgba(128, 128, 128, 0.35);
 	-moz-border-radius: 7px;
