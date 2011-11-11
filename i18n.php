@@ -33,6 +33,11 @@ function get_active_locales() {
 	// Just manually set up the default locale
 	$locales['en'] = 'English';
 
+    if ( ! is_dir(LOCALE_DIR)) {
+        $msg = "The locale directory doesn't exist. Git it!";
+        error_log($msg, 0);
+        die($msg);
+    }
 	$h_dirs = opendir(LOCALE_DIR);
 	while ( false !== ($dir = readdir($h_dirs)) ) {
 		if ( is_dir(LOCALE_DIR . "/$dir") && preg_match("/^[a-z]{2,2}(_[A-Z]{2,4})?$/", $dir, $matches) ) {

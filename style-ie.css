@@ -1,19 +1,10 @@
-
-#submit {
-  padding: 3px 5px;
+#search input#comm,
+#search input#deriv {
+    clear: both;
+    height: 10px;
 }
 
-#engines .engine {
-  display: block;
-  float: left;
-  width: 150px;
-  padding: 2px 5px 5px;
-  margin-right: 5px;
+.permoptions input {
+    vertical-align: top;
+    
 }
-
-#help .column:first-child { padding-top: 15px; }
-
-.wrong {
-  margin-top: 9px;
-}
-
