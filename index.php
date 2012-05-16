@@ -36,7 +36,7 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 			break;
 
 		case "jamendo":
-			$url = 'http://www.jamendo.com/tag/' . $query . '?' . $rights . '&location_country=all&order=rating_desc';
+			$url = 'http://www.jamendo.com/en/search#q=q%3D' . $query . '%26' . $rights; 
 			break;
 
 		case "flickr":
@@ -119,8 +119,13 @@ function modRights($engine, $comm, $deriv) {
 			break;
 
 		case "jamendo":
-			$rights .= $comm ? "license_minrights_c=on&" : "";
-			$rights .= $deriv ? "license_minrights_d=on" : "";
+			if ( $comm && $deriv ) {
+				$rights = 'fq%3Dlicense_cc%3A(-nc%20AND%20-nd)';
+			} elseif ( $comm ) {
+				$rights = 'fq%3Dlicense_cc%3A(-nc)';
+			} elseif ( $deriv ) {
+				$rights = 'fq%3Dlicense_cc%3A(-nd)';
+			}
 			break;
 
 		case "spin":

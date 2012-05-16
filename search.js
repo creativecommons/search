@@ -377,21 +377,13 @@ function modRights() {
 			break;
 
 		case "jamendo":
-			rights = "";
-			//note: apparently they don't check the values of these vars, they just check to see if they're defined
-			//so uncommenting the else's will cause jamendo to think you always want derivs and commercial
-			if (deriv) {
-				rights += "license_minrights_d=on&";
-			}
-			/*else{
-			rights += "license_minrights_d=off&";
-			}*/
-			if (comm) {
-				rights += "license_minrights_c=on";
-			}
-			/*else{
-			rights += "license_minrights_c=off";
-			}*/
+			if ( comm && deriv ) {
+				rights = 'fq%3Dlicense_cc%3A(-nc%20AND%20-nd)';
+			} else if ( comm ) {
+				rights = 'fq%3Dlicense_cc%3A(-nc)';
+			} else if ( deriv ) {
+				rights = 'fq%3Dlicense_cc%3A(-nd)';
+			}       
 			break;
 			
 		case "ccmixter":
@@ -482,7 +474,7 @@ function doSearch() {
 				break;
 				
 			case "jamendo":
-			  url ='http://www.jamendo.com/tag/' + query.val() + '?' + rights + '&location_country=all&order=rating_desc';
+				url = 'http://www.jamendo.com/en/search#q=q%3D' + query.val() + '%26' + rights;
 				break;
 				
 			case "flickr":
