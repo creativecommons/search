@@ -72,7 +72,7 @@ $(function() {
  * 
  */
 
-var engines = ["google", "googleimg", "flickr", "jamendo", "spin", "openclipart", "wikimediacommons", "fotopedia", "europeana", "youtube"];
+var engines = ["google", "googleimg", "flickr", "jamendo", "spin", "openclipart", "wikimediacommons", "fotopedia", "europeana", "youtube", "pixabay"];
 //defaults:
 var engine = "";
 var comm = 1;
@@ -507,6 +507,10 @@ function doSearch() {
 
 			case "youtube":
 				url = 'http://www.youtube.com/results?search_query=' + query.val() + ',creativecommons';
+				break;
+
+			case "pixabay":
+				url = 'http://pixabay.com/en/photos/?q=' + query.val();
 				break;
 
 			case "google":
