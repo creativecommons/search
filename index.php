@@ -59,6 +59,10 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 			$url = 'http://www.youtube.com/results?search_query=' . $query . ',creativecommons';
 			break;
 
+		case "pixabay":
+			$url = 'http://pixabay.com/en/photos/?q=' . $query;
+			break;
+
 		case "googleimg":
 			$url = 'http://images.google.com/images?q=';
 
@@ -330,6 +334,14 @@ function modRights($engine, $comm, $deriv) {
 								<input type="radio" onclick="setEngine(this)" name="engine" value="youtube" id="youtube">
 							</div>
 							<div class="engineDesc"><label for="youtube"><strong>YouTube</strong><br/><?php echo _('Video'); ?></label></div>
+						</div>
+                        </div>
+                        <div class="four columns">
+						<div class="engine">
+							<div class="engineRadio">
+								<input type="radio" onclick="setEngine(this)" name="engine" value="pixabay" id="pixabay">
+							</div>
+							<div class="engineDesc"><label for="pixabay"><strong>Pixabay</strong><br/><?php echo _('Image'); ?></label></div>
 						</div>
                         </div>
                         </div>
