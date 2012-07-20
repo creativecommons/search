@@ -68,7 +68,7 @@ $(function() {
  * 
  */
 
-var engines = ["google", "googleimg", "flickr", "jamendo", "spin", "openclipart", "wikimediacommons", "fotopedia", "europeana", "youtube", "pixabay"];
+var engines = ["google", "googleimg", "flickr", "jamendo", "spin", "openclipart", "wikimediacommons", "fotopedia", "europeana", "youtube", "pixabay", "ccmixter"];
 //defaults:
 var engine = "";
 var comm = 1;
@@ -383,14 +383,6 @@ function modRights() {
 			}       
 			break;
 			
-		case "ccmixter":
-			rights = "";
-			// everything on ccmixter permits derivs
-			if (comm) {
-				rights += "+attribution";
-			}
-			break;
-		
 		case "spin":
 			rights = "_license=";
 			if (!comm && !deriv) {
@@ -434,7 +426,16 @@ function modRights() {
 			}
 			
 			break;
-
+		case "ccmixter":
+			rights = "";
+			if (comm && deriv) {
+				rights = "&lic=by,sa,s,splus,pd,zero";
+			} else if (comm && !deriv) {
+				rights = "&lic=open";
+			} else if (!comm && deriv) {
+				rights = "&lic=by,nc,sa,ncsa,s,splus,pd,zero"
+			}
+			break;
 	}
 
 }
@@ -464,10 +465,6 @@ function doSearch() {
                 
 			case "spin":
 				url = 'http://www.spinxpress.com/getmedia' + rights + '_searchwords=' + query.val()
-				break;
-				
-			case "ccmixter":
-				url = 'http://ccmixter.org/media/tags/' + query.val() + rights;
 				break;
 				
 			case "jamendo":
@@ -514,6 +511,10 @@ function doSearch() {
 				url = 'http://pixabay.com/en/photos/?q=' + query.val();
 				break;
 
+			case "ccmixter":
+				url = 'http://ccmixter.org/api/query?datasource=uploads&search_type=all&sort=rank&search=' + query.val() + rights;
+				break;
+
 			case "google":
 			default:
 				url = 'http://google.com/search?as_rights=(cc_publicdomain|cc_attribute|cc_sharealike' + 
@@ -523,6 +524,7 @@ function doSearch() {
 				break;
 
 		}
+
 		window.location.href = url;
 //		document.getElementBy$('#stat').setAttribute('src','transparent.gif?engine='+engine+'&comm='+comm+'&deriv='+deriv+'&q='+query.value);
 	}

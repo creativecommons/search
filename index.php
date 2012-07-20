@@ -67,6 +67,10 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 			$url = 'http://pixabay.com/en/photos/?q=' . $query;
 			break;
 
+		case "ccmixter":
+			$url = 'http://ccmixter.org/api/query?datasource=uploads&search_type=all&sort=rank&search=' . $query . $rights;
+			break;
+
 		case "googleimg":
 			$url = 'http://images.google.com/images?q=';
 
@@ -170,6 +174,16 @@ function modRights($engine, $comm, $deriv) {
 				$rights = "+AND+europeana_rights%3A*creative*+AND+NOT+europeana_rights%3A*nd*";
 			} else {
 				$rights = "+AND+europeana_rights%3A*creative*+";
+			}
+			break;
+
+		case "ccmixter":
+			if ( $comm && $deriv ) {
+				$rights = "&lic=by,sa,s,splus,pd,zero";
+			} else if ( $comm && ! $deriv ) {
+				$rights = "&lic=open";
+			} else if ( ! $comm && $deriv) {
+				$rights = "&lic=by,nc,sa,ncsa,s,splus,pd,zero";
 			}
 			break;
 
@@ -346,6 +360,14 @@ function modRights($engine, $comm, $deriv) {
 								<input type="radio" onclick="setEngine(this)" name="engine" value="pixabay" id="pixabay">
 							</div>
 							<div class="engineDesc"><label for="pixabay"><strong>Pixabay</strong><br/><?php echo _('Image'); ?></label></div>
+						</div>
+                        </div>
+                        <div class="four columns omega">
+						<div class="engine">
+							<div class="engineRadio">
+								<input type="radio" onclick="setEngine(this)" name="engine" value="ccmixter" id="ccmixter">
+							</div>
+							<div class="engineDesc"><label for="ccmixter"><strong>ccMixter</strong><br/><?php echo _('Music'); ?></label></div>
 						</div>
                         </div>
                         </div>
