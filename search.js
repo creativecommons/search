@@ -299,6 +299,7 @@ function modRights() {
 	
 	var comm = $("#comm").attr("checked");
 	var deriv = $("#deriv").attr("checked");
+	rights = "";
 	
 	switch (engine) {
 
@@ -374,11 +375,11 @@ function modRights() {
 
 		case "jamendo":
 			if ( comm && deriv ) {
-				rights = 'fq%3Dlicense_cc%3A(-nc%20AND%20-nd)';
+				rights = '-nc%20AND%20-nd';
 			} else if ( comm ) {
-				rights = 'fq%3Dlicense_cc%3A(-nc)';
+				rights = '-nc';
 			} else if ( deriv ) {
-				rights = 'fq%3Dlicense_cc%3A(-nd)';
+				rights = '-nd';
 			}       
 			break;
 			
@@ -470,7 +471,11 @@ function doSearch() {
 				break;
 				
 			case "jamendo":
-				url = 'http://www.jamendo.com/en/search#q=q%3D' + query.val() + '%26' + rights;
+				if ( rights ) {
+					url = 'http://www.jamendo.com/en/search#qs=fq=license_cc:(' + rights + ')&q=' + query.val();
+				} else {
+					url = 'http://www.jamendo.com/en/search#qs=q=' + query.val();
+				}
 				break;
 				
 			case "flickr":
