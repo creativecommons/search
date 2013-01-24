@@ -56,7 +56,7 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 			break;
 
 		case "europeana":
-			$url = 'http://www.europeana.eu/portal/brief-doc.html?start=1&view=table&query=' . $query . $rights;
+			$url = 'http://www.europeana.eu/portal/search.html?query=' . $query . $rights;
 			break;
 
 		case "youtube":
@@ -69,6 +69,10 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 
 		case "ccmixter":
 			$url = 'http://ccmixter.org/api/query?datasource=uploads&search_type=all&sort=rank&search=' . $query . $rights;
+			break;
+
+		case "soundcloud":
+			$url = 'http://soundcloud.com/tracks/search?q[cc_licensed]=true&q[fulltext]=' . $query . $rights;
 			break;
 
 		case "googleimg":
@@ -167,13 +171,13 @@ function modRights($engine, $comm, $deriv) {
 
 		case "europeana":
 			if ( $comm && $deriv ) {
-				$rights = "+AND+europeana_rights%3A*creative*+AND+NOT+europeana_rights%3A*nc*+AND+NOT+europeana_rights%3A*nd*";
+				$rights = "+AND+RIGHTS%3A*creative*+AND+NOT+RIGHTS%3A*nc*+AND+NOT+RIGHTS%3A*nd*";
 			} else if ( $comm && ! $deriv ) {
-				$rights = "+AND+europeana_rights%3A*creative*+AND+NOT+europeana_rights%3A*nc*";
+				$rights = "+AND+RIGHTS%3A*creative*+AND+NOT+RIGHTS%3A*nc*";
 			} else if ( ! $comm && $deriv ) {
-				$rights = "+AND+europeana_rights%3A*creative*+AND+NOT+europeana_rights%3A*nd*";
+				$rights = "+AND+RIGHTS%3A*creative*+AND+NOT+RIGHTS%3A*nd*";
 			} else {
-				$rights = "+AND+europeana_rights%3A*creative*+";
+				$rights = "+AND+RIGHTS%3A*creative*+";
 			}
 			break;
 
@@ -184,6 +188,16 @@ function modRights($engine, $comm, $deriv) {
 				$rights = "&lic=open";
 			} else if ( ! $comm && $deriv) {
 				$rights = "&lic=by,nc,sa,ncsa,s,splus,pd,zero";
+			}
+			break;
+
+		case "soundcloud":
+			if ( $comm && $deriv ) {
+				$rights = "&q[commercial]=true&q[derivative]=true";
+			} else if ( $comm && ! $deriv ) {
+				$rights = "&q[commercial]=true";
+			} else if ( ! $comm && $deriv) {
+				$rights = "&q[derivative]=true";
 			}
 			break;
 
@@ -371,6 +385,16 @@ function modRights($engine, $comm, $deriv) {
 						</div>
                         </div>
                         </div>
+                        <div class="row">
+                        <div class="four columns alpha">
+						<div class="engine">
+							<div class="engineRadio">
+								<input type="radio" onclick="setEngine(this)" name="engine" value="soundcloud" id="soundcloud">
+							</div>
+							<div class="engineDesc"><label for="soundcloud"><strong>SoundCloud</strong><br/><?php echo _('Music'); ?></label></div>
+						</div>
+                        </div>
+			</div>
 					</fieldset>
 				</form>
                 </div>

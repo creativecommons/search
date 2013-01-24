@@ -68,7 +68,7 @@ $(function() {
  * 
  */
 
-var engines = ["google", "googleimg", "flickr", "jamendo", "spin", "openclipart", "wikimediacommons", "fotopedia", "europeana", "youtube", "pixabay", "ccmixter"];
+var engines = ["google", "googleimg", "flickr", "jamendo", "spin", "openclipart", "wikimediacommons", "fotopedia", "europeana", "youtube", "pixabay", "ccmixter", "soundcloud"];
 //defaults:
 var engine = "";
 var comm = 1;
@@ -416,13 +416,13 @@ function modRights() {
 		case "europeana":
 			rights = "";
 			if (comm && deriv) {
-				rights = "+AND+europeana_rights%3A*creative*+AND+NOT+europeana_rights%3A*nc*+AND+NOT+europeana_rights%3A*nd*";
+				rights = "+AND+RIGHTS%3A*creative*+AND+NOT+RIGHTS%3A*nc*+AND+NOT+RIGHTS%3A*nd*";
 			} else if (comm && !deriv) {
-				rights = "+AND+europeana_rights%3A*creative*+AND+NOT+europeana_rights%3A*nc*";
+				rights = "+AND+RIGHTS%3A*creative*+AND+NOT+RIGHTS%3A*nc*";
 			} else if (!comm && deriv) {
-				rights = "+AND+europeana_rights%3A*creative*+AND+NOT+europeana_rights%3A*nd*"
+				rights = "+AND+RIGHTS%3A*creative*+AND+NOT+RIGHTS%3A*nd*"
 			} else {
-				rights = "+AND+europeana_rights%3A*creative*+";
+				rights = "+AND+RIGHTS%3A*creative*+";
 			}
 			
 			break;
@@ -436,6 +436,17 @@ function modRights() {
 				rights = "&lic=by,nc,sa,ncsa,s,splus,pd,zero"
 			}
 			break;
+		case "soundcloud":
+			rights = "";
+			if (comm && deriv) {
+				rights = "&q[commercial]=true&q[derivative]=true";
+			} else if (comm && !deriv) {
+				rights = "&q[commercial]=true";
+			} else if (!comm && deriv) {
+				rights = "&q[derivative]=true";
+			}
+			break;
+
 	}
 
 }
@@ -500,7 +511,7 @@ function doSearch() {
 				break;
 
 			case "europeana":
-				url = 'http://www.europeana.eu/portal/brief-doc.html?start=1&view=table&query=' + query.val() + rights;
+				url = 'http://www.europeana.eu/portal/search.html?query=' + query.val() + rights;
 				break;
 
 			case "youtube":
@@ -513,6 +524,10 @@ function doSearch() {
 
 			case "ccmixter":
 				url = 'http://ccmixter.org/api/query?datasource=uploads&search_type=all&sort=rank&search=' + query.val() + rights;
+				break;
+
+			case "soundcloud":
+				url = 'http://soundcloud.com/tracks/search?q[cc_licensed]=true&q[fulltext]=' + query.val() + rights;
 				break;
 
 			case "google":
