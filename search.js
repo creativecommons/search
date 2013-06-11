@@ -438,13 +438,13 @@ function modRights() {
 			break;
 		case "soundcloud":
 			rights = "";
-			if (comm && deriv) {
-				rights = "&q[commercial]=true&q[derivative]=true";
-			} else if (comm && !deriv) {
-				rights = "&q[commercial]=true";
-			} else if (!comm && deriv) {
-				rights = "&q[derivative]=true";
-			}
+                        if (comm && deriv) {
+                                rights = "&filter.license=to_modify_commercially";
+                        } else if (comm && !deriv) {
+                                rights = "&filter.license=to_use_commercially";
+                        } else if (!comm && deriv) {
+                                $rights = "&filter.license=to_share";
+                        }
 			break;
 
 	}
@@ -527,7 +527,7 @@ function doSearch() {
 				break;
 
 			case "soundcloud":
-				url = 'http://soundcloud.com/tracks/search?q[cc_licensed]=true&q[fulltext]=' + query.val() + rights;
+				url = 'http://soundcloud.com/search/sounds?q=' + query.val() + rights;
 				break;
 
 			case "google":

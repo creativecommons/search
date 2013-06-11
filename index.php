@@ -72,7 +72,7 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 			break;
 
 		case "soundcloud":
-			$url = 'http://soundcloud.com/tracks/search?q[cc_licensed]=true&q[fulltext]=' . $query . $rights;
+			$url = 'https://soundcloud.com/search/sounds?q=' . $query . $rights;
 			break;
 
 		case "googleimg":
@@ -193,11 +193,11 @@ function modRights($engine, $comm, $deriv) {
 
 		case "soundcloud":
 			if ( $comm && $deriv ) {
-				$rights = "&q[commercial]=true&q[derivative]=true";
+				$rights = "&filter.license=to_modify_commercially";
 			} else if ( $comm && ! $deriv ) {
-				$rights = "&q[commercial]=true";
+				$rights = "&filter.license=to_use_commercially";
 			} else if ( ! $comm && $deriv) {
-				$rights = "&q[derivative]=true";
+				$rights = "&filter.license=to_share";
 			}
 			break;
 
