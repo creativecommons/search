@@ -196,7 +196,7 @@ function modRights($engine, $comm, $deriv) {
 				$rights = "&filter.license=to_modify_commercially";
 			} else if ( $comm && ! $deriv ) {
 				$rights = "&filter.license=to_use_commercially";
-			} else if ( ! $comm && $deriv) {
+			} else if ( (! $comm && $deriv) || (! $comm && ! $deriv) ) {
 				$rights = "&filter.license=to_share";
 			}
 			break;
