@@ -480,9 +480,9 @@ function doSearch() {
 				
 			case "jamendo":
 				if ( rights ) {
-					url = 'http://www.jamendo.com/en/search#qs=fq=license_cc:(' + rights + ')&q=' + query.val();
+					url = 'http://www.jamendo.com/search?qs=fq=license_cc:(' + rights + ')&q=' + query.val();
 				} else {
-					url = 'http://www.jamendo.com/en/search#qs=q=' + query.val();
+					url = 'http://www.jamendo.com/search?qs=q=' + query.val();
 				}
 				break;
 				
