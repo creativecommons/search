@@ -7,7 +7,7 @@ $languages = get_active_locales();
  * If $engine is set in the request, then the user must have javascript turned
  * off, else they would have gone directly to the search site, and not back to
  * index.php.  This block handles those who don't uses javascript for whatever
- * reason.
+ * reason and could therefor be easily used as an API.
  */
 if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 
@@ -24,7 +24,8 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 	$rights = modRights($engine, $comm, $deriv);
 
 	$url = "";
-        
+    
+    // NOTE: if you make changes here, you should make a similar change in search.js   
 	switch ( $engine ) {
 
 		case "openclipart":
@@ -37,9 +38,9 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 
 		case "jamendo":
 			if ( $rights ) {
-				$url = 'http://www.jamendo.com/en/search#qs=fq=license_cc:(' . $rights . ')&q=' . $query; 
+				$url = 'http://www.jamendo.com/search?qs=fq=license_cc:(' . $rights . ')&q=' . $query; 
 			} else {
-				$url = 'http://www.jamendo.com/en/search#qs=q=' . $query; 
+				$url = 'http://www.jamendo.com/search?qs=q=' . $query; 
 			}
 			break;
 
