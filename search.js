@@ -468,7 +468,8 @@ function doSearch() {
 	if ((query.val().length > 0)/* && (query.className == "active")*/) {
 		// set up rights string, works if user hits "go" or a tab. 
 		modRights();
-
+		
+		// NOTE: if you make changes here, you should make a similar change in search.php 
 		switch (engine) {
 			case "openclipart":
 		    url = 'http://openclipart.org/search/?query=' + query.val();
