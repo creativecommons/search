@@ -500,7 +500,7 @@ function doSearch() {
 				break;
 		   
 			case "googleimg":
-			   url = 'http://images.google.com/images?as_q=' + query.val() + '&as_rights=(cc_publicdomain|cc_attribute|cc_sharealike' + ((comm) ? "" : "|cc_noncommercial") + ((deriv) ? "" : "|cc_nonderived") + ')' + rights;
+			   url = 'https://www.google.com/search?site=imghp&tbm=isch&q=' + query.val() + '&tbs=sur:f' + ((deriv) ? "m" : "") + ((comm) ? "c" : "");
 			   break;
 			
 			case "wikimediacommons":

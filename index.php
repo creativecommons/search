@@ -77,7 +77,7 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 			break;
 
 		case "googleimg":
-			$url = 'http://images.google.com/images?q=';
+			$url = 'https://www.google.com/search?site=imghp&tbm=isch&q=';
 
 		case "google":
 		default:
@@ -103,28 +103,15 @@ function modRights($engine, $comm, $deriv) {
 
 		case "google":
 		case "googleimg":
-
-			$rights = "(cc_publicdomain|cc_attribute|cc_sharealike";
-			$extra_rights = ".-(";
-
-			if ( $comm ) {
-				$extra_rights .= "cc_noncommercial";
-			} else {
-				$rights .= "|cc_noncommercial";
-			}
-
-			if ( $deriv ) {
-				$extra_rights .= $comm ? "|cc_nonderived" : "cc_nonderived";
-			} else {
-				$rights .= "|cc_nonderived";
-			}
-
-			$rights .= ")";
-
-			if ( $extra_rights != ".-(" ) {
-				$extra_rights .= ")";
-				$rights .= $extra_rights;
-			}
+			/*			
+			fmc	Labeled for reuse with modification
+			fc	Labeled for reuse
+			fm	Labeled for noncommercial reuse with modification
+			f	Labeled for noncommercial reuse
+			*/
+			$rights = "&tbs=sur:f";
+			$rights .= $comm ? "m" : "";
+			$rights .= $deriv ? "c" : "";
 			
 			break;
 
