@@ -9,10 +9,12 @@ $languages = get_active_locales();
  * index.php.  This block handles those who don't uses javascript for whatever
  * reason and could therefor be easily used as an API.
  */
+
+	$query = $_REQUEST['query']; // moving this here, we want to let people search and come here
+
 if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 
 	$engine = $_REQUEST['engine'];
-	$query = $_REQUEST['query'];
 	$comm = isset($_REQUEST['comm']) ? TRUE : FALSE;
 	$deriv = isset($_REQUEST['deriv']) ? TRUE : FALSE;
         
