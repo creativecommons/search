@@ -248,7 +248,7 @@ function modRights($engine, $comm, $deriv) {
 			</div>
             </div>
             <div class="nine columns omega re">
-					<input type="text" id="query" name="query" placeholder="<?php echo _('Enter your search query'); ?> "/>
+					<input type="text" id="query" name="query" value="<?php echo $query; ?>" placeholder="<?php echo _('Enter your search query'); ?> "/>
 					<div id="secondaryOptions">
 						<fieldset id="permissions"> 
 							<small>
