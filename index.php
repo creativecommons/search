@@ -292,10 +292,10 @@ function modRights($engine, $comm, $deriv) {
                         </div>
                         <div class="four columns">
 						<div class="engine">
-							<div class="engineRadio"> <!--
-								<input type="radio" onclick="setEngine(this)" name="engine" value="fotopedia" id="fotopedia">
+							<div class="engineRadio"> 
+								<input type="radio" onclick="setEngine(this)" name="engine" value="" id="">
 							</div>
-							<div class="engineDesc"><label for="fotopedia"><strong>Fotopedia</strong><br/><?php echo _('Image'); ?></label></div> -->
+							<div class="engineDesc"><label for="fotopedia"><strong></strong><br/></label></div> 
 						</div>
                         </div>
                         <div class="four columns omega">
