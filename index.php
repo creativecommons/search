@@ -238,6 +238,11 @@ function modRights($engine, $comm, $deriv) {
         <?php include 'cc-wp/page-nav.php'; ?>
         <div id="main" role="main">
             <div class="container">
+
+
+<div style="background-color: #ffb; padding: 14px; margin-top: 14px; border: 1px solid orange;">CC search is being replaced with a new search tool from Creative Commons. <a href="https://github.com/creativecommons/garmonbozia">Check out the GitHub project</a> or you can <a href="https://donate.creativecommons.org/civicrm/profile/create?gid=37&reset=1">get email updates on the project</a></div>
+
+        
                 <div class="sixteen columns">
 
 		<div class="first row">
