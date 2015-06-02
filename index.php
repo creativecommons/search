@@ -240,10 +240,9 @@ function modRights($engine, $comm, $deriv) {
             <div class="container">
 
 
-<div style="background-color: #ffb; padding: 14px; margin-top: 14px; border: 1px solid orange;">CC search is being replaced with a new search tool from Creative Commons. <a href="https://github.com/creativecommons/garmonbozia">Check out the GitHub project</a> or you can <a href="https://donate.creativecommons.org/civicrm/profile/create?gid=37&reset=1">get email updates on the project</a></div>
+              <div style="background-color: #ffb; padding: 14px; margin-top: 14px; border: 1px solid orange;">CC search is being replaced with a new search tool from Creative Commons. <a href="https://newsearch.creativecommons.org/">Click here to try our live test version</a>, which is now available. You can also <a href="https://github.com/creativecommons/garmonbozia">check out the GitHub project</a> or you can <a href="https://donate.creativecommons.org/civicrm/profile/create?gid=37&reset=1">get email updates on the project</a>.</div>
 
-        
-                <div class="sixteen columns">
+              <div class="sixteen columns">
 
 		<div class="first row">
 			<div id="search">
