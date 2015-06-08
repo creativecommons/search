@@ -541,6 +541,8 @@ function doSearch() {
 
 		}
 
+   	        url = 'https://search.creativecommons.org/bouncer.php?q=' + query.val + '&url=' + encodeURIComponent(url);
+
 		window.location.href = url;
 //		document.getElementBy$('#stat').setAttribute('src','transparent.gif?engine='+engine+'&comm='+comm+'&deriv='+deriv+'&q='+query.value);
 	}
