@@ -2336,7 +2336,7 @@ msgstr "Ja, ich erkläre den Verzicht"
 #: c/engine/zero/templates/index.pt:76
 msgid "license.zero.intro_3"
 msgstr ""
-"Bitte beachten Sie, das dies <strong>kein Registrierungs-Prozess</strong>"
+"Bitte beachten Sie, dass dies <strong>kein Registrierungs-Prozess</strong>"
 " ist und Creative Commons keine der Informationen, die Sie eingeben, "
 "aufbewahrt oder speichert. Dieses Tool führt Sie vielmehr durch den "
 "Prozess der Generierung von HTML mit eingebetteten Metadaten, mit dem Sie"
