@@ -225,7 +225,7 @@ function modRights($engine, $comm, $deriv) {
 
 		<link rel="search" type="application/opensearchdescription+xml" title="Creative Commons Search" href="http://search.creativecommons.org/ccsearch.xml" />
 		<link rel="stylesheet" href="style.css" type="text/css" media="screen" title="no title" charset="utf-8" />
-	  <link rel="stylesheet" href="donate-slide.css" type="text/css" media="screen" title="no title" charset="utf-8" />
+	  <link rel="stylesheet" href="donate-slide.css?v=20161208" type="text/css" media="screen" title="no title" charset="utf-8" />
     <link rel="stylesheet" id="cc-google-fonts-css" href="//fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C600%2C700%7CRoboto+Condensed&amp;ver=4.6.1" type="text/css" media="all">
 
 		<!--[if lte IE 7]>
@@ -424,10 +424,12 @@ function modRights($engine, $comm, $deriv) {
 
         <!-- <div style="background-color: #ffb; padding: 14px; margin-top: 14px; border: 1px solid orange;">CC search is being replaced with a new search tool from Creative Commons. <a href="https://newsearch.creativecommons.org/">Click here to try our live test version</a>, which is now available. You can also <a href="https://github.com/creativecommons/garmonbozia">check out the GitHub project</a> or you can <a href="https://donate.creativecommons.org/civicrm/profile/create?gid=37&reset=1">get email updates on the project</a>.</div> -->
 
+            </div><!--! end of .container -->
       <?php include('donate-slide.php'); ?>
 
-            </div><!--! end of .container -->
 		</div><!--! end of #main -->
+
+
 
 <?php include 'cc-wp/page-footer.php'; ?>
     </div> <!--! end of #container -->
