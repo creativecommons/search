@@ -26,7 +26,7 @@
 #deed-donate-slide.slider {
   width: 100%;
   margin: 0 auto 0 -400px;
-  position: fixed;
+  position: absolute;
   left: 0px;
   overflow: scroll;
   top: 205px;
