@@ -10,7 +10,7 @@ $languages = get_active_locales();
  * reason and could therefor be easily used as an API.
  */
 
-	$query = isset($_REQUEST['query']) ? $_REQUEST['query'] : ''; // moving this here, we want to let people search and come here
+$query = isset($_REQUEST['query']) ? $_REQUEST['query'] : ''; // moving this here, we want to let people search and come here
 
 if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 
@@ -225,9 +225,7 @@ function modRights($engine, $comm, $deriv) {
 
 		<link rel="search" type="application/opensearchdescription+xml" title="Creative Commons Search" href="http://search.creativecommons.org/ccsearch.xml" />
 		<link rel="stylesheet" href="style.css" type="text/css" media="screen" title="no title" charset="utf-8" />
-	  <link rel="stylesheet" href="donate-slide.css?v=20161208" type="text/css" media="screen" title="no title" charset="utf-8" />
-    <link rel="stylesheet" id="cc-google-fonts-css" href="//fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C600%2C700%7CRoboto+Condensed&amp;ver=4.6.1" type="text/css" media="all">
-
+	
 		<!--[if lte IE 7]>
 		<link rel="stylesheet" href="style-ie.css" type="text/css" media="screen" charset="utf-8" />
 		<![endif]-->
@@ -241,11 +239,17 @@ function modRights($engine, $comm, $deriv) {
 	<div id="container">
         <?php include 'cc-wp/page-nav.php'; ?>
         <div id="main" role="main">
-            <div class="container">
+        <div class="container">
 
-              <div class="sixteen columns">
+        <div class="sixteen columns">
 
-		<div class="first row">
+        <div class="first row">
+        <div class="sixteen columns alpha wrong">
+        <h3><?php echo _('<a href="https://ccsearch.creativecommons.org">Try the new CC Search beta</a>, with list-making and one-click attribution!'); ?></h3>
+        </div>
+        </div>
+
+		<div class="row">
 			<div id="search">
 				<form id="search_form" method="get" onsubmit="return doSearch()">
             <div class="seven columns alpha">
@@ -257,7 +261,7 @@ function modRights($engine, $comm, $deriv) {
             <div class="nine columns omega re">
 					<input type="text" id="query" name="query" value="<?php echo $query; ?>" placeholder="<?php echo _('Enter your search query'); ?> "/>
 					<div id="secondaryOptions">
-						<fieldset id="permissions">
+						<fieldset id="permissions"> 
 							<small>
                                 <div class="statement">
 								<strong><?php echo _('I want something that I can...'); ?></strong>
@@ -297,7 +301,7 @@ function modRights($engine, $comm, $deriv) {
                         </div>
                         <div class="four columns">
 						<div class="engine">
-							<div class="engineRadio">
+							<div class="engineRadio"> 
 								<input type="radio" onclick="setEngine(this)" name="engine" value="" id="">
 							</div>
 							<div class="engineDesc"><label for="fotopedia"><strong></strong><br/></label></div> 
@@ -422,14 +426,8 @@ function modRights($engine, $comm, $deriv) {
 
         </div>
 
-        <!-- <div style="background-color: #ffb; padding: 14px; margin-top: 14px; border: 1px solid orange;">CC search is being replaced with a new search tool from Creative Commons. <a href="https://newsearch.creativecommons.org/">Click here to try our live test version</a>, which is now available. You can also <a href="https://github.com/creativecommons/garmonbozia">check out the GitHub project</a> or you can <a href="https://donate.creativecommons.org/civicrm/profile/create?gid=37&reset=1">get email updates on the project</a>.</div> -->
-
-            </div><!--! end of .container -->
-      <?php include('donate-slide.php'); ?>
-
-		</div><!--! end of #main -->
-
-
+      </div><!--! end of .container -->
+    </div><!--! end of #main -->
 
 <?php include 'cc-wp/page-footer.php'; ?>
     </div> <!--! end of #container -->
