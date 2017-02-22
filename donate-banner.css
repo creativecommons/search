@@ -1,0 +1,236 @@
+/* -- Donation bar -- */
+.donation-bar-wrapper {
+  background: #E9E9E9;
+  border-bottom: 1px solid #fff;
+  color: #333333;
+  font-weight: 700;
+  padding: 15px 0;
+}
+
+button.donate,
+  .button.donate {
+    background-color: transparent;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 0;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 19px;
+    margin-bottom: 0;
+    padding: 10px 19px;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+        touch-action: manipulation;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    background: #01A635;
+    border-color: #01A635;
+    color: #fff; }
+    button.donate [class*="cc-icon-"]::before,
+    .button.donate [class*="cc-icon-"]::before {
+      line-height: 15px; }
+    button.donate::after,
+    .button.donate::after {
+      border-left-color: #01A635; }
+    button.donate:hover,
+    .button.donate:hover {
+      background: #FB7928;
+      border-color: #FB7928;
+      color: #fff; }
+      button.donate:hover::after,
+      .button.donate:hover::after {
+        border-left-color: #FB7928; }
+    button.donate.arrow,
+    .button.donate.arrow {
+      background-color: transparent;
+      background-image: none;
+      border: 1px solid transparent;
+      border-radius: 0;
+      cursor: pointer;
+      display: inline-block;
+      font-family: "Source Sans Pro", sans-serif;
+      font-size: 19px;
+      font-weight: 700;
+      line-height: 19px;
+      margin-bottom: 0;
+      padding: 10px 19px;
+      text-align: center;
+      text-decoration: none;
+      white-space: nowrap;
+      vertical-align: middle;
+      -ms-touch-action: manipulation;
+          touch-action: manipulation;
+      -webkit-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      padding-top: 0.4em;
+      position: relative;
+      z-index: 1;
+      background: #01A635;
+      border-color: #01A635;
+      color: #fff; }
+      button.donate.arrow::after,
+      .button.donate.arrow::after {
+        content: '';
+        display: block;
+        border-color: transparent;
+        border-style: solid none solid solid;
+        border-width: 1em 0 1em 0.6em;
+        height: 0;
+        left: 100%;
+        position: absolute;
+        top: 0;
+        width: 0;
+        margin: -1px 1px; }
+      button.donate.arrow [class*="cc-icon-"]::before,
+      .button.donate.arrow [class*="cc-icon-"]::before {
+        line-height: 0.8em; }
+      button.donate.arrow::after,
+      .button.donate.arrow::after {
+        border-left-color: #01A635; }
+      button.donate.arrow:hover,
+      .button.donate.arrow:hover {
+        background: #FB7928;
+        border-color: #FB7928;
+        color: #fff; }
+        button.donate.arrow:hover::after,
+        .button.donate.arrow:hover::after {
+          border-left-color: #FB7928; }
+
+.donation-bar-secondary {
+  position: relative;
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+@media (max-width: 767px) {
+  .donation-bar-secondary {
+    max-width: 420px;
+  }
+}
+
+@media (min-width: 959px) {
+  .donation-bar-secondary {
+    max-width: 960px;
+    padding-left: 20px;
+  }
+}
+
+
+.donation-bar-inner {
+
+  font-family: "Source Sans Pro", sans-serif;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 20px;
+  margin-right: 20px;
+  max-width: 1120px; }
+  @media (min-width: 1192px) {
+    .donation-bar-inner {
+      margin-left: auto;
+      margin-right: auto; } }
+  .donation-bar-inner:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .donation-bar-inner .donate-text {
+    display: block;
+    margin: 0;
+    margin-right: 36px;
+    font-size: 18px;
+    font-weight: bold;
+
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+        -ms-flex-positive: 0;
+            flex-grow: 0;
+    -webkit-align-self: center;
+        -ms-flex-item-align: center;
+                -ms-grid-row-align: center;
+            align-self: center; }
+  .donation-bar-inner .donate-action {
+    -webkit-align-self: center;
+        -ms-flex-item-align: center;
+                -ms-grid-row-align: center;
+            align-self: center;
+    -webkit-flex-shrink: 0;
+        -ms-flex-negative: 0;
+            flex-shrink: 0; }
+  .donation-bar-inner .button.donate {
+    display: block;
+    padding-left: 46px !important;
+    padding-right: 8px !important;
+    margin-right: 8px;
+  }
+
+  .donation-bar-inner .button.donate::before {
+    position: absolute;
+    content: '';
+    background: url("/img/cc-heart.white.png") no-repeat left center;
+    background-image: url("/img/cc-heart.white.svg"), none;
+    background-size: 30px auto;
+    width: 30px;
+    height: 28px;
+    top: 4px;
+    left: 8px;
+  }
+
+
+  @media (max-width: 767px) {
+    .hide-on-mobile {
+      display: none;
+    }
+
+    .donation-bar-inner {
+      font-size: 19px;
+      line-height: 22.5px;
+      font-weight: 600; }
+      .donation-bar-inner .donate-text {
+        margin-right: 10px;
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 22.5px;
+      }
+  }
+
+  @media (min-width: 959px) {
+    .donation-bar-inner {
+      font-size: 28px;
+    }
+      .donation-bar-inner .donate-text {
+      font-size: 28px;
+      line-height: 42px;
+      font-weight: bold;
+        -webkit-box-flex: 0;
+        -webkit-flex-grow: 0;
+            -ms-flex-positive: 0;
+                flex-grow: 0; }
+      .donation-bar-inner .button.donate {
+        font-size: 28px !important;
+        padding-left: 60px !important;
+        padding-right: 20px !important;
+        padding-bottom: 18px;
+        padding-top: 17px;
+        margin-right: 20px;
+      }
+        .donation-bar-inner .button.donate::before {
+          background-size: 36px auto;
+          width: 36px;
+          height: 32px;
+          top: 10px;
+          left: 12px; } }
+
+

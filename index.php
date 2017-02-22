@@ -17,7 +17,7 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 	$engine = $_REQUEST['engine'];
 	$comm = isset($_REQUEST['comm']) ? TRUE : FALSE;
 	$deriv = isset($_REQUEST['deriv']) ? TRUE : FALSE;
-        
+
 	// We never want the search to execute with the default text
 	if ( $query == "Enter search query" ) {
 		$query = "flowers";
@@ -26,8 +26,8 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 	$rights = modRights($engine, $comm, $deriv);
 
 	$url = "";
-    
-    // NOTE: if you make changes here, you should make a similar change in search.js   
+
+    // NOTE: if you make changes here, you should make a similar change in search.js
 	switch ( $engine ) {
 
 		case "openclipart":
@@ -100,14 +100,14 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
  * Sets up the right query string for the various content providers.
  */
 function modRights($engine, $comm, $deriv) {
-        
+
 	$rights = "";
 
 	switch ( $engine ) {
 
 		case "google":
 		case "googleimg":
-			/*			
+			/*
 			fmc	Labeled for reuse with modification
 			fc	Labeled for reuse
 			fm	Labeled for noncommercial reuse with modification
@@ -116,7 +116,7 @@ function modRights($engine, $comm, $deriv) {
 			$rights = "&tbs=sur:f";
 			$rights .= $comm ? "m" : "";
 			$rights .= $deriv ? "c" : "";
-			
+
 			break;
 
 		case "flickr":
@@ -225,7 +225,9 @@ function modRights($engine, $comm, $deriv) {
 
 		<link rel="search" type="application/opensearchdescription+xml" title="Creative Commons Search" href="http://search.creativecommons.org/ccsearch.xml" />
 		<link rel="stylesheet" href="style.css" type="text/css" media="screen" title="no title" charset="utf-8" />
-	
+    <link rel='stylesheet' id='cc-google-fonts-css' href='//fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C600%2C700%7CRoboto+Condensed&#038;ver=4.7.2' type='text/css' media='all'/>
+    <link rel="stylesheet" href="donate-banner.css" type="text/css" media="screen" title="no title" charset="utf-8" />
+
 		<!--[if lte IE 7]>
 		<link rel="stylesheet" href="style-ie.css" type="text/css" media="screen" charset="utf-8" />
 		<![endif]-->
@@ -238,6 +240,8 @@ function modRights($engine, $comm, $deriv) {
 	<body>
 	<div id="container">
         <?php include 'cc-wp/page-nav.php'; ?>
+        <?php include 'donate-banner.php'; ?>
+
         <div id="main" role="main">
         <div class="container">
 
