@@ -433,5 +433,7 @@ function modRights($engine, $comm, $deriv) {
     </div> <!--! end of #container -->
 <?php include 'cc-wp/footer-codes.php'; ?>
 
+  <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us13.list-manage.com","uuid":"4051250396fe81f55034e2d49","lid":"5b82643372"}) })</script>
+
 </body>
 </html>
