@@ -6,7 +6,7 @@
 
             <div class="donate-box">
               <div class="widget-inner">
-                <div class="gf_browser_chrome gform_wrapper" id="gform_wrapper_10"><form method="get" id="gform_10" action="https://creativecommons.org/donate">
+                <div class="gf_browser_chrome gform_wrapper" id="gform_wrapper_10"><form method="get" id="gform_10" action="https://us.netdonor.net/page/6650/donate/1">
                   <div class="gform_body">
                     <ul id="gform_fields_10" class="gform_fields top_label form_sublabel_below description_below">
                       <li id="field_10_2" class="gfield gfield_html gfield_html_formatted gfield_no_follows_desc field_sublabel_below field_description_below">
@@ -16,11 +16,11 @@
                         <label class="gfield_label"></label>
                         <div class="ginput_container ginput_container_radio">
                           <ul class="gfield_radio" id="input_10_1">
-                            <li class="gchoice_10_1_0"><input name="amount" type="radio" value="$100" id="choice_10_1_0" tabindex="1"><label for="choice_10_1_0" id="label_10_1_0">$100</label></li>
-                            <li class="gchoice_10_1_1"><input name="amount" type="radio" value="$50" checked="checked" id="choice_10_1_1" tabindex="2"><label for="choice_10_1_1" id="label_10_1_1">$50</label></li>
-                            <li class="gchoice_10_1_2"><input name="amount" type="radio" value="$25" id="choice_10_1_2" tabindex="3"><label for="choice_10_1_2" id="label_10_1_2">$25</label></li>
-                            <li class="gchoice_10_1_3"><input name="amount" type="radio" value="$5" id="choice_10_1_3" tabindex="4"><label for="choice_10_1_3" id="label_10_1_3">$5</label></li>
-                            <li class="gchoice_10_1_4"><input name="amount" type="radio" value="gf_other_choice" id="choice_10_1_4" tabindex="5" onfocus="$(this).next('input').focus();"><input id="input_10_1_other" name="amount_other" type="text" value="Other" aria-label="Other" onfocus="$(this).prev(&quot;input&quot;)[0].click(); if($(this).val() == &quot;<?php echo _("Other"); ?>&quot;) { $(this).val(&quot;&quot;); }" onblur="if($(this).val().replace(&quot; &quot;, &quot;&quot;) == &quot;&quot;) { $(this).val(&quot;<?php echo _("Other"); ?>&quot;); }" tabindex="5"></li>
+                            <li class="gchoice_10_1_0"><input name="transaction.donationAmt" type="radio" value="$100" id="choice_10_1_0" tabindex="1"><label for="choice_10_1_0" id="label_10_1_0">$100</label></li>
+                            <li class="gchoice_10_1_1"><input name="transaction.donationAmt" type="radio" value="$50" checked="checked" id="choice_10_1_1" tabindex="2"><label for="choice_10_1_1" id="label_10_1_1">$50</label></li>
+                            <li class="gchoice_10_1_2"><input name="transaction.donationAmt" type="radio" value="$25" id="choice_10_1_2" tabindex="3"><label for="choice_10_1_2" id="label_10_1_2">$25</label></li>
+                            <li class="gchoice_10_1_3"><input name="transaction.donationAmt" type="radio" value="$5" id="choice_10_1_3" tabindex="4"><label for="choice_10_1_3" id="label_10_1_3">$5</label></li>
+                            <li class="gchoice_10_1_4"><input name="transaction.donationAmt" type="radio" value="gf_other_choice" id="choice_10_1_4" tabindex="5" onfocus="$(this).next('input').focus();"><input id="input_10_1_other" name="amount_other" type="text" value="Other" aria-label="Other" onfocus="$(this).prev(&quot;input&quot;)[0].click(); if($(this).val() == &quot;<?php echo _("Other"); ?>&quot;) { $(this).val(&quot;&quot;); }" onblur="if($(this).val().replace(&quot; &quot;, &quot;&quot;) == &quot;&quot;) { $(this).val(&quot;<?php echo _("Other"); ?>&quot;); }" tabindex="5"></li>
                           </ul>
                         </div>
                       </li>
