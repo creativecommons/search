@@ -245,7 +245,7 @@ function modRights($engine, $comm, $deriv) {
 
         <div class="first row">
         <div class="sixteen columns alpha wrong">
-        <h3><?php echo _('<a href="https://ccsearch.creativecommons.org">Try the new CC Search beta</a>, with list-making and one-click attribution!'); ?></h3>
+        <h3><?php echo _('Try the new CC Search for images <a href="https://ccsearch.creativecommons.org">here</a>!'); ?></h3>
         </div>
         </div>
 
