@@ -43,7 +43,7 @@ $(function() {
 	*/
 	$('#addOpenSearch').click(function() {
 	    if ((typeof window.external == "object") && ((typeof window.external.AddSearchProvider == "unknown") || (typeof window.external.AddSearchProvider == "function"))) {
-			window.external.AddSearchProvider("http://search.creativecommons.org/ccsearch.xml");
+			window.external.AddSearchProvider("http://oldsearch.creativecommons.org/ccsearch.xml");
 		} else {
 			alert("Your browser does not support OpenSearch.");
 		}
@@ -119,7 +119,7 @@ function getCookie(name) {
 
 var cookie_name = '__ccsearch';
 var cookie_break_text = "[-]";
-var cookie_domain = 'search.creativecommons.org';
+var cookie_domain = 'oldsearch.creativecommons.org';
 //var cookie_domain = '';
 
 function saveSettings(){
@@ -541,7 +541,7 @@ function doSearch() {
 
 		}
 
-   	    url = 'https://search.creativecommons.org/bouncer.php?q=' + query.val() + '&url=' + encodeURIComponent(url);
+   	    url = 'https://oldsearch.creativecommons.org/bouncer.php?q=' + query.val() + '&url=' + encodeURIComponent(url);
 
 		window.location.href = url;
 //		document.getElementBy$('#stat').setAttribute('src','transparent.gif?engine='+engine+'&comm='+comm+'&deriv='+deriv+'&q='+query.value);
