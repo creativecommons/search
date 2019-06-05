@@ -14,7 +14,7 @@
 		case 'labs.creativecommons.org':
 			$analytics_code = 'UA-2010376-2';
 			break;
-		case 'search.creativecommons.org':
+		case 'oldsearch.creativecommons.org':
 			$analytics_code = 'UA-2010376-3';
 			break;
 		case 'staging.creativecommons.net':
