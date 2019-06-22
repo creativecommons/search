@@ -1,5 +1,5 @@
 # Whether this GitHub repo is engineering related
-engineering_project: false
+engineering_project: true
 # Name of the repository/project in English
 english_name: CC Search (Legacy)
 # All technologies used
