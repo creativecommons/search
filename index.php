@@ -15,7 +15,7 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 	$engine = $_REQUEST['engine'];
 	$comm = isset($_REQUEST['comm']) ? TRUE : FALSE;
 	$deriv = isset($_REQUEST['deriv']) ? TRUE : FALSE;
-        
+
 	// We never want the search to execute with the default text
 	if ( $query == "Enter search query" ) {
 		$query = "flowers";
@@ -24,8 +24,8 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 	$rights = modRights($engine, $comm, $deriv);
 
 	$url = "";
-    
-    // NOTE: if you make changes here, you should make a similar change in search.js   
+
+    // NOTE: if you make changes here, you should make a similar change in search.js
 	switch ( $engine ) {
 
 		case "openclipart":
@@ -38,9 +38,9 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 
 		case "jamendo":
 			if ( $rights ) {
-				$url = 'http://www.jamendo.com/search?qs=fq=license_cc:(' . $rights . ')&q=' . $query; 
+				$url = 'http://www.jamendo.com/search?qs=fq=license_cc:(' . $rights . ')&q=' . $query;
 			} else {
-				$url = 'http://www.jamendo.com/search?qs=q=' . $query; 
+				$url = 'http://www.jamendo.com/search?qs=q=' . $query;
 			}
 			break;
 
@@ -98,7 +98,7 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
  * Sets up the right query string for the various content providers.
  */
 function modRights($engine, $comm, $deriv) {
-        
+
 	$rights = "";
 
 	switch ( $engine ) {
@@ -142,7 +142,7 @@ function modRights($engine, $comm, $deriv) {
 				$rights .= "8"; // by-nd
 			} else if ( ! $comm && $deriv ) {
 				$rights .= "9";
-			} else { 
+			} else {
 				$rights .= "10"; // by-nc,by-nc-sa
 			}
 			break;
@@ -259,19 +259,19 @@ function modRights($engine, $comm, $deriv) {
             <div class="nine columns omega re">
 					<input type="text" id="query" name="query" value="<?php echo $query; ?>" placeholder="Enter your search query"/>
 					<div id="secondaryOptions">
-						<fieldset id="permissions"> 
+						<fieldset id="permissions">
 							<small>
                                 <div class="statement">
 								<strong>I want something that I can...</strong>
                                 </div>
 
                                 <div class="permoptions">
-								<input type="checkbox" name="comm" value="" id="comm" checked="checked" onclick="setCommDeriv()" /> 
+								<input type="checkbox" name="comm" value="" id="comm" checked="checked" onclick="setCommDeriv()" />
 								<label for="comm"  onclick="setCommDeriv()">use for <em>commercial purposes</em>;</label>
                                 </div>
                                 <div class="permoptions">
-								<input type="checkbox" name="deriv" value="" id="deriv" checked="checked"  onclick="setCommDeriv()" /> 
-								<label for="deriv" onclick="setCommDeriv()"><em>modify</em>, <em>adapt</em>, or <em>build upon</em>.</label><br/> 
+								<input type="checkbox" name="deriv" value="" id="deriv" checked="checked"  onclick="setCommDeriv()" />
+								<label for="deriv" onclick="setCommDeriv()"><em>modify</em>, <em>adapt</em>, or <em>build upon</em>.</label><br/>
                                 </div>
 							</small>
 						</fieldset>
