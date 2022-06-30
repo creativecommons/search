@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+
+  php:
+    image: php:apache-bullseye  # https://hub.docker.com/_/php
+    ports:
+      - "8080:80"
+    volumes:
+      - ./:/var/www/html:ro
