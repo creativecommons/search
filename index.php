@@ -1,7 +1,5 @@
 <?php
 
-include('i18n.php');
-$languages = get_active_locales();
 
 /**
  * If $engine is set in the request, then the user must have javascript turned
@@ -17,7 +15,7 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 	$engine = $_REQUEST['engine'];
 	$comm = isset($_REQUEST['comm']) ? TRUE : FALSE;
 	$deriv = isset($_REQUEST['deriv']) ? TRUE : FALSE;
-        
+
 	// We never want the search to execute with the default text
 	if ( $query == "Enter search query" ) {
 		$query = "flowers";
@@ -26,8 +24,8 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 	$rights = modRights($engine, $comm, $deriv);
 
 	$url = "";
-    
-    // NOTE: if you make changes here, you should make a similar change in search.js   
+
+    // NOTE: if you make changes here, you should make a similar change in search.js
 	switch ( $engine ) {
 
 		case "openclipart":
@@ -40,9 +38,9 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 
 		case "jamendo":
 			if ( $rights ) {
-				$url = 'http://www.jamendo.com/search?qs=fq=license_cc:(' . $rights . ')&q=' . $query; 
+				$url = 'http://www.jamendo.com/search?qs=fq=license_cc:(' . $rights . ')&q=' . $query;
 			} else {
-				$url = 'http://www.jamendo.com/search?qs=q=' . $query; 
+				$url = 'http://www.jamendo.com/search?qs=q=' . $query;
 			}
 			break;
 
@@ -100,7 +98,7 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
  * Sets up the right query string for the various content providers.
  */
 function modRights($engine, $comm, $deriv) {
-        
+
 	$rights = "";
 
 	switch ( $engine ) {
@@ -144,7 +142,7 @@ function modRights($engine, $comm, $deriv) {
 				$rights .= "8"; // by-nd
 			} else if ( ! $comm && $deriv ) {
 				$rights .= "9";
-			} else { 
+			} else {
 				$rights .= "10"; // by-nc,by-nc-sa
 			}
 			break;
@@ -217,7 +215,7 @@ function modRights($engine, $comm, $deriv) {
     include_once 'cc-wp/meta.php';
     include_once 'cc-wp/header-doctype.php'; ?>
 
-<html lang="<?php echo $query_locale ?>">
+<html lang="en">
 	<head>
 		<title>CC Search</title>
 	    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
@@ -245,7 +243,7 @@ function modRights($engine, $comm, $deriv) {
 
         <div class="first row">
         <div class="sixteen columns alpha wrong">
-        <h3><?php echo _('Try the new CC Search for images <a href="https://ccsearch.creativecommons.org">here</a>!'); ?></h3>
+        <h3>Try <a href="https://wordpress.org/openverse/?referrer=creativecommons.org">Openverse</a>: Openly Licensed Images, Audio and More (formerly CC Search).</h3>
         </div>
         </div>
 
@@ -255,25 +253,25 @@ function modRights($engine, $comm, $deriv) {
             <div class="seven columns alpha">
 			<div id="header_logo" title="To search, enter some search terms, then click a provider." onclick="if ( $('#query').val() ) { doSearch(); }">
 				<img src="cc-search.png" alt="CC Search" />
-				<div id="header_text"><span style="color: white;"><?php echo _('Find content you can share, use and remix'); ?></span></div>
+				<div id="header_text"><span style="color: white;">Find content you can share, use and remix</span></div>
 			</div>
             </div>
             <div class="nine columns omega re">
-					<input type="text" id="query" name="query" value="<?php echo $query; ?>" placeholder="<?php echo _('Enter your search query'); ?> "/>
+					<input type="text" id="query" name="query" value="<?php echo $query; ?>" placeholder="Enter your search query"/>
 					<div id="secondaryOptions">
-						<fieldset id="permissions"> 
+						<fieldset id="permissions">
 							<small>
                                 <div class="statement">
-								<strong><?php echo _('I want something that I can...'); ?></strong>
+								<strong>I want something that I can...</strong>
                                 </div>
 
                                 <div class="permoptions">
-								<input type="checkbox" name="comm" value="" id="comm" checked="checked" onclick="setCommDeriv()" /> 
-								<label for="comm"  onclick="setCommDeriv()"><?php echo _('use for <em>commercial purposes</em>'); ?>;</label>
+								<input type="checkbox" name="comm" value="" id="comm" checked="checked" onclick="setCommDeriv()" />
+								<label for="comm"  onclick="setCommDeriv()">use for <em>commercial purposes</em>;</label>
                                 </div>
                                 <div class="permoptions">
-								<input type="checkbox" name="deriv" value="" id="deriv" checked="checked"  onclick="setCommDeriv()" /> 
-								<label for="deriv" onclick="setCommDeriv()"><?php echo _('<em>modify</em>, <em>adapt</em>, or <em>build upon</em>'); ?>.</label><br/> 
+								<input type="checkbox" name="deriv" value="" id="deriv" checked="checked"  onclick="setCommDeriv()" />
+								<label for="deriv" onclick="setCommDeriv()"><em>modify</em>, <em>adapt</em>, or <em>build upon</em>.</label><br/>
                                 </div>
 							</small>
 						</fieldset>
@@ -281,14 +279,22 @@ function modRights($engine, $comm, $deriv) {
                 </div>
 
 					<fieldset id="engines">
-						<p style="text-align:left;"><strong><?php echo _('Search using'); ?>:</strong></p>
+						<p style="text-align:left;"><strong>Search using:</strong></p>
                         <div class="first row">
                         <div class="four columns alpha">
 						<div class="engine">
 							<div class="engineRadio">
+								<input type="radio" onclick="setEngine(this)" name="engine" value="ccmixter" id="ccmixter">
+							</div>
+							<div class="engineDesc"><label for="ccmixter"><strong>ccMixter</strong><br/>Music</label></div>
+						</div>
+                        </div>
+                        <div class="four columns">
+						<div class="engine">
+							<div class="engineRadio">
 								<input type="radio" onclick="setEngine(this)" name="engine" value="europeana" id="europeana">
 							</div>
-							<div class="engineDesc"><label for="europeana"><strong>Europeana</strong><br/><?php echo _('Media'); ?></label></div>
+							<div class="engineDesc"><label for="europeana"><strong>Europeana</strong><br/>Media</label></div>
 						</div>
                         </div>
                         <div class="four columns">
@@ -296,15 +302,7 @@ function modRights($engine, $comm, $deriv) {
 							<div class="engineRadio">
 								<input type="radio" onclick="setEngine(this)" name="engine" value="flickr" id="flickr">
 							</div>
-							<div class="engineDesc"><label for="flickr"><strong>Flickr</strong><br/><?php echo _('Image'); ?></label></div>
-						</div>
-                        </div>
-                        <div class="four columns">
-						<div class="engine">
-							<div class="engineRadio"> 
-								<input type="radio" onclick="setEngine(this)" name="engine" value="" id="">
-							</div>
-							<div class="engineDesc"><label for="fotopedia"><strong></strong><br/></label></div> 
+							<div class="engineDesc"><label for="flickr"><strong>Flickr</strong><br/>Image</label></div>
 						</div>
                         </div>
                         <div class="four columns omega">
@@ -312,7 +310,7 @@ function modRights($engine, $comm, $deriv) {
 							<div class="engineRadio">
 								<input type="radio" onclick="setEngine(this)" name="engine" value="google" id="google">
 							</div>
-							<div class="engineDesc"><label for="google"><strong>Google</strong><br/><?php echo _('Web'); ?></label></div>
+							<div class="engineDesc"><label for="google"><strong>Google</strong><br/>Web</label></div>
 						</div>
                         </div>
                         </div>
@@ -322,7 +320,7 @@ function modRights($engine, $comm, $deriv) {
 							<div class="engineRadio">
 								<input type="radio" onclick="setEngine(this)" name="engine" value="googleimg" id="googleimg">
 							</div>
-							<div class="engineDesc"><label for="googleimg"><strong>Google Images</strong><br/><?php echo _('Image'); ?></label></div>
+							<div class="engineDesc"><label for="googleimg"><strong>Google Images</strong><br/>Image</label></div>
 						</div>
                         </div>
                         <div class="four columns">
@@ -330,7 +328,7 @@ function modRights($engine, $comm, $deriv) {
 							<div class="engineRadio">
 								<input type="radio" onclick="setEngine(this)" name="engine" value="jamendo" id="jamendo">
 							</div>
-							<div class="engineDesc"><label for="jamendo"><strong>Jamendo</strong><br/><?php echo _('Music'); ?></label></div>
+							<div class="engineDesc"><label for="jamendo"><strong>Jamendo</strong><br/>Music</label></div>
 						</div>
                         </div>
                         <div class="four columns">
@@ -338,49 +336,15 @@ function modRights($engine, $comm, $deriv) {
 							<div class="engineRadio">
 								<input type="radio" onclick="setEngine(this)" name="engine" value="openclipart" id="openclipart">
 							</div>
-							<div class="engineDesc"><label for="openclipart"><strong>Open Clip Art Library</strong><br/><?php echo _('Image'); ?></label></div>
+							<div class="engineDesc"><label for="openclipart"><strong>Open Clip Art Library</strong><br/>Image</label></div>
 						</div>
                         </div>
                         <div class="four columns omega">
-						<div class="engine">
-							<div class="engineRadio">
-								<input type="radio" onclick="setEngine(this)" name="engine" value="spin" id="spin">
-							</div>
-							<div class="engineDesc"><label for="spin"><strong>SpinXpress</strong><br/><?php echo _('Media'); ?></label></div>
-						</div>
-                        </div>
-                        </div>
-                        <div class="row">
-                        <div class="four columns alpha">
-						<div class="engine">
-							<div class="engineRadio">
-								<input type="radio" onclick="setEngine(this)" name="engine" value="wikimediacommons" id="wikimediacommons">
-							</div>
-							<div class="engineDesc"><label for="wikimediacommons"><strong>Wikimedia Commons</strong><br/><?php echo _('Media'); ?></label></div>
-						</div>
-                        </div>
-                        <div class="four columns">
-						<div class="engine">
-							<div class="engineRadio">
-								<input type="radio" onclick="setEngine(this)" name="engine" value="youtube" id="youtube">
-							</div>
-							<div class="engineDesc"><label for="youtube"><strong>YouTube</strong><br/><?php echo _('Video'); ?></label></div>
-						</div>
-                        </div>
-                        <div class="four columns">
 						<div class="engine">
 							<div class="engineRadio">
 								<input type="radio" onclick="setEngine(this)" name="engine" value="pixabay" id="pixabay">
 							</div>
-							<div class="engineDesc"><label for="pixabay"><strong>Pixabay</strong><br/><?php echo _('Image'); ?></label></div>
-						</div>
-                        </div>
-                        <div class="four columns omega">
-						<div class="engine">
-							<div class="engineRadio">
-								<input type="radio" onclick="setEngine(this)" name="engine" value="ccmixter" id="ccmixter">
-							</div>
-							<div class="engineDesc"><label for="ccmixter"><strong>ccMixter</strong><br/><?php echo _('Music'); ?></label></div>
+							<div class="engineDesc"><label for="pixabay"><strong>Pixabay</strong><br/>Image</label></div>
 						</div>
                         </div>
                         </div>
@@ -390,10 +354,34 @@ function modRights($engine, $comm, $deriv) {
 							<div class="engineRadio">
 								<input type="radio" onclick="setEngine(this)" name="engine" value="soundcloud" id="soundcloud">
 							</div>
-							<div class="engineDesc"><label for="soundcloud"><strong>SoundCloud</strong><br/><?php echo _('Music'); ?></label></div>
+							<div class="engineDesc"><label for="soundcloud"><strong>SoundCloud</strong><br/>Music</label></div>
 						</div>
                         </div>
-			</div>
+                        <div class="four columns">
+						<div class="engine">
+							<div class="engineRadio">
+								<input type="radio" onclick="setEngine(this)" name="engine" value="spin" id="spin">
+							</div>
+							<div class="engineDesc"><label for="spin"><strong>SpinXpress</strong><br/>Media</label></div>
+						</div>
+                        </div>
+                        <div class="four columns">
+						<div class="engine">
+							<div class="engineRadio">
+								<input type="radio" onclick="setEngine(this)" name="engine" value="wikimediacommons" id="wikimediacommons">
+							</div>
+							<div class="engineDesc"><label for="wikimediacommons"><strong>Wikimedia Commons</strong><br/>Media</label></div>
+						</div>
+                        </div>
+                        <div class="four columns omega">
+						<div class="engine">
+							<div class="engineRadio">
+								<input type="radio" onclick="setEngine(this)" name="engine" value="youtube" id="youtube">
+							</div>
+							<div class="engineDesc"><label for="youtube"><strong>YouTube</strong><br/>Video</label></div>
+						</div>
+                        </div>
+                        </div>
 					</fieldset>
 				</form>
                 </div>
@@ -401,27 +389,9 @@ function modRights($engine, $comm, $deriv) {
 		</div>
 		<div class="row">
 			<div id="help">
-                <div class="eight columns alpha">
-					<p><?php echo _('Please note that oldsearch.creativecommons.org is <em>not a search engine</em>, but rather offers convenient access to search services provided by other independent organizations. CC has no control over the results that are returned. <em>Do not assume that the results displayed in this search portal are under a CC license</em>. You should always verify that the work is actually under a CC license by following the link. Since there is no registration to use a CC license, CC has no way to determine what has and hasn\'t been placed under the terms of a CC license. If you are in doubt you should contact the copyright holder directly, or try to contact the site where you found the content.'); ?></p>
+                <div class="one columns alpha">
+					<p>Please note that oldsearch.creativecommons.org is <em>not a search engine</em>, but rather offers convenient access to search services provided by other independent organizations. CC has no control over the results that are returned. <em>Do not assume that the results displayed in this search portal are under a CC license</em>. You should always verify that the work is actually under a CC license by following the link. Since there is no registration to use a CC license, CC has no way to determine what has and hasn't been placed under the terms of a CC license. If you are in doubt you should contact the copyright holder directly, or try to contact the site where you found the content.</p>
 				</div>
-            <div class="eight columns omega">
-				<div id="remove" class="wrong">
-					<p><?php echo _('<a href="#" id="addOpenSearch"><strong>Add CC Search</strong></a> to your browser.'); ?></strong></p>
-					<p><?php echo _('<a href="http://wiki.creativecommons.org/Firefox_and_CC_Search"><strong>Learn how</strong></a> to switch to or from CC Search in your Firefox search bar.'); ?></a></>
-				</div>
-
-				<div id="translate">
-						<select name="lang" id="lang">
-							<?php
-							foreach ( $languages as $code => $name ) {
-								$selected = ($code == $query_locale) ? 'selected="selected"' : '';
-								echo "<option value='$code' $selected>$name</option>\n";
-							}
-							?>
-						</select>
-						<a href="http://www.transifex.net/projects/p/CC/"><?php echo _('Help Translate'); ?></a> 
-				</div>
-			</div>
 		</div>
 
         </div>
