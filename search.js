@@ -545,7 +545,8 @@ function doSearch() {
 
 		window.open(
 			url,
-			'_blank'
+			'_blank',
+			'noopener'
 		);
 		//	document.getElementBy$('#stat').setAttribute('src','transparent.gif?engine='+engine+'&comm='+comm+'&deriv='+deriv+'&q='+query.value);
 	}
