@@ -64,10 +64,6 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 			$url = 'http://www.youtube.com/results?search_query=' . $query . ',creativecommons';
 			break;
 
-		case "pixabay":
-			$url = 'http://pixabay.com/en/photos/?q=' . $query;
-			break;
-
 		case "ccmixter":
 			$url = 'http://ccmixter.org/api/query?datasource=uploads&search_type=all&sort=rank&search=' . $query . $rights;
 			break;
@@ -337,14 +333,6 @@ function modRights($engine, $comm, $deriv) {
 								<input type="radio" onclick="setEngine(this)" name="engine" value="openclipart" id="openclipart">
 							</div>
 							<div class="engineDesc"><label for="openclipart"><strong>Open Clip Art Library</strong><br/>Image</label></div>
-						</div>
-                        </div>
-                        <div class="four columns omega">
-						<div class="engine">
-							<div class="engineRadio">
-								<input type="radio" onclick="setEngine(this)" name="engine" value="pixabay" id="pixabay">
-							</div>
-							<div class="engineDesc"><label for="pixabay"><strong>Pixabay</strong><br/>Image</label></div>
 						</div>
                         </div>
                         </div>
