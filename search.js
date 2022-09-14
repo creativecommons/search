@@ -500,7 +500,7 @@ function doSearch() {
 				break;
 
 			case "googleimg":
-				url = 'https://www.google.com/search?site=imghp&tbm=isch&q=' + query.val() + '&tbs=sur:f' + ((deriv) ? "m" : "") + ((comm) ? "c" : "");
+				url = 'https://www.google.com/search?site=imghp&tbm=isch&q=' + query.val() + '&tbs=sur:f' + ((deriv) ? "m" : "") + ((comm) ? "c" : "") + '%2Cil:cl';
 				break;
 
 			case "wikimediacommons":
