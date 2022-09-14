@@ -383,19 +383,6 @@ function modRights() {
 			}
 			break;
 
-		case "spin":
-			rights = "_license=";
-			if (!comm && !deriv) {
-				rights += "11"; // by-nd,by-nc-nd,by-nc-,by-nc-sa
-			} else if (comm && !deriv) {
-				rights += "8"; // by-nd
-			} else if (!comm && deriv) {
-				rights += "9";
-			} else {
-				rights += "10"; // by-nc,by-nc-sa
-			}
-			break;
-
 		case "wikimediacommons":
 			rights = "";
 			if (rights.length < 5) rights = "";
