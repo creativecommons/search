@@ -475,10 +475,6 @@ function doSearch() {
 				url = 'http://openclipart.org/search/?query=' + query.val();
 				break;
 
-			case "spin":
-				url = 'http://www.spinxpress.com/getmedia' + rights + '_searchwords=' + query.val()
-				break;
-
 			case "jamendo":
 				if (rights) {
 					url = 'http://www.jamendo.com/search?qs=fq=license_cc:(' + rights + ')&q=' + query.val();
