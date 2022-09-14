@@ -32,10 +32,6 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 			$url = 'http://openclipart.org/search/?query=' . $query;
 			break;
 
-		case "spin":
-			$url = 'http://www.spinxpress.com/getmedia' . $rights . '_searchwords=' . $query;
-			break;
-
 		case "jamendo":
 			if ( $rights ) {
 				$url = 'http://www.jamendo.com/search?qs=fq=license_cc:(' . $rights . ')&q=' . $query;
@@ -131,19 +127,6 @@ function modRights($engine, $comm, $deriv) {
 				$rights = '-nc';
 			} elseif ( $deriv ) {
 				$rights = '-nd';
-			}
-			break;
-
-		case "spin":
-			$rights = "_license=";
-			if ( ! $comm && ! $deriv ) {
-				$rights .= "11"; // by-nd,by-nc-nd,by-nc-,by-nc-sa
-			} else if ( $comm && ! $deriv ) {
-				$rights .= "8"; // by-nd
-			} else if ( ! $comm && $deriv ) {
-				$rights .= "9";
-			} else {
-				$rights .= "10"; // by-nc,by-nc-sa
 			}
 			break;
 
@@ -355,14 +338,6 @@ function modRights($engine, $comm, $deriv) {
 								<input type="radio" onclick="setEngine(this)" name="engine" value="soundcloud" id="soundcloud">
 							</div>
 							<div class="engineDesc"><label for="soundcloud"><strong>SoundCloud</strong><br/>Music</label></div>
-						</div>
-                        </div>
-                        <div class="four columns">
-						<div class="engine">
-							<div class="engineRadio">
-								<input type="radio" onclick="setEngine(this)" name="engine" value="spin" id="spin">
-							</div>
-							<div class="engineDesc"><label for="spin"><strong>SpinXpress</strong><br/>Media</label></div>
 						</div>
                         </div>
                         <div class="four columns">
