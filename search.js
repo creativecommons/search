@@ -68,7 +68,7 @@ $(function () {
  * 
  */
 
-var engines = ["google", "googleimg", "flickr", "jamendo", "spin", "openclipart", "wikimediacommons", "fotopedia", "europeana", "youtube", "pixabay", "ccmixter", "soundcloud"];
+var engines = ["google", "googleimg", "flickr", "jamendo", "openclipart", "wikimediacommons", "fotopedia", "europeana", "youtube", "pixabay", "ccmixter", "soundcloud"];
 //defaults:
 var engine = "";
 var comm = 1;
@@ -383,19 +383,6 @@ function modRights() {
 			}
 			break;
 
-		case "spin":
-			rights = "_license=";
-			if (!comm && !deriv) {
-				rights += "11"; // by-nd,by-nc-nd,by-nc-,by-nc-sa
-			} else if (comm && !deriv) {
-				rights += "8"; // by-nd
-			} else if (!comm && deriv) {
-				rights += "9";
-			} else {
-				rights += "10"; // by-nc,by-nc-sa
-			}
-			break;
-
 		case "wikimediacommons":
 			rights = "";
 			if (rights.length < 5) rights = "";
@@ -473,10 +460,6 @@ function doSearch() {
 		switch (engine) {
 			case "openclipart":
 				url = 'http://openclipart.org/search/?query=' + query.val();
-				break;
-
-			case "spin":
-				url = 'http://www.spinxpress.com/getmedia' + rights + '_searchwords=' + query.val()
 				break;
 
 			case "jamendo":
