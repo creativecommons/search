@@ -3,16 +3,6 @@
 Creative Commons Meta Search
 
 
-## Deployment
-
-SSH into the **`search`** server and run:
-
-```
-cd /var/www/html
-sudo git pull
-```
-
-
 ## Code of Conduct
 
 [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md):
@@ -28,6 +18,16 @@ sudo git pull
 ## Contributing
 
 See [`CONTRIBUTING.md`](CONTRIBUTING.md).
+
+
+## Deployment
+
+SSH into the **`search`** server and run:
+
+```
+cd /var/www/html
+sudo git pull
+```
 
 
 ## License
