@@ -67,7 +67,7 @@ $(function () {
  * 1.0 - 2006-07
  * 
  */
-var engines = ["google", "googleimg", "flickr", "jamendo", "openclipart", "wikimediacommons", "fotopedia", "europeana", "youtube", "pixabay", "ccmixter", "soundcloud"];
+var engines = ["google", "googleimg", "flickr", "jamendo", "openclipart", "wikimediacommons", "fotopedia", "europeana", "youtube", "ccmixter", "soundcloud"];
 //defaults:
 var engine = "";
 var comm = 1;
