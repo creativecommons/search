@@ -319,7 +319,7 @@ function modRights($engine, $comm, $deriv) {
 							<div class="engineRadio">
 								<input type="radio" onclick="setEngine(this)" name="engine" value="openclipart" id="openclipart">
 							</div>
-							<div class="engineDesc"><label for="openclipart"><strong>Open Clip Art Library</strong><br/>Image</label></div>
+							<div class="engineDesc"><label for="openclipart"><strong>Open ClipArt</strong><br/>Image</label></div>
 						</div>
                         </div>
                         <div class="four columns omega">
