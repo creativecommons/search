@@ -175,6 +175,10 @@ fieldset {
     text-align: left;
 }
 
+#engines .focus{
+  border: 1px dashed rgb(155, 155, 155);
+}
+
 #engines .engine:hover {
   background-color: #f0f0f0;
 }
@@ -204,7 +208,7 @@ fieldset {
 
 #engines .engineDesc strong { font-size: 13px; color: #333;}
 
-#engines .engineRadio {
+#engines .engineButton {
 	display: inline-block;
 	line-height: 0.85;
 	padding-left: 3px;

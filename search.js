@@ -13,10 +13,17 @@ $(function () {
 	//setEngine(engines[Math.floor(Math.random() * engines.length)]);
 
 	// hide all the radio btutons if JS is enabled
-	$(".engine input").hide();
+	$(".engine button").focus(function () {
+		$(".engine").removeClass("focus")
+		$(this).parents(".engine").addClass("focus");
+	})
+
+	$(".engine button").focusout(function () {
+		$(".engine").removeClass("focus")
+	})
 
 	$(".engine").click(function () {
-		setEngine($(this).find("input").first().attr("id"));
+		setEngine($(this).find("button").first().attr("id"));
 		doSearch();
 	});
 
@@ -256,10 +263,10 @@ function setEngine(e) {
 	$("#engineInfo ." + previous).hide();
 	$("#engineInfo ." + engine).show();
 
-	$("input[value=" + engine + "]").attr("checked", true);
+	$("button[value=" + engine + "]").attr("checked", true);
 
 	$(".engine").removeClass("selected");
-	$("input[value=" + engine + "]").parents(".engine").addClass("selected");
+	$("button[value=" + engine + "]").parents(".engine").addClass("selected");
 
 	//if (e == "_random") engine = "_random";	
 	saveSettings();
