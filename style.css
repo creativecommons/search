@@ -176,7 +176,7 @@ fieldset {
 }
 
 #engines .focus{
-  border: 2px solid black;
+  border: 1px dashed rgb(155, 155, 155);
 }
 
 #engines .engine:hover {
