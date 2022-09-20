@@ -262,32 +262,32 @@ function modRights($engine, $comm, $deriv) {
                         <div class="first row">
                         <div class="four columns alpha">
 						<div class="engine">
-							<div class="engineRadio">
-								<input type="radio" onclick="setEngine(this)" name="engine" value="ccmixter" id="ccmixter">
+							<div class="engineButton">
+								<button onclick="setEngine(this)" name="engine" value="ccmixter" id="ccmixter"></button>
 							</div>
 							<div class="engineDesc"><label for="ccmixter"><strong>ccMixter</strong><br/>Music</label></div>
 						</div>
                         </div>
                         <div class="four columns">
 						<div class="engine">
-							<div class="engineRadio">
-								<input type="radio" onclick="setEngine(this)" name="engine" value="europeana" id="europeana">
+							<div class="engineButton">
+								<button onclick="setEngine(this)" name="engine" value="europeana" id="europeana"></button>
 							</div>
 							<div class="engineDesc"><label for="europeana"><strong>Europeana</strong><br/>Media</label></div>
 						</div>
                         </div>
                         <div class="four columns">
 						<div class="engine">
-							<div class="engineRadio">
-								<input type="radio" onclick="setEngine(this)" name="engine" value="flickr" id="flickr">
+							<div class="engineButton">
+								<button onclick="setEngine(this)" name="engine" value="flickr" id="flickr"></button>
 							</div>
 							<div class="engineDesc"><label for="flickr"><strong>Flickr</strong><br/>Image</label></div>
 						</div>
                         </div>
                         <div class="four columns omega">
 						<div class="engine">
-							<div class="engineRadio">
-								<input type="radio" onclick="setEngine(this)" name="engine" value="google" id="google">
+							<div class="engineButton">
+								<button onclick="setEngine(this)" name="engine" value="google" id="google"></button>
 							</div>
 							<div class="engineDesc"><label for="google"><strong>Google</strong><br/>Web</label></div>
 						</div>
@@ -296,24 +296,24 @@ function modRights($engine, $comm, $deriv) {
                         <div class="row">
                         <div class="four columns alpha">
 						<div class="engine">
-							<div class="engineRadio">
-								<input type="radio" onclick="setEngine(this)" name="engine" value="googleimg" id="googleimg">
+							<div class="engineButton">
+								<button onclick="setEngine(this)" name="engine" value="googleimg" id="googleimg"></button>
 							</div>
 							<div class="engineDesc"><label for="googleimg"><strong>Google Images</strong><br/>Image</label></div>
 						</div>
                         </div>
                         <div class="four columns">
 						<div class="engine">
-							<div class="engineRadio">
-								<input type="radio" onclick="setEngine(this)" name="engine" value="jamendo" id="jamendo">
+							<div class="engineButton">
+								<button onclick="setEngine(this)" name="engine" value="jamendo" id="jamendo"></button>
 							</div>
 							<div class="engineDesc"><label for="jamendo"><strong>Jamendo</strong><br/>Music</label></div>
 						</div>
                         </div>
                         <div class="four columns">
 						<div class="engine">
-							<div class="engineRadio">
-								<input type="radio" onclick="setEngine(this)" name="engine" value="openclipart" id="openclipart">
+							<div class="engineButton">
+								<button onclick="setEngine(this)" name="engine" value="openclipart" id="openclipart"></button>
 							</div>
 							<div class="engineDesc"><label for="openclipart"><strong>Open ClipArt</strong><br/>Image</label></div>
 						</div>
@@ -322,24 +322,24 @@ function modRights($engine, $comm, $deriv) {
                         <div class="row">
                         <div class="four columns alpha">
 						<div class="engine">
-							<div class="engineRadio">
-								<input type="radio" onclick="setEngine(this)" name="engine" value="soundcloud" id="soundcloud">
+							<div class="engineButton">
+								<button onclick="setEngine(this)" name="engine" value="soundcloud" id="soundcloud"></button>
 							</div>
 							<div class="engineDesc"><label for="soundcloud"><strong>SoundCloud</strong><br/>Music</label></div>
 						</div>
                         </div>
                         <div class="four columns">
 						<div class="engine">
-							<div class="engineRadio">
-								<input type="radio" onclick="setEngine(this)" name="engine" value="wikimediacommons" id="wikimediacommons">
+							<div class="engineButton">
+								<button onclick="setEngine(this)" name="engine" value="wikimediacommons" id="wikimediacommons"></button>
 							</div>
 							<div class="engineDesc"><label for="wikimediacommons"><strong>Wikimedia Commons</strong><br/>Media</label></div>
 						</div>
                         </div>
                         <div class="four columns omega">
 						<div class="engine">
-							<div class="engineRadio">
-								<input type="radio" onclick="setEngine(this)" name="engine" value="youtube" id="youtube">
+							<div class="engineButton">
+								<button onclick="setEngine(this)" name="engine" value="youtube" id="youtube"></button>
 							</div>
 							<div class="engineDesc"><label for="youtube"><strong>YouTube</strong><br/>Video</label></div>
 						</div>
