@@ -1,7 +1,7 @@
 # Whether this GitHub repo is engineering related
 engineering_project: true
 # Name of the repository/project in English
-english_name: CC Search (Legacy)
+english_name: CC Search Portal (Legacy)
 # All technologies used
 technologies: PHP, WordPress
 # Whether this repository should be featured on the CC Open Source site

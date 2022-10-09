@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
 		         xmlns:moz="http://www.mozilla.org/2006/browser/search/"> 
-  <ShortName>Creative Commons Search Beta</ShortName> 
+  <ShortName>Creative Commons Search Portal Beta</ShortName> 
   <Developer>Creative Commons</Developer>
-  <Description>Creative Commons Search Beta</Description> 
+  <Description>Creative Commons Search Portal Beta</Description> 
   <Contact>webmaster@creativecommons.org</Contact>
   <Url type="text/html" method="get" template="http://labs.creativecommons.org/demos/search/?q={searchTerms}"/> 
   <Image height="64" width="64" type="image/png">http://labs.creativecommons.org/demos/search/img/ccsearch_l.png</Image>
