@@ -70,7 +70,7 @@ $(function () {
 
 
 /*
- * Creative Commons Search Interface
+ * Creative Commons Search Portal Interface
  * 1.0 - 2006-07
  * 
  */
