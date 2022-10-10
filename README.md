@@ -1,6 +1,6 @@
 # search
 
-Creative Commons Meta Search
+Creative Commons Search Portal
 
 ## Code of Conduct
 
@@ -23,7 +23,7 @@ See [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 Perform the following steps to create a copy of this repository on your local machine:
 
-1. Fork the CC search repository:
+1. Fork the CC search Portal repository:
 
 - Log into GitHub (or create a GitHub account and then log into it).
 
