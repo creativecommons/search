@@ -222,6 +222,7 @@ function modRights($engine, $comm, $deriv) {
 
         <div class="first row">
         <div class="sixteen columns alpha wrong">
+        
         <h3>Try <a href="https://wordpress.org/openverse/?referrer=creativecommons.org">Openverse</a>: Openly Licensed Images, Audio and More (formerly CC Search).</h3>
         </div>
         </div>
@@ -232,6 +233,7 @@ function modRights($engine, $comm, $deriv) {
             <div class="seven columns alpha">
 			<div id="header_logo" title="To search, enter some search terms, then click a provider." onclick="if ( $('#query').val() ) { doSearch(); }">
 				<img src="cc-search-portal.png" alt="CC Search Portal" />
+
 				<div id="header_text"><span style="color: white;">Find content you can share, use and remix</span></div>
 			</div>
             </div>
