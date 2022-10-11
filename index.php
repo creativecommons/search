@@ -196,11 +196,11 @@ function modRights($engine, $comm, $deriv) {
 
 <html lang="en">
 	<head>
-		<title>CC Search Portal</title>
+		<title>CC Search</title>
 	    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
         <?php include 'cc-wp/header-common.php'; ?>
 
-		<link rel="search" type="application/opensearchdescription+xml" title="Creative Commons Search Portal" href="http://oldsearch.creativecommons.org/ccsearch.xml" />
+		<link rel="search" type="application/opensearchdescription+xml" title="Creative Commons Search" href="http://oldsearch.creativecommons.org/ccsearch.xml" />
 		<link rel="stylesheet" href="style.css" type="text/css" media="screen" title="no title" charset="utf-8" />
 	
 		<!--[if lte IE 7]>
@@ -222,7 +222,7 @@ function modRights($engine, $comm, $deriv) {
 
         <div class="first row">
         <div class="sixteen columns alpha wrong">
-        <h3>Try <a href="https://wordpress.org/openverse/?referrer=creativecommons.org">Openverse</a>: Openly Licensed Images, Audio and More.</h3>
+        <h3>Try <a href="https://wordpress.org/openverse/?referrer=creativecommons.org">Openverse</a>: Openly Licensed Images, Audio and More (formerly CC Search).</h3>
         </div>
         </div>
 
@@ -353,7 +353,7 @@ function modRights($engine, $comm, $deriv) {
 		<div class="row">
 			<div id="help">
                 <div class="one columns alpha">
-					<p>Please note that CC Search Portal is <em>not a search engine</em>, but rather offers convenient access to search services provided by other independent organizations. CC has no control over the results that are returned. <em>Do not assume that the results displayed in this search portal are under a CC license</em>. You should always verify that the work is actually under a CC license by following the link. Since there is no registration to use a CC license, CC has no way to determine what has and hasn't been placed under the terms of a CC license. If you are in doubt you should contact the copyright holder directly, or try to contact the site where you found the content.</p>
+					<p>Please note that oldsearch.creativecommons.org is <em>not a search engine</em>, but rather offers convenient access to search services provided by other independent organizations. CC has no control over the results that are returned. <em>Do not assume that the results displayed in this search portal are under a CC license</em>. You should always verify that the work is actually under a CC license by following the link. Since there is no registration to use a CC license, CC has no way to determine what has and hasn't been placed under the terms of a CC license. If you are in doubt you should contact the copyright holder directly, or try to contact the site where you found the content.</p>
 				</div>
 		</div>
 
