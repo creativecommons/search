@@ -1,5 +1,5 @@
 #header_logo {
-    background: #5AA322;
+    background: linear-gradient(rgb(91, 231, 91),green);
     position: relative;
     padding: 10px 10px 8px 10px;
     margin: 0 auto 10px auto;
@@ -60,7 +60,7 @@ label {
 	font-family: helvetica, arial, sans-serif;
   background: #70b922;
   background: -webkit-gradient(linear, left top, left bottom, from(#70b922), to(#497724));
-  background: -moz-linear-gradient(center top, #70b922, #497724);
+  background: -moz-linear-gradient(center top, #6e9b3e, #497724);
   border: 1px solid #6eb537;
   padding: 5px 20px;
   -webkit-border-radius: 7px;
