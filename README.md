@@ -83,7 +83,7 @@ Perform the following steps to create a copy of this repository on your local ma
 Use the following instructions to start the Project with docker compose.
 
 1. Install Docker (https://docs.docker.com/engine/install/)
-2. Navigate to the creativecommon/search Project that you have cloned
+2. Navigate to the creativecommon/search Project that you have cloned using the shell of the local directory it was cloned
 3. **Run the containers**
 
    ```
