@@ -231,7 +231,7 @@ function modRights($engine, $comm, $deriv) {
 				<form id="search_form" method="get" onsubmit="return doSearch()">
             <div class="seven columns alpha">
 			<div id="header_logo" title="To search, enter some search terms, then click a provider." onclick="if ( $('#query').val() ) { doSearch(); }">
-				<img src="cc-search.png" alt="CC Search" />
+				<img src="cc-search-portal.png" alt="CC Search Portal" />
 				<div id="header_text"><span style="color: white;">Find content you can share, use and remix</span></div>
 			</div>
             </div>
