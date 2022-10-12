@@ -13,10 +13,6 @@ html, body {
 	margin: 0 auto;
 }
 
-header {
-	/*height: 54px;*/ /* Height of the header */
-}
-
 header:after {
   content: ".";
   display: block;
@@ -28,7 +24,6 @@ header:after {
 #main {
 	clear:both;
 	padding-bottom: 54px; /* Height of the footer */
-	/*overflow: hidden;*/
 }
 
 #main:after {
