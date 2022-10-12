@@ -12,7 +12,7 @@ $(function () {
 	// pick a random search engine
 	//setEngine(engines[Math.floor(Math.random() * engines.length)]);
 
-	// hide all the radio btutons if JS is enabled
+	// hide all the radio buttons if JS is enabled
 	$(".engine button").focus(function () {
 		$(".engine").removeClass("focus")
 		$(this).parents(".engine").addClass("focus");
