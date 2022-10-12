@@ -23,6 +23,7 @@
   text-align: center;
   color: #fff;
 }
+
 #deed-donate-slide.slider {
   width: 100%;
   margin: 0 auto 0 -400px;
@@ -250,7 +251,6 @@ form#gform_10 > .gform_body { display: none; }
 img.slide-logo { padding-top: 40px; }
 
 /* Donate box */
-
 .donate-box {
   position: relative;
 }
@@ -445,6 +445,7 @@ img.slide-logo { padding-top: 40px; }
     padding-right: 200px;
   }
 }
+
 /* End of: Radio buttons */
 .gform_footer {
   margin: 0;
@@ -474,7 +475,6 @@ img.slide-logo { padding-top: 40px; }
 }
 
 /* end donate box */
-
 #deed-donate-slide .footer-note { display: none; }
 
 @media screen and (min-width: 620px) {
@@ -534,7 +534,6 @@ img.slide-logo { padding-top: 40px; }
 }
 
 /* Fix bug with footer overlaying overlay. */
-
 footer #colophon {
   z-index: 0;
 }

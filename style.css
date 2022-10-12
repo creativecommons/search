@@ -3,7 +3,7 @@
     position: relative;
     padding: 10px 10px 8px 10px;
     margin: 0 auto 10px auto;
-    width: 98%;
+    width: 100%;
     min-width: 250px;
     text-align: center;
   -webkit-border-radius: 6px;
@@ -208,7 +208,7 @@ fieldset {
 	display: inline-block;
 	line-height: 0.85;
 	padding-left: 3px;
-    float: right;
+  float: right;
 }
 
 #resultsRow {
