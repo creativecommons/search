@@ -5,13 +5,12 @@
     margin: 0 auto 10px auto;
     width: 98%;
     min-width: 250px;
-    text-align: center;
+    text-align: center
 
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
 }
-
 
 #header_text {
 	font-size: 11.3px;
@@ -19,7 +18,6 @@
 	margin-top: 5px;
 	width: 100%;
 }
-
 
 #search {
 	display: inline-block;
@@ -66,10 +64,8 @@ label {
   -webkit-border-radius: 7px;
   -moz-border-radius: 7px;
   border-radius: 7px;
-
   color: #fff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
-
   -webkit-box-shadow: 0 1px 0 #253d11;
   -moz-box-shadow: 0 1px 0 #253d11;
   cursor: pointer;
@@ -86,11 +82,13 @@ label {
 	text-align: left;
 	margin: 0 5px;
 }
+
 #engine p {
 	margin: 0;
 	font-size: 12px;
 	padding-left: 2px;
 }
+
 #engineInfo {
 	position: absolute;
 	width: 150px;
@@ -102,6 +100,7 @@ label {
 	-webkit-border-radius: 4px;
 	-webkit-box-shadow: inset 0 1px 3px #bbb;
 }
+
 #engineInfo p {
 	padding: 0;
 	margin: 0;
@@ -135,8 +134,7 @@ fieldset {
 
 #engines input { margin-right: 4px; margin-left: 0;}
 #engines p { margin: 0;}
-#engines label { 
-}
+#engines label { }
 
 .statement {
     padding-top: 2px;
@@ -284,4 +282,3 @@ fieldset {
 	padding: 8px 0 50px;
 	text-align: left;
 }
-
