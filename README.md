@@ -20,6 +20,13 @@ Creative Commons Meta Search
 See [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 ## Setting up the Project
+The three main tools you'll need on most projects here are:
+1. Docker App (Docker does some heavy lifting, but it's mostly for background use)
+2. A code editor/IDE (VS Code, Sublime, Nova, etc.)(This is where the bulk of the work, like cloning your repo, and making your code changes, will be done)
+3. A command-line/terminal client (Terminal, iTerm2, etc.) (if your IDE doesn't have one)
+
+If you have all three of these tools, then you can proceed to the next steps below
+    
 
 Perform the following steps to create a copy of this repository on your local machine:
 
@@ -83,7 +90,7 @@ Perform the following steps to create a copy of this repository on your local ma
 Use the following instructions to start the Project with docker compose.
 
 1. Install Docker (https://docs.docker.com/engine/install/)
-2. Navigate to the creativecommon/search Project that you have cloned
+2. Navigate to the creativecommon/search Project that you have cloned in your IDE (VS Code, Sublime, Nova, etc.)
 3. **Run the containers**
 
    ```
