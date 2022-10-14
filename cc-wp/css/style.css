@@ -4102,6 +4102,98 @@ p small {
   color: #222222;
 }
 
+/* New footer */
+.new_footer {
+  height: 400px;
+  margin-top: -50px;
+  background-color: #000;
+  display: flex;
+  padding: 20px 120px;
+}
+
+.new_footer > div {
+  flex: 1;
+  padding: 15px;
+}
+
+.new_footer .new_footer_logo {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.new_footer .new_footer_logo img {
+  height: 55px;
+}
+
+.new_footer .new_footer_logo p {
+  color: white;
+  font-size: 1.1rem;
+  margin: 25px 0;
+}
+
+.new_footer a {
+  color: #5aa322;
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+.new_footer .socials {
+  height: 50px;
+  width: 300px;
+  margin-top: 40px;
+}
+
+.new_footer .socials img {
+  height: 25px;
+  padding: 6px;
+  background-color: #fff;
+  border-radius: 40px;
+  margin: 0 5px;
+}
+
+.new_footer_donate h5 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1.3;
+  color: #fff;
+}
+
+.new_footer_donate p {
+  color: #fff;
+  font-size: 1rem;
+  margin-top: 15px;
+  margin-bottom: 40px;
+}
+
+.new_footer_donate .donate_button {
+  background-color: rgb(251, 212, 60);
+  color: #000;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.new_footer_links h3 {
+  color: white;
+  font-size: 1.3rem;
+}
+
+.new_footer_links ul li {
+  margin: 20px 0;
+}
+
+.new_footer_links a {
+  font-weight: bold;
+}
+
+.new_footer_links p {
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: -20px;
+}
+
 /* Override default color for <li> tesxt in bootstrap CSS file */
 li {
   color: #000000;
@@ -4196,6 +4288,16 @@ li {
 
   #case .studies .slide {
     width: 392px;
+  }
+
+  .new_footer {
+    height: auto;
+    flex-direction: column;
+    padding: 20px 20px;
+  }
+
+  .new_footer_links ul {
+    margin-left: 0px;
   }
 }
 
