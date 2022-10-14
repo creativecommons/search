@@ -12,7 +12,7 @@ $(function () {
 	// pick a random search engine
 	//setEngine(engines[Math.floor(Math.random() * engines.length)]);
 
-	// hide all the radio btutons if JS is enabled
+	// hide all the radio buttons if JS is enabled
 	$(".engine button").focus(function () {
 		$(".engine").removeClass("focus")
 		$(this).parents(".engine").addClass("focus");
@@ -439,6 +439,16 @@ function modRights() {
 				rights = "&filter.license=to_share";
 			}
 			break;
+		case "openverse":
+			rights = "";
+			if (comm && deriv) {
+				rights = "&license_type=commercial&license_type=modification";
+			} else if (comm && !deriv) {
+				rights = "&license_type=commercial";
+			} else if (!comm && deriv) {
+				rights = "&license_type=modification";
+			}
+			break;
 
 	}
 
@@ -516,6 +526,10 @@ function doSearch() {
 				url = 'http://soundcloud.com/search/sounds?q=' + query.val() + rights;
 				break;
 
+			case "openverse":
+				url = 'https://wordpress.org/openverse/search/?q=' + query.val() + rights;
+				break;
+
 			case "google":
 			default:
 				url = 'http://google.com/search?as_rights=(cc_publicdomain|cc_attribute|cc_sharealike' +
@@ -556,4 +570,3 @@ function grabChosenLanguage() {
 	}
 	return null;
 }
-
