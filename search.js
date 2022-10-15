@@ -464,6 +464,10 @@ function doSearch() {
 
 		// NOTE: if you make changes here, you should make a similar change in search.php 
 		switch (engine) {
+			case "openverse":
+				url = 'https://wordpress.org/openverse/search/?q=' + query.val();
+				break;
+				
 			case "openclipart":
 				url = 'http://openclipart.org/search/?query=' + query.val();
 				break;

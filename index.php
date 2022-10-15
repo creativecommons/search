@@ -318,6 +318,14 @@ function modRights($engine, $comm, $deriv) {
 							<div class="engineDesc"><label for="openclipart"><strong>Open ClipArt</strong><br/>Image</label></div>
 						</div>
                         </div>
+						<div class="four columns omega">
+						<div class="engine">
+							<div class="engineButton">
+								<button onclick="setEngine(this)" name="engine" value="openverse" id="openverse"></button>
+							</div>
+							<div class="engineDesc"><label for="openverse"><strong>Openverse</strong><br/>Media</label></div>
+						</div>
+                        </div>
                         </div>
                         <div class="row">
                         <div class="four columns alpha">
