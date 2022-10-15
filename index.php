@@ -28,6 +28,10 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
     // NOTE: if you make changes here, you should make a similar change in search.js
 	switch ( $engine ) {
 
+		case "openverse":
+			$url = 'https://wordpress.org/openverse/search/?q=' . $query . '&license_type='. $rights;
+			break;
+
 		case "openclipart":
 			$url = 'http://openclipart.org/search/?query=' . $query;
 			break;
@@ -114,6 +118,16 @@ function modRights($engine, $comm, $deriv) {
 			$rights .= $comm ? "comm" : "";
 			$rights .= $deriv ? "deriv" : "";
 			$rights = ($rights == "l=") ? "l=cc" : $rights;
+			break;
+		
+		case "openverse":
+			if( $comm && $deriv){
+				$rights = "commercial,modification";
+			} elseif($comm){
+				$rights = "commercial";
+			}elseif($deriv){
+				$rights = "modification";
+			}		
 			break;
 
 		case "jamendo":

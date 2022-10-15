@@ -74,7 +74,7 @@ $(function () {
  * 1.0 - 2006-07
  * 
  */
-var engines = ["google", "googleimg", "flickr", "jamendo", "openclipart", "wikimediacommons", "fotopedia", "europeana", "youtube", "ccmixter", "soundcloud"];
+var engines = ["google", "googleimg", "flickr", "jamendo", "openclipart", "wikimediacommons", "fotopedia", "europeana", "youtube", "ccmixter", "soundcloud", "openverse"];
 //defaults:
 var engine = "";
 var comm = 1;
@@ -378,6 +378,16 @@ function modRights() {
 				rights += "deriv";
 			}
 			break;
+		
+		case "openverse":			
+			if(comm && deriv) {
+				rights = "commercial,modification";
+			} else if(comm){
+				rights = "commercial";
+			} else if(deriv){
+				rights = "modification";
+			}
+			break;
 
 		case "jamendo":
 			if (comm && deriv) {
@@ -465,9 +475,9 @@ function doSearch() {
 		// NOTE: if you make changes here, you should make a similar change in search.php 
 		switch (engine) {
 			case "openverse":
-				url = 'https://wordpress.org/openverse/search/?q=' + query.val();
+				url = 'https://wordpress.org/openverse/search/?q=' + query.val() + "&license_type=" + rights;
 				break;
-				
+
 			case "openclipart":
 				url = 'http://openclipart.org/search/?query=' + query.val();
 				break;
