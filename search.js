@@ -368,7 +368,10 @@ function modRights() {
 			if (comm || deriv) {
 				rights = "&type=things&sort=relevant";
 				rights += deriv ? "&customizable=1" : "";
-				// TODO Add the right concatenation string in the case of $comm
+				
+				// Used the licence=cc (which on Thingiverse, stands for the Creative Commons Attribution license)
+				// as the equivalent for the "modify, reuse ..." filter on CC search
+				rights += comm ? "&license=cc": "";
 			}
 
 			break;
