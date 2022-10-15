@@ -74,7 +74,7 @@ $(function () {
  * 1.0 - 2006-07
  * 
  */
-var engines = ["google", "googleimg", "flickr", "jamendo", "openclipart", "wikimediacommons", "fotopedia", "europeana", "youtube", "ccmixter", "soundcloud"];
+var engines = ["google", "googleimg", "flickr", "jamendo", "openclipart", "wikimediacommons", "fotopedia", "europeana", "youtube", "ccmixter", "soundcloud", "thingiverse"];
 //defaults:
 var engine = "";
 var comm = 1;
@@ -359,6 +359,20 @@ function modRights() {
 			rights += ")";
 			break;
 
+		case "thingiverse":
+			/*
+				If "comm" or "deriv" is provided, then we first apply the filter
+				to capture only results of type "things" before adding the specifics we require because
+				the "customizable" and "licence" filters on thingiverse only work alongside the "things" filter
+			*/
+			if (comm || deriv) {
+				rights = "&type=things&sort=relevant";
+				rights += deriv ? "&customizable=1" : "";
+				// TODO Add the right concatenation string in the case of $comm
+			}
+
+			break;
+
 		case "yahoo":
 			rights = "&";
 			if (comm) {
@@ -514,6 +528,10 @@ function doSearch() {
 
 			case "soundcloud":
 				url = 'http://soundcloud.com/search/sounds?q=' + query.val() + rights;
+				break;
+			
+			case "thingiverse":
+				url = 'https://www.thingiverse.com/search?q=' + query.val() + rights;
 				break;
 
 			case "google":

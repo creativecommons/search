@@ -7,7 +7,6 @@
  * index.php.  This block handles those who don't uses javascript for whatever
  * reason and could therefor be easily used as an API.
  */
-
 $query = isset($_REQUEST['query']) ? $_REQUEST['query'] : ''; // moving this here, we want to let people search and come here
 
 if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
@@ -68,8 +67,13 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 			$url = 'https://soundcloud.com/search/sounds?q=' . $query . $rights;
 			break;
 
+		case "thingiverse":
+			$url = 'https://www.thingiverse.com/search?q=' . $query . $rights;
+			break;
+
 		case "googleimg":
 			$url = 'https://www.google.com/search?site=imghp&tbm=isch&q=';
+			break;
 
 		case "google":
 		default:
@@ -108,6 +112,21 @@ function modRights($engine, $comm, $deriv) {
 			$rights .= $deriv ? "c" : "";
 			
 			break;
+
+		case "thingiverse":
+			/*
+				If $comm or $deriv is provided, then we first apply the filter
+				to capture only results of type "things" before adding the specifics we require because
+				the "customizable" and "licence" filters on thingiverse only work alongside the "things" filter
+			*/
+			if ($comm || $deriv) {
+				$rights = "&type=things&sort=relevant";
+				$rights .= $deriv ? "&customizable=1" : "";
+				// TODO Add the right concatenation string in the case of $comm
+			}
+
+			break;
+		
 
 		case "flickr":
 			$rights = "l=";
@@ -351,7 +370,7 @@ function modRights($engine, $comm, $deriv) {
 							<div class="engineButton">
 								<button onclick="setEngine(this)" name="engine" value="thingiverse" id="thingiverse"></button>
 							</div>
-							<div class="engineDesc"><label for="thingiverse"><strong>Thingiverse</strong><br/>Image</label></div>
+							<div class="engineDesc"><label for="thingiverse"><strong>Thingiverse</strong><br/>3D Model</label></div>
 						</div>
                         </div>
                         </div>
