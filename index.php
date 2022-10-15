@@ -73,7 +73,6 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 
 		case "googleimg":
 			$url = 'https://www.google.com/search?site=imghp&tbm=isch&q=';
-			break;
 
 		case "google":
 		default:
