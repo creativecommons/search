@@ -6,11 +6,6 @@ header {
 
 #fixfooter,
 footer {
-    /* REMOVED from ie8
-     * 	position: absolute;
-	bottom: 0;
-	*/
-
     width: 100%;
 	height: 260px;
 	padding-top: 0px;
@@ -22,14 +17,8 @@ footer {
 	box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 
-#fixfooter .container {
-}
-
 #fixfooter {
     z-index: -1;
-}
-
-#fixfooter .row {
 }
 
 #fixfooter .row a,
@@ -50,14 +39,6 @@ footer {
 .topbar #home-button:hover {
     background: url("../img/cc.logo-126x30.png") 10px 4px no-repeat;
 }
-
-/* removed in the ie8 version basically with the above 
-
-.topbar #home-button:hover {
-	background-color: #393839;
-	background-color: rgba(255, 255, 255, 0.05);
-} */
-
 
 .topbar form #glass {
 	cursor: pointer;
@@ -100,18 +81,8 @@ footer #colophon,
 }
 
 #globe {
-    /*
-	position: absolute;
-	overflow: visible;
-	top: 10px;
-	left: 0px;
-	height: 250px;
-	background: url("../img/Peters_projection_blank.png") no-repeat 0 0; 
-	background-color: #98C807;
-    */
     z-index: -1;
 }
-
 
 #case .studies .slide {
     display: none;
