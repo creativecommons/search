@@ -345,6 +345,16 @@ function modRights($engine, $comm, $deriv) {
 						</div>
                         </div>
                         </div>
+                        <div class="row">
+                        <div class="four columns alpha">
+						<div class="engine">
+							<div class="engineButton">
+								<button onclick="setEngine(this)" name="engine" value="thingiverse" id="thingiverse"></button>
+							</div>
+							<div class="engineDesc"><label for="thingiverse"><strong>Thingiverse</strong><br/>Image</label></div>
+						</div>
+                        </div>
+                        </div>
 					</fieldset>
 				</form>
                 </div>
