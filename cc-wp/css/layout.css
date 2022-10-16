@@ -2,19 +2,16 @@
    Author: Fabricatorz, LLC
    ========================================================================== */
 
-html, body {
-	height: 100%;
+html,
+body {
+  height: 100%;
 }
 
 #page {
-	min-height: 100%;
-	position: relative;
-	width: 100%;
-	margin: 0 auto;
-}
-
-header {
-	/*height: 54px;*/ /* Height of the header */
+  min-height: 100%;
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
 }
 
 header:after {
@@ -26,9 +23,8 @@ header:after {
 }
 
 #main {
-	clear:both;
-	padding-bottom: 54px; /* Height of the footer */
-	/*overflow: hidden;*/
+  clear: both;
+  padding-bottom: 54px; /* Height of the footer */
 }
 
 #main:after {
@@ -38,11 +34,10 @@ header:after {
   clear: both;
   visibility: hidden;
 }
-	
 
 footer {
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	height: 54px; /* Height of the footer */
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 54px; /* Height of the footer */
 }
