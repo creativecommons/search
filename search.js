@@ -72,7 +72,7 @@ $(function () {
 /*
  * Creative Commons Search Portal Interface
  * 1.0 - 2006-07
- * 
+ *
  */
 var engines = ["google", "googleimg", "flickr", "jamendo", "openclipart", "wikimediacommons", "fotopedia", "europeana", "youtube", "ccmixter", "soundcloud"];
 //defaults:
@@ -92,7 +92,7 @@ var default_engine = "_random";
 // DEBUG!!!!!
 var d = new Date();
 d.setFullYear(2020,0,1);
-setCookie("ccsearch", "jamendo", d, '/') 
+setCookie("ccsearch", "jamendo", d, '/')
 alert("cookie planted!  mwahahahaha");
 // \DEBUG!!!!!
 */
@@ -190,7 +190,7 @@ function setupQuery() {
 	var docom = getQueryStrVariable('commercial');
 	var doder = getQueryStrVariable('derivatives');
 
-	// display firefox branding 
+	// display firefox branding
 	if (moz == "Mozilla-search") {
 		show_ffx_msg();
 	}
@@ -210,7 +210,7 @@ function setupQuery() {
 	//lang = getQueryStrVariable('lang');
 
 	// Only insert query variable if nothing else is in the search entry
-	// Should solve back button problems	
+	// Should solve back button problems
 	if (query.val().length < 1 && qs) query.val(qs);
 
 	// Since we don't have a submit button, be nice to users and
@@ -268,7 +268,7 @@ function setEngine(e) {
 	$(".engine").removeClass("selected");
 	$("button[value=" + engine + "]").parents(".engine").addClass("selected");
 
-	//if (e == "_random") engine = "_random";	
+	//if (e == "_random") engine = "_random";
 	saveSettings();
 
 	//doSearch();
@@ -442,7 +442,7 @@ function modRights() {
 		case "openverse":
 			rights = "";
 			if (comm && deriv) {
-				rights = "&license_type=commercial&license_type=modification";
+				rights = "&license_type=commercial,modification";
 			} else if (comm && !deriv) {
 				rights = "&license_type=commercial";
 			} else if (!comm && deriv) {
@@ -469,10 +469,10 @@ function doSearch() {
 
 	// search only if there is something to search with
 	if ((query.val().length > 0)/* && (query.className == "active")*/) {
-		// set up rights string, works if user hits "go" or a tab. 
+		// set up rights string, works if user hits "go" or a tab.
 		modRights();
 
-		// NOTE: if you make changes here, you should make a similar change in search.php 
+		// NOTE: if you make changes here, you should make a similar change in search.php
 		switch (engine) {
 			case "openclipart":
 				url = 'http://openclipart.org/search/?query=' + query.val();

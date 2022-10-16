@@ -71,6 +71,10 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 		case "googleimg":
 			$url = 'https://www.google.com/search?site=imghp&tbm=isch&q=';
 
+		case "openverse":
+			$url = 'https://wordpress.org/openverse/search/?q=' . $query . $rights;
+			break;
+
 		case "google":
 		default:
 			$url = $url ? $url : 'http://google.com/search?q=';
@@ -97,7 +101,7 @@ function modRights($engine, $comm, $deriv) {
 
 		case "google":
 		case "googleimg":
-			/*			
+			/*
 			fmc	Labeled for reuse with modification
 			fc	Labeled for reuse
 			fm	Labeled for noncommercial reuse with modification
@@ -106,7 +110,7 @@ function modRights($engine, $comm, $deriv) {
 			$rights = "&tbs=sur:f";
 			$rights .= $comm ? "m" : "";
 			$rights .= $deriv ? "c" : "";
-			
+
 			break;
 
 		case "flickr":
@@ -170,6 +174,16 @@ function modRights($engine, $comm, $deriv) {
 			}
 			break;
 
+		case "openverse":
+			$rights = "";
+			if ($comm && $deriv) {
+				$rights = "&license_type=commercial,modification";
+			} else if ($comm && !$deriv) {
+				$rights = "&license_type=commercial";
+			} else if (!$comm && $deriv) {
+				$rights = "&license_type=modification";
+			}
+			break;
 	}
 
 	return $rights;
@@ -202,7 +216,7 @@ function modRights($engine, $comm, $deriv) {
 
 		<link rel="search" type="application/opensearchdescription+xml" title="Creative Commons Search Portal" href="http://oldsearch.creativecommons.org/ccsearch.xml" />
 		<link rel="stylesheet" href="style.css" type="text/css" media="screen" title="no title" charset="utf-8" />
-	
+
 		<!--[if lte IE 7]>
 		<link rel="stylesheet" href="style-ie.css" type="text/css" media="screen" charset="utf-8" />
 		<![endif]-->
@@ -320,7 +334,7 @@ function modRights($engine, $comm, $deriv) {
                         </div>
                         </div>
 
-						<div class="four columns">
+						<div class="four columns omega">
 						<div class="engine">
 							<div class="engineButton">
 								<button onclick="setEngine(this)" name="engine" value="openverse" id="openverse"></button>
