@@ -27,6 +27,10 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
     // NOTE: if you make changes here, you should make a similar change in search.js
 	switch ( $engine ) {
 
+		case "openverse":
+			$url = 'https://wordpress.org/openverse/search/?q=' . $query . '&license_type='. $rights;
+			break;
+
 		case "openclipart":
 			$url = 'http://openclipart.org/search/?query=' . $query;
 			break;
@@ -135,6 +139,16 @@ function modRights($engine, $comm, $deriv) {
 			$rights .= $comm ? "comm" : "";
 			$rights .= $deriv ? "deriv" : "";
 			$rights = ($rights == "l=") ? "l=cc" : $rights;
+			break;
+		
+		case "openverse":
+			if( $comm && $deriv){
+				$rights = "commercial,modification";
+			} elseif($comm){
+				$rights = "commercial";
+			}elseif($deriv){
+				$rights = "modification";
+			}		
 			break;
 
 		case "jamendo":
@@ -337,6 +351,14 @@ function modRights($engine, $comm, $deriv) {
 								<button onclick="setEngine(this)" name="engine" value="openclipart" id="openclipart"></button>
 							</div>
 							<div class="engineDesc"><label for="openclipart"><strong>Open ClipArt</strong><br/>Image</label></div>
+						</div>
+                        </div>
+						<div class="four columns omega">
+						<div class="engine">
+							<div class="engineButton">
+								<button onclick="setEngine(this)" name="engine" value="openverse" id="openverse"></button>
+							</div>
+							<div class="engineDesc"><label for="openverse"><strong>Openverse</strong><br/>Media</label></div>
 						</div>
                         </div>
                         </div>
