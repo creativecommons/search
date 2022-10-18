@@ -111,5 +111,7 @@ j(document).ready(function(){
 if (navigator.userAgent.match(/MSIE\s6/)) {
 	j(window).load( j('div.carousel').css('display', 'none') );
 } else {
-    j(window).load( j('div.carousel').css('display', 'block') );
+	if (j('div.carousel').length > 0) {
+		j(window).load( j('div.carousel').css('display', 'block') );
+	}
 }

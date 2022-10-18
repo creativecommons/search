@@ -74,7 +74,9 @@ $(function () {
  * 1.0 - 2006-07
  * 
  */
-var engines = ["google", "googleimg", "flickr", "jamendo", "openclipart", "wikimediacommons", "fotopedia", "europeana", "youtube", "ccmixter", "soundcloud", "openverse"];
+ 
+var engines = ["google", "googleimg", "flickr", "jamendo", "openclipart", "wikimediacommons", "fotopedia", "europeana", "youtube", "ccmixter", "soundcloud", "thingiverse", "openverse"];
+ 
 //defaults:
 var engine = "";
 var comm = 1;
@@ -359,6 +361,23 @@ function modRights() {
 			rights += ")";
 			break;
 
+		case "thingiverse":
+			/*
+				If "comm" or "deriv" is provided, then we first apply the filter
+				to capture only results of type "things" before adding the specifics we require because
+				the "customizable" and "licence" filters on thingiverse only work alongside the "things" filter
+			*/
+			if (comm || deriv) {
+				rights = "&type=things&sort=relevant";
+				rights += deriv ? "&customizable=1" : "";
+				
+				// Used the licence=cc (which on Thingiverse, stands for the Creative Commons Attribution license)
+				// as the equivalent for the "modify, reuse ..." filter on CC search
+				rights += comm ? "&license=cc": "";
+			}
+
+			break;
+
 		case "yahoo":
 			rights = "&";
 			if (comm) {
@@ -528,6 +547,10 @@ function doSearch() {
 
 			case "soundcloud":
 				url = 'http://soundcloud.com/search/sounds?q=' + query.val() + rights;
+				break;
+			
+			case "thingiverse":
+				url = 'https://www.thingiverse.com/search?q=' + query.val() + rights;
 				break;
 
 			case "google":
