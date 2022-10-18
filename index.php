@@ -371,6 +371,14 @@ function modRights($engine, $comm, $deriv) {
 							<div class="engineDesc"><label for="soundcloud"><strong>SoundCloud</strong><br/>Music</label></div>
 						</div>
                         </div>
+						<div class="four columns">
+						<div class="engine">
+							<div class="engineButton">
+								<button onclick="setEngine(this)" name="engine" value="thingiverse" id="thingiverse"></button>
+							</div>
+							<div class="engineDesc"><label for="thingiverse"><strong>Thingiverse</strong><br/>3D Model</label></div>
+						</div>
+                        </div>
                         <div class="four columns">
 						<div class="engine">
 							<div class="engineButton">
@@ -385,16 +393,6 @@ function modRights($engine, $comm, $deriv) {
 								<button onclick="setEngine(this)" name="engine" value="youtube" id="youtube"></button>
 							</div>
 							<div class="engineDesc"><label for="youtube"><strong>YouTube</strong><br/>Video</label></div>
-						</div>
-                        </div>
-                        </div>
-                        <div class="row">
-                        <div class="four columns alpha">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="thingiverse" id="thingiverse"></button>
-							</div>
-							<div class="engineDesc"><label for="thingiverse"><strong>Thingiverse</strong><br/>3D Model</label></div>
 						</div>
                         </div>
                         </div>
