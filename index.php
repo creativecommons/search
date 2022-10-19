@@ -7,7 +7,6 @@
  * index.php.  This block handles those who don't uses javascript for whatever
  * reason and could therefor be easily used as an API.
  */
-
 $query = isset($_REQUEST['query']) ? $_REQUEST['query'] : ''; // moving this here, we want to let people search and come here
 
 if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
@@ -27,6 +26,10 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 
     // NOTE: if you make changes here, you should make a similar change in search.js
 	switch ( $engine ) {
+
+		case "openverse":
+			$url = 'https://wordpress.org/openverse/search/?q=' . $query . '&license_type='. $rights;
+			break;
 
 		case "openclipart":
 			$url = 'http://openclipart.org/search/?query=' . $query;
@@ -60,16 +63,16 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 			$url = 'http://www.youtube.com/results?search_query=' . $query . ',creativecommons';
 			break;
 
-		case "pixabay":
-			$url = 'http://pixabay.com/en/photos/?q=' . $query;
-			break;
-
 		case "ccmixter":
 			$url = 'http://ccmixter.org/api/query?datasource=uploads&search_type=all&sort=rank&search=' . $query . $rights;
 			break;
 
 		case "soundcloud":
 			$url = 'https://soundcloud.com/search/sounds?q=' . $query . $rights;
+			break;
+
+		case "thingiverse":
+			$url = 'https://www.thingiverse.com/search?q=' . $query . $rights;
 			break;
 
 		case "googleimg":
@@ -113,11 +116,39 @@ function modRights($engine, $comm, $deriv) {
 			
 			break;
 
+		case "thingiverse":
+			/*
+				If $comm or $deriv is provided, then we first apply the filter
+				to capture only results of type "things" before adding the specifics we require because
+				the "customizable" and "licence" filters on thingiverse only work alongside the "things" filter
+			*/
+			if ($comm || $deriv) {
+				$rights = "&type=things&sort=relevant";
+				$rights .= $deriv ? "&customizable=1" : "";
+
+				// Used the licence=cc (which on Thingiverse, stands for the Creative Commons Attribution license)
+				// as the equivalent for the "modify, reuse ..." filter on CC search
+				$rights .= $comm ? "&license=cc": "";
+			}
+
+			break;
+		
+
 		case "flickr":
 			$rights = "l=";
 			$rights .= $comm ? "comm" : "";
 			$rights .= $deriv ? "deriv" : "";
 			$rights = ($rights == "l=") ? "l=cc" : $rights;
+			break;
+		
+		case "openverse":
+			if( $comm && $deriv){
+				$rights = "commercial,modification";
+			} elseif($comm){
+				$rights = "commercial";
+			}elseif($deriv){
+				$rights = "modification";
+			}		
 			break;
 
 		case "jamendo":
@@ -200,11 +231,11 @@ function modRights($engine, $comm, $deriv) {
 
 <html lang="en">
 	<head>
-		<title>CC Search</title>
+		<title>CC Search Portal</title>
 	    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
         <?php include 'cc-wp/header-common.php'; ?>
 
-		<link rel="search" type="application/opensearchdescription+xml" title="Creative Commons Search" href="http://oldsearch.creativecommons.org/ccsearch.xml" />
+		<link rel="search" type="application/opensearchdescription+xml" title="Creative Commons Search Portal" href="http://oldsearch.creativecommons.org/ccsearch.xml" />
 		<link rel="stylesheet" href="style.css" type="text/css" media="screen" title="no title" charset="utf-8" />
 	
 		<!--[if lte IE 7]>
@@ -226,7 +257,7 @@ function modRights($engine, $comm, $deriv) {
 
         <div class="first row">
         <div class="sixteen columns alpha wrong">
-        <h3>Try <a href="https://wordpress.org/openverse/?referrer=creativecommons.org">Openverse</a>: Openly Licensed Images, Audio and More (formerly CC Search).</h3>
+        <h3>Try <a href="https://wordpress.org/openverse/?referrer=creativecommons.org">Openverse</a>: Openly Licensed Images, Audio and More.</h3>
         </div>
         </div>
 
@@ -235,7 +266,7 @@ function modRights($engine, $comm, $deriv) {
 				<form id="search_form" method="get" onsubmit="return doSearch()">
             <div class="seven columns alpha">
 			<div id="header_logo" title="To search, enter some search terms, then click a provider." onclick="if ( $('#query').val() ) { doSearch(); }">
-				<img src="cc-search.png" alt="CC Search" />
+				<img src="cc-search-portal.png" alt="CC Search Portal" />
 				<div id="header_text"><span style="color: white;">Find content you can share, use and remix</span></div>
 			</div>
             </div>
@@ -266,32 +297,32 @@ function modRights($engine, $comm, $deriv) {
                         <div class="first row">
                         <div class="four columns alpha">
 						<div class="engine">
-							<div class="engineRadio">
-								<input type="radio" onclick="setEngine(this)" name="engine" value="ccmixter" id="ccmixter">
+							<div class="engineButton">
+								<button onclick="setEngine(this)" name="engine" value="ccmixter" id="ccmixter"></button>
 							</div>
 							<div class="engineDesc"><label for="ccmixter"><strong>ccMixter</strong><br/>Music</label></div>
 						</div>
                         </div>
                         <div class="four columns">
 						<div class="engine">
-							<div class="engineRadio">
-								<input type="radio" onclick="setEngine(this)" name="engine" value="europeana" id="europeana">
+							<div class="engineButton">
+								<button onclick="setEngine(this)" name="engine" value="europeana" id="europeana"></button>
 							</div>
 							<div class="engineDesc"><label for="europeana"><strong>Europeana</strong><br/>Media</label></div>
 						</div>
                         </div>
                         <div class="four columns">
 						<div class="engine">
-							<div class="engineRadio">
-								<input type="radio" onclick="setEngine(this)" name="engine" value="flickr" id="flickr">
+							<div class="engineButton">
+								<button onclick="setEngine(this)" name="engine" value="flickr" id="flickr"></button>
 							</div>
 							<div class="engineDesc"><label for="flickr"><strong>Flickr</strong><br/>Image</label></div>
 						</div>
                         </div>
                         <div class="four columns omega">
 						<div class="engine">
-							<div class="engineRadio">
-								<input type="radio" onclick="setEngine(this)" name="engine" value="google" id="google">
+							<div class="engineButton">
+								<button onclick="setEngine(this)" name="engine" value="google" id="google"></button>
 							</div>
 							<div class="engineDesc"><label for="google"><strong>Google</strong><br/>Web</label></div>
 						</div>
@@ -300,60 +331,70 @@ function modRights($engine, $comm, $deriv) {
                         <div class="row">
                         <div class="four columns alpha">
 						<div class="engine">
-							<div class="engineRadio">
-								<input type="radio" onclick="setEngine(this)" name="engine" value="googleimg" id="googleimg">
+							<div class="engineButton">
+								<button onclick="setEngine(this)" name="engine" value="googleimg" id="googleimg"></button>
 							</div>
 							<div class="engineDesc"><label for="googleimg"><strong>Google Images</strong><br/>Image</label></div>
 						</div>
                         </div>
                         <div class="four columns">
 						<div class="engine">
-							<div class="engineRadio">
-								<input type="radio" onclick="setEngine(this)" name="engine" value="jamendo" id="jamendo">
+							<div class="engineButton">
+								<button onclick="setEngine(this)" name="engine" value="jamendo" id="jamendo"></button>
 							</div>
 							<div class="engineDesc"><label for="jamendo"><strong>Jamendo</strong><br/>Music</label></div>
 						</div>
                         </div>
                         <div class="four columns">
 						<div class="engine">
-							<div class="engineRadio">
-								<input type="radio" onclick="setEngine(this)" name="engine" value="openclipart" id="openclipart">
+							<div class="engineButton">
+								<button onclick="setEngine(this)" name="engine" value="openclipart" id="openclipart"></button>
 							</div>
 							<div class="engineDesc"><label for="openclipart"><strong>Open ClipArt</strong><br/>Image</label></div>
 						</div>
                         </div>
-                        <div class="four columns omega">
+						<div class="four columns omega">
 						<div class="engine">
-							<div class="engineRadio">
-								<input type="radio" onclick="setEngine(this)" name="engine" value="pixabay" id="pixabay">
+							<div class="engineButton">
+								<button onclick="setEngine(this)" name="engine" value="openverse" id="openverse"></button>
 							</div>
-							<div class="engineDesc"><label for="pixabay"><strong>Pixabay</strong><br/>Image</label></div>
+							<div class="engineDesc"><label for="openverse"><strong>Openverse</strong><br/>Media</label></div>
 						</div>
                         </div>
                         </div>
                         <div class="row">
                         <div class="four columns alpha">
 						<div class="engine">
-							<div class="engineRadio">
-								<input type="radio" onclick="setEngine(this)" name="engine" value="soundcloud" id="soundcloud">
+							<div class="engineButton">
+								<button onclick="setEngine(this)" name="engine" value="soundcloud" id="soundcloud"></button>
 							</div>
 							<div class="engineDesc"><label for="soundcloud"><strong>SoundCloud</strong><br/>Music</label></div>
 						</div>
                         </div>
                         <div class="four columns">
 						<div class="engine">
-							<div class="engineRadio">
-								<input type="radio" onclick="setEngine(this)" name="engine" value="wikimediacommons" id="wikimediacommons">
+							<div class="engineButton">
+								<button onclick="setEngine(this)" name="engine" value="wikimediacommons" id="wikimediacommons"></button>
 							</div>
 							<div class="engineDesc"><label for="wikimediacommons"><strong>Wikimedia Commons</strong><br/>Media</label></div>
 						</div>
                         </div>
                         <div class="four columns omega">
 						<div class="engine">
-							<div class="engineRadio">
-								<input type="radio" onclick="setEngine(this)" name="engine" value="youtube" id="youtube">
+							<div class="engineButton">
+								<button onclick="setEngine(this)" name="engine" value="youtube" id="youtube"></button>
 							</div>
 							<div class="engineDesc"><label for="youtube"><strong>YouTube</strong><br/>Video</label></div>
+						</div>
+                        </div>
+                        </div>
+                        <div class="row">
+                        <div class="four columns alpha">
+						<div class="engine">
+							<div class="engineButton">
+								<button onclick="setEngine(this)" name="engine" value="thingiverse" id="thingiverse"></button>
+							</div>
+							<div class="engineDesc"><label for="thingiverse"><strong>Thingiverse</strong><br/>3D Model</label></div>
 						</div>
                         </div>
                         </div>
@@ -365,7 +406,7 @@ function modRights($engine, $comm, $deriv) {
 		<div class="row">
 			<div id="help">
                 <div class="one columns alpha">
-					<p>Please note that oldsearch.creativecommons.org is <em>not a search engine</em>, but rather offers convenient access to search services provided by other independent organizations. CC has no control over the results that are returned. <em>Do not assume that the results displayed in this search portal are under a CC license</em>. You should always verify that the work is actually under a CC license by following the link. Since there is no registration to use a CC license, CC has no way to determine what has and hasn't been placed under the terms of a CC license. If you are in doubt you should contact the copyright holder directly, or try to contact the site where you found the content.</p>
+					<p>Please note that CC Search Portal is <em>not a search engine</em>, but rather offers convenient access to search services provided by other independent organizations. CC has no control over the results that are returned. <em>Do not assume that the results displayed in this search portal are under a CC license</em>. You should always verify that the work is actually under a CC license by following the link. Since there is no registration to use a CC license, CC has no way to determine what has and hasn't been placed under the terms of a CC license. If you are in doubt you should contact the copyright holder directly, or try to contact the site where you found the content.</p>
 				</div>
 		</div>
 

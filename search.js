@@ -12,11 +12,18 @@ $(function () {
 	// pick a random search engine
 	//setEngine(engines[Math.floor(Math.random() * engines.length)]);
 
-	// hide all the radio btutons if JS is enabled
-	$(".engine input").hide();
+	// hide all the radio buttons if JS is enabled
+	$(".engine button").focus(function () {
+		$(".engine").removeClass("focus")
+		$(this).parents(".engine").addClass("focus");
+	})
+
+	$(".engine button").focusout(function () {
+		$(".engine").removeClass("focus")
+	})
 
 	$(".engine").click(function () {
-		setEngine($(this).find("input").first().attr("id"));
+		setEngine($(this).find("button").first().attr("id"));
 		doSearch();
 	});
 
@@ -63,12 +70,13 @@ $(function () {
 
 
 /*
- * Creative Commons Search Interface
+ * Creative Commons Search Portal Interface
  * 1.0 - 2006-07
  * 
  */
-
-var engines = ["google", "googleimg", "flickr", "jamendo", "openclipart", "wikimediacommons", "fotopedia", "europeana", "youtube", "pixabay", "ccmixter", "soundcloud"];
+ 
+var engines = ["google", "googleimg", "flickr", "jamendo", "openclipart", "wikimediacommons", "fotopedia", "europeana", "youtube", "ccmixter", "soundcloud", "thingiverse", "openverse"];
+ 
 //defaults:
 var engine = "";
 var comm = 1;
@@ -257,10 +265,10 @@ function setEngine(e) {
 	$("#engineInfo ." + previous).hide();
 	$("#engineInfo ." + engine).show();
 
-	$("input[value=" + engine + "]").attr("checked", true);
+	$("button[value=" + engine + "]").attr("checked", true);
 
 	$(".engine").removeClass("selected");
-	$("input[value=" + engine + "]").parents(".engine").addClass("selected");
+	$("button[value=" + engine + "]").parents(".engine").addClass("selected");
 
 	//if (e == "_random") engine = "_random";	
 	saveSettings();
@@ -353,6 +361,23 @@ function modRights() {
 			rights += ")";
 			break;
 
+		case "thingiverse":
+			/*
+				If "comm" or "deriv" is provided, then we first apply the filter
+				to capture only results of type "things" before adding the specifics we require because
+				the "customizable" and "licence" filters on thingiverse only work alongside the "things" filter
+			*/
+			if (comm || deriv) {
+				rights = "&type=things&sort=relevant";
+				rights += deriv ? "&customizable=1" : "";
+				
+				// Used the licence=cc (which on Thingiverse, stands for the Creative Commons Attribution license)
+				// as the equivalent for the "modify, reuse ..." filter on CC search
+				rights += comm ? "&license=cc": "";
+			}
+
+			break;
+
 		case "yahoo":
 			rights = "&";
 			if (comm) {
@@ -370,6 +395,16 @@ function modRights() {
 			}
 			if (deriv) {
 				rights += "deriv";
+			}
+			break;
+		
+		case "openverse":			
+			if(comm && deriv) {
+				rights = "commercial,modification";
+			} else if(comm){
+				rights = "commercial";
+			} else if(deriv){
+				rights = "modification";
 			}
 			break;
 
@@ -458,6 +493,10 @@ function doSearch() {
 
 		// NOTE: if you make changes here, you should make a similar change in search.php 
 		switch (engine) {
+			case "openverse":
+				url = 'https://wordpress.org/openverse/search/?q=' + query.val() + "&license_type=" + rights;
+				break;
+
 			case "openclipart":
 				url = 'http://openclipart.org/search/?query=' + query.val();
 				break;
@@ -483,7 +522,7 @@ function doSearch() {
 				break;
 
 			case "googleimg":
-				url = 'https://www.google.com/search?site=imghp&tbm=isch&q=' + query.val() + '&tbs=sur:f' + ((deriv) ? "m" : "") + ((comm) ? "c" : "");
+				url = 'https://www.google.com/search?site=imghp&tbm=isch&q=' + query.val() + '&tbs=sur:f' + ((deriv) ? "m" : "") + ((comm) ? "c" : "") + '%2Cil:cl';
 				break;
 
 			case "wikimediacommons":
@@ -502,16 +541,16 @@ function doSearch() {
 				url = 'http://www.youtube.com/results?search_query=' + query.val() + ',creativecommons';
 				break;
 
-			case "pixabay":
-				url = 'http://pixabay.com/en/photos/?q=' + query.val();
-				break;
-
 			case "ccmixter":
 				url = 'http://ccmixter.org/api/query?datasource=uploads&search_type=all&sort=rank&search=' + query.val() + rights;
 				break;
 
 			case "soundcloud":
 				url = 'http://soundcloud.com/search/sounds?q=' + query.val() + rights;
+				break;
+			
+			case "thingiverse":
+				url = 'https://www.thingiverse.com/search?q=' + query.val() + rights;
 				break;
 
 			case "google":
