@@ -13,7 +13,7 @@ These Guides are meant to serve as an expansion to existing documentation for be
 - have a unique name, and scope for Guide
 - be sure to check that modifying an existing Guide isn't better than creating a new one
 - link to existing resources where applicable, rather than duplicating work within a Guide (for example: you wish to explain what the `cd` command is; you should link to the MDN Docs, Wikipedia, etc. instead of writing it out within the Guide itself in a verbose fashion)
-* have a clear and focused need they are addressing
+- have a clear and focused need they are addressing
 
 ## Process for creating a new Guide
 1. Create a Feature Issue outlining:
