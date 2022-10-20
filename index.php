@@ -104,7 +104,7 @@ function modRights($engine, $comm, $deriv) {
 
 		case "google":
 		case "googleimg":
-			/*			
+			/*
 			fmc	Labeled for reuse with modification
 			fc	Labeled for reuse
 			fm	Labeled for noncommercial reuse with modification
@@ -113,7 +113,7 @@ function modRights($engine, $comm, $deriv) {
 			$rights = "&tbs=sur:f";
 			$rights .= $comm ? "m" : "";
 			$rights .= $deriv ? "c" : "";
-			
+
 			break;
 
 		case "thingiverse":
@@ -132,7 +132,7 @@ function modRights($engine, $comm, $deriv) {
 			}
 
 			break;
-		
+
 
 		case "flickr":
 			$rights = "l=";
@@ -140,7 +140,7 @@ function modRights($engine, $comm, $deriv) {
 			$rights .= $deriv ? "deriv" : "";
 			$rights = ($rights == "l=") ? "l=cc" : $rights;
 			break;
-		
+
 		case "openverse":
 			if( $comm && $deriv){
 				$rights = "commercial,modification";
@@ -148,7 +148,7 @@ function modRights($engine, $comm, $deriv) {
 				$rights = "commercial";
 			}elseif($deriv){
 				$rights = "modification";
-			}		
+			}
 			break;
 
 		case "jamendo":
@@ -237,7 +237,7 @@ function modRights($engine, $comm, $deriv) {
 
 		<link rel="search" type="application/opensearchdescription+xml" title="Creative Commons Search Portal" href="http://oldsearch.creativecommons.org/ccsearch.xml" />
 		<link rel="stylesheet" href="style.css" type="text/css" media="screen" title="no title" charset="utf-8" />
-	
+
 		<!--[if lte IE 7]>
 		<link rel="stylesheet" href="style-ie.css" type="text/css" media="screen" charset="utf-8" />
 		<![endif]-->
@@ -255,10 +255,8 @@ function modRights($engine, $comm, $deriv) {
 
         <div class="sixteen columns">
 
-        <div class="first row">
-        <div class="sixteen columns alpha wrong">
-        <h3>Try <a href="https://wordpress.org/openverse/?referrer=creativecommons.org">Openverse</a>: Openly Licensed Images, Audio and More.</h3>
-        </div>
+		<div class="first row">
+
         </div>
 
 		<div class="row">
