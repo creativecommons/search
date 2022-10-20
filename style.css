@@ -16,6 +16,7 @@
   text-align: center;
   margin-top: 5px;
   width: 100%;
+  color: #ffffff;
 }
 
 #search {
@@ -154,6 +155,7 @@ fieldset {
 }
 #engines p {
   margin: 0;
+  text-align: left;
 }
 
 .statement {
