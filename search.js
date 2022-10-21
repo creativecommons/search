@@ -75,7 +75,7 @@ $(function () {
  *
  */
 
-var engines = ["google", "googleimg", "flickr", "jamendo", "openclipart", "wikimediacommons", "fotopedia", "europeana", "youtube", "ccmixter", "soundcloud", "thingiverse", "openverse"];
+var engines = ["google", "googleimg", "flickr", "jamendo", "openclipart", "wikimediacommons", "fotopedia", "europeana", "youtube", "ccmixter", "soundcloud", "thingiverse", "openverse", "vimeo"];
 
 //defaults:
 var engine = "";
@@ -469,6 +469,18 @@ function modRights() {
 			}
 			break;
 
+		case "vimeo":
+	     	rights = "";
+		    if (comm && deriv) {
+				rights = "&license=by";
+			} else if (comm && !deriv) {
+				rights = "&license=by"
+			} else if (!comm && deriv) {
+				rights = ""
+			}
+			break;
+
+
 	}
 
 }
@@ -551,6 +563,10 @@ function doSearch() {
 
 			case "thingiverse":
 				url = 'https://www.thingiverse.com/search?q=' + query.val() + rights;
+				break;
+
+			case "vimeo":
+				url = 'https://vimeo.com/search?' + rights + '&q=' + query.val() ;
 				break;
 
 			case "google":
