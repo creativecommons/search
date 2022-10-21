@@ -82,7 +82,7 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 			if ( $rights ) {
 				$url = 'https://vimeo.com/search?' . $rights . '&q=' . $query;
 			} else {
-				// $url = 'https://vimeo.com/search?q=' . $query;
+				$url = 'https://vimeo.com/search?' . '&q='  . $query;
 			}
 			break;
 
