@@ -78,10 +78,18 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 		case "googleimg":
 			$url = 'https://www.google.com/search?site=imghp&tbm=isch&q=';
 
+		case "vimoe":
+			if ( $rights ) {
+				$url = 'https://vimeo.com/search?' . $rights . '&q=' . $query;
+			} else {
+				// $url = 'https://vimeo.com/search?q=' . $query;
+			}
+			break;
+
 		case "google":
-		default:
-			$url = $url ? $url : 'http://google.com/search?q=';
-			$url .= $query . '&as_rights=' . $rights;
+			default:
+				$url = $url ? $url : 'http://google.com/search?q=';
+				$url .= $query . '&as_rights=' . $rights;
 			break;
 
 	}
@@ -194,6 +202,19 @@ function modRights($engine, $comm, $deriv) {
 				$rights = "&lic=by,nc,sa,ncsa,s,splus,pd,zero";
 			}
 			break;
+
+			
+
+		case "ccmixter":
+			if ( $comm && $deriv ) {
+				$rights = "license=by,sa,s,splus,pd,zero";
+						} else if ( $comm && ! $deriv ) {
+				$rights = "&license=by";
+			} else if ( ! $comm && $deriv) {
+				$rights = "&llicense=by,nc,nd,nd,sa,cc0" ;
+			}
+			break;
+
 
 		case "soundcloud":
 			if ( $comm && $deriv ) {
@@ -393,6 +414,15 @@ function modRights($engine, $comm, $deriv) {
 							<div class="engineDesc"><label for="youtube"><strong>YouTube</strong><br/>Video</label></div>
 						</div>
                         </div>
+						<div class="four columns alpha">
+						<div class="engine">
+							<div class="engineButton">
+								<button onclick="setEngine(this)" name="engine" value="vimeo" id="vimeo"></button>
+							</div>
+							<div class="engineDesc"><label for="vimeo"><strong>vimeo</strong><br/>Video</label></div>
+						</div>
+                        </div>
+
                         </div>
 					</fieldset>
 				</form>
