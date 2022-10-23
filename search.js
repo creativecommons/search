@@ -9,8 +9,8 @@ $(function () {
 	//	$("#engineInfo").css("left", $("#engine").position().left + 7);
 	//	$("#engineInfo").width($("#engine").width() - 32);
 
-	// pick a random search engine
-	//setEngine(engines[Math.floor(Math.random() * engines.length)]);
+	// set openverse to default search engine
+	//setEngine(engines[Math.floor(Math.openverse() * engines.length)]);
 
 	// hide all the radio buttons if JS is enabled
 	$(".engine button").focus(function () {
@@ -158,9 +158,9 @@ function getSettings() {
 
 	if (engine == null || !engine || engine == "") {
 		//engine = default_engine;
-		engine = "_random";
+		engine = "openverse";
 
-		//engine = engines[Math.floor(Math.random() * engines.length)];
+		//engine = engines[Math.floor(Math.openverse() * engines.length)];
 	}
 
 }
@@ -254,7 +254,7 @@ function setEngine(e) {
 
 	if (typeof e == "string") {
 		if (e == "_random") {
-			engine = engines[Math.floor(Math.random() * engines.length)];
+			engine = engines[Math.floor(Math.openverse() * engines.length)];
 		} else {
 			engine = e;
 		}
@@ -270,7 +270,7 @@ function setEngine(e) {
 	$(".engine").removeClass("selected");
 	$("button[value=" + engine + "]").parents(".engine").addClass("selected");
 
-	//if (e == "_random") engine = "_random";
+	//if (e == "openverse") engine = "openverse";
 	saveSettings();
 
 	//doSearch();
