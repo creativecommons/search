@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 // "Single" template will always, by definition, have a single post.
 // I'm quite sure this will not change, except on opposites day, perhaps.

@@ -13,9 +13,9 @@ var id = 'xxxxxGxx'.replace(/[xy]/g, function(c) {var r = Math.random()*16|0, v 
 var baseUrl = '/demos/search/search2/elog/elog.php?';
 
 $(function() {
-	// page has loaded! 
+	// page has loaded!
 	log ("page_load");
-	
+
 	// now set up event handlers
 	$("#query").blur (function() { log("query_changed"); });
 	$("#engineSelect").change (function() { log("engine_changed"); });

@@ -21,19 +21,19 @@ if ($_GET['stype']) {
         <div id="main" role="main">
             <div class="container">
                 <div class="sixteen columns">
-                <?php 
+                <?php
                     if ( $_SERVER["SCRIPT_URL"] == '/' ||
-                         $_SERVER["SCRIPT_URL"] == '/index.php' || 
+                         $_SERVER["SCRIPT_URL"] == '/index.php' ||
                          $_SERVER["SCRIPT_URL"] == '/homedev/index.php' ||
                          $_SERVER["SCRIPT_URL"] == '/homedev' ) {
-                            include 'home-gestalt.php'; 
+                            include 'home-gestalt.php';
 
-                    } else { 
+                    } else {
 
 			            the_content();
-			            edit_post_link("Edit This Page", '<p class="edit">', 
+			            edit_post_link("Edit This Page", '<p class="edit">',
                                        '</p>');
-                    } 
+                    }
                 ?>
 
                 </div>

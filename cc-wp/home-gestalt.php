@@ -4,8 +4,8 @@
  * most generic buckets to be laid out for display. Carousels are also
  * buckets.
  */
-function get_buckets ($bucket_type      = 'Bucket', 
-                      $exclude_category = 'Case Studies, CC Store', 
+function get_buckets ($bucket_type      = 'Bucket',
+                      $exclude_category = 'Case Studies, CC Store',
                       $orderby          = 'rating',
                       $debug = false)
 {
@@ -16,7 +16,7 @@ function get_buckets ($bucket_type      = 'Bucket',
     if ( empty($excluded_categories) )
         $excluded_categories[] = $exclude_category;
 
-    foreach ($bookmarks as $b) 
+    foreach ($bookmarks as $b)
     {
         $do_not_save = false;
         $book = get_bookmark($b->link_id);
@@ -53,42 +53,42 @@ function get_button ($bucket, $link, $class = 'btn')
             $button_text = '';
             // check if 'Green Button ' at front
             $replace_ct = 0;
-            $button_text = str_ireplace('Green Button ', '', $term->name, 
+            $button_text = str_ireplace('Green Button ', '', $term->name,
                                         $replace_ct);
-            if ( $replace_ct != 0 ) 
+            if ( $replace_ct != 0 )
             {
                 $use_green_button = true;
                 break;
             }
 
             $replace_ct = 0;
-            $button_text = str_ireplace('Text Button ', '', $term->name, 
+            $button_text = str_ireplace('Text Button ', '', $term->name,
                                         $replace_ct);
-            if ( $replace_ct != 0 ) 
+            if ( $replace_ct != 0 )
             {
                 $use_text_button = true;
                 break;
             }
 
             $replace_ct = 0;
-            $button_text = str_ireplace('Button ', '', $term->name, 
+            $button_text = str_ireplace('Button ', '', $term->name,
                                         $replace_ct);
-            if ( $replace_ct != 0) 
+            if ( $replace_ct != 0)
                 break;
         }
     }
     // display the right class for the button
-    return '<div class="bucket-follow">' . 
-           '<a ' . ($use_text_button ? '' : 
+    return '<div class="bucket-follow">' .
+           '<a ' . ($use_text_button ? '' :
                    ( 'class="' . $class . ($use_green_button ? ' primary"' : '"')
-                   ) ) .  
+                   ) ) .
            ' href="' . $link . '">' . $button_text . '</a></div>';
 }
 
-/** 
- * Outputs the right specific code for the display of carousel buckets. 
+/**
+ * Outputs the right specific code for the display of carousel buckets.
  */
-function output_carousel () 
+function output_carousel ()
 {
     $carousels = get_buckets('Carousel');
 
@@ -105,7 +105,7 @@ function output_carousel ()
 								<div class="slides_container row">
 
 <?php
-    foreach ($carousels as $carousel) 
+    foreach ($carousels as $carousel)
     {
 ?>
 									<div class="slide">
@@ -130,7 +130,7 @@ function output_carousel ()
     }
 ?>
 
-								</div> <!--! end of "slides_container row" --> 
+								</div> <!--! end of "slides_container row" -->
 							</div> <!--! end of #slides -->
 						</div> <!--! end of "carousel bucket" -->
 					</div> <!--! end of "first row" -->
@@ -145,7 +145,7 @@ function output_carousel ()
  * static. The Ratings in the bookmarks/links sectin of wordpress determines
  * the position of the boxes.
  */
-function output_buckets () 
+function output_buckets ()
 {
     $buckets = get_buckets();
 
@@ -161,13 +161,13 @@ function output_buckets ()
     $top_columns    = array('five columns alpha',
                             'six columns',
                             'five columns omega',
-                            'five columns alpha' ); 
+                            'five columns alpha' );
 ?>
 					<div class="short row">
 <?php
     $ct = 0;
     // print_r($buckets);
-    foreach ($buckets as $bucket) 
+    foreach ($buckets as $bucket)
     {
 ?>
 						<div class="<?php echo $top_columns[$ct]; ?>">
@@ -175,7 +175,7 @@ function output_buckets ()
 						<div class="bucket">
 						<div class="inner">
 							<h3 class="title"><?php echo $bucket->link_name; ?></h3>
-							<div class="content"> 
+							<div class="content">
 								<h6><?php echo $bucket->link_description; ?></h6>
                                 <?php if ( !empty($bucket->link_image) )
                                 {
@@ -186,14 +186,14 @@ function output_buckets ()
 														</a>
 													</div>
                                 <?php
-                                } 
+                                }
                                 ?>
                                 <?php echo nl2br($bucket->link_notes); ?>
 
 
                                                 <?php echo get_button($bucket, $bucket->link_url); ?>
 
-							</div> <!--! end of "content" --> 
+							</div> <!--! end of "content" -->
 						</div> <!--! end of "inner" -->
 						</div> <!--! end of "bucket" -->
 
@@ -201,7 +201,7 @@ function output_buckets ()
 
 <?php
 
-    if ($ct == 2 ) 
+    if ($ct == 2 )
     {
 ?>
 					</div> <!--! end of "short row" -->
@@ -300,7 +300,7 @@ function output_store ()
 														<img src="<?php echo $si->link_image; ?>" alt="<?php echo $si->link_name; ?>" />
 														</a>
 													</div>
-    <?php 
+    <?php
     }
     ?>
 												</div>

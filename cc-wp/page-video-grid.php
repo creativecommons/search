@@ -3,7 +3,7 @@
  * Template Name: Video Grid
  *
  */
-get_header(); 
+get_header();
 ?>
 <body>
 	<div id="container">
@@ -12,8 +12,8 @@ get_header();
         <div id="main" role="main">
             <div class="container">
                 <div class="sixteen columns">
-<?php 
-if (have_posts()) { 
+<?php
+if (have_posts()) {
 		the_post(); ?>
 
 		            <div class="first row">

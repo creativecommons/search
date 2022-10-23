@@ -5,13 +5,13 @@
 						<div class="bucket">
 						<div class="inner">
 							<h3 class="title">Learn</h3>
-							<div class="content"> 
+							<div class="content">
 								<h6>What is Creative Commons?</h6>
 								<p>Creative Commons helps you share your knowledge and creativity with the world.</p>
 								<p>We're helping to realize the full potential of the Internet—universal access to research and education, full participation in culture—to drive a new era of development growth, and productivity.</p>
 
 								<div class="bucket-follow"><a class="btn" href="/about">Learn about CC</a></div>
-							</div> <!--! end of "content" --> 
+							</div> <!--! end of "content" -->
 						</div> <!--! end of "inner" -->
 						</div> <!--! end of "bucket" -->
 

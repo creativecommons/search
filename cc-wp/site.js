@@ -8,7 +8,7 @@ j("#search_form").submit(function(e) {
 
 	var stype = j("input[name=stype]:checked");
 	var query = j("input[name=q]");
-	
+
 	if (query.val().length === 0) return;
 
 	if (stype.val() === "content") {

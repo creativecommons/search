@@ -1,6 +1,6 @@
 		<footer id="fixfooter">
 		<div class="container">
-		
+
 			<div id="globe"></div>
 
 			<div id="colophon">
@@ -28,12 +28,12 @@
 							  Except where otherwise
 							  <a class="subfoot" href="http://creativecommons.org/policies#license">noted</a>,
 							  content on
-							  <span 
-							     href="http://creativecommons.org" 
-							     property="cc:attributionName" 
-							     rel="cc:attributionURL">this site</span> 
-							  is licensed under a 
-							  <a rel="license" 
+							  <span
+							     href="http://creativecommons.org"
+							     property="cc:attributionName"
+							     rel="cc:attributionURL">this site</span>
+							  is licensed under a
+							  <a rel="license"
 							     href="http://creativecommons.org/licenses/by/4.0/"
 							     class="subfoot">
 							    Creative Commons Attribution 4.0 International License</a>.

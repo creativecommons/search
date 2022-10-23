@@ -39,7 +39,7 @@ register_sidebar(array(
 		'before_title' => '<h2><a href="#">',
 		'after_title' => '</a></h2><div>'
 		));
-	
+
 
 register_sidebar(array(
 		'name' => 'Content Region 0',
@@ -56,7 +56,7 @@ register_sidebar(array(
 		'before_title' => '<h2><a href="#">',
 		'after_title' => '</a></h2><div>'
 		));
-	
+
 register_sidebar(array(
 		'name' => 'Footer Region 1',
 		'before_widget' => '<div id="%1$s" class="widget-footer %2$s"><div class="box">',
@@ -64,7 +64,7 @@ register_sidebar(array(
 		'before_title' => '<h2><a href="#">',
 		'after_title' => '</a></h2><div>'
 		));
-	
+
 register_sidebar(array(
 		'name' => 'Footer Region 2',
 		'before_widget' => '<div id="%1$s" class="idget-footer %2$s"><div class="box">',
@@ -72,7 +72,7 @@ register_sidebar(array(
 		'before_title' => '<h2><a href="#">',
 		'after_title' => '</a></h2><div>'
 		));
-	
+
 register_sidebar(array(
 		'name' => 'Footer Region 3',
 		'before_widget' => '<div id="%1$s" class="idget-footer %2$s"><div class="box">',
@@ -80,7 +80,7 @@ register_sidebar(array(
 		'before_title' => '<h2><a href="#">',
 		'after_title' => '</a></h2><div>'
 		));
-	
+
 }
 
 // Add ID and CLASS attributes to the first <ul> occurence in wp_page_menu
@@ -138,7 +138,7 @@ function cc_get_attachment_image($id, $width) {
   if ($attachments = cc_get_attachment($id)) {
     foreach ($attachments as $attachment => $attachment_id) {
       $image = wp_get_attachment_image_src($attachment, full);
-      
+
       // Check if the image is the requested width, and break if it is.
       if ($image[1] == $width) { break; }
     }
@@ -165,19 +165,19 @@ function is_cc_main_site () {
     return false;
 }
 
-/** 
+/**
  * Is this IE 8 or less. Assumption is newer browser.
- * 
+ *
  * Needs browscap to work:
  * * http://www.php.net/manual/en/function.get-browser.php
  * * See README for more info
  *
  */
-function is_not_old_ie () 
+function is_not_old_ie ()
 {
     /*
     $browser = get_browser(null, true);
-    if ( (! ini_get("browscap") ) || empty($browser) || 
+    if ( (! ini_get("browscap") ) || empty($browser) ||
         ! ( preg_match('/IE/i', $browser[parent]) && $browser[majorver] <= 8 ) )
     */
     if(! preg_match('/MSIE [1-8]/i', $_SERVER['HTTP_USER_AGENT']))

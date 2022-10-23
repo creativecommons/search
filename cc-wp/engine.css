@@ -4,9 +4,9 @@
 	width: 575px;
 }
 
-div.licensebox { 
-	background:#eee; 
-	border:1px solid #ccc; 
+div.licensebox {
+	background:#eee;
+	border:1px solid #ccc;
 	padding:1em;
 }
 
@@ -17,8 +17,8 @@ div.licensebox {
 }
 
 div.licensebox ul.choices {
-	margin: -0.5em 0pt 0pt; 
-	padding: 0pt; 
+	margin: -0.5em 0pt 0pt;
+	padding: 0pt;
 	list-style: none;
 }
 
@@ -53,7 +53,7 @@ div.more-metadata {
 }
 
 div.more-metadata .label {
-	float:left; 
+	float:left;
 	font-weight: bold;
 	padding-left: 0.75em;
 	width:200px;

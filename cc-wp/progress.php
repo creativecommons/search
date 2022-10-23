@@ -1,4 +1,4 @@
-<?php function showTestimonial() { 
+<?php function showTestimonial() {
 	$url = "https://creativecommons.net/testimonials";
 	$utm = "?utm_campaign=superhero&utm_source=ccorg&utm_medium=testimonial";
 ?>
@@ -15,22 +15,22 @@
 	</p>
 </div>
 	<script>jQuery("#sidebarTestimonial").click(function() { window.location="https://creativecommons.net/donate<?= $utm ?>"; });</script>
-<?php 
+<?php
 	/* end of showTestimonial() */
-	return; 
+	return;
 }?>
 
-<?php 
-function showThermometer() { 	
+<?php
+function showThermometer() {
 
 	if (is_home()) {
 		$utm = "?utm_campaign=superhero&utm_source=ccorg&utm_medium=homepage_thermometer";
-	} else { 
-		$utm = "?utm_campaign=superhero&utm_source=ccorg&utm_medium=thermometer"; 
-	} 
+	} else {
+		$utm = "?utm_campaign=superhero&utm_source=ccorg&utm_medium=thermometer";
+	}
 ?>
 
-   			<div id="campaign">  
+   			<div id="campaign">
 				<div class="progress <?php if (is_home()) {?>home<?}?>" onclick="window.location='https://creativecommons.net/donate<?= $utm ?>';">
 					<div class="inner"><span>&nbsp;</span></div>
 				</div>
@@ -38,7 +38,7 @@ function showThermometer() {
 				<div class="results<?php if (is_home()) {?>Home<?}?>">
 					<a href="https://creativecommons.net/donate<?= $utm ?>">
 					<?php if (is_home()) { ?><strong><?php cc_progress_total() ?> Raised</strong> &mdash; Thank you!<?php } else { ?>
-						<?php cc_progress_total() ?> / $550,000 by&nbsp;Dec&nbsp;31 
+						<?php cc_progress_total() ?> / $550,000 by&nbsp;Dec&nbsp;31
 						<br/>
 						<em>Help us reach our goal!</em>
 					<?php } ?>
@@ -46,9 +46,9 @@ function showThermometer() {
 				</div>
 			</div>
 
-<?php /* end of showThermometer() */ 
+<?php /* end of showThermometer() */
 	return;
-} 
+}
 
 
 if (is_home()) {

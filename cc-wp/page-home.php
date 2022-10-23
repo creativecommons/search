@@ -3,5 +3,5 @@
  * Template Name: Blog Page
  *
  */
-include 'page.php'; 
+include 'page.php';
 ?>

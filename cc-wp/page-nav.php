@@ -1,4 +1,4 @@
-		<header> 
+		<header>
 		<div class="topbar">
 			<div class="topbar-inner">
 				<div class="container">
@@ -37,7 +37,7 @@
 						    <li class="divider"></li>
 						    <li><a href="http://wiki.creativecommons.org/FAQ">Frequently Asked Questions</a></li>
 						    <li><a href="http://creativecommons.org/contact">Contact Us</a></li>
-						    
+
 				      </ul>
 				    </li>
 				    <li class="dropdown">
@@ -66,7 +66,7 @@
 				    <li class="dropdown">
 				    	<a href="http://creativecommons.org/publicdomain/" class="dropdown-toggle">Public Domain</a>
 				    	<ul class="menu-dropdown">
-					<li><a href="http://creativecommons.org/publicdomain/">Our Public Domain Tools</a></li>	
+					<li><a href="http://creativecommons.org/publicdomain/">Our Public Domain Tools</a></li>
 					<li class="divider"></li>
 						    <li><a href="http://creativecommons.org/about/cc0">About CC0 Public Domain Dedication</a></li>
 						    <li><a href="http://creativecommons.org/choose/zero/">Choose CC0 Public Domain Dedication </a></li>
@@ -75,7 +75,7 @@
 						    <li><a href="http://creativecommons.org/choose/mark/">Use Public Domain Mark</a></li>
 						 </ul>
 				    </li>
-				    
+
 				    <li class="dropdown">
 				    	<a href="https://creativecommons.net/" class="dropdown-toggle">Support CC</a>
 				    	<ul class="menu-dropdown">
@@ -85,7 +85,7 @@
 						    <li><a href="https://creativecommons.net/testimonials/">Testimonials</a></li>
 				    	</ul>
 				    </li>
-				    
+
 				    <li class="dropdown">
 				    	<a href="http://creativecommons.org/culture" class="dropdown-toggle">Projects</a>
 				    	<ul class="menu-dropdown">
