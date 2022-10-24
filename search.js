@@ -534,7 +534,7 @@ function doSearch() {
 				break;
 			
 			case "thingiverse":
-				url = 'https://www.thingiverse.com/search?q=' + query.val() + rights;
+				url = 'http://soundcloud.com/search/sounds?q=' + query.val() + rights;
 				break;
 
 			case "google":
