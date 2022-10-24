@@ -71,6 +71,10 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 			$url = 'https://soundcloud.com/search/sounds?q=' . $query . $rights;
 			break;
 
+		case "vimeo": 
+			$url = 'https://vimeo.com/search?' . $rights .'&q=' . $query ;
+			break;
+
 		case "thingiverse":
 			$url = 'https://www.thingiverse.com/search?q=' . $query . $rights;
 			break;
@@ -409,7 +413,7 @@ function modRights($engine, $comm, $deriv) {
 							</div>
 							<div class="engineDesc"><label for="soundcloud"><strong>SoundCloud</strong><br/>Music</label></div>
 						</div>
-                        </div>
+                        </div>						
 						<div class="four columns">
 						<div class="engine">
 							<div class="engineButton">
@@ -427,8 +431,11 @@ function modRights($engine, $comm, $deriv) {
 						</div>
                         </div>
                         </div>
+
 						<div class="row">
+
 						<div class="four columns alpha">
+
 						<div class="engine">
 							<div class="engineButton">
 								<button onclick="setEngine(this)" name="engine" value="youtube" id="youtube"></button>
@@ -436,6 +443,16 @@ function modRights($engine, $comm, $deriv) {
 							<div class="engineDesc"><label for="youtube"><strong>YouTube</strong><br/>Video</label></div>
 						</div>
 						</div>
+
+					<div class="four columns">
+						<div class="engine">
+							<div class="engineButton">
+								<button onclick="setEngine(this)" name="engine" value="vimeo" id="vimeo"></button>
+							</div>
+							<div class="engineDesc"><label for="vimeo"><strong>vimeo</strong><br/>Video</label></div>
+						</div>
+					</div>
+	
 						</div>
 					</fieldset>
 				</form>

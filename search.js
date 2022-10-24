@@ -75,7 +75,7 @@ $(function () {
  *
  */
 
-var engines = ["google", "googleimg", "flickr", "jamendo", "openclipart", "wikimediacommons", "fotopedia", "europeana", "youtube", "ccmixter", "soundcloud", "thingiverse", "openverse", "sketchfab"];
+var engines = ["google", "googleimg", "flickr", "jamendo", "openclipart", "wikimediacommons", "fotopedia", "europeana", "youtube", "ccmixter", "soundcloud", "thingiverse", "openverse", "sketchfab","vimeo"];
 
 //defaults:
 var engine = "";
@@ -477,6 +477,7 @@ function modRights() {
 			}
 
 			break;
+
 		case "ccmixter":
 			rights = "";
 			if (comm && deriv) {
@@ -487,6 +488,18 @@ function modRights() {
 				rights = "&lic=by,nc,sa,ncsa,s,splus,pd,zero"
 			}
 			break;
+
+		case "vimeo":
+		    rights = "";
+			if (comm && deriv) {
+				rights = "license=by";
+			} else if (comm && !deriv) {
+				rights = "license=by";
+			} else if (!comm && deriv) {
+				rights = ""
+			}
+			break;
+			
 		case "soundcloud":
 			rights = "";
 			if (comm && deriv) {
@@ -577,6 +590,10 @@ function doSearch() {
 			case "soundcloud":
 				url = 'http://soundcloud.com/search/sounds?q=' + query.val() + rights;
 				break;
+
+			case "vimeo": 
+				url = 'https://vimeo.com/search?' + rights + '&q=' + query.val();
+			    break;
 
 			case "thingiverse":
 				url = 'https://www.thingiverse.com/search?q=' + query.val() + rights;
