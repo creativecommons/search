@@ -75,6 +75,10 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 			$url = 'https://www.thingiverse.com/search?q=' . $query . $rights;
 			break;
 
+		case "sketchfab":
+			$url = 'https://sketchfab.com/search?q=' . $query . $rights;
+			break;
+
 		case "googleimg":
 			$url = 'https://www.google.com/search?site=imghp&tbm=isch&q=';
 
@@ -141,6 +145,35 @@ function modRights($engine, $comm, $deriv) {
 
 			break;
 
+		case "sketchfab":
+			/*	Licenses
+				CC BY -> Author must be credited. Derivatives allowed. Commercial use allowed. code=322a749bcfa841b29dff1e8a1bb74b0b
+				CC BY-SA -> Author must be credited. Derivatives allowed, same licence as original. Commercial use allowed. code=b9ddc40b93e34cdca1fc152f39b9f375
+				CC BY-ND -> Author must be credited. No Derivatives. Commercial use allowed. code=72360ff1740d419791934298b8b6d270
+				CC BY-NC -> Author must be credited. Derivatives allowed. No Commercial Use. code=bbfe3f7dbcdd4122b966b85b9786a989
+				CC BY-NC-SA -> Author must be credited. Derivatives allowed, same license as original. No Commercial Use. code=2628dbe5140a4e9592126c8df566c0b7
+				CC0 -> Credit is not manadatory. Derivatives allowed. Commercial Use allowed. code=7c23a1ba438d4306920229c12afcb5f9
+			*/
+
+			$rights = "";
+
+			// If $comm or $deriv is provided, then we first apply the downloadable filter
+			if ($comm || $deriv) {
+				$rights = "&features=downloadable"
+					. "&licenses=322a749bcfa841b29dff1e8a1bb74b0b" // Include CC BY license
+					. "&licenses=b9ddc40b93e34cdca1fc152f39b9f375" // Include CC BY-SA license
+					. "&licenses=7c23a1ba438d4306920229c12afcb5f9"; // Include CC0
+
+				if ($comm && !$deriv) {
+					$rights .= "&licenses=72360ff1740d419791934298b8b6d270"; // Include CC BY-ND
+				} else if (!$comm && $deriv) {
+					$rights .= "&licenses=bbfe3f7dbcdd4122b966b85b9786a989" // Include CC BY-NC
+						. "&licenses=2628dbe5140a4e9592126c8df566c0b7"; // Include CC BY-NC-SA
+				}
+
+			}
+
+			break;
 
 		case "flickr":
 			$rights = "l=";
@@ -286,7 +319,7 @@ function modRights($engine, $comm, $deriv) {
             <div class="seven columns alpha">
 			<div id="header_logo" title="To search, enter some search terms, then click a provider." onclick="if ( $('#query').val() ) { doSearch(); }">
 				<img src="cc-search-portal.png" alt="CC Search Portal" />
-				<div id="header_text"><span style="color: white;">Find content you can share, use and remix</span></div>
+				<div id="header_text"><span>Find content you can share, use and remix</span></div>
 			</div>
             </div>
             <div class="nine columns omega re">
@@ -312,7 +345,7 @@ function modRights($engine, $comm, $deriv) {
                 </div>
 
 					<fieldset id="engines">
-						<p style="text-align:left;"><strong>Search using:</strong></p>
+						<p><strong>Search using:</strong></p>
                         <div class="first row">
                         <div class="four columns alpha">
 						<div class="engine">
@@ -382,7 +415,15 @@ function modRights($engine, $comm, $deriv) {
                         </div>
                         </div>
                         <div class="row">
-                        <div class="four columns alpha">
+						<div class="four columns alpha">
+						<div class="engine">
+							<div class="engineButton">
+								<button onclick="setEngine(this)" name="engine" value="sketchfab" id="sketchfab"></button>
+							</div>
+							<div class="engineDesc"><label for="sketchfab"><strong>Sketchfab</strong><br/>3D Model</label></div>
+						</div>
+                        </div>
+                        <div class="four columns">
 						<div class="engine">
 							<div class="engineButton">
 								<button onclick="setEngine(this)" name="engine" value="soundcloud" id="soundcloud"></button>
@@ -398,7 +439,7 @@ function modRights($engine, $comm, $deriv) {
 							<div class="engineDesc"><label for="thingiverse"><strong>Thingiverse</strong><br/>3D Model</label></div>
 						</div>
                         </div>
-                        <div class="four columns">
+                        <div class="four columns omega">
 						<div class="engine">
 							<div class="engineButton">
 								<button onclick="setEngine(this)" name="engine" value="wikimediacommons" id="wikimediacommons"></button>
@@ -406,24 +447,15 @@ function modRights($engine, $comm, $deriv) {
 							<div class="engineDesc"><label for="wikimediacommons"><strong>Wikimedia Commons</strong><br/>Media</label></div>
 						</div>
                         </div>
-                        <div class="four columns omega">
+                        </div>
+						<div class="row">
+						<div class="four columns alpha">
 						<div class="engine">
 							<div class="engineButton">
 								<button onclick="setEngine(this)" name="engine" value="youtube" id="youtube"></button>
 							</div>
 							<div class="engineDesc"><label for="youtube"><strong>YouTube</strong><br/>Video</label></div>
 						</div>
-                        </div>
-						<div class="four columns alpha">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="vimeo" id="vimeo"></button>
-							</div>
-							<div class="engineDesc"><label for="vimeo"><strong>vimeo</strong><br/>Video</label></div>
-						</div>
-                        </div>
-
-                        </div>
 					</fieldset>
 				</form>
                 </div>
