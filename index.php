@@ -79,6 +79,10 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 			$url = 'https://sketchfab.com/search?q=' . $query . $rights;
 			break;
 
+		case "Nappy":
+				$url = 'https://www.nappy.co/search/' . $query ;
+				break;	
+
 		case "googleimg":
 			$url = 'https://www.google.com/search?site=imghp&tbm=isch&q=';
 
@@ -436,7 +440,16 @@ function modRights($engine, $comm, $deriv) {
 							<div class="engineDesc"><label for="youtube"><strong>YouTube</strong><br/>Video</label></div>
 						</div>
 						</div>
+						
+						<div class="four columns">
+						<div class="engine">
+							<div class="engineButton">
+								<button onclick="setEngine(this)" name="engine" value="Nappy" id="Nappy"></button>
+							</div>
+							<div class="engineDesc"><label for="Nappy"><strong>Nappy</strong><br/>image</label></div>
 						</div>
+                        </div>
+                       </div>
 					</fieldset>
 				</form>
                 </div>
