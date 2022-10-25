@@ -578,9 +578,9 @@ function doSearch() {
 				url = 'http://soundcloud.com/search/sounds?q=' + query.val() + rights;
 				break;
 
-			case "thingiverse":
-				url = 'http://soundcloud.com/search/sounds?q=' + query.val() + rights;
-				break;
+				case "thingiverse":
+					url = 'https://www.thingiverse.com/search?q=' + query.val() + rights;
+					break;
 
 			case "sketchfab":
 				url = 'https://sketchfab.com/search?q=' + query.val() + rights;
