@@ -373,7 +373,9 @@ function modRights() {
 
 				// Used the licence=cc (which on Thingiverse, stands for the Creative Commons Attribution license)
 				// as the equivalent for the "modify, reuse ..." filter on CC search
-				rights += comm ? "&license=cc": "";
+				
+				// TODO Implement the license filter when the "no results" issue with the license filters on Thingiverse is resolved
+				// rights += comm ? "&license=cc": "";
 			}
 
 			break;
