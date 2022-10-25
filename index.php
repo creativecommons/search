@@ -425,9 +425,9 @@ function modRights($engine, $comm, $deriv) {
                         <div class="four columns omega">
 						<div class="engine">
 							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="wikimediacommons" id="wikimediacommons"></button>
+								<button onclick="setEngine(this)" name="engine" value="vimeo" id="vimeo"></button>
 							</div>
-							<div class="engineDesc"><label for="wikimediacommons"><strong>Wikimedia Commons</strong><br/>Media</label></div>
+							<div class="engineDesc"><label for="vimeo"><strong>Vimeo</strong><br/>Video</label></div>
 						</div>
                         </div>
                         </div>
@@ -438,18 +438,18 @@ function modRights($engine, $comm, $deriv) {
 
 						<div class="engine">
 							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="youtube" id="youtube"></button>
+								<button onclick="setEngine(this)" name="engine" value="wikimediacommons" id="wikimediacommons"></button>
 							</div>
-							<div class="engineDesc"><label for="youtube"><strong>YouTube</strong><br/>Video</label></div>
+							<div class="engineDesc"><label for="wikimediacommons"><strong>Wikimedia Commons</strong><br/>Media</label></div>
 						</div>
 						</div>
 
 					<div class="four columns">
 						<div class="engine">
 							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="vimeo" id="vimeo"></button>
+								<button onclick="setEngine(this)" name="engine" value="youtube" id="youtube"></button>
 							</div>
-							<div class="engineDesc"><label for="vimeo"><strong>vimeo</strong><br/>Video</label></div>
+							<div class="engineDesc"><label for="youtube"><strong>YouTube</strong><br/>Video</label></div>
 						</div>
 					</div>
 	
