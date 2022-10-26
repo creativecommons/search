@@ -71,6 +71,10 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 			$url = 'https://soundcloud.com/search/sounds?q=' . $query . $rights;
 			break;
 
+		case "The Greats":
+			$url= 'https://www.thegreats.co/thegreats/public/artworks?theme=0&search=' . $query;
+			break;
+
 		case "thingiverse":
 			$url = 'https://www.thingiverse.com/search?q=' . $query . $rights;
 			break;
@@ -87,6 +91,9 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 			$url = $url ? $url : 'http://google.com/search?q=';
 			$url .= $query . '&as_rights=' . $rights;
 			break;
+		
+		
+			
 
 	}
 
@@ -413,12 +420,23 @@ function modRights($engine, $comm, $deriv) {
 						<div class="four columns">
 						<div class="engine">
 							<div class="engineButton">
+								<button onclick="setEngine(this)" name="engine" value="The Greats" id="The Greats"></button>
+							</div>
+							<div class="engineDesc"><label for="The Greats"><strong>The Greats</strong><br/>Artworks</label></div>
+						</div>
+                        </div>
+						<div class="four columns omega">
+						<div class="engine">
+							<div class="engineButton">
 								<button onclick="setEngine(this)" name="engine" value="thingiverse" id="thingiverse"></button>
 							</div>
 							<div class="engineDesc"><label for="thingiverse"><strong>Thingiverse</strong><br/>3D Model</label></div>
 						</div>
                         </div>
-                        <div class="four columns omega">
+                        
+                        </div>
+						<div class="row">
+						<div class="four columns alpha">
 						<div class="engine">
 							<div class="engineButton">
 								<button onclick="setEngine(this)" name="engine" value="wikimediacommons" id="wikimediacommons"></button>
@@ -426,9 +444,7 @@ function modRights($engine, $comm, $deriv) {
 							<div class="engineDesc"><label for="wikimediacommons"><strong>Wikimedia Commons</strong><br/>Media</label></div>
 						</div>
                         </div>
-                        </div>
-						<div class="row">
-						<div class="four columns alpha">
+						<div class="four columns">
 						<div class="engine">
 							<div class="engineButton">
 								<button onclick="setEngine(this)" name="engine" value="youtube" id="youtube"></button>

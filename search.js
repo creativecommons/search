@@ -75,7 +75,7 @@ $(function () {
  *
  */
 
-var engines = ["google", "googleimg", "flickr", "jamendo", "openclipart", "wikimediacommons", "fotopedia", "europeana", "youtube", "ccmixter", "soundcloud", "thingiverse", "openverse", "sketchfab"];
+var engines = ["google", "googleimg", "flickr", "jamendo", "openclipart", "wikimediacommons", "fotopedia", "europeana", "youtube", "ccmixter", "soundcloud", "thingiverse", "openverse", "sketchfab", "The Greats"];
 
 //defaults:
 var engine = "";
@@ -576,6 +576,10 @@ function doSearch() {
 
 			case "soundcloud":
 				url = 'http://soundcloud.com/search/sounds?q=' + query.val() + rights;
+				break;
+
+			case "The Greats":
+				url= 'https://www.thegreats.co/thegreats/public/artworks?theme=0&search=' + query.val();
 				break;
 
 			case "thingiverse":
