@@ -75,7 +75,7 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 			if ($comm) {
 				// Defer to OpenVerse (with search refined only to Thingiverse items) until Thingiverse licence search filter issue is fixed
 				// TODO Use Thingiverse search filters when issue is fixed and
-				$url = 'https://wordpress.org/openverse/search/image?q=' . $query . '&license_type=commercial&source=thingiverse' . $rights;
+				$url = 'https://wordpress.org/openverse/search/image?q=' . $query . '&source=thingiverse' . $rights;
 			} else {
 				$url = 'https://www.thingiverse.com/search?q=' . $query . $rights;
 			}

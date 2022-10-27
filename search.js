@@ -374,11 +374,11 @@ function modRights() {
 
 				// Replicate Openverse rights when commercial filter selected
 				rights = '&license_type=';
-				if(comm && $deriv){
+				if(comm && deriv){
 					rights += "commercial,modification";
 				} else if(comm){
 					rights += "commercial";
-				}else if(deriv){
+				} else if(deriv){
 					rights += "modification";
 				}
 
@@ -596,10 +596,10 @@ function doSearch() {
 				break;
 
 			case "thingiverse":
-				if ($comm) {
+				if (comm) {
 					// Defer to OpenVerse (with search refined only to Thingiverse items) until Thingiverse licence search filter issue is fixed
 					// TODO Use Thingiverse search filters when issue is fixed and
-					url = 'https://wordpress.org/openverse/search/image?q=' + $query.val() + '&license_type=commercial&source=thingiverse' . $rights;
+					url = 'https://wordpress.org/openverse/search/image?q=' + query.val() + '&source=thingiverse' + rights;
 				} else {
 					url = 'https://www.thingiverse.com/search?q=' + query.val() + rights;
 				}
