@@ -37,9 +37,9 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 
 		case "jamendo":
 			if ( $rights ) {
-				$url = 'http://www.jamendo.com/search?qs=fq=license_cc:(' . $rights . ')&q=' . $query;
+				$url = 'https://licensing.jamendo.com/en/royalty-free-music/search?qs=' . 'query=' . $query;
 			} else {
-				$url = 'http://www.jamendo.com/search?qs=q=' . $query;
+				$url = 'http://www.jamendo.com/search?q=tag:' . $query;
 			}
 			break;
 
