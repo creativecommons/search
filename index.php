@@ -79,6 +79,10 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 			$url = 'https://sketchfab.com/search?q=' . $query . $rights;
 			break;
 
+		case "imagesofempowerment":
+			$url = 'https://www.imagesofempowerment.org/?s=' . $query;
+			break;
+
 		case "googleimg":
 			$url = 'https://www.google.com/search?site=imghp&tbm=isch&q=';
 
@@ -295,147 +299,168 @@ function modRights($engine, $comm, $deriv) {
 		<div class="row">
 			<div id="search">
 				<form id="search_form" method="get" onsubmit="return doSearch()">
-            <div class="seven columns alpha">
-			<div id="header_logo" title="To search, enter some search terms, then click a provider." onclick="if ( $('#query').val() ) { doSearch(); }">
-				<img src="cc-search-portal.png" alt="CC Search Portal" />
-				<div id="header_text"><span>Find content you can share, use and remix</span></div>
-			</div>
-            </div>
-            <div class="nine columns omega re">
-					<input type="text" id="query" name="query" value="<?php echo $query; ?>" placeholder="Enter your search query"/>
-					<div id="secondaryOptions">
-						<fieldset id="permissions">
-							<small>
-                                <div class="statement">
-								<strong>I want something that I can...</strong>
-                                </div>
-
-                                <div class="permoptions">
-								<input type="checkbox" name="comm" value="" id="comm" checked="checked" onclick="setCommDeriv()" />
-								<label for="comm"  onclick="setCommDeriv()">use for <em>commercial purposes</em>;</label>
-                                </div>
-                                <div class="permoptions">
-								<input type="checkbox" name="deriv" value="" id="deriv" checked="checked"  onclick="setCommDeriv()" />
-								<label for="deriv" onclick="setCommDeriv()"><em>modify</em>, <em>adapt</em>, or <em>build upon</em>.</label><br/>
-                                </div>
-							</small>
-						</fieldset>
+					<div class="seven columns alpha">
+						<div id="header_logo" title="To search, enter some search terms, then click a provider." onclick="if ( $('#query').val() ) { doSearch(); }">
+							<img src="cc-search-portal.png" alt="CC Search Portal" />
+							<div id="header_text"><span>Find content you can share, use and remix</span></div>
+						</div>
 					</div>
-                </div>
+					<div class="nine columns omega re">
+						<input type="text" id="query" name="query" value="<?php echo $query; ?>" placeholder="Enter your search query"/>
+						<div id="secondaryOptions">
+							<fieldset id="permissions">
+								<small>
+									<div class="statement">
+										<strong>I want something that I can...</strong>
+									</div>
+
+									<div class="permoptions">
+										<input type="checkbox" name="comm" value="" id="comm" checked="checked" onclick="setCommDeriv()" />
+										<label for="comm"  onclick="setCommDeriv()">use for <em>commercial purposes</em>;</label>
+									</div>
+									<div class="permoptions">
+										<input type="checkbox" name="deriv" value="" id="deriv" checked="checked"  onclick="setCommDeriv()" />
+										<label for="deriv" onclick="setCommDeriv()"><em>modify</em>, <em>adapt</em>, or <em>build upon</em>.</label><br/>
+									</div>
+								</small>
+							</fieldset>
+						</div>
+					</div>
 
 					<fieldset id="engines">
 						<p><strong>Search using:</strong></p>
                         <div class="first row">
-                        <div class="four columns alpha">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="ccmixter" id="ccmixter"></button>
+							<div class="four columns alpha">
+								<div class="engine">
+									<div class="engineButton">
+										<button onclick="setEngine(this)" name="engine" value="ccmixter" id="ccmixter"></button>
+									</div>
+									<div class="engineDesc"><label for="ccmixter"><strong>ccMixter</strong><br/>Music</label></div>
+								</div>
 							</div>
-							<div class="engineDesc"><label for="ccmixter"><strong>ccMixter</strong><br/>Music</label></div>
-						</div>
-                        </div>
-                        <div class="four columns">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="europeana" id="europeana"></button>
+
+							<div class="four columns">
+								<div class="engine">
+									<div class="engineButton">
+										<button onclick="setEngine(this)" name="engine" value="europeana" id="europeana"></button>
+									</div>
+									<div class="engineDesc"><label for="europeana"><strong>Europeana</strong><br/>Media</label></div>
+								</div>
 							</div>
-							<div class="engineDesc"><label for="europeana"><strong>Europeana</strong><br/>Media</label></div>
-						</div>
-                        </div>
-                        <div class="four columns">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="flickr" id="flickr"></button>
+
+							<div class="four columns">
+								<div class="engine">
+									<div class="engineButton">
+										<button onclick="setEngine(this)" name="engine" value="flickr" id="flickr"></button>
+									</div>
+									<div class="engineDesc"><label for="flickr"><strong>Flickr</strong><br/>Image</label></div>
+								</div>
 							</div>
-							<div class="engineDesc"><label for="flickr"><strong>Flickr</strong><br/>Image</label></div>
-						</div>
-                        </div>
-                        <div class="four columns omega">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="google" id="google"></button>
+
+							<div class="four columns omega">
+								<div class="engine">
+									<div class="engineButton">
+										<button onclick="setEngine(this)" name="engine" value="google" id="google"></button>
+									</div>
+									<div class="engineDesc"><label for="google"><strong>Google</strong><br/>Web</label></div>
+								</div>
 							</div>
-							<div class="engineDesc"><label for="google"><strong>Google</strong><br/>Web</label></div>
-						</div>
                         </div>
-                        </div>
+
                         <div class="row">
-                        <div class="four columns alpha">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="googleimg" id="googleimg"></button>
+							<div class="four columns alpha">
+								<div class="engine">
+									<div class="engineButton">
+										<button onclick="setEngine(this)" name="engine" value="googleimg" id="googleimg"></button>
+									</div>
+									<div class="engineDesc"><label for="googleimg"><strong>Google Images</strong><br/>Image</label></div>
+								</div>
 							</div>
-							<div class="engineDesc"><label for="googleimg"><strong>Google Images</strong><br/>Image</label></div>
-						</div>
-                        </div>
-                        <div class="four columns">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="jamendo" id="jamendo"></button>
+
+							<div class="four columns">
+								<div class="engine">
+									<div class="engineButton">
+										<button onclick="setEngine(this)" name="engine" value="jamendo" id="jamendo"></button>
+									</div>
+									<div class="engineDesc"><label for="jamendo"><strong>Jamendo</strong><br/>Music</label></div>
+								</div>
 							</div>
-							<div class="engineDesc"><label for="jamendo"><strong>Jamendo</strong><br/>Music</label></div>
-						</div>
-                        </div>
-                        <div class="four columns">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="openclipart" id="openclipart"></button>
+
+							<div class="four columns">
+								<div class="engine">
+									<div class="engineButton">
+										<button onclick="setEngine(this)" name="engine" value="openclipart" id="openclipart"></button>
+									</div>
+									<div class="engineDesc"><label for="openclipart"><strong>Open ClipArt</strong><br/>Image</label></div>
+								</div>
 							</div>
-							<div class="engineDesc"><label for="openclipart"><strong>Open ClipArt</strong><br/>Image</label></div>
-						</div>
-                        </div>
-						<div class="four columns omega">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="openverse" id="openverse"></button>
+
+							<div class="four columns omega">
+								<div class="engine">
+									<div class="engineButton">
+										<button onclick="setEngine(this)" name="engine" value="openverse" id="openverse"></button>
+									</div>
+									<div class="engineDesc"><label for="openverse"><strong>Openverse</strong><br/>Media</label></div>
+								</div>
 							</div>
-							<div class="engineDesc"><label for="openverse"><strong>Openverse</strong><br/>Media</label></div>
-						</div>
                         </div>
-                        </div>
+
                         <div class="row">
-						<div class="four columns alpha">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="sketchfab" id="sketchfab"></button>
+							<div class="four columns alpha">
+								<div class="engine">
+									<div class="engineButton">
+										<button onclick="setEngine(this)" name="engine" value="sketchfab" id="sketchfab"></button>
+									</div>
+									<div class="engineDesc"><label for="sketchfab"><strong>Sketchfab</strong><br/>3D Model</label></div>
+								</div>
 							</div>
-							<div class="engineDesc"><label for="sketchfab"><strong>Sketchfab</strong><br/>3D Model</label></div>
-						</div>
-                        </div>
-                        <div class="four columns">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="soundcloud" id="soundcloud"></button>
+
+							<div class="four columns">
+								<div class="engine">
+									<div class="engineButton">
+										<button onclick="setEngine(this)" name="engine" value="soundcloud" id="soundcloud"></button>
+									</div>
+									<div class="engineDesc"><label for="soundcloud"><strong>SoundCloud</strong><br/>Music</label></div>
+								</div>
 							</div>
-							<div class="engineDesc"><label for="soundcloud"><strong>SoundCloud</strong><br/>Music</label></div>
-						</div>
-                        </div>
-						<div class="four columns">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="thingiverse" id="thingiverse"></button>
+
+							<div class="four columns">
+								<div class="engine">
+									<div class="engineButton">
+										<button onclick="setEngine(this)" name="engine" value="thingiverse" id="thingiverse"></button>
+									</div>
+									<div class="engineDesc"><label for="thingiverse"><strong>Thingiverse</strong><br/>3D Model</label></div>
+								</div>
 							</div>
-							<div class="engineDesc"><label for="thingiverse"><strong>Thingiverse</strong><br/>3D Model</label></div>
-						</div>
-                        </div>
-                        <div class="four columns omega">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="wikimediacommons" id="wikimediacommons"></button>
+
+							<div class="four columns omega">
+								<div class="engine">
+									<div class="engineButton">
+										<button onclick="setEngine(this)" name="engine" value="wikimediacommons" id="wikimediacommons"></button>
+									</div>
+									<div class="engineDesc"><label for="wikimediacommons"><strong>Wikimedia Commons</strong><br/>Media</label></div>
+								</div>
 							</div>
-							<div class="engineDesc"><label for="wikimediacommons"><strong>Wikimedia Commons</strong><br/>Media</label></div>
-						</div>
                         </div>
-                        </div>
+
 						<div class="row">
-						<div class="four columns alpha">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="youtube" id="youtube"></button>
+							<div class="four columns alpha">
+								<div class="engine">
+									<div class="engineButton">
+										<button onclick="setEngine(this)" name="engine" value="youtube" id="youtube"></button>
+									</div>
+									<div class="engineDesc"><label for="youtube"><strong>YouTube</strong><br/>Video</label></div>
+								</div>
 							</div>
-							<div class="engineDesc"><label for="youtube"><strong>YouTube</strong><br/>Video</label></div>
-						</div>
-						</div>
+
+							<div class="four columns">
+								<div class="engine">
+									<div class="engineButton">
+										<button onclick="setEngine(this)" name="engine" value="imagesofempowerment" id="imagesofempowerment"></button>
+									</div>
+									<div class="engineDesc"><label for="imagesofempowerment"><strong>Images Of Empowerment</strong><br/>Image</label></div>
+								</div>
+							</div>
 						</div>
 					</fieldset>
 				</form>

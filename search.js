@@ -75,7 +75,7 @@ $(function () {
  *
  */
 
-var engines = ["google", "googleimg", "flickr", "jamendo", "openclipart", "wikimediacommons", "fotopedia", "europeana", "youtube", "ccmixter", "soundcloud", "thingiverse", "openverse", "sketchfab"];
+var engines = ["google", "googleimg", "flickr", "jamendo", "openclipart", "wikimediacommons", "fotopedia", "europeana", "youtube", "ccmixter", "soundcloud", "thingiverse", "openverse", "sketchfab", "imagesofempowerment"];
 
 //defaults:
 var engine = "";
@@ -580,6 +580,10 @@ function doSearch() {
 
 			case "thingiverse":
 				url = 'https://www.thingiverse.com/search?q=' + query.val() + rights;
+				break;
+
+			case "imagesofempowerment":
+				url = 'https://www.imagesofempowerment.org/?s=' + query.val();
 				break;
 
 			case "sketchfab":
