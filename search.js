@@ -75,7 +75,7 @@ $(function () {
  *
  */
 
-var engines = ["google", "googleimg", "flickr", "jamendo", "openclipart", "wikimediacommons", "fotopedia", "europeana", "youtube", "ccmixter", "soundcloud", "thingiverse", "openverse", "sketchfab"];
+var engines = ["google", "googleimg", "flickr", "jamendo", "openclipart", "wikimediacommons", "fotopedia", "europeana", "youtube", "ccmixter", "soundcloud", "thingiverse", "openverse", "sketchfab", "nappy"];
 
 //defaults:
 var engine = "";
@@ -578,13 +578,17 @@ function doSearch() {
 				url = 'http://soundcloud.com/search/sounds?q=' + query.val() + rights;
 				break;
 
-			case "thingiverse":
-				url = 'https://www.thingiverse.com/search?q=' + query.val() + rights;
-				break;
+				case "thingiverse":
+					url = 'https://www.thingiverse.com/search?q=' + query.val() + rights;
+					break;
 
 			case "sketchfab":
 				url = 'https://sketchfab.com/search?q=' + query.val() + rights;
 				break;
+
+			case "nappy":
+					url = 'https://www.nappy.co/search/' + query.val() ;
+					break;
 
 			case "google":
 			default:

@@ -79,6 +79,10 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 			$url = 'https://sketchfab.com/search?q=' . $query . $rights;
 			break;
 
+		case "nappy":
+				$url = 'https://www.nappy.co/search/' . $query ;
+				break;	
+
 		case "googleimg":
 			$url = 'https://www.google.com/search?site=imghp&tbm=isch&q=';
 
@@ -379,17 +383,17 @@ function modRights($engine, $comm, $deriv) {
                         <div class="four columns">
 						<div class="engine">
 							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="openclipart" id="openclipart"></button>
+								<button onclick="setEngine(this)" name="engine" value="nappy" id="nappy"></button>
 							</div>
-							<div class="engineDesc"><label for="openclipart"><strong>Open ClipArt</strong><br/>Image</label></div>
+							<div class="engineDesc"><label for="nappy"><strong>Nappy</strong><br/>image</label></div>
 						</div>
                         </div>
 						<div class="four columns omega">
 						<div class="engine">
 							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="openverse" id="openverse"></button>
+								<button onclick="setEngine(this)" name="engine" value="openclipart" id="openclipart"></button>
 							</div>
-							<div class="engineDesc"><label for="openverse"><strong>Openverse</strong><br/>Media</label></div>
+							<div class="engineDesc"><label for="openclipart"><strong>Open ClipArt</strong><br/>Image</label></div>
 						</div>
                         </div>
                         </div>
@@ -397,12 +401,20 @@ function modRights($engine, $comm, $deriv) {
 						<div class="four columns alpha">
 						<div class="engine">
 							<div class="engineButton">
+								<button onclick="setEngine(this)" name="engine" value="openverse" id="openverse"></button>
+							</div>
+							<div class="engineDesc"><label for="openverse"><strong>Openverse</strong><br/>Media</label></div>
+						</div>
+                        </div>
+                        <div class="four columns">
+						<div class="engine">
+							<div class="engineButton">
 								<button onclick="setEngine(this)" name="engine" value="sketchfab" id="sketchfab"></button>
 							</div>
 							<div class="engineDesc"><label for="sketchfab"><strong>Sketchfab</strong><br/>3D Model</label></div>
 						</div>
                         </div>
-                        <div class="four columns">
+						<div class="four columns">
 						<div class="engine">
 							<div class="engineButton">
 								<button onclick="setEngine(this)" name="engine" value="soundcloud" id="soundcloud"></button>
@@ -410,7 +422,7 @@ function modRights($engine, $comm, $deriv) {
 							<div class="engineDesc"><label for="soundcloud"><strong>SoundCloud</strong><br/>Music</label></div>
 						</div>
                         </div>
-						<div class="four columns">
+                        <div class="four columns omega">
 						<div class="engine">
 							<div class="engineButton">
 								<button onclick="setEngine(this)" name="engine" value="thingiverse" id="thingiverse"></button>
@@ -418,25 +430,26 @@ function modRights($engine, $comm, $deriv) {
 							<div class="engineDesc"><label for="thingiverse"><strong>Thingiverse</strong><br/>3D Model</label></div>
 						</div>
                         </div>
-                        <div class="four columns omega">
+                        </div>
+						<div class="row">
+						<div class="four columns alpha">
 						<div class="engine">
 							<div class="engineButton">
 								<button onclick="setEngine(this)" name="engine" value="wikimediacommons" id="wikimediacommons"></button>
 							</div>
 							<div class="engineDesc"><label for="wikimediacommons"><strong>Wikimedia Commons</strong><br/>Media</label></div>
 						</div>
-                        </div>
-                        </div>
-						<div class="row">
-						<div class="four columns alpha">
+						</div>
+						
+						<div class="four columns">
 						<div class="engine">
 							<div class="engineButton">
 								<button onclick="setEngine(this)" name="engine" value="youtube" id="youtube"></button>
 							</div>
 							<div class="engineDesc"><label for="youtube"><strong>YouTube</strong><br/>Video</label></div>
 						</div>
-						</div>
-						</div>
+                        </div>
+                       </div>
 					</fieldset>
 				</form>
                 </div>
