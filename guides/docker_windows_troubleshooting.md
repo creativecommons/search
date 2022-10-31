@@ -1,4 +1,4 @@
-# Troubleshooting known issues with Docker and VS Code on Windows
+# Troubleshooting known issues with Docker on Windows
 This guide will suggest possible solutions to known issues contributors might face when setting up Docker and VC Code on windows. The guide assumes that you have already followed the instructions ([here](https://github.com/creativecommons/search#readme))
 
 ## #1 Docker Desktop Stopped 
