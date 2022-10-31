@@ -496,7 +496,7 @@ function modRights() {
 			} else if (comm && !deriv) {
 				rights = "license=by";
 			} else if (!comm && deriv) {
-				rights = ""
+				rights = "license=by-nc";
 			}
 			break;
 			
