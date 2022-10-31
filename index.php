@@ -1,150 +1,383 @@
-<?php
+$(function () {
+
+	setupQuery();
 
 
-/**
- * If $engine is set in the request, then the user must have javascript turned
- * off, else they would have gone directly to the search site, and not back to
- * index.php.  This block handles those who don't uses javascript for whatever
- * reason and could therefor be easily used as an API.
+	var queryPos = $("#query").position();
+	var queryWidth = $("#query").innerWidth();
+
+	//	$("#engineInfo").css("left", $("#engine").position().left + 7);
+	//	$("#engineInfo").width($("#engine").width() - 32);
+
+	// pick a random search engine
+	//setEngine(engines[Math.floor(Math.random() * engines.length)]);
+
+	// hide all the radio buttons if JS is enabled
+	$(".engine button").focus(function () {
+		$(".engine").removeClass("focus")
+		$(this).parents(".engine").addClass("focus");
+	})
+
+	$(".engine button").focusout(function () {
+		$(".engine").removeClass("focus")
+	})
+
+	$(".engine").click(function () {
+		setEngine($(this).find("button").first().attr("id"));
+		doSearch();
+	});
+
+
+	// sniff browser and determine what information to display
+	/*
+	var browser = $.browser;
+	if (browser.mozilla) {
+		if (browser.version.substr(0,3) == "1.9") {
+			$("#remove").show();
+		} else {
+			$("#add").show();
+			$("#searchBar").show();
+		}
+	} else {
+		$("#add").show();
+
+		if (browser.msie && browser.version.substr(0,1) > 6) {
+			$("#searchBar").show();
+		} else {
+			$("#addressBar").show();
+		}
+	}
+	*/
+	$('#addOpenSearch').click(function () {
+		if ((typeof window.external == "object") && ((typeof window.external.AddSearchProvider == "unknown") || (typeof window.external.AddSearchProvider == "function"))) {
+			window.external.AddSearchProvider("http://oldsearch.creativecommons.org/ccsearch.xml");
+		} else {
+			alert("Your browser does not support OpenSearch.");
+		}
+
+		return false;
+	});
+
+	$('#lang').change(function () {
+		/* get value of the language */
+		var lang_chosen = $("#lang").val();
+		var new_loc = location.href.split('?')[0];
+		new_loc = new_loc.split('#')[0]; /* Remove spurious "#" */
+		new_loc = new_loc + '?lang=' + lang_chosen;
+		window.location = new_loc;
+	});
+});
+
+
+/*
+ * Creative Commons Search Portal Interface
+ * 1.0 - 2006-07
+ *
  */
-$query = isset($_REQUEST['query']) ? $_REQUEST['query'] : ''; // moving this here, we want to let people search and come here
 
-if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
+var engines = ["google", "googleimg", "flickr", "jamendo", "openclipart", "wikimediacommons", "fotopedia", "europeana", "youtube", "ccmixter", "soundcloud", "thingiverse", "openverse", "sketchfab","vimeo"];
 
-	$engine = $_REQUEST['engine'];
-	$comm = isset($_REQUEST['comm']) ? TRUE : FALSE;
-	$deriv = isset($_REQUEST['deriv']) ? TRUE : FALSE;
+//defaults:
+var engine = "";
+var comm = 1;
+var deriv = 1;
+var rights = "";
+var url = "";
+var lang = "";
 
-	// We never want the search to execute with the default text
-	if ( $query == "Enter search query" ) {
-		$query = "flowers";
+var default_query = "flowers";
+var default_engine = "_random";
+//var default_comm = 1;
+//var default_deriv = 1;
+
+/*
+// DEBUG!!!!!
+var d = new Date();
+d.setFullYear(2020,0,1);
+setCookie("ccsearch", "jamendo", d, '/')
+alert("cookie planted!  mwahahahaha");
+// \DEBUG!!!!!
+*/
+
+// mmm, cookies...
+function setCookie(name, value, expires, path, domain, secure) {
+	document.cookie = name + "=" + escape(value) +
+		((expires) ? "; expires=" + expires.toGMTString() : "") +
+		((path) ? "; path=" + path : "") +
+		((domain) ? "; domain=" + domain : "") +
+		((secure) ? "; secure" : "");
+}
+function getCookie(name) {
+	var dc = document.cookie;
+	var prefix = name + "=";
+	var begin = dc.indexOf("; " + prefix);
+	if (begin == -1) {
+		begin = dc.indexOf(prefix);
+		if (begin != 0) return null;
+	} else {
+		begin += 2;
+	}
+	var end = document.cookie.indexOf(";", begin);
+	if (end == -1) {
+		end = dc.length;
+	}
+	return unescape(dc.substring(begin + prefix.length, end));
+}
+////
+
+var cookie_name = '__ccsearch';
+var cookie_break_text = "[-]";
+var cookie_domain = 'oldsearch.creativecommons.org';
+//var cookie_domain = '';
+
+function saveSettings() {
+	var cookieDate = new Date();
+	cookieDate.setFullYear(2020, 0, 1);
+
+	cookieText = engine + cookie_break_text + comm + cookie_break_text + deriv;
+	setCookie(cookie_name, cookieText, cookieDate, '/', cookie_domain);
+}
+
+function getSettings() {
+	cookieText = getCookie(cookie_name);
+
+	if (cookieText && cookieText != '') {
+		//break it into pieces
+		cookieCrumbs = cookieText.split(cookie_break_text);
+
+		engine = cookieCrumbs[0];
+		if (1 in cookieCrumbs) {
+			comm = cookieCrumbs[1];
+		}
+		if (2 in cookieCrumbs) {
+			deriv = cookieCrumbs[2];
+		}
+	}
+	else {
 	}
 
-	$rights = modRights($engine, $comm, $deriv);
+	if (engine == null || !engine || engine == "") {
+		//engine = default_engine;
+		engine = "_random";
 
-	$url = "";
-
-    // NOTE: if you make changes here, you should make a similar change in search.js
-	switch ( $engine ) {
-
-		case "openverse":
-			$url = 'https://wordpress.org/openverse/search/?q=' . $query . '&license_type='. $rights;
-			break;
-
-		case "openclipart":
-			$url = 'http://openclipart.org/search/?query=' . $query;
-			break;
-
-		case "jamendo":
-			if ( $rights ) {
-				$url = 'https://licensing.jamendo.com/en/royalty-free-music/search?qs=' . 'query=' . $query;
-			} else {
-				$url = 'http://www.jamendo.com/search?q=tag:' . $query;
-			}
-			break;
-
-		case "flickr":
-			$url = 'http://flickr.com/search/?' . $rights . '&q=' . $query;
-			break;
-
-		case "wikimediacommons":
-			$url = 'http://commons.wikimedia.org/w/index.php?title=Special%3ASearch&redirs=0&search=' . $query . '&fulltext=Search&ns0=1&ns6=1&ns14=1&title=Special%3ASearch&advanced=1&fulltext=Advanced+search';
-			break;
-
-		case "fotopedia":
-			$url = 'http://www.fotopedia.com/search?q=' . $query . '&human_license=' . $rights;
-			break;
-
-		case "europeana":
-			$url = 'http://www.europeana.eu/portal/search.html?query=' . $query . $rights;
-			break;
-
-		case "youtube":
-			$url = 'http://www.youtube.com/results?search_query=' . $query . ',creativecommons';
-			break;
-
-		case "ccmixter":
-			$url = 'http://ccmixter.org/api/query?datasource=uploads&search_type=all&sort=rank&search=' . $query . $rights;
-			break;
-
-		case "soundcloud":
-			$url = 'https://soundcloud.com/search/sounds?q=' . $query . $rights;
-			break;
-
-		case "vimeo": 
-			$url = 'https://vimeo.com/search?' . $rights .'&q=' . $query ;
-			break;
-
-		case "thingiverse":
-			$url = 'https://www.thingiverse.com/search?q=' . $query . $rights;
-			break;
-
-		case "sketchfab":
-			$url = 'https://sketchfab.com/search?q=' . $query . $rights;
-			break;
-
-		case "nappy":
-				$url = 'https://www.nappy.co/search/' . $query ;
-				break;	
-
-		case "googleimg":
-			$url = 'https://www.google.com/search?site=imghp&tbm=isch&q=';
-
-		case "google":
-		default:
-			$url = $url ? $url : 'http://google.com/search?q=';
-			$url .= $query . '&as_rights=' . $rights;
-			break;
-
+		//engine = engines[Math.floor(Math.random() * engines.length)];
 	}
-
-        $url = urlencode($url);
-
-	header('Location: https://oldsearch.creativecommons.org/bouncer.php?q=' . $query . '&url=' . $url);
-	exit;
 
 }
 
-/**
- * Sets up the right query string for the various content providers.
- */
-function modRights($engine, $comm, $deriv) {
+// function by Pete Freitag (pete@cfdev.com)
+function getQueryStrVariable(variable) {
+	var query = window.location.search.substring(1);
+	var vars = query.split("&");
+	for (var i = 0; i < vars.length; i++) {
+		var pair = vars[i].split("=");
+		if (pair[0] == variable) {
+			return pair[1];
+		}
+	}
+	return '';
+}
 
-	$rights = "";
+function show_ffx_msg() {
+	$('#ffx-search-bar-info').style.display = "block";
+}
 
-	switch ( $engine ) {
+// initialise app
+function setupQuery() {
+	var query = $("#query");
+	var qs = getQueryStrVariable('q');
+	qs = unescape(qs);
+	var moz = getQueryStrVariable('sourceid');
+	var e = getQueryStrVariable('engine');
+	var docom = getQueryStrVariable('commercial');
+	var doder = getQueryStrVariable('derivatives');
+
+	// display firefox branding
+	if (moz == "Mozilla-search") {
+		show_ffx_msg();
+	}
+
+	// grab cookie and setup default engine
+	getSettings();
+	if (e) {
+		setEngine(e);
+	}
+	else {
+		setEngine(engine);
+	}
+
+	// set commercial + derivative checkboxes
+	updateCommDerivCheckboxes(docom, doder);
+
+	//lang = getQueryStrVariable('lang');
+
+	// Only insert query variable if nothing else is in the search entry
+	// Should solve back button problems
+	if (query.val().length < 1 && qs) query.val(qs);
+
+	// Since we don't have a submit button, be nice to users and
+	// set focus in search box.
+	query.focus();
+}
+
+// bell
+function wakeQuery() {
+	var query = $('#q');
+
+	if (query.value == d) {
+		query.val("");
+		query.addClass("active");
+		query.removeClass("inactive");
+	}
+}
+
+// whistle
+function resetQuery() {
+	var query = $('#q');
+
+	if (query.value == "") {
+		query.val(d);
+		query.addClass("inactive");
+		query.removeClass("active");
+	}
+}
+
+function setEngine(e) {
+	var previous = engine;
+
+	var query = $("#query");
+	if (query.hasClass("inactive")) {
+		query.val(default_query);
+		query.addClass("active");
+		query.removeClass("inactive");
+	}
+
+	if (typeof e == "string") {
+		if (e == "_random") {
+			engine = engines[Math.floor(Math.random() * engines.length)];
+		} else {
+			engine = e;
+		}
+	} else {
+		engine = e.value;
+	}
+
+	$("#engineInfo ." + previous).hide();
+	$("#engineInfo ." + engine).show();
+
+	$("button[value=" + engine + "]").attr("checked", true);
+
+	$(".engine").removeClass("selected");
+	$("button[value=" + engine + "]").parents(".engine").addClass("selected");
+
+	//if (e == "_random") engine = "_random";
+	saveSettings();
+
+	//doSearch();
+
+}
+
+function setCommDeriv() {
+	if ($('#comm').attr("checked"))
+		comm = 1;
+	else
+		comm = 0;
+	if ($('#deriv').attr("checked"))
+		deriv = 1;
+	else
+		deriv = 0;
+
+	saveSettings();
+}
+
+function updateCommDerivCheckboxes(comOverride, derivOverride) {
+	if ((comm == 1))
+		$('#comm').attr("checked", true);
+	else
+		$('#comm').attr("checked", false);
+	if ((deriv == 1))
+		$('#deriv').attr("checked", true);
+	else
+		$('#deriv').attr("checked", false);
+}
+
+// build advanced search query strings
+// each engine has vastly different ways to do this. :/
+function modRights() {
+
+	var comm = $("#comm").attr("checked");
+	var deriv = $("#deriv").attr("checked");
+	rights = "";
+
+	switch (engine) {
 
 		case "google":
-		case "googleimg":
-			/*
-			fmc	Labeled for reuse with modification
-			fc	Labeled for reuse
-			fm	Labeled for noncommercial reuse with modification
-			f	Labeled for noncommercial reuse
-			*/
-			$rights = "&tbs=sur:f";
-			$rights .= $comm ? "m" : "";
-			$rights .= $deriv ? "c" : "";
+			// Google apparently doesn't like .-() appended to the
+			// as_rights query string variable, so if neither the
+			// commercial or deriv checkboxes are checked then rights
+			// should just be empty.
+			if ((comm == false) && (deriv == false)) {
+				rights = "";
+				break;
+			}
 
+			//.-(cc_noncommercial|cc_nonderived)
+			rights = ".-(";
+
+			if (comm) {
+				rights += "cc_noncommercial";
+			}
+			if (deriv) {
+				(comm) ? rights += "|" : null;
+				rights += "cc_nonderived";
+			}
+
+			rights += ")";
+			break;
+
+
+		case "googleimg":
+			//.-(cc_noncommercial|cc_nonderived)
+
+			// Google apparently doesn't like .-() appended to the
+			// as_rights query string variable, so if neither the
+			// commercial or deriv checkboxes are checked then rights
+			// should just be empty.
+			if ((comm == false) && (deriv == false)) {
+				rights = "";
+				break;
+			}
+
+			rights = ".-(";
+
+			if (comm) {
+				rights += "cc_noncommercial";
+			}
+			if (deriv) {
+				(comm) ? rights += "|" : null;
+				rights += "cc_nonderived";
+			}
+
+			rights += ")";
 			break;
 
 		case "thingiverse":
 			/*
-				If $comm or $deriv is provided, then we first apply the filter
+				If "comm" or "deriv" is provided, then we first apply the filter
 				to capture only results of type "things" before adding the specifics we require because
 				the "customizable" and "licence" filters on thingiverse only work alongside the "things" filter
 			*/
-			if ($comm || $deriv) {
-				$rights = "&type=things&sort=relevant";
-				$rights .= $deriv ? "&customizable=1" : "";
+			if (comm || deriv) {
+				rights = "&type=things&sort=relevant";
+				rights += deriv ? "&customizable=1" : "";
 
 				// Used the licence=cc (which on Thingiverse, stands for the Creative Commons Attribution license)
 				// as the equivalent for the "modify, reuse ..." filter on CC search
-				$rights .= $comm ? "&license=cc": "";
+				rights += comm ? "&license=cc": "";
 			}
 
 			break;
-
+		
 		case "sketchfab":
 			/*	Licenses
 				CC BY -> Author must be credited. Derivatives allowed. Commercial use allowed. code=322a749bcfa841b29dff1e8a1bb74b0b
@@ -155,344 +388,259 @@ function modRights($engine, $comm, $deriv) {
 				CC0 -> Credit is not manadatory. Derivatives allowed. Commercial Use allowed. code=7c23a1ba438d4306920229c12afcb5f9
 			*/
 
-			$rights = "";
+			rights = "";
 
 			// If $comm or $deriv is provided, then we first apply the downloadable filter
-			if ($comm || $deriv) {
-				$rights = "&features=downloadable"
-					. "&licenses=322a749bcfa841b29dff1e8a1bb74b0b" // Include CC BY license
-					. "&licenses=b9ddc40b93e34cdca1fc152f39b9f375" // Include CC BY-SA license
-					. "&licenses=7c23a1ba438d4306920229c12afcb5f9"; // Include CC0
+			if (comm || deriv) {
+				rights = "&features=downloadable"
+					+ "&licenses=322a749bcfa841b29dff1e8a1bb74b0b" // Include CC BY license
+					+ "&licenses=b9ddc40b93e34cdca1fc152f39b9f375" // Include CC BY-SA license
+					+ "&licenses=7c23a1ba438d4306920229c12afcb5f9"; // Include CC0
 
-				if ($comm && !$deriv) {
-					$rights .= "&licenses=72360ff1740d419791934298b8b6d270"; // Include CC BY-ND
-				} else if (!$comm && $deriv) {
-					$rights .= "&licenses=bbfe3f7dbcdd4122b966b85b9786a989" // Include CC BY-NC
-						. "&licenses=2628dbe5140a4e9592126c8df566c0b7"; // Include CC BY-NC-SA
+				if (comm && !deriv) {
+					rights += "&licenses=72360ff1740d419791934298b8b6d270"; // Include CC BY-ND
+				} else if (!comm && deriv) {
+					rights += "&licenses=bbfe3f7dbcdd4122b966b85b9786a989" // Include CC BY-NC
+						+ "&licenses=2628dbe5140a4e9592126c8df566c0b7"; // Include CC BY-NC-SA
 				}
-
 			}
 
 			break;
+	
+		case "yahoo":
+			rights = "&";
+			if (comm) {
+				rights += "ccs=c&";
+			}
+			if (deriv) {
+				rights += "ccs=e";
+			}
+			break;
 
 		case "flickr":
-			$rights = "l=";
-			$rights .= $comm ? "comm" : "";
-			$rights .= $deriv ? "deriv" : "";
-			$rights = ($rights == "l=") ? "l=cc" : $rights;
+			rights = "l=";
+			if (comm) {
+				rights += "comm";
+			}
+			if (deriv) {
+				rights += "deriv";
+			}
 			break;
 
 		case "openverse":
-			if( $comm && $deriv){
-				$rights = "commercial,modification";
-			} elseif($comm){
-				$rights = "commercial";
-			}elseif($deriv){
-				$rights = "modification";
+			if(comm && deriv) {
+				rights = "commercial,modification";
+			} else if(comm){
+				rights = "commercial";
+			} else if(deriv){
+				rights = "modification";
 			}
 			break;
 
 		case "jamendo":
-			if ( $comm && $deriv ) {
-				$rights = '-nc%20AND%20-nd';
-			} elseif ( $comm ) {
-				$rights = '-nc';
-			} elseif ( $deriv ) {
-				$rights = '-nd';
+			if (comm && deriv) {
+				rights = '-nc%20AND%20-nd';
+			} else if (comm) {
+				rights = '-nc';
+			} else if (deriv) {
+				rights = '-nd';
 			}
+			break;
+
+		case "wikimediacommons":
+			rights = "";
+			if (rights.length < 5) rights = "";
 			break;
 
 		case "fotopedia":
-			if ( $comm && $deriv ) {
-				$rights = "reuse_commercial_modify";
-			} else if ( $comm && ! $deriv ) {
-				$rights = "reuse_commercial";
-			} else if ( ! $comm && $deriv ) {
-				$rights = "reuse_modify";
+			rights = "";
+			if (comm && deriv) {
+				rights = "reuse_commercial_modify";
+			} else if (comm && !deriv) {
+				rights = "reuse_commercial";
+			} else if (!comm && deriv) {
+				rights = "reuse_modify"
 			} else {
-				$rights = "reuse";
+				rights = "reuse";
 			}
 			break;
-
 		case "europeana":
-			if ( $comm && $deriv ) {
-				$rights = "+AND+RIGHTS%3A*creative*+AND+NOT+RIGHTS%3A*nc*+AND+NOT+RIGHTS%3A*nd*";
-			} else if ( $comm && ! $deriv ) {
-				$rights = "+AND+RIGHTS%3A*creative*+AND+NOT+RIGHTS%3A*nc*";
-			} else if ( ! $comm && $deriv ) {
-				$rights = "+AND+RIGHTS%3A*creative*+AND+NOT+RIGHTS%3A*nd*";
+			rights = "";
+			if (comm && deriv) {
+				rights = "+AND+RIGHTS%3A*creative*+AND+NOT+RIGHTS%3A*nc*+AND+NOT+RIGHTS%3A*nd*";
+			} else if (comm && !deriv) {
+				rights = "+AND+RIGHTS%3A*creative*+AND+NOT+RIGHTS%3A*nc*";
+			} else if (!comm && deriv) {
+				rights = "+AND+RIGHTS%3A*creative*+AND+NOT+RIGHTS%3A*nd*"
 			} else {
-				$rights = "+AND+RIGHTS%3A*creative*+";
+				rights = "+AND+RIGHTS%3A*creative*+";
 			}
+
 			break;
 
 		case "ccmixter":
-			if ( $comm && $deriv ) {
-				$rights = "&lic=by,sa,s,splus,pd,zero";
-			} else if ( $comm && ! $deriv ) {
-				$rights = "&lic=open";
-			} else if ( ! $comm && $deriv) {
-				$rights = "&lic=by,nc,sa,ncsa,s,splus,pd,zero";
+			rights = "";
+			if (comm && deriv) {
+				rights = "&lic=by,sa,s,splus,pd,zero";
+			} else if (comm && !deriv) {
+				rights = "&lic=open";
+			} else if (!comm && deriv) {
+				rights = "&lic=by,nc,sa,ncsa,s,splus,pd,zero"
 			}
 			break;
 
+		case "vimeo":
+		    rights = "";
+			if (comm && deriv) {
+				rights = "license=by";
+			} else if (comm && !deriv) {
+				rights = "license=by";
+			} else if (!comm && deriv) {
+				rights = "license=by-nc";
+			}
+			break;
+			
 		case "soundcloud":
-			if ( $comm && $deriv ) {
-				$rights = "&filter.license=to_modify_commercially";
-			} else if ( $comm && ! $deriv ) {
-				$rights = "&filter.license=to_use_commercially";
-			} else if ( (! $comm && $deriv) || (! $comm && ! $deriv) ) {
-				$rights = "&filter.license=to_share";
+			rights = "";
+			if (comm && deriv) {
+				rights = "&filter.license=to_modify_commercially";
+			} else if (comm && !deriv) {
+				rights = "&filter.license=to_use_commercially";
+			} else if ((!comm && deriv) || (!comm && !deriv)) {
+				rights = "&filter.license=to_share";
 			}
 			break;
 
 	}
 
-	return $rights;
-
 }
-    // adaptor code for cc-wp theme
-    if ( ! function_exists('bloginfo') ) {
-        function bloginfo ($param) {
-            if ( $param == 'home' )
-                print 'http://creativecommons.org';
-            if ( $param == 'stylesheet_directory' ) {
-                // print $theme_path . '/cc-wp';
-                print '/cc-wp';
-            }
-        }
-    }
-    if ( ! function_exists('get_http_security') ) {
-        function get_http_security () {
-            echo 'https';
-        }
-    }
-    include_once 'cc-wp/meta.php';
-    include_once 'cc-wp/header-doctype.php'; ?>
 
-<html lang="en">
-	<head>
-		<title>CC Search Portal</title>
-	    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-        <?php include 'cc-wp/header-common.php'; ?>
+// "main logic", no turning back.
+function doSearch() {
+	var query = $("#query");
+	var comm = $("#comm").attr("checked");
+	var deriv = $("#deriv").attr("checked");
 
-		<link rel="search" type="application/opensearchdescription+xml" title="Creative Commons Search Portal" href="http://oldsearch.creativecommons.org/ccsearch.xml" />
-		<link rel="stylesheet" href="style.css" type="text/css" media="screen" title="no title" charset="utf-8" />
+	// We never want the search to execute with the default text
+	if (query.val() == "Enter search query") {
+		query.val(default_query);
+	}
 
-		<!--[if lte IE 7]>
-		<link rel="stylesheet" href="style-ie.css" type="text/css" media="screen" charset="utf-8" />
-		<![endif]-->
+	url = "";
 
-		<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
-		<script src="search.js" type="text/javascript" charset="utf-8"></script>
+	// search only if there is something to search with
+	if ((query.val().length > 0)/* && (query.className == "active")*/) {
+		// set up rights string, works if user hits "go" or a tab.
+		modRights();
 
-		<script src="elog/elog.js" type="text/javascript" charset="utf-8"></script>
-	</head>
-	<body>
-	<div id="container">
-        <?php include 'cc-wp/page-nav.php'; ?>
-        <div id="main" role="main">
-        <div class="container">
+		// NOTE: if you make changes here, you should make a similar change in search.php
+		switch (engine) {
+			case "openverse":
+				url = 'https://wordpress.org/openverse/search/?q=' + query.val() + "&license_type=" + rights;
+				break;
 
-        <div class="sixteen columns">
+			case "openclipart":
+				url = 'http://openclipart.org/search/?query=' + query.val();
+				break;
 
-		<div class="first row">
+			case "jamendo":
+				if (rights) { 
+					url = 'https://licensing.jamendo.com/en/royalty-free-music/search?qs=' + 'query=' + query.val();
+				} else {   
+					url = 'http://www.jamendo.com/search?q=tag:' + query.val();
+				}
+				break;
 
-        </div>
+			case "flickr":
+				url = 'http://flickr.com/search/?' + ((rights.length > 2) ? rights : "l=cc") + '&q=' + query.val();
+				break;
 
-		<div class="row">
-			<div id="search">
-				<form id="search_form" method="get" onsubmit="return doSearch()">
-            <div class="seven columns alpha">
-			<div id="header_logo" title="To search, enter some search terms, then click a provider." onclick="if ( $('#query').val() ) { doSearch(); }">
-				<img src="cc-search-portal.png" alt="CC Search Portal" />
-				<div id="header_text"><span>Find content you can share, use and remix</span></div>
-			</div>
-            </div>
-            <div class="nine columns omega re">
-					<input type="text" id="query" name="query" value="<?php echo $query; ?>" placeholder="Enter your search query"/>
-					<div id="secondaryOptions">
-						<fieldset id="permissions">
-							<small>
-                                <div class="statement">
-								<strong>I want something that I can...</strong>
-                                </div>
+			case "owlmm":
+				url = 'http://www.owlmm.com/?query_source=CC&' + ((rights.length > 13) ? rights : "license_type=cc") + '&q=' + query.val();
+				break;
 
-                                <div class="permoptions">
-								<input type="checkbox" name="comm" value="" id="comm" checked="checked" onclick="setCommDeriv()" />
-								<label for="comm"  onclick="setCommDeriv()">use for <em>commercial purposes</em>;</label>
-                                </div>
-                                <div class="permoptions">
-								<input type="checkbox" name="deriv" value="" id="deriv" checked="checked"  onclick="setCommDeriv()" />
-								<label for="deriv" onclick="setCommDeriv()"><em>modify</em>, <em>adapt</em>, or <em>build upon</em>.</label><br/>
-                                </div>
-							</small>
-						</fieldset>
-					</div>
-                </div>
+			case "yahoo":
+				url = 'http://search.yahoo.com/search?cc=1&p=' + query.val() + rights;
+				break;
 
-					<fieldset id="engines">
-						<p><strong>Search using:</strong></p>
-                        <div class="first row">
-                        <div class="four columns alpha">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="ccmixter" id="ccmixter" aria-label="ccMixter"></button>
-							</div>
-							<div class="engineDesc"><label for="ccmixter"><strong>ccMixter</strong><br/>Music</label></div>
-						</div>
-                        </div>
-                        <div class="four columns">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="europeana" id="europeana" aria-label="Europeana"></button>
-							</div>
-							<div class="engineDesc"><label for="europeana"><strong>Europeana</strong><br/>Media</label></div>
-						</div>
-                        </div>
-                        <div class="four columns">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="flickr" id="flickr" aria-label="Flickr"></button>
-							</div>
-							<div class="engineDesc"><label for="flickr"><strong>Flickr</strong><br/>Image</label></div>
-						</div>
-                        </div>
-                        <div class="four columns omega">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="google" id="google" aria-label="Google"></button>
-							</div>
-							<div class="engineDesc"><label for="google"><strong>Google</strong><br/>Web</label></div>
-						</div>
-                        </div>
-                        </div>
-                        <div class="row">
-                        <div class="four columns alpha">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="googleimg" id="googleimg" aria-label="Google Images"></button>
-							</div>
-							<div class="engineDesc"><label for="googleimg"><strong>Google Images</strong><br/>Image</label></div>
-						</div>
-                        </div>
-                        <div class="four columns">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="jamendo" id="jamendo" aria-label="Jamendo"></button>
-							</div>
-							<div class="engineDesc"><label for="jamendo"><strong>Jamendo</strong><br/>Music</label></div>
-						</div>
-                        </div>
-                        <div class="four columns">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="nappy" id="nappy" aria-label="Nappy"></button>
-							</div>
-							<div class="engineDesc"><label for="nappy"><strong>Nappy</strong><br/>image</label></div>
-						</div>
-                        </div>
-						<div class="four columns omega">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="openclipart" id="openclipart" aria-label="Open ClipArt"></button>
-							</div>
-							<div class="engineDesc"><label for="openclipart"><strong>Open ClipArt</strong><br/>Image</label></div>
-						</div>
-                        </div>
-                        </div>
-                        <div class="row">
-						<div class="four columns alpha">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="openverse" id="openverse" aria-label="Openverse"></button>
-							</div>
-							<div class="engineDesc"><label for="openverse"><strong>Openverse</strong><br/>Media</label></div>
-						</div>
-                        </div>
-                        <div class="four columns">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="sketchfab" id="sketchfab" aria-label="Sketchfab"></button>
-							</div>
-							<div class="engineDesc"><label for="sketchfab"><strong>Sketchfab</strong><br/>3D Model</label></div>
-						</div>
-                        </div>						
-						<div class="four columns">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="soundcloud" id="soundcloud" aria-label="SoundCloud"></button>
-							</div>
-							<div class="engineDesc"><label for="soundcloud"><strong>SoundCloud</strong><br/>Music</label></div>
-						</div>
-                        </div>
-                        <div class="four columns omega">
-						<div class="engine">
-							<div class="engineButton">
-              
+			case "googleimg":
+				url = 'https://www.google.com/search?site=imghp&tbm=isch&q=' + query.val() + '&tbs=sur:f' + ((deriv) ? "m" : "") + ((comm) ? "c" : "") + '%2Cil:cl';
+				break;
 
-								<button onclick="setEngine(this)" name="engine" value="thingiverse" id="thingiverse" aria-label="Thingiverse"></button>
-							</div>
-							<div class="engineDesc"><label for="thingiverse"><strong>Thingiverse</strong><br/>3D Model</label></div>
+			case "wikimediacommons":
+				url = 'http://commons.wikimedia.org/w/index.php?title=Special%3ASearch&redirs=0&search=' + query.val() + '&fulltext=Search&ns0=1&ns6=1&ns14=1&title=Special%3ASearch&advanced=1&fulltext=Advanced+search';
+				break;
 
-						</div>
-                        </div>
-                        </div>
+			case "fotopedia":
+				url = 'http://www.fotopedia.com/search?q=' + query.val() + '&human_license=' + rights;
+				break;
 
-						<div class="row">
+			case "europeana":
+				url = 'http://www.europeana.eu/portal/search.html?query=' + query.val() + rights;
+				break;
 
-						<div class="four columns alpha">
+			case "youtube":
+				url = 'http://www.youtube.com/results?search_query=' + query.val() + ',creativecommons';
+				break;
 
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="vimeo" id="vimeo" aria-label="Vimeo"></button>
-							</div>
-							<div class="engineDesc"><label for="vimeo"><strong>Vimeo</strong><br/>Video</label></div>
-						</div>
-						</div>
+			case "ccmixter":
+				url = 'http://ccmixter.org/api/query?datasource=uploads&search_type=all&sort=rank&search=' + query.val() + rights;
+				break;
 
-					<div class="four columns">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="wikimediacommons" id="wikimediacommons" aria-label="Wikimedia Commons"></button>
-							</div>
-							<div class="engineDesc"><label for="wikimediacommons"><strong>Wikimedia Commons</strong><br/>Media</label></div>
-						</div>
-        
-						</div>
-						
-						<div class="four columns">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="youtube" id="youtube" aria-label="YouTube"></button>
-							</div>
-							<div class="engineDesc"><label for="youtube"><strong>YouTube</strong><br/>Video</label></div>
+			case "soundcloud":
+				url = 'http://soundcloud.com/search/sounds?q=' + query.val() + rights;
+				break;
 
-						</div>
-                        </div>
-                       </div>
-					</fieldset>
-				</form>
-                </div>
-			</div>
-		</div>
-		<div class="row">
-			<div id="help">
-                <div class="one columns alpha">
-					<p>Please note that CC Search Portal is <em>not a search engine</em>, but rather offers convenient access to search services provided by other independent organizations. CC has no control over the results that are returned. <em>Do not assume that the results displayed in this search portal are under a CC license</em>. You should always verify that the work is actually under a CC license by following the link. Since there is no registration to use a CC license, CC has no way to determine what has and hasn't been placed under the terms of a CC license. If you are in doubt you should contact the copyright holder directly, or try to contact the site where you found the content.</p>
-				</div>
-		</div>
+			case "vimeo": 
+				url = 'https://vimeo.com/search?' + rights + '&q=' + query.val();
+			    break;
 
-        </div>
+			case "thingiverse":
+				url = 'https://www.thingiverse.com/search?q=' + query.val() + rights;
+				break;
 
-      </div><!--! end of .container -->
-    </div><!--! end of #main -->
+			case "sketchfab":
+				url = 'https://sketchfab.com/search?q=' + query.val() + rights;
+				break;
 
-<?php include 'cc-wp/page-footer.php'; ?>
-    </div> <!--! end of #container -->
-<?php include 'cc-wp/footer-codes.php'; ?>
+			case "google":
+			default:
+				url = 'http://google.com/search?as_rights=(cc_publicdomain|cc_attribute|cc_sharealike' +
+					((comm) ? "" : "|cc_noncommercial") + ((deriv) ? "" : "|cc_nonderived") + ')' +
+					rights + '&q=' + query.val();
+				if (lang != null) url += '&hl=' + lang;
+				break;
 
-  <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us13.list-manage.com","uuid":"4051250396fe81f55034e2d49","lid":"5b82643372"}) })</script>
+		}
 
-</body>
-</html>
+		url = 'https://oldsearch.creativecommons.org/bouncer.php?q=' + query.val() + '&url=' + encodeURIComponent(url);
+
+		window.open(
+			url,
+			'_blank',
+			'noopener'
+		);
+		//	document.getElementBy$('#stat').setAttribute('src','transparent.gif?engine='+engine+'&comm='+comm+'&deriv='+deriv+'&q='+query.value);
+	}
+	return false;
+}
+
+// i18n
+function grabOriginalLanguage() {
+	return document.getElementsByTagName('html')[0].lang.replace('-', '_');
+}
+
+
+function grabChosenLanguage() {
+	var select_box = document.getElementById('lang');
+	for (var i = 0; i < select_box.childNodes.length; i++) {
+		var select_child = select_box.childNodes[i];
+		if (select_child.nodeType == 1) {
+			if (select_child.selected) {
+				return select_child.value;
+			}
+		}
+	}
+	return null;
+}
+
