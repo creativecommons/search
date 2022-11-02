@@ -72,7 +72,10 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 			break;
 
 		case "thingiverse":
-			$url = 'https://www.thingiverse.com/search?q=' . $query . $rights;
+			// Defer to OpenVerse (with search refined only to Thingiverse items) until Thingiverse licence search filter issue is fixed
+			// TODO Use Thingiverse search filters when issue is fixed and
+			$url = 'https://wordpress.org/openverse/search/image?q=' . $query . '&source=thingiverse' . $rights;
+			// $url = 'https://www.thingiverse.com/search?q=' . $query . $rights;
 			break;
 
 		case "sketchfab":
@@ -130,14 +133,32 @@ function modRights($engine, $comm, $deriv) {
 				to capture only results of type "things" before adding the specifics we require because
 				the "customizable" and "licence" filters on thingiverse only work alongside the "things" filter
 			*/
-			if ($comm || $deriv) {
-				$rights = "&type=things&sort=relevant";
-				$rights .= $deriv ? "&customizable=1" : "";
 
-				// Used the licence=cc (which on Thingiverse, stands for the Creative Commons Attribution license)
-				// as the equivalent for the "modify, reuse ..." filter on CC search
-				$rights .= $comm ? "&license=cc": "";
-			}
+			if ($comm || $deriv) {
+				// Defer to OpenVerse (with search refined only to Thingiverse items) until Thingiverse licence search filter issue is fixed
+				// TODO Use Thingiverse search filters when issue is fixed and
+
+				// Replicate Openverse rights when commercial and/or modify filters selected
+				$rights = '&license_type=';
+				if( $comm && $deriv){
+					$rights .= "commercial,modification";
+				} elseif($comm){
+					$rights .= "commercial";
+				}elseif($deriv){
+					$rights .= "modification";
+				}
+
+			} 
+			// else {
+			// 	if ($comm || $deriv) {
+			// 		$rights = "&type=things&sort=relevant";
+			// 		$rights .= $deriv ? "&customizable=1" : "";
+	
+			// 		// Used the licence=cc (which on Thingiverse, stands for the Creative Commons Attribution license)
+			// 		// as the equivalent for the "modify, reuse ..." filter on CC search
+			// 		$rights .= $comm ? "&license=cc": "";
+			// 	}
+			// }
 
 			break;
 
