@@ -9,8 +9,7 @@ $(function () {
 	//	$("#engineInfo").css("left", $("#engine").position().left + 7);
 	//	$("#engineInfo").width($("#engine").width() - 32);
 
-	// pick a random search engine
-	//setEngine(engines[Math.floor(Math.random() * engines.length)]);
+	// set default search engine to openverse
 
 	// hide all the radio buttons if JS is enabled
 	$(".engine button").focus(function () {
@@ -26,7 +25,6 @@ $(function () {
 		setEngine($(this).find("button").first().attr("id"));
 		doSearch();
 	});
-
 
 	// sniff browser and determine what information to display
 	/*
@@ -86,7 +84,7 @@ var url = "";
 var lang = "";
 
 var default_query = "flowers";
-var default_engine = "_random";
+var default_engine = "default";
 //var default_comm = 1;
 //var default_deriv = 1;
 
@@ -158,9 +156,8 @@ function getSettings() {
 
 	if (engine == null || !engine || engine == "") {
 		//engine = default_engine;
-		engine = "_random";
+		engine = "openverse";
 
-		//engine = engines[Math.floor(Math.random() * engines.length)];
 	}
 
 }
@@ -253,8 +250,8 @@ function setEngine(e) {
 	}
 
 	if (typeof e == "string") {
-		if (e == "_random") {
-			engine = engines[Math.floor(Math.random() * engines.length)];
+		if (e == "default") {
+			engine = openverse;
 		} else {
 			engine = e;
 		}
@@ -270,7 +267,6 @@ function setEngine(e) {
 	$(".engine").removeClass("selected");
 	$("button[value=" + engine + "]").parents(".engine").addClass("selected");
 
-	//if (e == "_random") engine = "_random";
 	saveSettings();
 
 	//doSearch();
@@ -377,7 +373,7 @@ function modRights() {
 			}
 
 			break;
-		
+
 		case "sketchfab":
 			/*	Licenses
 				CC BY -> Author must be credited. Derivatives allowed. Commercial use allowed. code=322a749bcfa841b29dff1e8a1bb74b0b
@@ -406,7 +402,7 @@ function modRights() {
 			}
 
 			break;
-	
+
 		case "yahoo":
 			rights = "&";
 			if (comm) {
@@ -531,9 +527,9 @@ function doSearch() {
 				break;
 
 			case "jamendo":
-				if (rights) { 
+				if (rights) {
 					url = 'https://licensing.jamendo.com/en/royalty-free-music/search?qs=' + 'query=' + query.val();
-				} else {   
+				} else {
 					url = 'http://www.jamendo.com/search?q=tag:' + query.val();
 				}
 				break;

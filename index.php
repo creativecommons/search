@@ -81,7 +81,7 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 
 		case "nappy":
 				$url = 'https://www.nappy.co/search/' . $query ;
-				break;	
+				break;
 
 		case "googleimg":
 			$url = 'https://www.google.com/search?site=imghp&tbm=isch&q=';
@@ -403,7 +403,7 @@ function modRights($engine, $comm, $deriv) {
 							<div class="engineButton">
 								<button onclick="setEngine(this)" name="engine" value="openverse" id="openverse" aria-label="Openverse"></button>
 							</div>
-							<div class="engineDesc"><label for="openverse"><strong>Openverse</strong><br/>Media</label></div>
+							<div class="engineDesc"><label for="openverse"><strong class="openverse">Openverse</strong><br/><b>Media</b></label></div>
 						</div>
                         </div>
                         <div class="four columns">
@@ -440,7 +440,7 @@ function modRights($engine, $comm, $deriv) {
 							<div class="engineDesc"><label for="wikimediacommons"><strong>Wikimedia Commons</strong><br/>Media</label></div>
 						</div>
 						</div>
-						
+
 						<div class="four columns">
 						<div class="engine">
 							<div class="engineButton">

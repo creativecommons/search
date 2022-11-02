@@ -237,6 +237,10 @@ fieldset {
   color: #333;
 }
 
+#engines .engine .openverse {
+  font-size: 20px;
+}
+
 #engines .engineButton {
   display: inline-block;
   line-height: 0.85;
