@@ -368,11 +368,11 @@ function modRights() {
 				the "customizable" and "licence" filters on thingiverse only work alongside the "things" filter
 			*/
 
-			if (comm) {
+			if (comm || deriv) {
 				// Defer to OpenVerse (with search refined only to Thingiverse items) until Thingiverse licence search filter issue is fixed
 				// TODO Use Thingiverse search filters when issue is fixed and
 
-				// Replicate Openverse rights when commercial filter selected
+				// Replicate Openverse rights when commercial and/or modify filters selected
 				rights = '&license_type=';
 				if(comm && deriv){
 					rights += "commercial,modification";
@@ -382,16 +382,17 @@ function modRights() {
 					rights += "modification";
 				}
 
-			} else {
-				if (comm || deriv) {
-					rights = "&type=things&sort=relevant";
-					rights += deriv ? "&customizable=1" : "";
+			}  
+			// else {
+			// 	if (comm || deriv) {
+			// 		rights = "&type=things&sort=relevant";
+			// 		rights += deriv ? "&customizable=1" : "";
 	
-					// Used the licence=cc (which on Thingiverse, stands for the Creative Commons Attribution license)
-					// as the equivalent for the "modify, reuse ..." filter on CC search
-					rights += comm ? "&license=cc": "";
-				}
-			}
+			// 		// Used the licence=cc (which on Thingiverse, stands for the Creative Commons Attribution license)
+			// 		// as the equivalent for the "modify, reuse ..." filter on CC search
+			// 		rights += comm ? "&license=cc": "";
+			// 	}
+			// }
 
 			break;
 		
@@ -596,13 +597,10 @@ function doSearch() {
 				break;
 
 			case "thingiverse":
-				if (comm) {
-					// Defer to OpenVerse (with search refined only to Thingiverse items) until Thingiverse licence search filter issue is fixed
-					// TODO Use Thingiverse search filters when issue is fixed and
-					url = 'https://wordpress.org/openverse/search/image?q=' + query.val() + '&source=thingiverse' + rights;
-				} else {
-					url = 'https://www.thingiverse.com/search?q=' + query.val() + rights;
-				}
+				// Defer to OpenVerse (with search refined only to Thingiverse items) until Thingiverse licence search filter issue is fixed
+				// TODO Use Thingiverse search filters when issue is fixed and
+				url = 'https://wordpress.org/openverse/search/image?q=' + query.val() + '&source=thingiverse' + rights;
+				// url = 'https://www.thingiverse.com/search?q=' + query.val() + rights;
 				break;
 
 			case "sketchfab":
