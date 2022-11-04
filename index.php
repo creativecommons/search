@@ -472,7 +472,7 @@ function modRights($engine, $comm, $deriv) {
 							<div class="engineButton">
 								<button onclick="setEngine(this)" name="engine" value="vimeo" id="vimeo" aria-label="vimeo"></button>
 							</div>
-							<div class="engineDesc"><label for="vimeo"><strong>Video</strong><br/>Video</label></div>
+							<div class="engineDesc"><label for="vimeo"><strong>Vimeo</strong><br/>Video</label></div>
 						</div>
 						</div>
 						<div class="four columns alpha">
