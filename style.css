@@ -1,5 +1,5 @@
 #header_logo {
-  background: #5aa322;
+  background: #28480F;
   position: relative;
   padding: 10px 10px 8px 10px;
   margin: 0 auto 10px auto;
@@ -307,4 +307,10 @@ fieldset {
   border-top: 1px solid #bbb;
   padding: 8px 0 50px;
   text-align: left;
+}
+.topbar-inner {
+  background: #28480F !important;
+}
+#fixfooter {
+  background: #28480F !important;
 }

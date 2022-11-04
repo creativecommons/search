@@ -86,6 +86,10 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 				$url = 'https://www.nappy.co/search/' . $query ;
 				break;
 
+		case "vimeo":
+			    $url = 'https://vimeo.com/search?' . $rights + '&q=' + $query;
+				break;
+
 		case "googleimg":
 			$url = 'https://www.google.com/search?site=imghp&tbm=isch&q=';
 
@@ -262,6 +266,16 @@ function modRights($engine, $comm, $deriv) {
 				$rights = "&filter.license=to_share";
 			}
 			break;
+			
+		case "vimeo":
+			if ( $comm && $deriv) {
+					$rights = "&license=by";
+				} else if ( $comm && ! $deriv ) {
+					$rights = "&license=by";
+				} else if ( !$comm && $deriv ) {
+					$rights = "&license=by-nc";
+				}
+				break;
 
 	}
 
@@ -453,6 +467,14 @@ function modRights($engine, $comm, $deriv) {
                         </div>
                         </div>
 						<div class="row">
+						<div class="four columns alpha">
+						<div class="engine">
+							<div class="engineButton">
+								<button onclick="setEngine(this)" name="engine" value="vimeo" id="vimeo" aria-label="vimeo"></button>
+							</div>
+							<div class="engineDesc"><label for="vimeo"><strong>Vimeo</strong><br/>Video</label></div>
+						</div>
+						</div>
 						<div class="four columns alpha">
 						<div class="engine">
 							<div class="engineButton">

@@ -38,7 +38,6 @@ $(function () {
 		}
 	} else {
 		$("#add").show();
-
 		if (browser.msie && browser.version.substr(0,1) > 6) {
 			$("#searchBar").show();
 		} else {
@@ -73,7 +72,7 @@ $(function () {
  *
  */
 
-var engines = ["google", "googleimg", "flickr", "jamendo", "openclipart", "wikimediacommons", "fotopedia", "europeana", "youtube", "ccmixter", "soundcloud", "thingiverse", "openverse", "sketchfab", "nappy"];
+var engines = ["google", "googleimg", "flickr", "jamendo", "openclipart", "wikimediacommons", "fotopedia", "europeana", "youtube", "ccmixter", "soundcloud", "thingiverse", "openverse", "sketchfab", "nappy", "vimeo"];
 
 //defaults:
 var engine = "";
@@ -511,6 +510,16 @@ function modRights() {
 				rights = "&filter.license=to_share";
 			}
 			break;
+		case "vimeo":
+			rights = "";
+			if (comm && deriv) {
+				rights = "&license=by";
+			} else if (comm && !deriv) {
+				rights = "&license=by";
+			} else if (!comm && deriv) {
+				rights = "&license=by-nc";
+			}
+			break;
 
 	}
 
@@ -606,6 +615,10 @@ function doSearch() {
 			case "nappy":
 					url = 'https://www.nappy.co/search/' + query.val() ;
 					break;
+			
+			case "vimeo":
+				url = 'https://vimeo.com/search?' + rights + '&q=' + query.val();
+				break;
 
 			case "google":
 			default:
@@ -647,4 +660,3 @@ function grabChosenLanguage() {
 	}
 	return null;
 }
-
