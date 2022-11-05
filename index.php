@@ -72,7 +72,10 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 			break;
 
 		case "thingiverse":
-			$url = 'https://www.thingiverse.com/search?q=' . $query . $rights;
+			// Defer to OpenVerse (with search refined only to Thingiverse items) until Thingiverse licence search filter issue is fixed
+			// TODO Use Thingiverse search filters when issue is fixed and
+			$url = 'https://wordpress.org/openverse/search/image?q=' . $query . '&source=thingiverse' . $rights;
+			// $url = 'https://www.thingiverse.com/search?q=' . $query . $rights;
 			break;
 
 		case "sketchfab":
@@ -82,6 +85,10 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 		case "nappy":
 				$url = 'https://www.nappy.co/search/' . $query ;
 				break;	
+
+		case "vimeo":
+			    $url = 'https://vimeo.com/search?' . $rights + '&q=' + $query;
+				break;
 
 		case "googleimg":
 			$url = 'https://www.google.com/search?site=imghp&tbm=isch&q=';
@@ -130,14 +137,32 @@ function modRights($engine, $comm, $deriv) {
 				to capture only results of type "things" before adding the specifics we require because
 				the "customizable" and "licence" filters on thingiverse only work alongside the "things" filter
 			*/
-			if ($comm || $deriv) {
-				$rights = "&type=things&sort=relevant";
-				$rights .= $deriv ? "&customizable=1" : "";
 
-				// Used the licence=cc (which on Thingiverse, stands for the Creative Commons Attribution license)
-				// as the equivalent for the "modify, reuse ..." filter on CC search
-				$rights .= $comm ? "&license=cc": "";
-			}
+			if ($comm || $deriv) {
+				// Defer to OpenVerse (with search refined only to Thingiverse items) until Thingiverse licence search filter issue is fixed
+				// TODO Use Thingiverse search filters when issue is fixed and
+
+				// Replicate Openverse rights when commercial and/or modify filters selected
+				$rights = '&license_type=';
+				if( $comm && $deriv){
+					$rights .= "commercial,modification";
+				} elseif($comm){
+					$rights .= "commercial";
+				}elseif($deriv){
+					$rights .= "modification";
+				}
+
+			} 
+			// else {
+			// 	if ($comm || $deriv) {
+			// 		$rights = "&type=things&sort=relevant";
+			// 		$rights .= $deriv ? "&customizable=1" : "";
+	
+			// 		// Used the licence=cc (which on Thingiverse, stands for the Creative Commons Attribution license)
+			// 		// as the equivalent for the "modify, reuse ..." filter on CC search
+			// 		$rights .= $comm ? "&license=cc": "";
+			// 	}
+			// }
 
 			break;
 
@@ -241,6 +266,16 @@ function modRights($engine, $comm, $deriv) {
 				$rights = "&filter.license=to_share";
 			}
 			break;
+			
+		case "vimeo":
+			if ( $comm && $deriv) {
+					$rights = "&license=by";
+				} else if ( $comm && ! $deriv ) {
+					$rights = "&license=by";
+				} else if ( !$comm && $deriv ) {
+					$rights = "&license=by-nc";
+				}
+				break;
 
 	}
 
@@ -435,12 +470,20 @@ function modRights($engine, $comm, $deriv) {
 						<div class="four columns alpha">
 						<div class="engine">
 							<div class="engineButton">
+								<button onclick="setEngine(this)" name="engine" value="vimeo" id="vimeo" aria-label="vimeo"></button>
+							</div>
+							<div class="engineDesc"><label for="vimeo"><strong>Vimeo</strong><br/>Video</label></div>
+						</div>
+						</div>
+						<div class="four columns alpha">
+						<div class="engine">
+							<div class="engineButton">
 								<button onclick="setEngine(this)" name="engine" value="wikimediacommons" id="wikimediacommons" aria-label="Wikimedia Commons"></button>
 							</div>
 							<div class="engineDesc"><label for="wikimediacommons"><strong>Wikimedia Commons</strong><br/>Media</label></div>
 						</div>
 						</div>
-						
+
 						<div class="four columns">
 						<div class="engine">
 							<div class="engineButton">
