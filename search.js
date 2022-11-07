@@ -26,6 +26,14 @@ $(function () {
 		doSearch();
 	});
 
+	$("#query").keydown(function (e){
+		if(e.keyCode == 13){
+			console.log("enter key");
+			setEngine("openverse");
+			doSearch();
+		}
+	})
+
 	// sniff browser and determine what information to display
 	/*
 	var browser = $.browser;
@@ -250,7 +258,7 @@ function setEngine(e) {
 
 	if (typeof e == "string") {
 		if (e == "default") {
-			engine = openverse;
+			engine = "openverse";
 		} else {
 			engine = e;
 		}
@@ -377,12 +385,12 @@ function modRights() {
 					rights += "modification";
 				}
 
-			}  
+			}
 			// else {
 			// 	if (comm || deriv) {
 			// 		rights = "&type=things&sort=relevant";
 			// 		rights += deriv ? "&customizable=1" : "";
-	
+
 			// 		// Used the licence=cc (which on Thingiverse, stands for the Creative Commons Attribution license)
 			// 		// as the equivalent for the "modify, reuse ..." filter on CC search
 			// 		rights += comm ? "&license=cc": "";
@@ -615,7 +623,7 @@ function doSearch() {
 			case "nappy":
 					url = 'https://www.nappy.co/search/' + query.val() ;
 					break;
-			
+
 			case "vimeo":
 				url = 'https://vimeo.com/search?' + rights + '&q=' + query.val();
 				break;
