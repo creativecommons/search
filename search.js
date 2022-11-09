@@ -22,7 +22,7 @@ $(function () {
 	})
 
 	$(".engine").click(function () {
-		setEngine($(this).find("button").first().attr("id"));
+		setEngine($(this).find("button").attr("id").click());
 		doSearch();
 	});
 
