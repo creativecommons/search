@@ -12,7 +12,7 @@
 }
 
 #header_text {
-  font-size: 11.3px;
+  font-size: 14.3px;
   text-align: center;
   margin-top: 5px;
   width: 100%;
@@ -161,6 +161,7 @@ fieldset {
 .statement {
   padding-top: 2px;
   padding-bottom: 8px;
+  font-size: 16px;
 }
 
 .statement,
@@ -171,12 +172,17 @@ fieldset {
 
 .permoptions label {
   vertical-align: top;
+  font-size: 14.7px;
 }
 
 #engines {
   line-height: 2.25;
   margin-left: -3px;
   clear: left;
+}
+
+#engines > p {
+  font-size: 15px;
 }
 
 #engines .engine {
@@ -228,12 +234,12 @@ fieldset {
 
 #engines .engineDesc {
   line-height: 1.4;
-  font-size: 11px;
+  font-size: 14px;
   color: #555;
 }
 
 #engines .engineDesc strong {
-  font-size: 13px;
+  font-size: 16px;
   color: #333;
 }
 
@@ -268,8 +274,9 @@ fieldset {
 
 #help p {
   margin-top: 0;
+  font-size: 16px;
+  line-height: 1.3rem;
 }
-
 .wrong {
   background-color: #fee0a2;
   padding: 10px;
@@ -309,4 +316,7 @@ fieldset {
 }
 #fixfooter {
   background: #28480F !important;
+}
+.bucket small{
+  font-size: 14px;
 }
