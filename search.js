@@ -258,7 +258,9 @@ function setEngine(e) {
 			engine = e;
 		}
 	} else {
-		engine = e.value;
+		if (e) {
+			engine = e.value;
+		}
 	}
 
 	$("#engineInfo ." + previous).hide();
@@ -267,7 +269,7 @@ function setEngine(e) {
 	$("button[value=" + engine + "]").attr("checked", true);
 
 	$(".engine").removeClass("selected");
-	$("button[value=" + engine + "]").parents(".engine").addClass("selected");
+	$("button[value=" + engine + "]").addClass("selected");
 
 	//if (e == "_random") engine = "_random";
 	saveSettings();

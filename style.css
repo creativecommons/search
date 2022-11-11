@@ -198,11 +198,12 @@ fieldset {
   padding: 6px 0 6px 6px;
   min-width: 100px;
   border: 1px solid #ddd;
+  background-color: #fff;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
   margin-bottom: 16px;
-  min-height: 50px;
+  min-height: 64px;
   float: left;
   width: 100%;
 }
@@ -217,11 +218,6 @@ fieldset {
 
 #engines .engine:hover {
   background-color: #f0f0f0;
-}
-
-#engines .engine,
-#engines label {
-  cursor: pointer;
 }
 
 #engines .selected {
@@ -249,13 +245,6 @@ fieldset {
 #engines .engineDesc strong {
   font-size: 16px;
   color: #333;
-}
-
-#engines .engineButton {
-  display: inline-block;
-  line-height: 0.85;
-  padding-left: 3px;
-  float: right;
 }
 
 #resultsRow {
