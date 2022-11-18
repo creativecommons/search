@@ -149,6 +149,10 @@ fieldset {
   margin-right: 0;
 }
 
+#permissions input:focus-visible {
+  outline: revert;
+}
+
 #engines input {
   margin-right: 4px;
   margin-left: 0;
