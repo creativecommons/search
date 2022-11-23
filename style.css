@@ -46,6 +46,10 @@
   vertical-align: middle;
 }
 
+#query:focus-visible {
+  outline: revert;
+}
+
 label {
   width: auto;
   float: none;
