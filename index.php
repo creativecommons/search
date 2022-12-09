@@ -404,7 +404,9 @@ function modRights($engine, $comm, $deriv) {
 
 						<div class="row">
 							<div class="four columns alpha">
-								<button class="engine engineDesc" onclick="setEngine(this)" name="engine" value="openverse" id="openverse"><strong>Openverse</strong><br/>Media</button>
+								<button class="engine engineDesc" onclick="setEngine(this)" name="engine" value="openverse" id="openverse">
+								<strong class="openverse">Openverse</strong>
+								<br/>Media</button>
 							</div>
 
 							<div class="four columns">

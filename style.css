@@ -247,6 +247,10 @@ fieldset {
   color: #333;
 }
 
+#engines .engine .openverse {
+  font-size: 20px;
+}
+
 #resultsRow {
   background-color: #eee;
   min-height: 140px;

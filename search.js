@@ -23,9 +23,17 @@ $(function () {
 	})
 
 	$(".engine").click(function () {
-		setEngine($(this).find("button").first().attr("id"));
+		setEngine($(this).find("button").attr("id"));
 		doSearch();
 	});
+
+	$("#query").keydown(function (e) {
+		if (e.keyCode == 13) {
+			console.log("enter key");
+			setEngine("openverse");
+			doSearch();
+		}
+	})
 
 
 	// sniff browser and determine what information to display
@@ -85,7 +93,7 @@ var url = "";
 var lang = "";
 
 var default_query = "flowers";
-var default_engine = "_random";
+var default_engine = "default";
 //var default_comm = 1;
 //var default_deriv = 1;
 
@@ -157,7 +165,7 @@ function getSettings() {
 
 	if (engine == null || !engine || engine == "") {
 		//engine = default_engine;
-		engine = "_random";
+		engine = "openverse";
 
 		//engine = engines[Math.floor(Math.random() * engines.length)];
 	}
@@ -252,8 +260,8 @@ function setEngine(e) {
 	}
 
 	if (typeof e == "string") {
-		if (e == "_random") {
-			engine = engines[Math.floor(Math.random() * engines.length)];
+		if (e == "default") {
+			engine = "openverse";
 		} else {
 			engine = e;
 		}
@@ -383,12 +391,12 @@ function modRights() {
 					rights += "modification";
 				}
 
-			}  
+			}
 			// else {
 			// 	if (comm || deriv) {
 			// 		rights = "&type=things&sort=relevant";
 			// 		rights += deriv ? "&customizable=1" : "";
-	
+
 			// 		// Used the licence=cc (which on Thingiverse, stands for the Creative Commons Attribution license)
 			// 		// as the equivalent for the "modify, reuse ..." filter on CC search
 			// 		rights += comm ? "&license=cc": "";
@@ -396,7 +404,7 @@ function modRights() {
 			// }
 
 			break;
-		
+
 		case "sketchfab":
 			/*	Licenses
 				CC BY -> Author must be credited. Derivatives allowed. Commercial use allowed. code=322a749bcfa841b29dff1e8a1bb74b0b
@@ -425,7 +433,7 @@ function modRights() {
 			}
 
 			break;
-	
+
 		case "yahoo":
 			rights = "&";
 			if (comm) {
@@ -560,9 +568,9 @@ function doSearch() {
 				break;
 
 			case "jamendo":
-				if (rights) { 
+				if (rights) {
 					url = 'https://licensing.jamendo.com/en/royalty-free-music/search?qs=' + 'query=' + query.val();
-				} else {   
+				} else {
 					url = 'http://www.jamendo.com/search?q=tag:' + query.val();
 				}
 				break;
@@ -619,9 +627,9 @@ function doSearch() {
 				break;
 
 			case "nappy":
-					url = 'https://www.nappy.co/search/' + query.val() ;
-					break;
-			
+				url = 'https://www.nappy.co/search/' + query.val() ;
+				break;
+
 			case "vimeo":
 				url = 'https://vimeo.com/search?' + rights + '&q=' + query.val();
 				break;
