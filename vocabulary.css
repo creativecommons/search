@@ -9,6 +9,12 @@
   box-sizing: border-box;
 }
 
+li,
+a {
+  list-style: none;
+  text-decoration: none;
+}
+
 .container {
   /* max-width: 1200px; */
   border: 1px solid red;
@@ -23,11 +29,20 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: rgb(12, 11, 11);
+  background-color: rgb(255, 255, 255);
   width: 100%;
+  padding: 2rem;
   /* min-height: 3.25rem;
   position: relative; */
   z-index: 30;
+}
+
+.navbar h4, .blog, .navbar-content a {
+  color: #767676;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 18.4px;
+  font-weight: 700;
+  padding: 8px 12px;
 }
 
 .navbar-brand {
@@ -41,8 +56,37 @@
   display: flex;
   align-items: center;
   gap: 24px;
+  overflow: hidden;
 }
 
+.navbar-dropdown {
+  color: white;
+  /* position: relative;
+  display: inline-block; */
+}
+
+.navbar-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  border-radius: 6px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+.navbar-content li a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.nav-holder:hover .navbar-content {
+  margin-top: 4px;
+  display: block;
+}
 
 /* .navbar-menu li ul {
   visibility: hidden;
