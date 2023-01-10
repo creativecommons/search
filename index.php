@@ -9,14 +9,14 @@
  */
 $query = isset($_REQUEST['query']) ? $_REQUEST['query'] : ''; // moving this here, we want to let people search and come here
 
-if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
+if (isset($_REQUEST['engine']) && $_REQUEST['query'] != "") {
 
 	$engine = $_REQUEST['engine'];
 	$comm = isset($_REQUEST['comm']) ? TRUE : FALSE;
 	$deriv = isset($_REQUEST['deriv']) ? TRUE : FALSE;
 
 	// We never want the search to execute with the default text
-	if ( $query == "Enter search query" ) {
+	if ($query == "Enter search query") {
 		$query = "flowers";
 	}
 
@@ -24,11 +24,11 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 
 	$url = "";
 
-    // NOTE: if you make changes here, you should make a similar change in search.js
-	switch ( $engine ) {
+	// NOTE: if you make changes here, you should make a similar change in search.js
+	switch ($engine) {
 
 		case "openverse":
-			$url = 'https://wordpress.org/openverse/search/?q=' . $query . '&license_type='. $rights;
+			$url = 'https://wordpress.org/openverse/search/?q=' . $query . '&license_type=' . $rights;
 			break;
 
 		case "openclipart":
@@ -36,11 +36,15 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 			break;
 
 		case "jamendo":
-			if ( $rights ) {
+			if ($rights) {
 				$url = 'https://licensing.jamendo.com/en/royalty-free-music/search?qs=' . 'query=' . $query;
 			} else {
 				$url = 'http://www.jamendo.com/search?q=tag:' . $query;
 			}
+			break;
+
+		case "bing":
+			$url = 'http://bing.com/search?q=' + $query . $rights;
 			break;
 
 		case "flickr":
@@ -83,12 +87,12 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 			break;
 
 		case "nappy":
-				$url = 'https://www.nappy.co/search/' . $query ;
-				break;	
+			$url = 'https://www.nappy.co/search/' . $query;
+			break;
 
 		case "vimeo":
-			    $url = 'https://vimeo.com/search?' . $rights + '&q=' + $query;
-				break;
+			$url = 'https://vimeo.com/search?' . $rights + '&q=' + $query;
+			break;
 
 		case "googleimg":
 			$url = 'https://www.google.com/search?site=imghp&tbm=isch&q=';
@@ -99,23 +103,26 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 			$url .= $query . '&as_rights=' . $rights;
 			break;
 
+		case "bing":
+			$url = 'https://bing.com/search?q=' . $query . '&' + $right;
+			break;
 	}
 
-        $url = urlencode($url);
+	$url = urlencode($url);
 
 	header('Location: https://oldsearch.creativecommons.org/bouncer.php?q=' . $query . '&url=' . $url);
 	exit;
-
 }
 
 /**
  * Sets up the right query string for the various content providers.
  */
-function modRights($engine, $comm, $deriv) {
+function modRights($engine, $comm, $deriv)
+{
 
 	$rights = "";
 
-	switch ( $engine ) {
+	switch ($engine) {
 
 		case "google":
 		case "googleimg":
@@ -144,20 +151,19 @@ function modRights($engine, $comm, $deriv) {
 
 				// Replicate Openverse rights when commercial and/or modify filters selected
 				$rights = '&license_type=';
-				if( $comm && $deriv){
+				if ($comm && $deriv) {
 					$rights .= "commercial,modification";
-				} elseif($comm){
+				} elseif ($comm) {
 					$rights .= "commercial";
-				}elseif($deriv){
+				} elseif ($deriv) {
 					$rights .= "modification";
 				}
-
-			} 
+			}
 			// else {
 			// 	if ($comm || $deriv) {
 			// 		$rights = "&type=things&sort=relevant";
 			// 		$rights .= $deriv ? "&customizable=1" : "";
-	
+
 			// 		// Used the licence=cc (which on Thingiverse, stands for the Creative Commons Attribution license)
 			// 		// as the equivalent for the "modify, reuse ..." filter on CC search
 			// 		$rights .= $comm ? "&license=cc": "";
@@ -191,9 +197,18 @@ function modRights($engine, $comm, $deriv) {
 					$rights .= "&licenses=bbfe3f7dbcdd4122b966b85b9786a989" // Include CC BY-NC
 						. "&licenses=2628dbe5140a4e9592126c8df566c0b7"; // Include CC BY-NC-SA
 				}
-
 			}
 
+			break;
+
+		case "bing":
+			if ($comm && $deriv) {
+				$rights = "form, qs";
+			} elseif ($comm) {
+				$rights = "qs";
+			} elseif ($deriv) {
+				$rights = "form";
+			}
 			break;
 
 		case "flickr":
@@ -204,31 +219,31 @@ function modRights($engine, $comm, $deriv) {
 			break;
 
 		case "openverse":
-			if( $comm && $deriv){
+			if ($comm && $deriv) {
 				$rights = "commercial,modification";
-			} elseif($comm){
+			} elseif ($comm) {
 				$rights = "commercial";
-			}elseif($deriv){
+			} elseif ($deriv) {
 				$rights = "modification";
 			}
 			break;
 
 		case "jamendo":
-			if ( $comm && $deriv ) {
+			if ($comm && $deriv) {
 				$rights = '-nc%20AND%20-nd';
-			} elseif ( $comm ) {
+			} elseif ($comm) {
 				$rights = '-nc';
-			} elseif ( $deriv ) {
+			} elseif ($deriv) {
 				$rights = '-nd';
 			}
 			break;
 
 		case "fotopedia":
-			if ( $comm && $deriv ) {
+			if ($comm && $deriv) {
 				$rights = "reuse_commercial_modify";
-			} else if ( $comm && ! $deriv ) {
+			} else if ($comm && !$deriv) {
 				$rights = "reuse_commercial";
-			} else if ( ! $comm && $deriv ) {
+			} else if (!$comm && $deriv) {
 				$rights = "reuse_modify";
 			} else {
 				$rights = "reuse";
@@ -236,11 +251,11 @@ function modRights($engine, $comm, $deriv) {
 			break;
 
 		case "europeana":
-			if ( $comm && $deriv ) {
+			if ($comm && $deriv) {
 				$rights = "+AND+RIGHTS%3A*creative*+AND+NOT+RIGHTS%3A*nc*+AND+NOT+RIGHTS%3A*nd*";
-			} else if ( $comm && ! $deriv ) {
+			} else if ($comm && !$deriv) {
 				$rights = "+AND+RIGHTS%3A*creative*+AND+NOT+RIGHTS%3A*nc*";
-			} else if ( ! $comm && $deriv ) {
+			} else if (!$comm && $deriv) {
 				$rights = "+AND+RIGHTS%3A*creative*+AND+NOT+RIGHTS%3A*nd*";
 			} else {
 				$rights = "+AND+RIGHTS%3A*creative*+";
@@ -248,273 +263,279 @@ function modRights($engine, $comm, $deriv) {
 			break;
 
 		case "ccmixter":
-			if ( $comm && $deriv ) {
+			if ($comm && $deriv) {
 				$rights = "&lic=by,sa,s,splus,pd,zero";
-			} else if ( $comm && ! $deriv ) {
+			} else if ($comm && !$deriv) {
 				$rights = "&lic=open";
-			} else if ( ! $comm && $deriv) {
+			} else if (!$comm && $deriv) {
 				$rights = "&lic=by,nc,sa,ncsa,s,splus,pd,zero";
 			}
 			break;
 
 		case "soundcloud":
-			if ( $comm && $deriv ) {
+			if ($comm && $deriv) {
 				$rights = "&filter.license=to_modify_commercially";
-			} else if ( $comm && ! $deriv ) {
+			} else if ($comm && !$deriv) {
 				$rights = "&filter.license=to_use_commercially";
-			} else if ( (! $comm && $deriv) || (! $comm && ! $deriv) ) {
+			} else if ((!$comm && $deriv) || (!$comm && !$deriv)) {
 				$rights = "&filter.license=to_share";
 			}
 			break;
-			
-		case "vimeo":
-			if ( $comm && $deriv) {
-					$rights = "&license=by";
-				} else if ( $comm && ! $deriv ) {
-					$rights = "&license=by";
-				} else if ( !$comm && $deriv ) {
-					$rights = "&license=by-nc";
-				}
-				break;
 
+		case "vimeo":
+			if ($comm && $deriv) {
+				$rights = "&license=by";
+			} else if ($comm && !$deriv) {
+				$rights = "&license=by";
+			} else if (!$comm && $deriv) {
+				$rights = "&license=by-nc";
+			}
+			break;
 	}
 
 	return $rights;
-
 }
-    // adaptor code for cc-wp theme
-    if ( ! function_exists('bloginfo') ) {
-        function bloginfo ($param) {
-            if ( $param == 'home' )
-                print 'http://creativecommons.org';
-            if ( $param == 'stylesheet_directory' ) {
-                // print $theme_path . '/cc-wp';
-                print '/cc-wp';
-            }
-        }
-    }
-    if ( ! function_exists('get_http_security') ) {
-        function get_http_security () {
-            echo 'https';
-        }
-    }
-    include_once 'cc-wp/meta.php';
-    include_once 'cc-wp/header-doctype.php'; ?>
-
+// adaptor code for cc-wp theme
+if (!function_exists('bloginfo')) {
+	function bloginfo($param)
+	{
+		if ($param == 'home')
+			print 'http://creativecommons.org';
+		if ($param == 'stylesheet_directory') {
+			// print $theme_path . '/cc-wp';
+			print '/cc-wp';
+		}
+	}
+}
+if (!function_exists('get_http_security')) {
+	function get_http_security()
+	{
+		echo 'https';
+	}
+}
+include_once 'cc-wp/meta.php';
+include_once 'cc-wp/header-doctype.php'; ?>
 <html lang="en">
-	<head>
-		<title>CC Search Portal</title>
-	    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+
+    <head>
+        <title>CC Search Portal</title>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
         <?php include 'cc-wp/header-common.php'; ?>
-
-		<link rel="search" type="application/opensearchdescription+xml" title="Creative Commons Search Portal" href="http://oldsearch.creativecommons.org/ccsearch.xml" />
-		<link rel="stylesheet" href="style.css" type="text/css" media="screen" title="no title" charset="utf-8" />
-
-		<!--[if lte IE 7]>
+        <link rel="search" type="application/opensearchdescription+xml" title="Creative Commons Search Portal" href="http://oldsearch.creativecommons.org/ccsearch.xml" />
+        <link rel="stylesheet" href="style.css" type="text/css" media="screen" title="no title" charset="utf-8" />
+        <!--[if lte IE 7]>
 		<link rel="stylesheet" href="style-ie.css" type="text/css" media="screen" charset="utf-8" />
 		<![endif]-->
+        <script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+        <script src="search.js" type="text/javascript" charset="utf-8"></script>
+        <script src="elog/elog.js" type="text/javascript" charset="utf-8"></script>
+    </head>
 
-		<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
-		<script src="search.js" type="text/javascript" charset="utf-8"></script>
-
-		<script src="elog/elog.js" type="text/javascript" charset="utf-8"></script>
-	</head>
-	<body>
-	<div id="container">
-        <?php include 'cc-wp/page-nav.php'; ?>
-        <div id="main" role="main">
-        <div class="container">
-
-        <div class="sixteen columns">
-
-		<div class="first row">
-
-        </div>
-
-		<div class="row">
-			<div id="search">
-				<form id="search_form" method="get" onsubmit="return doSearch()">
-            <div class="seven columns alpha">
-			<div id="header_logo" title="To search, enter some search terms, then click a provider." onclick="if ( $('#query').val() ) { doSearch(); }">
-				<img src="cc-search-portal.png" alt="CC Search Portal" />
-				<div id="header_text"><span>Find content you can share, use and remix</span></div>
-			</div>
-            </div>
-            <div class="nine columns omega re">
-					<input type="text" id="query" name="query" value="<?php echo $query; ?>" placeholder="Enter your search query"/>
-					<div id="secondaryOptions">
-						<fieldset id="permissions">
-							<small>
-                                <div class="statement">
-								<strong>I want something that I can...</strong>
-                                </div>
-
-                                <div class="permoptions">
-								<input type="checkbox" name="comm" value="" id="comm" checked="checked" onclick="setCommDeriv()" />
-								<label for="comm"  onclick="setCommDeriv()">use for <em>commercial purposes</em>;</label>
-                                </div>
-                                <div class="permoptions">
-								<input type="checkbox" name="deriv" value="" id="deriv" checked="checked"  onclick="setCommDeriv()" />
-								<label for="deriv" onclick="setCommDeriv()"><em>modify</em>, <em>adapt</em>, or <em>build upon</em>.</label><br/>
-                                </div>
-							</small>
-						</fieldset>
-					</div>
-                </div>
-
-					<fieldset id="engines">
-						<p><strong>Search using:</strong></p>
+    <body>
+        <div id="container">
+            <?php include 'cc-wp/page-nav.php'; ?>
+            <div id="main" role="main">
+                <div class="container">
+                    <div class="sixteen columns">
                         <div class="first row">
-                        <div class="four columns alpha">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="ccmixter" id="ccmixter" aria-label="ccMixter"></button>
-							</div>
-							<div class="engineDesc"><label for="ccmixter"><strong>ccMixter</strong><br/>Music</label></div>
-						</div>
-                        </div>
-                        <div class="four columns">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="europeana" id="europeana" aria-label="Europeana"></button>
-							</div>
-							<div class="engineDesc"><label for="europeana"><strong>Europeana</strong><br/>Media</label></div>
-						</div>
-                        </div>
-                        <div class="four columns">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="flickr" id="flickr" aria-label="Flickr"></button>
-							</div>
-							<div class="engineDesc"><label for="flickr"><strong>Flickr</strong><br/>Image</label></div>
-						</div>
-                        </div>
-                        <div class="four columns omega">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="google" id="google" aria-label="Google"></button>
-							</div>
-							<div class="engineDesc"><label for="google"><strong>Google</strong><br/>Web</label></div>
-						</div>
-                        </div>
                         </div>
                         <div class="row">
-                        <div class="four columns alpha">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="googleimg" id="googleimg" aria-label="Google Images"></button>
-							</div>
-							<div class="engineDesc"><label for="googleimg"><strong>Google Images</strong><br/>Image</label></div>
-						</div>
+                            <div id="search">
+                                <form id="search_form" method="get" onsubmit="return doSearch()">
+                                    <div class="seven columns alpha">
+                                        <div id="header_logo" title="To search, enter some search terms, then click a provider." onclick="if ( $('#query').val() ) { doSearch(); }">
+                                            <img src="cc-search-portal.png" alt="CC Search Portal" />
+                                            <div id="header_text"><span>Find content you can share, use and remix</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="nine columns omega re">
+                                        <input type="text" id="query" name="query" value="<?php echo $query; ?>" placeholder="Enter your search query" />
+                                        <div id="secondaryOptions">
+                                            <fieldset id="permissions">
+                                                <small>
+                                                    <div class="statement">
+                                                        <strong>I want something that I can...</strong>
+                                                    </div>
+                                                    <div class="permoptions">
+                                                        <input type="checkbox" name="comm" value="" id="comm" checked="checked" onclick="setCommDeriv()" />
+                                                        <label for="comm" onclick="setCommDeriv()">use for <em>commercial purposes</em>;</label>
+                                                    </div>
+                                                    <div class="permoptions">
+                                                        <input type="checkbox" name="deriv" value="" id="deriv" checked="checked" onclick="setCommDeriv()" />
+                                                        <label for="deriv" onclick="setCommDeriv()"><em>modify</em>, <em>adapt</em>, or <em>build upon</em>.</label><br />
+                                                    </div>
+                                                </small>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                    <fieldset id="engines">
+                                        <p><strong>Search using:</strong></p>
+                                        <div class="first row">
+                                            <div class="four columns alpha">
+                                                <div class="engine">
+                                                    <div class="engineButton">
+                                                        <button onclick="setEngine(this)" name="engine" value="ccmixter" id="ccmixter" aria-label="ccMixter"></button>
+                                                    </div>
+                                                    <div class="engineDesc"><label for="ccmixter"><strong>ccMixter</strong><br />Music</label></div>
+                                                </div>
+                                            </div>
+                                            <div class="four columns">
+                                                <div class="engine">
+                                                    <div class="engineButton">
+                                                        <button onclick="setEngine(this)" name="engine" value="europeana" id="europeana" aria-label="Europeana"></button>
+                                                    </div>
+                                                    <div class="engineDesc"><label for="europeana"><strong>Europeana</strong><br />Media</label></div>
+                                                </div>
+                                            </div>
+                                            <div class="four columns">
+                                                <div class="engine">
+                                                    <div class="engineButton">
+                                                        <button onclick="setEngine(this)" name="engine" value="bing" id="bing" aria-label="Bing"></button>
+                                                    </div>
+                                                    <div class="engineDesc"><label for="bing"><strong>Bing</strong><br />Web</label></div>
+                                                </div>
+                                            </div>
+                                            <div class="four columns">
+                                                <div class="engine">
+                                                    <div class="engineButton">
+                                                        <button onclick="setEngine(this)" name="engine" value="flickr" id="flickr" aria-label="Flickr"></button>
+                                                    </div>
+                                                    <div class="engineDesc"><label for="flickr"><strong>Flickr</strong><br />Image</label></div>
+                                                </div>
+                                            </div>
+                                            <div class="four columns omega">
+                                                <div class="engine">
+                                                    <div class="engineButton">
+                                                        <button onclick="setEngine(this)" name="engine" value="google" id="google" aria-label="Google"></button>
+                                                    </div>
+                                                    <div class="engineDesc"><label for="google"><strong>Google</strong><br />Web</label></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="four columns alpha">
+                                                <div class="engine">
+                                                    <div class="engineButton">
+                                                        <button onclick="setEngine(this)" name="engine" value="googleimg" id="googleimg" aria-label="Google Images"></button>
+                                                    </div>
+                                                    <div class="engineDesc"><label for="googleimg"><strong>Google Images</strong><br />Image</label></div>
+                                                </div>
+                                            </div>
+                                            <div class="four columns">
+                                                <div class="engine">
+                                                    <div class="engineButton">
+                                                        <button onclick="setEngine(this)" name="engine" value="jamendo" id="jamendo" aria-label="Jamendo"></button>
+                                                    </div>
+                                                    <div class="engineDesc"><label for="jamendo"><strong>Jamendo</strong><br />Music</label></div>
+                                                </div>
+                                            </div>
+                                            <div class="four columns">
+                                                <div class="engine">
+                                                    <div class="engineButton">
+                                                        <button onclick="setEngine(this)" name="engine" value="nappy" id="nappy" aria-label="Nappy"></button>
+                                                    </div>
+                                                    <div class="engineDesc"><label for="nappy"><strong>Nappy</strong><br />image</label></div>
+                                                </div>
+                                            </div>
+                                            <div class="four columns omega">
+                                                <div class="engine">
+                                                    <div class="engineButton">
+                                                        <button onclick="setEngine(this)" name="engine" value="openclipart" id="openclipart" aria-label="Open ClipArt"></button>
+                                                    </div>
+                                                    <div class="engineDesc"><label for="openclipart"><strong>Open ClipArt</strong><br />Image</label></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="four columns alpha">
+                                                <div class="engine">
+                                                    <div class="engineButton">
+                                                        <button onclick="setEngine(this)" name="engine" value="openverse" id="openverse" aria-label="Openverse"></button>
+                                                    </div>
+                                                    <div class="engineDesc"><label for="openverse"><strong>Openverse</strong><br />Media</label></div>
+                                                </div>
+                                            </div>
+                                            <div class="four columns">
+                                                <div class="engine">
+                                                    <div class="engineButton">
+                                                        <button onclick="setEngine(this)" name="engine" value="sketchfab" id="sketchfab" aria-label="Sketchfab"></button>
+                                                    </div>
+                                                    <div class="engineDesc"><label for="sketchfab"><strong>Sketchfab</strong><br />3D Model</label></div>
+                                                </div>
+                                            </div>
+                                            <div class="four columns">
+                                                <div class="engine">
+                                                    <div class="engineButton">
+                                                        <button onclick="setEngine(this)" name="engine" value="soundcloud" id="soundcloud" aria-label="SoundCloud"></button>
+                                                    </div>
+                                                    <div class="engineDesc"><label for="soundcloud"><strong>SoundCloud</strong><br />Music</label></div>
+                                                </div>
+                                            </div>
+                                            <div class="four columns omega">
+                                                <div class="engine">
+                                                    <div class="engineButton">
+                                                        <button onclick="setEngine(this)" name="engine" value="thingiverse" id="thingiverse" aria-label="Thingiverse"></button>
+                                                    </div>
+                                                    <div class="engineDesc"><label for="thingiverse"><strong>Thingiverse</strong><br />3D Model</label></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="four columns alpha">
+                                                <div class="engine">
+                                                    <div class="engineButton">
+                                                        <button onclick="setEngine(this)" name="engine" value="vimeo" id="vimeo" aria-label="vimeo"></button>
+                                                    </div>
+                                                    <div class="engineDesc"><label for="vimeo"><strong>Vimeo</strong><br />Video</label></div>
+                                                </div>
+                                            </div>
+                                            <div class="four columns alpha">
+                                                <div class="engine">
+                                                    <div class="engineButton">
+                                                        <button onclick="setEngine(this)" name="engine" value="wikimediacommons" id="wikimediacommons" aria-label="Wikimedia Commons"></button>
+                                                    </div>
+                                                    <div class="engineDesc"><label for="wikimediacommons"><strong>Wikimedia Commons</strong><br />Media</label></div>
+                                                </div>
+                                            </div>
+                                            <div class="four columns">
+                                                <div class="engine">
+                                                    <div class="engineButton">
+                                                        <button onclick="setEngine(this)" name="engine" value="youtube" id="youtube" aria-label="YouTube"></button>
+                                                    </div>
+                                                    <div class="engineDesc"><label for="youtube"><strong>YouTube</strong><br />Video</label></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
                         </div>
-                        <div class="four columns">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="jamendo" id="jamendo" aria-label="Jamendo"></button>
-							</div>
-							<div class="engineDesc"><label for="jamendo"><strong>Jamendo</strong><br/>Music</label></div>
-						</div>
+                    </div>
+                    <div class="row">
+                        <div id="help">
+                            <div class="one columns alpha">
+                                <p>Please note that CC Search Portal is <em>not a search engine</em>, but rather offers convenient access to search services provided by other independent organizations. CC has no control over the results that are returned. <em>Do not assume that the results displayed in this search portal are under a CC license</em>. You should always verify that the work is actually under a CC license by following the link. Since there is no registration to use a CC license, CC has no way to determine what has and hasn't been placed under the terms of a CC license. If you are in doubt you should contact the copyright holder directly, or try to contact the site where you found the content.</p>
+                            </div>
                         </div>
-                        <div class="four columns">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="nappy" id="nappy" aria-label="Nappy"></button>
-							</div>
-							<div class="engineDesc"><label for="nappy"><strong>Nappy</strong><br/>image</label></div>
-						</div>
-                        </div>
-						<div class="four columns omega">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="openclipart" id="openclipart" aria-label="Open ClipArt"></button>
-							</div>
-							<div class="engineDesc"><label for="openclipart"><strong>Open ClipArt</strong><br/>Image</label></div>
-						</div>
-                        </div>
-                        </div>
-                        <div class="row">
-						<div class="four columns alpha">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="openverse" id="openverse" aria-label="Openverse"></button>
-							</div>
-							<div class="engineDesc"><label for="openverse"><strong>Openverse</strong><br/>Media</label></div>
-						</div>
-                        </div>
-                        <div class="four columns">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="sketchfab" id="sketchfab" aria-label="Sketchfab"></button>
-							</div>
-							<div class="engineDesc"><label for="sketchfab"><strong>Sketchfab</strong><br/>3D Model</label></div>
-						</div>
-                        </div>
-						<div class="four columns">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="soundcloud" id="soundcloud" aria-label="SoundCloud"></button>
-							</div>
-							<div class="engineDesc"><label for="soundcloud"><strong>SoundCloud</strong><br/>Music</label></div>
-						</div>
-                        </div>
-                        <div class="four columns omega">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="thingiverse" id="thingiverse" aria-label="Thingiverse"></button>
-							</div>
-							<div class="engineDesc"><label for="thingiverse"><strong>Thingiverse</strong><br/>3D Model</label></div>
-						</div>
-                        </div>
-                        </div>
-						<div class="row">
-						<div class="four columns alpha">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="vimeo" id="vimeo" aria-label="vimeo"></button>
-							</div>
-							<div class="engineDesc"><label for="vimeo"><strong>Vimeo</strong><br/>Video</label></div>
-						</div>
-						</div>
-						<div class="four columns alpha">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="wikimediacommons" id="wikimediacommons" aria-label="Wikimedia Commons"></button>
-							</div>
-							<div class="engineDesc"><label for="wikimediacommons"><strong>Wikimedia Commons</strong><br/>Media</label></div>
-						</div>
-						</div>
-
-						<div class="four columns">
-						<div class="engine">
-							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="youtube" id="youtube" aria-label="YouTube"></button>
-							</div>
-							<div class="engineDesc"><label for="youtube"><strong>YouTube</strong><br/>Video</label></div>
-						</div>
-                        </div>
-                       </div>
-					</fieldset>
-				</form>
+                    </div>
                 </div>
-			</div>
-		</div>
-		<div class="row">
-			<div id="help">
-                <div class="one columns alpha">
-					<p>Please note that CC Search Portal is <em>not a search engine</em>, but rather offers convenient access to search services provided by other independent organizations. CC has no control over the results that are returned. <em>Do not assume that the results displayed in this search portal are under a CC license</em>. You should always verify that the work is actually under a CC license by following the link. Since there is no registration to use a CC license, CC has no way to determine what has and hasn't been placed under the terms of a CC license. If you are in doubt you should contact the copyright holder directly, or try to contact the site where you found the content.</p>
-				</div>
-		</div>
-
+                <!--! end of .container -->
+            </div>
+            <!--! end of #main -->
+            <?php include 'cc-wp/page-footer.php'; ?>
         </div>
+        <!--! end of #container -->
+        <?php include 'cc-wp/footer-codes.php'; ?>
+        <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
+        <script type="text/javascript">
+        require(["mojo/signup-forms/Loader"], function(L) {
+            L.start({
+                "baseUrl": "mc.us13.list-manage.com",
+                "uuid": "4051250396fe81f55034e2d49",
+                "lid": "5b82643372"
+            })
+        })
+        </script>
+    </body>
 
-      </div><!--! end of .container -->
-    </div><!--! end of #main -->
-
-<?php include 'cc-wp/page-footer.php'; ?>
-    </div> <!--! end of #container -->
-<?php include 'cc-wp/footer-codes.php'; ?>
-
-  <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us13.list-manage.com","uuid":"4051250396fe81f55034e2d49","lid":"5b82643372"}) })</script>
-
-</body>
 </html>

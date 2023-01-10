@@ -74,7 +74,7 @@ $(function () {
  *
  */
 
-var engines = ["google", "googleimg", "flickr", "jamendo", "openclipart", "wikimediacommons", "fotopedia", "europeana", "youtube", "ccmixter", "soundcloud", "thingiverse", "openverse", "sketchfab", "nappy", "vimeo"];
+var engines = ["google", "googleimg", "bing", "flickr", "jamendo", "openclipart", "wikimediacommons", "fotopedia", "europeana", "youtube", "ccmixter", "soundcloud", "thingiverse", "openverse", "sketchfab", "nappy", "vimeo"];
 
 //defaults:
 var engine = "";
@@ -434,6 +434,13 @@ function modRights() {
 			}
 			break;
 
+
+		case "bing":
+			if (comm && deriv) {
+				rights = '&qs=ds&form=QBRE';
+			}
+			break;
+
 		case "flickr":
 			rights = "l=";
 			if (comm) {
@@ -565,9 +572,15 @@ function doSearch() {
 				}
 				break;
 
-			case "flickr":
-				url = 'http://flickr.com/search/?' + ((rights.length > 2) ? rights : "l=cc") + '&q=' + query.val();
+			case "bing":
+				url = 'http://bing.com/search?q=' + query.val() + rights;
 				break;
+
+			case "flickr":
+				url = 'http://bing.com/search?q=' + query.val() + rights;
+				break;
+
+
 
 			case "owlmm":
 				url = 'http://www.owlmm.com/?query_source=CC&' + ((rights.length > 13) ? rights : "license_type=cc") + '&q=' + query.val();
