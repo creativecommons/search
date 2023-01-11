@@ -42,6 +42,8 @@ a {
   min-height: 3.25rem;
 }
 
+
+
 @media screen and (min-width: 1500px) {
   .container {
     max-width: 1400px;
