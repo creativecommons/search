@@ -18,7 +18,7 @@
       </nav>
     </header>
     <main>
-      <form class="body-cont">
+      <section class="body-cont">
         <div class="body-first-sect">
           <div class="body-search">
             <h3>Find content you can share, use and remix.</h3>
@@ -72,7 +72,7 @@
             </li>
             <li
               class="engines"
-              id="engine"
+              
               data-engine="europeana"
               data-search="https://www.europeana.eu/en/search?page=1&view=grid&query="
             >
@@ -81,7 +81,7 @@
             </li>
             <li
               class="engines"
-              id="engine"
+              
               data-engine="europeana"
               data-search="https://flickr.com/search/?=&text="
             >
@@ -90,7 +90,7 @@
             </li>
             <li
               class="engines"
-              id="engine"
+              
               data-engine="google"
               data-search="https://www.google.com/search?q="
             >
@@ -99,7 +99,7 @@
             </li>
             <li
               class="engines"
-              id="engine"
+              
               data-engine="googleimages"
               data-search="https://www.google.com/search?site=imghp&tbm=isch&q="
             >
@@ -108,52 +108,49 @@
             </li>
             <li
               class="engines"
-              id="engine"
+              
               data-engine="jamendo"
               data-search="https://licensing.jamendo.com/en/royalty-free-music/search?qs=query="
             >
               <h3>Jamendo</h3>
               <p>Music</p>
             </li>
-            <li
-              class="engines"
-              id="engine"
-              data-engine="openclipart"
-              data-search="https://openclipart.org/search/?query="
-            >
-              <h3>Open ClipArt</h3>
+            <li class="engines">
+              <a
+                href="https://openclipart.org/search/"
+                target="_blank"
+                rel="noopener"
+                ><h3>Open ClipArt</h3></a
+              >
               <p>Image</p>
             </li>
-            <li
-              class="engines"
-              id="engine"
-              data-engine="soundcloud"
-              data-search="https://soundcloud.com/search?q="
-            >
-              <h3>SoundCloud</h3>
+            <li class="engines">
+              <a
+                href="https://soundcloud.com/search/sounds"
+                target="_blank"
+                rel="noopener"
+                ><h3>SoundCloud</h3></a
+              >
               <p>Music</p>
             </li>
-            <li
-              class="engines"
-              id="engine"
-              data-engine="wikipedia-commons"
-              data-search="https://commons.wikimedia.org/w/index.php?search="
-            >
-              <h3>Wikipedia Commons</h3>
+            <li class="engines">
+              <a
+                href="http://commons.wikimedia.org/w/index.php?title=Special%3ASearch&redirs=0&search=' + query.val() + '&fulltext=Search&ns0=1&ns6=1&ns14=1&title=Special%3ASearch&advanced=1&fulltext=Advanced+search"
+                target="_blank"
+                rel="noopener"
+                ><h3>Wikipedia Commons</h3></a
+              >
               <p>Media</p>
             </li>
-            <li
-              class="engines"
-              id="engine"
-              data-engine="youtube"
-              data-search="https://www.youtube.com/results?search_query="
-            >
-              <h3>YouTube</h3>
+            <li class="engines">
+              <a href="https://www.youtube.com/" target="_blank" rel="noopener"
+                ><h3>YouTube</h3></a
+              >
               <p>Video</p>
             </li>
           </ul>
         </div>
-      </form>
+      </section>
     </main>
     <footer>
       <section class="footer-cont footer-sect">

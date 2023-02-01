@@ -9,8 +9,7 @@ let card;
 
 engine.addEventListener("click", onActiveState);
 function onActiveState(e) {
-  // engine.style.backgroundColor = "red";
-  engine.classList.toggle
+  engine.style.text = "red"
   console.log(engine.className);
   // searchButton.stlye.backgroundColor = "red";
 }
@@ -67,13 +66,5 @@ function getURL(value, search, input) {
       return `${search}${input}`;
     default:
       return "Invalid value";
-    case "openclipart":
-      return `${search}${input}`;
-    case "soundcloud":
-      return `${search}${input}`;
-    case "wikipedia-commons":
-      return `${search}${input}`;
-    case "youtube":
-      return `${search}${input}`;
   }
 }

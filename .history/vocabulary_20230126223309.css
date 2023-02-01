@@ -124,9 +124,7 @@ a {
   background-color: #ddd;
 }
 
-.active {
-  background-color: red;
-} 
+.active 
 
 .engines:active {
   background-color: #e7eeff;

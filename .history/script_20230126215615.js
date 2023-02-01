@@ -6,14 +6,6 @@ let searchInput;
 let link;
 let card;
 
-
-engine.addEventListener("click", onActiveState);
-function onActiveState(e) {
-  // engine.style.backgroundColor = "red";
-  engine.classList.toggle
-  console.log(engine.className);
-  // searchButton.stlye.backgroundColor = "red";
-}
 //add event listener to the search box to know what the user is typing
 searchBox.addEventListener("input", searchEngine);
 function searchEngine(e) {
@@ -26,14 +18,11 @@ function searchEngine(e) {
 searchButton.addEventListener("click", Navigate);
 //creating the function to open the link in a new tab
 function Navigate() {
-  if (searchInput === undefined) {
-    alert("Please enter a search value");
-    return;
+  if (searchInput === "") {
+    
   }
   window.open(link, "_blank");
 }
-
-
 
 //add event listener to the cards to know when the user clicks on anyone of them
 for (let i = 0; i < data.length; i++) {
@@ -67,13 +56,5 @@ function getURL(value, search, input) {
       return `${search}${input}`;
     default:
       return "Invalid value";
-    case "openclipart":
-      return `${search}${input}`;
-    case "soundcloud":
-      return `${search}${input}`;
-    case "wikipedia-commons":
-      return `${search}${input}`;
-    case "youtube":
-      return `${search}${input}`;
   }
 }

@@ -9,10 +9,7 @@ let card;
 
 engine.addEventListener("click", onActiveState);
 function onActiveState(e) {
-  // engine.style.backgroundColor = "red";
-  engine.classList.toggle
-  console.log(engine.className);
-  // searchButton.stlye.backgroundColor = "red";
+  engine.stlye
 }
 //add event listener to the search box to know what the user is typing
 searchBox.addEventListener("input", searchEngine);
@@ -67,13 +64,5 @@ function getURL(value, search, input) {
       return `${search}${input}`;
     default:
       return "Invalid value";
-    case "openclipart":
-      return `${search}${input}`;
-    case "soundcloud":
-      return `${search}${input}`;
-    case "wikipedia-commons":
-      return `${search}${input}`;
-    case "youtube":
-      return `${search}${input}`;
   }
 }

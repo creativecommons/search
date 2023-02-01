@@ -68,12 +68,6 @@ function getURL(value, search, input) {
     default:
       return "Invalid value";
     case "openclipart":
-      return `${search}${input}`;
-    case "soundcloud":
-      return `${search}${input}`;
-    case "wikipedia-commons":
-      return `${search}${input}`;
-    case "youtube":
-      return `${search}${input}`;
+      
   }
 }

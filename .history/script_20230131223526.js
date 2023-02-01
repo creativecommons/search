@@ -70,10 +70,6 @@ function getURL(value, search, input) {
     case "openclipart":
       return `${search}${input}`;
     case "soundcloud":
-      return `${search}${input}`;
-    case "wikipedia-commons":
-      return `${search}${input}`;
-    case "youtube":
-      return `${search}${input}`;
+      return `${search}${input}`
   }
 }

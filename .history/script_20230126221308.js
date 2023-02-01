@@ -9,10 +9,21 @@ let card;
 
 engine.addEventListener("click", onActiveState);
 function onActiveState(e) {
-  // engine.style.backgroundColor = "red";
-  engine.classList.toggle
-  console.log(engine.className);
-  // searchButton.stlye.backgroundColor = "red";
+  console.log(e.target);
+  //creating the state of the link
+  card = e.target;
+  //creating the state of the link
+  link = e.target.getAttribute("data-search");
+  //creating the state of the link
+  searchInput = e.target.getAttribute("data-engine");
+  //creating the state of the link
+  searchBox.value = e.target.getAttribute("data-search");
+  //creating the state of the link
+  searchButton.value = e.target.getAttribute("data-engine");
+  //creating the state of the link
+  searchButton.innerHTML = e.target.getAttribute("data-engine");
+  //creating the state of the link
+  searchButton.style.backgroundColor = e.target.getAttribute("data-color");
 }
 //add event listener to the search box to know what the user is typing
 searchBox.addEventListener("input", searchEngine);
@@ -67,13 +78,5 @@ function getURL(value, search, input) {
       return `${search}${input}`;
     default:
       return "Invalid value";
-    case "openclipart":
-      return `${search}${input}`;
-    case "soundcloud":
-      return `${search}${input}`;
-    case "wikipedia-commons":
-      return `${search}${input}`;
-    case "youtube":
-      return `${search}${input}`;
   }
 }
