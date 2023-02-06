@@ -105,11 +105,6 @@ a {
   cursor: pointer;
 }
 
-.engines input {
-  appearance: none;
-  background-color: #fff;
-  margin: 0;
-}
 
 .engines h3 {
   width: 100%;

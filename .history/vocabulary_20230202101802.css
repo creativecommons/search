@@ -105,21 +105,15 @@ a {
   cursor: pointer;
 }
 
-.engines input {
-  appearance: none;
-  background-color: #fff;
-  margin: 0;
-}
-
 .engines h3 {
   width: 100%;
 }
 
-/* .engines a {
+.engines a {
   color: #000;
   text-decoration: none;
   font-size: 13px;
-} */
+}
 .engines p {
   font-size: 10px;
   padding-top: 8px;
@@ -168,7 +162,7 @@ footer a {
 .footer-cont {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
+  gap: 20px;
   padding: 20px;
 }
 
@@ -177,6 +171,7 @@ footer a {
 }
 
 .footer-first-sect {
+  padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 24px;
