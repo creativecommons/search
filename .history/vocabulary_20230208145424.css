@@ -82,13 +82,8 @@ a {
 
 .search-checkbox p {
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 400;
   color: #000000;
-}
-
-.search-checkbox label {
-  font-size: 12px;
-  color: #404040;
 }
 
 .body-second-sect {

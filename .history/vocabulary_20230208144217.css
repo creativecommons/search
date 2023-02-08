@@ -80,17 +80,6 @@ a {
   margin-top: 20px;
 }
 
-.search-checkbox p {
-  font-size: 13px;
-  font-weight: 600;
-  color: #000000;
-}
-
-.search-checkbox label {
-  font-size: 12px;
-  color: #404040;
-}
-
 .body-second-sect {
   max-width: 943px;
   margin: 0 auto;
@@ -126,20 +115,11 @@ a {
   display: none;
 }
 .search-engines input[type="radio"]:checked + label {
+ /* color: yellow; */
  background: #e7eeff;
 }
 
-.search-engines label {
-  font-size: 13px;
-  font-weight: 600;
-  color: #333333;
-}
-
-.search-engines label p {
-  font-size: 10px;
-  font-weight: 400;
-  color: #404040;
-}
+.s
 
 p{
   user-select: none;
