@@ -119,9 +119,7 @@ a {
  background: #000;
 }
 
-p{
-  user-select: none;
-}
+p
 
 
 .engines h3 {

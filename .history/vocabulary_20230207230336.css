@@ -114,15 +114,13 @@ a {
 .search-engines input[type="radio"] {
   display: none;
 }
+.search-engines input[type="radio"] {
+  display: none;
+}
+
 .search-engines input[type="radio"]:checked + label {
- color: yellow;
- background: #000;
+ background-color: #363C26;
 }
-
-p{
-  user-select: none;
-}
-
 
 .engines h3 {
   width: 100%;

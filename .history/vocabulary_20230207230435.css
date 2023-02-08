@@ -115,14 +115,12 @@ a {
   display: none;
 }
 .search-engines input[type="radio"]:checked + label {
- color: yellow;
- background: #000;
+  display: none;
 }
-
-p{
-  user-select: none;
-}
-
+/* 
+.search-engines input[type="radio"]:checked + label {
+ background-color: #363C26;
+} */
 
 .engines h3 {
   width: 100%;

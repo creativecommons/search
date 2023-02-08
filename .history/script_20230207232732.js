@@ -7,10 +7,11 @@ let searchInput;
 let link;
 let card;
 
+
 engine.addEventListener("click", onActiveState);
 function onActiveState(e) {
   // engine.style.backgroundColor = "red";
-  engine.classList.toggle;
+  engine.classList.toggle
   console.log(engine.className);
   // searchButton.stlye.backgroundColor = "red";
 }
@@ -33,6 +34,8 @@ function Navigate() {
   window.open(link, "_blank");
 }
 
+
+
 //add event listener to the cards to know when the user clicks on anyone of them
 for (let i = 0; i < data.length; i++) {
   data[i].addEventListener("click", cardClick);
@@ -40,16 +43,12 @@ for (let i = 0; i < data.length; i++) {
 
 //creating the function to get the data from the cards
 function cardClick(e) {
-  let search, searchEngine;
-  console.log(e.target);
-  if (e.target.tagName === "p") {
-    search = e.target.parentNode.getAttribute("data-search");
-    searchEngine = e.target.parentNode.getAttribute("data-engine");
-  } else {
-    search = e.target.getAttribute("data-search");
-    searchEngine = e.target.getAttribute("data-engine");
-  }
-  console.log({ searchEngine, search, searchInput });
+  let search,   searchEngine
+    console.log(e.target);
+    if(e.target)
+   search = e.target.parentNode.getAttribute("data-search");
+   searchEngine = e.target.parentNode.getAttribute("data-engine");
+  console.log({searchEngine, search, searchInput});
   link = getURL(searchEngine, search, searchInput);
   console.log(link);
 }

@@ -49,22 +49,7 @@
         <div class="body-second-sect">
           <p><strong>Search using:</strong></p>
           <div class="search-engines">
-            <input
-              type="radio"
-              id="openverse"
-              name="search-engines"
-              value="openverse"
-              class="search-engines"
-              data-engine="openverse"
-              data-search="https://wordpress.org/openverse/search/?q="
-            />
-
-            <label for="ccmixter" class="engines"
-              >Openverse
-              <p>Media</p>
-               </label
-            >
-            <!-- <a
+            <a
               class="engines open-verse"
               href="https://wordpress.org/openverse/"
               target="_blank"
@@ -74,7 +59,7 @@
                 <strong>Openverse</strong>
                 <p>Media</p>
               </li>
-            </a> -->
+            </a>
 
             <input
               type="radio"
@@ -221,17 +206,28 @@
               type="radio"
               id="youtube"
               name="search-engines"
-              value="youtube"
+              value="wikipedia-commons"
             />
             <label
-              for="youtube"
+              for="wikipedia-commons"
               class="engines"
               data-object="engine"
+              data-engine="wikipedia-commons"
+              data-search="https://commons.wikimedia.org/w/index.php?search="
+              >Wikipedia Commons
+              <p>Media</p></label
+            >
+
+          
+            <li
+              class="engines"
+              id="engine"
               data-engine="youtube"
               data-search="https://www.youtube.com/results?search_query="
-              >YouTube
-              <p>Video</p></label
             >
+              <h3>YouTube</h3>
+              <p>Video</p>
+            </li>
           </div>
         </div>
       </form>

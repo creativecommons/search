@@ -111,18 +111,14 @@ a {
   margin: 0;
 } */
 
-.search-engines input[type="radio"] {
-  display: none;
-}
-.search-engines input[type="radio"]:checked + label {
- color: yellow;
- background: #000;
-}
+/* input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+} */
 
-p{
-  user-select: none;
+input[type="radio"]:checked {
+  background-color: #d51818; impo
 }
-
 
 .engines h3 {
   width: 100%;

@@ -49,22 +49,7 @@
         <div class="body-second-sect">
           <p><strong>Search using:</strong></p>
           <div class="search-engines">
-            <input
-              type="radio"
-              id="openverse"
-              name="search-engines"
-              value="openverse"
-              class="search-engines"
-              data-engine="openverse"
-              data-search="https://wordpress.org/openverse/search/?q="
-            />
-
-            <label for="ccmixter" class="engines"
-              >Openverse
-              <p>Media</p>
-               </label
-            >
-            <!-- <a
+            <a
               class="engines open-verse"
               href="https://wordpress.org/openverse/"
               target="_blank"
@@ -74,7 +59,7 @@
                 <strong>Openverse</strong>
                 <p>Media</p>
               </li>
-            </a> -->
+            </a>
 
             <input
               type="radio"
@@ -179,59 +164,48 @@
               for="openclipart"
               class="engines"
               data-object="engine"
-              data-engine="openclipart"
-              data-search="https://openclipart.org/search/?query="
-              >Open Clip Art
-              <p>Image</p></label
-            >
-
-            <input
-              type="radio"
-              id="soundcloud"
-              name="search-engines"
-              value="soundcloud"
-            />
-            <label
-              for="soundcloud"
-              class="engines"
-              data-object="engine"
-              data-engine="soundcloud"
-              data-search="https://soundcloud.com/search?q="
-              >SoundCloud
+              data-engine="jamendo"
+              data-search="https://licensing.jamendo.com/en/royalty-free-music/search?qs=query="
+              >Jamendo
               <p>Music</p></label
             >
 
-            <input
-              type="radio"
-              id="wikipedia-commons"
-              name="search-engines"
-              value="wikipedia-commons"
-            />
-            <label
-              for="wikipedia-commons"
+            <li
               class="engines"
-              data-object="engine"
+              id="engine"
+              data-engine="openclipart"
+              data-search="https://openclipart.org/search/?query="
+            >
+              <h3>Open ClipArt</h3>
+              <p>Image</p>
+            </li>
+            <li
+              class="engines"
+              id="engine"
+              data-engine="soundcloud"
+              data-search="https://soundcloud.com/search?q="
+            >
+              <h3>SoundCloud</h3>
+              <p>Music</p>
+            </li>
+            <li
+              class="engines"
+              id="engine"
               data-engine="wikipedia-commons"
               data-search="https://commons.wikimedia.org/w/index.php?search="
-              >Wikipedia Commons
-              <p>Media</p></label
             >
-
-            <input
-              type="radio"
-              id="youtube"
-              name="search-engines"
-              value="youtube"
-            />
-            <label
-              for="youtube"
+              <h3>Wikipedia Commons</h3>
+              <p>Media</p>
+            </li>
+            <li
               class="engines"
-              data-object="engine"
+              id="engine"
               data-engine="youtube"
               data-search="https://www.youtube.com/results?search_query="
-              >YouTube
-              <p>Video</p></label
             >
+              <h3>YouTube</h3>
+              <p>Video</p>
+            </li>
           </div>
         </div>
       </form>
