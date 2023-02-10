@@ -80,7 +80,7 @@ function getCookie(name) {
 
 var cookie_name = '__ccsearch';
 var cookie_break_text = "[-]";
-var cookie_domain = 'oldsearch.creativecommons.org';
+var cookie_domain = window.location.hostname;
 
 function saveSettings() {
 	var cookieDate = new Date();
