@@ -207,6 +207,10 @@ fieldset {
   width: 100%;
 }
 
+#engines #openverse.engine {
+  border-width: 3px;
+}
+
 #engines .engine {
   text-align: left;
 }

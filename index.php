@@ -432,7 +432,7 @@ function modRights($engine, $comm, $deriv) {
                         </div>
                         <div class="row">
 						<div class="four columns alpha">
-						<div class="engine">
+						<div id="openverse" class="engine">
 							<div class="engineButton">
 								<button onclick="setEngine(this)" name="engine" value="openverse" id="openverse" aria-label="Openverse" type="button"></button>
 							</div>
