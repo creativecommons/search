@@ -47,7 +47,6 @@ var comm = 1;
 var deriv = 1;
 var rights = "";
 var url = "";
-var lang = "";
 
 var default_query = "flowers";
 var default_engine = "_random";
@@ -564,7 +563,6 @@ function doSearch() {
 				url = 'http://google.com/search?as_rights=(cc_publicdomain|cc_attribute|cc_sharealike' +
 					((comm) ? "" : "|cc_noncommercial") + ((deriv) ? "" : "|cc_nonderived") + ')' +
 					rights + '&q=' + query.val();
-				if (lang != null) url += '&hl=' + lang;
 				break;
 
 		}
