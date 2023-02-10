@@ -484,7 +484,7 @@ function doSearch() {
 		// NOTE: if you make changes here, you should make a similar change in search.php
 		switch (engine) {
 			case "openverse":
-				url = 'https://wordpress.org/openverse/search/?q=' + query.val() + "&license_type=" + rights;
+				url = 'https://openverse.org/search/?q=' + query.val() + "&license_type=" + rights;
 				break;
 
 			case "openclipart":
@@ -542,7 +542,7 @@ function doSearch() {
 			case "thingiverse":
 				// Defer to OpenVerse (with search refined only to Thingiverse items) until Thingiverse licence search filter issue is fixed
 				// TODO Use Thingiverse search filters when issue is fixed and
-				url = 'https://wordpress.org/openverse/search/image?q=' + query.val() + '&source=thingiverse' + rights;
+				url = 'https://openverse.org/search/image?q=' + query.val() + '&source=thingiverse' + rights;
 				// url = 'https://www.thingiverse.com/search?q=' + query.val() + rights;
 				break;
 

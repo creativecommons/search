@@ -28,7 +28,7 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 	switch ( $engine ) {
 
 		case "openverse":
-			$url = 'https://wordpress.org/openverse/search/?q=' . $query . '&license_type='. $rights;
+			$url = 'https://openverse.org/search/?q=' . $query . '&license_type='. $rights;
 			break;
 
 		case "openclipart":
@@ -74,7 +74,7 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 		case "thingiverse":
 			// Defer to OpenVerse (with search refined only to Thingiverse items) until Thingiverse licence search filter issue is fixed
 			// TODO Use Thingiverse search filters when issue is fixed and
-			$url = 'https://wordpress.org/openverse/search/image?q=' . $query . '&source=thingiverse' . $rights;
+			$url = 'https://openverse.org/search/image?q=' . $query . '&source=thingiverse' . $rights;
 			// $url = 'https://www.thingiverse.com/search?q=' . $query . $rights;
 			break;
 
