@@ -6,12 +6,6 @@ $(function () {
 	var queryPos = $("#query").position();
 	var queryWidth = $("#query").innerWidth();
 
-	//	$("#engineInfo").css("left", $("#engine").position().left + 7);
-	//	$("#engineInfo").width($("#engine").width() - 32);
-
-	// pick a random search engine
-	//setEngine(engines[Math.floor(Math.random() * engines.length)]);
-
 	// hide all the radio buttons if JS is enabled
 	$(".engine button").focus(function () {
 		$(".engine").removeClass("focus")
@@ -27,26 +21,6 @@ $(function () {
 		doSearch();
 	});
 
-
-	// sniff browser and determine what information to display
-	/*
-	var browser = $.browser;
-	if (browser.mozilla) {
-		if (browser.version.substr(0,3) == "1.9") {
-			$("#remove").show();
-		} else {
-			$("#add").show();
-			$("#searchBar").show();
-		}
-	} else {
-		$("#add").show();
-		if (browser.msie && browser.version.substr(0,1) > 6) {
-			$("#searchBar").show();
-		} else {
-			$("#addressBar").show();
-		}
-	}
-	*/
 	$('#addOpenSearch').click(function () {
 		if ((typeof window.external == "object") && ((typeof window.external.AddSearchProvider == "unknown") || (typeof window.external.AddSearchProvider == "function"))) {
 			window.external.AddSearchProvider("http://oldsearch.creativecommons.org/ccsearch.xml");
@@ -86,17 +60,6 @@ var lang = "";
 
 var default_query = "flowers";
 var default_engine = "_random";
-//var default_comm = 1;
-//var default_deriv = 1;
-
-/*
-// DEBUG!!!!!
-var d = new Date();
-d.setFullYear(2020,0,1);
-setCookie("ccsearch", "jamendo", d, '/')
-alert("cookie planted!  mwahahahaha");
-// \DEBUG!!!!!
-*/
 
 // mmm, cookies...
 function setCookie(name, value, expires, path, domain, secure) {
@@ -127,7 +90,6 @@ function getCookie(name) {
 var cookie_name = '__ccsearch';
 var cookie_break_text = "[-]";
 var cookie_domain = 'oldsearch.creativecommons.org';
-//var cookie_domain = '';
 
 function saveSettings() {
 	var cookieDate = new Date();
@@ -158,8 +120,6 @@ function getSettings() {
 	if (engine == null || !engine || engine == "") {
 		//engine = default_engine;
 		engine = "_random";
-
-		//engine = engines[Math.floor(Math.random() * engines.length)];
 	}
 
 }
@@ -207,8 +167,6 @@ function setupQuery() {
 
 	// set commercial + derivative checkboxes
 	updateCommDerivCheckboxes(docom, doder);
-
-	//lang = getQueryStrVariable('lang');
 
 	// Only insert query variable if nothing else is in the search entry
 	// Should solve back button problems
@@ -269,11 +227,7 @@ function setEngine(e) {
 	$(".engine").removeClass("selected");
 	$("button[value=" + engine + "]").parents(".engine").addClass("selected");
 
-	//if (e == "_random") engine = "_random";
 	saveSettings();
-
-	//doSearch();
-
 }
 
 function setCommDeriv() {
@@ -382,16 +336,6 @@ function modRights() {
 				}
 
 			}  
-			// else {
-			// 	if (comm || deriv) {
-			// 		rights = "&type=things&sort=relevant";
-			// 		rights += deriv ? "&customizable=1" : "";
-	
-			// 		// Used the licence=cc (which on Thingiverse, stands for the Creative Commons Attribution license)
-			// 		// as the equivalent for the "modify, reuse ..." filter on CC search
-			// 		rights += comm ? "&license=cc": "";
-			// 	}
-			// }
 
 			break;
 		
@@ -639,7 +583,6 @@ function doSearch() {
 			'_blank',
 			'noopener'
 		);
-		//	document.getElementBy$('#stat').setAttribute('src','transparent.gif?engine='+engine+'&comm='+comm+'&deriv='+deriv+'&q='+query.value);
 	}
 	return false;
 }
