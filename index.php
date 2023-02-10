@@ -366,7 +366,7 @@ function modRights($engine, $comm, $deriv) {
                         <div class="four columns alpha">
 						<div class="engine">
 							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="ccmixter" id="ccmixter" aria-label="ccMixter"></button>
+								<button onclick="setEngine(this)" name="engine" value="ccmixter" id="ccmixter" aria-label="ccMixter" type="button"></button>
 							</div>
 							<div class="engineDesc"><label for="ccmixter"><strong>ccMixter</strong><br/>Music</label></div>
 						</div>
@@ -374,7 +374,7 @@ function modRights($engine, $comm, $deriv) {
                         <div class="four columns">
 						<div class="engine">
 							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="europeana" id="europeana" aria-label="Europeana"></button>
+								<button onclick="setEngine(this)" name="engine" value="europeana" id="europeana" aria-label="Europeana" type="button"></button>
 							</div>
 							<div class="engineDesc"><label for="europeana"><strong>Europeana</strong><br/>Media</label></div>
 						</div>
@@ -382,7 +382,7 @@ function modRights($engine, $comm, $deriv) {
                         <div class="four columns">
 						<div class="engine">
 							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="flickr" id="flickr" aria-label="Flickr"></button>
+								<button onclick="setEngine(this)" name="engine" value="flickr" id="flickr" aria-label="Flickr" type="button"></button>
 							</div>
 							<div class="engineDesc"><label for="flickr"><strong>Flickr</strong><br/>Image</label></div>
 						</div>
@@ -390,7 +390,7 @@ function modRights($engine, $comm, $deriv) {
                         <div class="four columns omega">
 						<div class="engine">
 							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="google" id="google" aria-label="Google"></button>
+								<button onclick="setEngine(this)" name="engine" value="google" id="google" aria-label="Google" type="button"></button>
 							</div>
 							<div class="engineDesc"><label for="google"><strong>Google</strong><br/>Web</label></div>
 						</div>
@@ -400,7 +400,7 @@ function modRights($engine, $comm, $deriv) {
                         <div class="four columns alpha">
 						<div class="engine">
 							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="googleimg" id="googleimg" aria-label="Google Images"></button>
+								<button onclick="setEngine(this)" name="engine" value="googleimg" id="googleimg" aria-label="Google Images" type="button"></button>
 							</div>
 							<div class="engineDesc"><label for="googleimg"><strong>Google Images</strong><br/>Image</label></div>
 						</div>
@@ -408,7 +408,7 @@ function modRights($engine, $comm, $deriv) {
                         <div class="four columns">
 						<div class="engine">
 							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="jamendo" id="jamendo" aria-label="Jamendo"></button>
+								<button onclick="setEngine(this)" name="engine" value="jamendo" id="jamendo" aria-label="Jamendo" type="button"></button>
 							</div>
 							<div class="engineDesc"><label for="jamendo"><strong>Jamendo</strong><br/>Music</label></div>
 						</div>
@@ -416,7 +416,7 @@ function modRights($engine, $comm, $deriv) {
                         <div class="four columns">
 						<div class="engine">
 							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="nappy" id="nappy" aria-label="Nappy"></button>
+								<button onclick="setEngine(this)" name="engine" value="nappy" id="nappy" aria-label="Nappy" type="button"></button>
 							</div>
 							<div class="engineDesc"><label for="nappy"><strong>Nappy</strong><br/>image</label></div>
 						</div>
@@ -424,7 +424,7 @@ function modRights($engine, $comm, $deriv) {
 						<div class="four columns omega">
 						<div class="engine">
 							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="openclipart" id="openclipart" aria-label="Open ClipArt"></button>
+								<button onclick="setEngine(this)" name="engine" value="openclipart" id="openclipart" aria-label="Open ClipArt" type="button"></button>
 							</div>
 							<div class="engineDesc"><label for="openclipart"><strong>Open ClipArt</strong><br/>Image</label></div>
 						</div>
@@ -434,7 +434,7 @@ function modRights($engine, $comm, $deriv) {
 						<div class="four columns alpha">
 						<div class="engine">
 							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="openverse" id="openverse" aria-label="Openverse"></button>
+								<button onclick="setEngine(this)" name="engine" value="openverse" id="openverse" aria-label="Openverse" type="button"></button>
 							</div>
 							<div class="engineDesc"><label for="openverse"><strong>Openverse</strong><br/>Media</label></div>
 						</div>
@@ -442,7 +442,7 @@ function modRights($engine, $comm, $deriv) {
                         <div class="four columns">
 						<div class="engine">
 							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="sketchfab" id="sketchfab" aria-label="Sketchfab"></button>
+								<button onclick="setEngine(this)" name="engine" value="sketchfab" id="sketchfab" aria-label="Sketchfab" type="button"></button>
 							</div>
 							<div class="engineDesc"><label for="sketchfab"><strong>Sketchfab</strong><br/>3D Model</label></div>
 						</div>
@@ -450,7 +450,7 @@ function modRights($engine, $comm, $deriv) {
 						<div class="four columns">
 						<div class="engine">
 							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="soundcloud" id="soundcloud" aria-label="SoundCloud"></button>
+								<button onclick="setEngine(this)" name="engine" value="soundcloud" id="soundcloud" aria-label="SoundCloud" type="button"></button>
 							</div>
 							<div class="engineDesc"><label for="soundcloud"><strong>SoundCloud</strong><br/>Music</label></div>
 						</div>
@@ -458,7 +458,7 @@ function modRights($engine, $comm, $deriv) {
                         <div class="four columns omega">
 						<div class="engine">
 							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="thingiverse" id="thingiverse" aria-label="Thingiverse"></button>
+								<button onclick="setEngine(this)" name="engine" value="thingiverse" id="thingiverse" aria-label="Thingiverse" type="button"></button>
 							</div>
 							<div class="engineDesc"><label for="thingiverse"><strong>Thingiverse</strong><br/>3D Model</label></div>
 						</div>
@@ -468,7 +468,7 @@ function modRights($engine, $comm, $deriv) {
 						<div class="four columns alpha">
 						<div class="engine">
 							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="vimeo" id="vimeo" aria-label="vimeo"></button>
+								<button onclick="setEngine(this)" name="engine" value="vimeo" id="vimeo" aria-label="vimeo" type="button"></button>
 							</div>
 							<div class="engineDesc"><label for="vimeo"><strong>Vimeo</strong><br/>Video</label></div>
 						</div>
@@ -476,7 +476,7 @@ function modRights($engine, $comm, $deriv) {
 						<div class="four columns alpha">
 						<div class="engine">
 							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="wikimediacommons" id="wikimediacommons" aria-label="Wikimedia Commons"></button>
+								<button onclick="setEngine(this)" name="engine" value="wikimediacommons" id="wikimediacommons" aria-label="Wikimedia Commons" type="button"></button>
 							</div>
 							<div class="engineDesc"><label for="wikimediacommons"><strong>Wikimedia Commons</strong><br/>Media</label></div>
 						</div>
@@ -485,7 +485,7 @@ function modRights($engine, $comm, $deriv) {
 						<div class="four columns">
 						<div class="engine">
 							<div class="engineButton">
-								<button onclick="setEngine(this)" name="engine" value="youtube" id="youtube" aria-label="YouTube"></button>
+								<button onclick="setEngine(this)" name="engine" value="youtube" id="youtube" aria-label="YouTube" type="button"></button>
 							</div>
 							<div class="engineDesc"><label for="youtube"><strong>YouTube</strong><br/>Video</label></div>
 						</div>
