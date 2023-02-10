@@ -42,14 +42,15 @@ $(function () {
 var engines = ["google", "googleimg", "flickr", "jamendo", "openclipart", "wikimediacommons", "fotopedia", "europeana", "youtube", "ccmixter", "soundcloud", "thingiverse", "openverse", "sketchfab", "nappy", "vimeo"];
 
 //defaults:
-var engine = "";
+var default_query = "flowers";
+var default_engine = "openverse";
+
+var engine = default_engine;
 var comm = 1;
 var deriv = 1;
 var rights = "";
 var url = "";
 
-var default_query = "flowers";
-var default_engine = "_random";
 
 // mmm, cookies...
 function setCookie(name, value, expires, path, domain, secure) {
