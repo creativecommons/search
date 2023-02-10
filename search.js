@@ -634,8 +634,6 @@ function doSearch() {
 
 		}
 
-		url = 'https://oldsearch.creativecommons.org/bouncer.php?q=' + query.val() + '&url=' + encodeURIComponent(url);
-
 		window.open(
 			url,
 			'_blank',

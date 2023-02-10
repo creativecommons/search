@@ -101,9 +101,7 @@ if ( isset($_REQUEST['engine']) && $_REQUEST['query'] != "" ) {
 
 	}
 
-        $url = urlencode($url);
-
-	header('Location: https://oldsearch.creativecommons.org/bouncer.php?q=' . $query . '&url=' . $url);
+	header('Location: ' . $url);
 	exit;
 
 }
