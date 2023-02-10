@@ -473,7 +473,7 @@ function modRights($engine, $comm, $deriv) {
 							<div class="engineDesc"><label for="vimeo"><strong>Vimeo</strong><br/>Video</label></div>
 						</div>
 						</div>
-						<div class="four columns alpha">
+						<div class="four columns">
 						<div class="engine">
 							<div class="engineButton">
 								<button onclick="setEngine(this)" name="engine" value="wikimediacommons" id="wikimediacommons" aria-label="Wikimedia Commons" type="button"></button>
