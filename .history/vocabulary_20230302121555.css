@@ -66,7 +66,7 @@ a {
   margin-top: 10px;
   padding: 14px;
   border: 1px solid #dfdfdf;
-  border-radius: 8px 0 0 8px;
+  border-radius: 8px;
   font-size: 14px;
   font-weight: 400;
   -webkit-transition: 1s;
@@ -82,7 +82,7 @@ a {
   background-color: #000;
   margin-top: 10px;
   padding: 14px;
-  border-radius: 0 8px 8px 0;
+  border-radius: 8px;
   font-size: 14px;
   font-weight: 400;
   color: #ffffff;
