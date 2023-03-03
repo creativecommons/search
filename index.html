@@ -18,130 +18,221 @@
       </nav>
     </header>
     <main>
-      <section class="body-cont">
+      <form class="body-cont">
         <div class="body-first-sect">
           <div class="body-search">
             <h3>Find content you can share, use and remix.</h3>
-            <input type="text" placeholder="Enter your search query" />
+            <input
+              type="text"
+              id="search-value"
+              value=""
+              placeholder="Enter your search query"
+            />
+            <button id="searchBtn">Search</button>
           </div>
-          <div>
-            <small class="search-checkbox">
-              <p><strong>I want something that I can ...</strong></p>
+          <div class="search-checkbox">
+            <p>I want something that I can ...</p>
+            <div>
               <div>
-                <div>
-                  <input type="checkbox" id="comm" name="comm" value="comm" />
-                  <label for="comm"><em>use for commercial purposes</em></label>
-                </div>
-                <div>
-                  <input type="checkbox" id="mod" name="mod" value="mod" />
-                  <label for="mod"><em>modify, adapt or build upon</em></label>
-                </div>
+                <input type="checkbox" id="comm" name="comm" value="comm" />
+                <label for="comm"><em>use for commercial purposes</em></label>
               </div>
-            </small>
+              <div>
+                <input type="checkbox" id="mod" name="mod" value="mod" />
+                <label for="mod"><em>modify, adapt or build upon</em></label>
+              </div>
+            </div>
           </div>
         </div>
         <div class="body-second-sect">
           <p><strong>Search using:</strong></p>
-          <ul class="search-engines">
-            <li class="engines">
-              <a
-                href="https://wordpress.org/openverse/"
-                target="_blank"
-                rel="noopener"
-                ><strong>Openverse</strong> </a
-              >
+          <div class="search-engines">
+            <input
+              type="radio"
+              id="openverse"
+              name="search-engines"
+              value="openverse"
+              class="search-engines"
+              data-engine="openverse"
+              data-search="https://wordpress.org/openverse/search/?q="
+            />
+
+            <label for="ccmixter" class="engines"
+              >Openverse
               <p>Media</p>
-            </li>
-            <li class="engines">
-              <a
-                href="http://ccmixter.org/api/query?datasource=uploads&search_type=all&sort=rank&search="
-                target="_blank"
-                rel="noopener"
-                ><strong>ccMixter</strong></a
-              >
+               </label
+            >
+            <!-- <a
+              class="engines open-verse"
+              href="https://wordpress.org/openverse/"
+              target="_blank"
+              rel="noopener"
+            >
+              <li>
+                <strong>Openverse</strong>
+                <p>Media</p>
+              </li>
+            </a> -->
+
+            <input
+              type="radio"
+              id="ccmixter"
+              name="search-engines"
+              value="ccmixter"
+              class="search-engines"
+              data-engine="ccmixter"
+              data-search="http://ccmixter.org/search?search_text="
+            />
+
+            <label for="ccmixter" class="engines"
+              >ccMixter
               <p>Music</p>
-            </li>
-            <li class="engines">
-              <a
-                href="https://www.europeana.eu/en/search"
-                target="_blank"
-                rel="noopener"
-                ><strong>Europeana</strong></a
-              >
-              <p>Media</p>
-            </li>
-            <li class="engines">
-              <a
-                href="https://flickr.com/search/"
-                target="_blank"
-                rel="noopener"
-                ><strong>Flickr</strong></a
-              >
-              <p>Image</p>
-            </li>
-            <li class="engines">
-              <a
-                href="http://google.com/search?as_rights=(cc_publicdomain|cc_attribute|cc_sharealike"
-                target="_blank"
-                rel="noopener"
-                ><strong>Google</strong></a
-              >
-              <p>Web</p>
-            </li>
-            <li class="engines">
-              <a
-                href="https://www.google.com/search?site=imghp&tbm=isch&q="
-                target="_blank"
-                rel="noopener"
-                ><strong>Google Images</strong></a
-              >
-              <p>Image</p>
-            </li>
-            <li class="engines">
-              <a
-                href="https://licensing.jamendo.com/en/royalty-free-music/search"
-                target="_blank"
-                rel="noopener"
-                ><strong>Jamendo</strong></a
-              >
-              <p>Music</p>
-            </li>
-            <li class="engines">
-              <a
-                href="https://openclipart.org/search/"
-                target="_blank"
-                rel="noopener"
-                ><strong>Open ClipArt</strong></a
-              >
-              <p>Image</p>
-            </li>
-            <li class="engines">
-              <a
-                href="https://soundcloud.com/search/sounds"
-                target="_blank"
-                rel="noopener"
-                ><strong>SoundCloud</strong></a
-              >
-              <p>Music</p>
-            </li>
-            <li class="engines">
-              <a
-                href="http://commons.wikimedia.org/w/index.php?title=Special%3ASearch&redirs=0&search=' + query.val() + '&fulltext=Search&ns0=1&ns6=1&ns14=1&title=Special%3ASearch&advanced=1&fulltext=Advanced+search"
-                target="_blank"
-                rel="noopener"
-                ><strong>Wikipedia Commons</strong></a
-              >
-              <p>Media</p>
-            </li>
-            <li class="engines">
-              <a href="https://www.youtube.com/" target="_blank" rel="noopener"
-                ><strong>YouTube</strong></a
-              >
-              <p>Video</p>
-            </li>
-          </ul>
+               </label
+            >
+
+            <input
+              type="radio"
+              id="europeana"
+              name="search-engines"
+              value="europeana"
+              data-engine="europeana"
+              data-search="https://www.europeana.eu/en/search?page=1&view=grid&query="
+            />
+            <label for="europeana" class="engines"
+              >Europeana
+              <p>Media</p></label
+            >
+
+            <input
+              type="radio"
+              id="flickr"
+              name="search-engines"
+              value="flickr"
+            />
+            <label
+              for="flickr"
+              class="engines"
+              data-object="engine"
+              data-engine="flickr"
+              data-search="https://flickr.com/search/?=&text="
+              >Flickr
+              <p>Media</p></label
+            >
+
+            <input
+              type="radio"
+              id="google"
+              name="search-engines"
+              value="google"
+            />
+            <label
+              for="google"
+              class="engines"
+              data-object="engine"
+              data-engine="google"
+              data-search="https://www.google.com/search?q="
+              >Google
+              <p>Web</p></label
+            >
+
+            <input
+              type="radio"
+              id="googleimages"
+              name="search-engines"
+              value="googleimages"
+            />
+            <label
+              for="googleimages"
+              class="engines"
+              data-object="engine"
+              data-engine="googleimages"
+              data-search="https://www.google.com/search?site=imghp&tbm=isch&q="
+              >Google Images
+              <p>Image</p></label
+            >
+
+            <input
+              type="radio"
+              id="jamendo"
+              name="search-engines"
+              value="jamendo"
+            />
+            <label
+              for="jamendo"
+              class="engines"
+              data-object="engine"
+              data-engine="jamendo"
+              data-search="https://licensing.jamendo.com/en/royalty-free-music/search?qs=query="
+              >Jamendo
+              <p>Music</p></label
+            >
+
+            <input
+              type="radio"
+              id="openclipart"
+              name="search-engines"
+              value="openclipart"
+            />
+            <label
+              for="openclipart"
+              class="engines"
+              data-object="engine"
+              data-engine="openclipart"
+              data-search="https://openclipart.org/search/?query="
+              >Open Clip Art
+              <p>Image</p></label
+            >
+
+            <input
+              type="radio"
+              id="soundcloud"
+              name="search-engines"
+              value="soundcloud"
+            />
+            <label
+              for="soundcloud"
+              class="engines"
+              data-object="engine"
+              data-engine="soundcloud"
+              data-search="https://soundcloud.com/search?q="
+              >SoundCloud
+              <p>Music</p></label
+            >
+
+            <input
+              type="radio"
+              id="wikipedia-commons"
+              name="search-engines"
+              value="wikipedia-commons"
+            />
+            <label
+              for="wikipedia-commons"
+              class="engines"
+              data-object="engine"
+              data-engine="wikipedia-commons"
+              data-search="https://commons.wikimedia.org/w/index.php?search="
+              >Wikipedia Commons
+              <p>Media</p></label
+            >
+
+            <input
+              type="radio"
+              id="youtube"
+              name="search-engines"
+              value="youtube"
+            />
+            <label
+              for="youtube"
+              class="engines"
+              data-object="engine"
+              data-engine="youtube"
+              data-search="https://www.youtube.com/results?search_query="
+              >YouTube
+              <p>Video</p></label
+            >
+          </div>
         </div>
-      </section>
+      </form>
     </main>
     <footer>
       <section class="footer-cont footer-sect">
@@ -163,7 +254,7 @@
             </address>
             <a href="mailto:info@creativecommons.org"
               >info@creativecommons.org</a
-            ><br>
+            ><br />
             <a href="tel://+1-415-429-6753">+1-415-429-6753</a>
           </div>
           <div class="footer-socials">
@@ -236,5 +327,6 @@
         </div>
       </section>
     </footer>
+    <script src="./script.js"></script>
   </body>
 </html>

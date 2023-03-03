@@ -42,7 +42,6 @@ a {
   min-height: 3.25rem;
 }
 
-
 /* BODY */
 .body-cont {
   /* max-width: 1000px; */
@@ -51,7 +50,6 @@ a {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
 }
-
 
 .body-first-sect {
   display: grid;
@@ -69,7 +67,6 @@ a {
   -webkit-transition: 1s;
   transition: 1s;
   outline: none;
-
 }
 
 .body-search input:focus {
@@ -81,6 +78,17 @@ a {
   align-items: center;
   gap: 16px;
   margin-top: 20px;
+}
+
+.search-checkbox p {
+  font-size: 13px;
+  font-weight: 600;
+  color: #000000;
+}
+
+.search-checkbox label {
+  font-size: 12px;
+  color: #404040;
 }
 
 .body-second-sect {
@@ -101,21 +109,77 @@ a {
 }
 
 .engines {
+  display: block;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 6px;
   cursor: pointer;
 }
 
-.engines a {
+/* .engines input {
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+} */
+
+.search-engines input[type="radio"] {
+  display: none;
+}
+.search-engines input[type="radio"]:checked + label {
+ background: #e7eeff;
+}
+
+.search-engines label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #333333;
+}
+
+.search-engines label p {
+  font-size: 10px;
+  font-weight: 400;
+  color: #404040;
+}
+
+p{
+  user-select: none;
+}
+
+
+.engines h3 {
+  width: 100%;
+}
+
+/* .engines a {
   color: #000;
   text-decoration: none;
   font-size: 13px;
-}
+} */
 .engines p {
   font-size: 10px;
   padding-top: 8px;
   color: #404040;
+}
+
+.engines:hover {
+  background-color: #ddd;
+}
+
+.active {
+  background-color: red;
+} 
+
+.engines:active {
+  background-color: #e7eeff;
+}
+
+.engines:focus {
+  background-color: #2f63dc;
+}
+
+.open-verse {
+  grid-column: 1 / span 2;
+  border: 3px solid #ddd;
 }
 
 /* FOOTER */
@@ -124,7 +188,7 @@ footer {
   color: #fff;
   padding: 24px;
   margin-top: 80px;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-size: 16px;
   font-weight: 400;
 }
@@ -132,7 +196,7 @@ footer {
 footer a {
   color: #05b5da;
   text-decoration: none;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-size: 16px;
 }
 
@@ -192,7 +256,7 @@ address {
 }
 
 .footer-third-sect h2 {
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   font-size: 20px;
   font-weight: 700;
 }
@@ -210,7 +274,7 @@ address {
 }
 
 .footer-third-sect button a {
-  color:#000;
+  color: #000;
   font-weight: 500;
 }
 
