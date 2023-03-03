@@ -58,7 +58,7 @@ a {
 
 .body-search {
   display: flex;
-  align-items: center;
+  
 }
 
 .body-search input {
@@ -66,7 +66,7 @@ a {
   margin-top: 10px;
   padding: 14px;
   border: 1px solid #dfdfdf;
-  border-radius: 8px 0 0 8px;
+  border-radius: 8px;
   font-size: 14px;
   font-weight: 400;
   -webkit-transition: 1s;
@@ -78,14 +78,8 @@ a {
   border: 2px solid #686666;
 }
 
-.search_Btn {
-  background-color: #000;
-  margin-top: 10px;
-  padding: 14px;
-  border-radius: 0 8px 8px 0;
-  font-size: 14px;
-  font-weight: 400;
-  color: #ffffff;
+.searchBtn {
+
 }
 
 .search-checkbox {
@@ -141,7 +135,7 @@ a {
   display: none;
 }
 .search-engines input[type="radio"]:checked + label {
-  background: #e7eeff;
+ background: #e7eeff;
 }
 
 .search-engines label {
@@ -156,9 +150,10 @@ a {
   color: #404040;
 }
 
-p {
+p{
   user-select: none;
 }
+
 
 .engines h3 {
   width: 100%;
@@ -181,7 +176,7 @@ p {
 
 .active {
   background-color: red;
-}
+} 
 
 .engines:active {
   background-color: #e7eeff;
