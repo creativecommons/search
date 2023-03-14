@@ -189,7 +189,9 @@ document.addEventListener("DOMContentLoaded", function(e){
           //   }
           // break;
         }
-        return rights;
+      } else {
+        rights = '';
       }
+      return rights;
     }
 });
