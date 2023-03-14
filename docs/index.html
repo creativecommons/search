@@ -5,19 +5,79 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CC Search Portal</title>
-    <!-- <link rel="stylesheet" href="./vocabulary.css" /> -->
+    <link rel="stylesheet" href="assets/vocabulary/css/vocabulary.css" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
   </head>
   <body>
-    <header class="container">
+    <a class="skip-to-content" href="#main-content-marker">Skip to content</a>
+    <header>
+        <div class="masthead">
+            <h1><a class="identity-logo" href=".">Creative Commons</a></h1>
+            <nav class="ancilliary-menu">
+                <ul>
+                    <li><a class="donate icon-attach fa-heart" href="https://www.classy.org/give/313412/#!/donation/checkout?c_src=website&c_src2=top-of-page-banner" target="_blank">Donate</a></li>
+                    <li><button class="explore">Explore CC</button></li>
+                </ul>
+            </nav>
+        <div class="explore-panel">
+
+        <!-- (optional main CC logo, p, link on non-home site back to main site) -->
+        <!-- <aside>
+            <a class="identity-logo" href="#">Creative Commons</a>
+            <h2>Our Work Relies On You!</h2>
+            <p>Help us keep the internet free and open.</p>
+        </aside> -->
+
+        <nav class="explore-menu">
+            <ul>
+                <li>
+                    <a href="https://network.creativecommons.org/" target="_blank">Global Network</a>
+                    <p>Join a  global community working to strengthen the Commons</p>
+                </li>
+                <li>
+                    <a href="https://certificate.creativecommons.org/" target="_blank">Certificate</a>
+                    <p>Become an expert in creating and engaging with openly licensed materials</p>
+                </li>
+                <li>
+                    <a href="https://summit.creativecommons.org/" target="_blank">Global Summit</a>
+                    <p>Attend our annual event, promoting the power of open licensing</p>
+                </li>
+                <li>
+                    <a href="https://creativecommons.org/choose" target="_blank">Chooser</a>
+                    <p>Get help choosing the appropriate license for your work</p>
+                </li>
+                <!--
+                <li>
+                    <a href="#" target="_blank">Search Portal</a>
+                    <p>Find engines to search openly licensed material for creative and educational reuse</p>
+                </li>
+                -->
+                <li>
+                    <a href="https://opensource.creativecommons.org/" target="_blank">Open Source</a>
+                    <p>Help us build products that maximize creativity and innovation</p>
+                </li>
+
+            </ul>
+        </nav>
+        </div>
+
+
+<!--
       <nav class="navbar">
         <div class="navbar-brand">
           <a href="/">
-            <img src="./assets/images/cc-logo.svg" alt="cc logo" />
+            <img src="assets/images/cc-logo.svg" alt="cc logo" />
           </a>
         </div>
       </nav>
+-->
     </header>
     <main>
+      <span id="main-content-marker"></span>
       <form id="searchForm" class="body-cont">
         <div class="body-first-sect">
           <div class="body-search">
@@ -231,99 +291,100 @@
         </div>
       </form>
     </main>
+
     <footer>
-      <section class="footer-cont footer-sect">
-        <div class="footer-first-sect">
-          <div>
-            <a href="https://creativecommons.org/">
-              <img
-                src="./assets/images/cc.logo-126x30.png"
-                width="220px"
-                height="54px"
-                alt="cc-logo"
+        <a class="identity-logo" href="https://creativecommons.org/" target="_blank">Creative Commons</a>
+
+        <nav class="footer-menu">
+            <ul>
+                <li><a href="https://creativecommons.org/about/contact/" target="_blank">Contact</a></li>
+                <li><a href="https://mail.creativecommons.org/subscribe" target="_blank">Newsletter</a></li>
+                <li><a href="https://creativecommons.org/privacy/" target="_blank">Privacy</a></li>
+                <li><a href="https://creativecommons.org/policies/" target="_blank">Policies</a></li>
+                <li><a href="https://creativecommons.org/terms/" target="_blank">Terms</a></li>
+            </ul>
+        </nav>
+
+        <div class="contact">
+        <!-- this area lacks a heading? -->
+        <h2>Contact Us</h2>
+        <p>Creative Commons </br> PO Box 1866, Mountain View, CA 94042</p>
+        <p><a href="mailto:info@creativecommons.org">info@creativecommons.org</a></p>
+        <p><a href="tel:+14154296753">+1-415-429-6753</a></p>
+
+        <nav class="social-menu">
+            <ul>
+                <!-- <li><a class="icon-replace fa-instagram" href="#">Instagram</a></li> -->
+                <li><a class="icon-replace fa-twitter" href="https://twitter.com/creativecommons" target="_blank">Twitter</a></li>
+                <li><a class="icon-replace fa-mastodon" href="https://mastodon.social/@creativecommons" target="_blank">Mastodon</a></li>
+                <li><a class="icon-replace fa-facebook" href="https://www.facebook.com/creativecommons" target="_blank">Facebook</a></li>
+                <li><a class="icon-replace fa-linkedin" href="https://www.linkedin.com/company/creative-commons/" target="_blank">LinkedIn</a></li>
+            </ul>
+        </nav>
+        </div>
+
+        <div class="subscribe">
+        <h2>Subscribe to our Newsletter</h2>
+            <form
+              action="https://creativecommons.us4.list-manage.com/subscribe/post?u=fd30364b6577b471373d6076c&amp;id=4603fe102a"
+              method="post"
+              id="mc-embedded-subscribe-form"
+              name="mc-embedded-subscribe-form"
+              class="validate newsletter"
+              target="_blank"
+              novalidate=""
+            >
+              <input
+                type="email"
+                value=""
+                name="EMAIL"
+                class="email input"
+                id="mce-EMAIL"
+                placeholder="Your email"
+                required=""
               />
-            </a>
-          </div>
-          <div>
-            <address>
-              <h4>Creative Commons</h4>
-              <p>PO Box 1866, Mountain View CA 94042</p>
-            </address>
-            <a href="mailto:info@creativecommons.org"
-              >info@creativecommons.org</a
-            ><br />
-            <a href="tel://+1-415-429-6753">+1-415-429-6753</a>
-          </div>
-          <div class="footer-socials">
-            <div class="footer-social-icons">
-              <a
-                href="https://www.instagram.com/creativecommons/"
-                target="_blank"
-                ><img
-                  src="./assets/icons/instagram-logo.svg"
-                  alt="cc-instagram"
-              /></a>
-            </div>
-            <div class="footer-social-icons">
-              <a href="https://twitter.com/creativecommons" target="_blank"
-                ><img src="./assets/icons/twitter-logo.svg" alt="cc-twitter"
-              /></a>
-            </div>
-            <div class="footer-social-icons">
-              <a href="https://www.facebook.com/creativecommons" target="_blank"
-                ><img src="./assets/icons/facebook-logo.svg" alt="cc-facebook"
-              /></a>
-            </div>
-            <div class="footer-social-icons">
-              <a
-                href="https://www.linkedin.com/company/creative-commons/"
-                target="_blank"
-                ><img src="./assets/icons/linkedin-logo.svg" alt="cc-linkedin"
-              /></a>
-            </div>
-          </div>
+              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+              <div
+                style="position: absolute; left: -5000px"
+                aria-hidden="true"
+              >
+                <input
+                  type="text"
+                  name="b_fd30364b6577b471373d6076c_4603fe102a"
+                  tabindex="-1"
+                  value=""
+                />
+              </div>
+              <input
+                type="submit"
+                value="subscribe"
+                id="mc-embedded-subscribe"
+                class="button small"
+              />
+            </form>
         </div>
-        <div class="footer-second-sect footer sect">
-          <p>
-            Except where otherwise
-            <a
-              href="https://creativecommons.org/policies#license"
-              target="_blank"
-              rel="noopener"
-              >noted</a
-            >, content on this site is licensed under a
-            <a
-              href="https://creativecommons.org/licenses/by/4.0/"
-              target="_blank"
-              rel="noopener"
-              >Creative Commons Attribution 4.0 International license</a
-            >.
-            <a href="https://fontawesome.com/" target="_blank" rel="noopener"
-              >Icons by Font Awesome.</a
-            >
-          </p>
-          <div>
-            <img src="./assets/icons/cc-icon.svg" alt="cc-icon" />
-            <img src="./assets/icons/person.svg" alt="person" />
-          </div>
+
+        <div class="donate">
+            <h2>Support Our Work</h2>
+            <p>Our work relies on you! Help us keep the Internet free and open.</p>
+            <a class="donate icon-attach cc-heart-filled" href="https://www.classy.org/give/313412/#!/donation/checkout?c_src=website&c_src2=top-of-page-banner" target="_blank">Donate Now</a>
         </div>
-        <div class="footer-third-sect footer sect">
-          <h2>OUR WORK RELIES ON YOU!</h2>
-          <p>Help us keep Internet free and open.</p>
-          <button>
-            <div>
-              <img src="./assets/icons/cc-icon.svg" alt="cc-icon" />
-            </div>
-            <a
-              href="http://creativecommons.org/donate"
-              target="_blank"
-              rel="noopener"
-              >Donate Now</a
-            >
-          </button>
+
+
+        <div class="license">
+            <p>Except where otherwise <a href="https://creativecommons.org/policies/#license" target="_blank">noted</a>, content on this site is licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International license</a>. Icons by <a href="https://fontawesome.com/" target="_blank">Font Awesome</a>.</p>
+
+            <svg>
+                <use href="assets/svg/cc/icons/cc-icons.svg#cc-logo"></use>
+            </svg>
+            <svg>
+                <use href="assets/svg/cc/icons/cc-icons.svg#cc-by"></use>
+            </svg>
         </div>
-      </section>
     </footer>
-    <script src="./script.js"></script>
+
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/vocabulary.js"></script>
+
   </body>
 </html>
