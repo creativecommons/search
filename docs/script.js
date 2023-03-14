@@ -8,16 +8,16 @@ let card;
 
 engine.addEventListener("click", onActiveState);
 function onActiveState(e) {
-  //engine.style.backgroundColor = "red";
+  //engine.style.backgroundColor = "red"; //DEBUG
   engine.classList.toggle;
   console.log(engine.className);
-  //searchButton.stlye.backgroundColor = "red";
+  //searchButton.stlye.backgroundColor = "red"; //DEBUG
 }
 
 // add event listener to the search box to know what the user is typing
 searchBox.addEventListener("input", searchEngine);
 function searchEngine(e) {
-  console.log(e.target.value);
+  console.log(e.target.value); //DEBUG
   // create the state of the link
   searchInput = e.target.value;
 }
@@ -56,7 +56,7 @@ function cardClick(e) {
   }
   console.log({ searchEngine, searchUrl, searchInput }); //DEBUG
   link = getURL(searchEngine, searchUrl, searchInput);
-  console.log(link);
+  console.log(link); //DEBUG
 }
 
 // create the function to get the link and build the search query from the
