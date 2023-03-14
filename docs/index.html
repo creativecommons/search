@@ -47,32 +47,6 @@
         <div class="body-second-sect">
           <p><strong>Search using:</strong></p>
           <div class="search-engines">
-            <input
-              type="radio"
-              id="openverse"
-              name="search-engines"
-              value="openverse"
-              class="search-engines"
-              data-engine="openverse"
-              data-search="https://wordpress.org/openverse/search/?q="
-            />
-
-            <label for="ccmixter" class="engines"
-              >Openverse
-              <p>Media</p>
-               </label
-            >
-            <!-- <a
-              class="engines open-verse"
-              href="https://wordpress.org/openverse/"
-              target="_blank"
-              rel="noopener"
-            >
-              <li>
-                <strong>Openverse</strong>
-                <p>Media</p>
-              </li>
-            </a> -->
 
             <input
               type="radio"
@@ -81,13 +55,14 @@
               value="ccmixter"
               class="search-engines"
               data-engine="ccmixter"
-              data-search="http://ccmixter.org/search?search_text="
+              data-url="http://ccmixter.org/search?search_type=any&search_in=all&search_text="
             />
-
-            <label for="ccmixter" class="engines"
+            <label
+              for="ccmixter"
+              class="engines"
               >ccMixter
               <p>Music</p>
-               </label
+              </label
             >
 
             <input
@@ -96,9 +71,11 @@
               name="search-engines"
               value="europeana"
               data-engine="europeana"
-              data-search="https://www.europeana.eu/en/search?page=1&view=grid&query="
+              data-url="https://www.europeana.eu/en/search?page=1&view=grid&query="
             />
-            <label for="europeana" class="engines"
+            <label
+              for="europeana"
+              class="engines"
               >Europeana
               <p>Media</p></label
             >
@@ -108,13 +85,13 @@
               id="flickr"
               name="search-engines"
               value="flickr"
+              data-object="engine"
+              data-engine="flickr"
+              data-url="https://flickr.com/search/?=&text="
             />
             <label
               for="flickr"
               class="engines"
-              data-object="engine"
-              data-engine="flickr"
-              data-search="https://flickr.com/search/?=&text="
               >Flickr
               <p>Media</p></label
             >
@@ -124,13 +101,13 @@
               id="google"
               name="search-engines"
               value="google"
+              data-object="engine"
+              data-engine="google"
+              data-url="https://www.google.com/search?q="
             />
             <label
               for="google"
               class="engines"
-              data-object="engine"
-              data-engine="google"
-              data-search="https://www.google.com/search?q="
               >Google
               <p>Web</p></label
             >
@@ -140,13 +117,13 @@
               id="googleimages"
               name="search-engines"
               value="googleimages"
+              data-object="engine"
+              data-engine="googleimages"
+              data-url="https://www.google.com/search?site=imghp&tbm=isch&q="
             />
             <label
               for="googleimages"
               class="engines"
-              data-object="engine"
-              data-engine="googleimages"
-              data-search="https://www.google.com/search?site=imghp&tbm=isch&q="
               >Google Images
               <p>Image</p></label
             >
@@ -156,13 +133,13 @@
               id="jamendo"
               name="search-engines"
               value="jamendo"
+              data-object="engine"
+              data-engine="jamendo"
+              data-url="https://licensing.jamendo.com/en/royalty-free-music/search?qs=query="
             />
             <label
               for="jamendo"
               class="engines"
-              data-object="engine"
-              data-engine="jamendo"
-              data-search="https://licensing.jamendo.com/en/royalty-free-music/search?qs=query="
               >Jamendo
               <p>Music</p></label
             >
@@ -172,15 +149,32 @@
               id="openclipart"
               name="search-engines"
               value="openclipart"
+              data-object="engine"
+              data-engine="openclipart"
+              data-url="https://openclipart.org/search/?query="
             />
             <label
               for="openclipart"
               class="engines"
-              data-object="engine"
-              data-engine="openclipart"
-              data-search="https://openclipart.org/search/?query="
               >Open Clip Art
               <p>Image</p></label
+            >
+
+            <input
+              type="radio"
+              id="openverse"
+              name="search-engines"
+              value="openverse"
+              class="search-engines"
+              data-engine="openverse"
+              data-url="https://openverse.org/search/?q="
+            />
+            <label
+              for="openverse"
+              class="engines"
+              >Openverse
+              <p>Media</p>
+              </label
             >
 
             <input
@@ -188,13 +182,13 @@
               id="soundcloud"
               name="search-engines"
               value="soundcloud"
+              data-object="engine"
+              data-engine="soundcloud"
+              data-url="https://soundcloud.com/search?q="
             />
             <label
               for="soundcloud"
               class="engines"
-              data-object="engine"
-              data-engine="soundcloud"
-              data-search="https://soundcloud.com/search?q="
               >SoundCloud
               <p>Music</p></label
             >
@@ -204,13 +198,13 @@
               id="wikipedia-commons"
               name="search-engines"
               value="wikipedia-commons"
+              data-object="engine"
+              data-engine="wikipedia-commons"
+              data-url="https://commons.wikimedia.org/w/index.php?search="
             />
             <label
               for="wikipedia-commons"
               class="engines"
-              data-object="engine"
-              data-engine="wikipedia-commons"
-              data-search="https://commons.wikimedia.org/w/index.php?search="
               >Wikipedia Commons
               <p>Media</p></label
             >
@@ -220,16 +214,17 @@
               id="youtube"
               name="search-engines"
               value="youtube"
+              data-object="engine"
+              data-engine="youtube"
+              data-url="https://www.youtube.com/results?search_query="
             />
             <label
               for="youtube"
               class="engines"
-              data-object="engine"
-              data-engine="youtube"
-              data-search="https://www.youtube.com/results?search_query="
               >YouTube
               <p>Video</p></label
             >
+
           </div>
         </div>
       </form>

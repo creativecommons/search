@@ -1,5 +1,4 @@
 const searchBox = document.querySelector("#search-value");
-// const engine = document.querySelector("#engine");
 const engine = document.querySelector("[data-object]");
 const searchButton = document.querySelector("#searchBtn");
 let data = document.querySelectorAll("[data-engine]");
@@ -9,75 +8,65 @@ let card;
 
 engine.addEventListener("click", onActiveState);
 function onActiveState(e) {
-  // engine.style.backgroundColor = "red";
+  //engine.style.backgroundColor = "red";
   engine.classList.toggle;
   console.log(engine.className);
-  // searchButton.stlye.backgroundColor = "red";
+  //searchButton.stlye.backgroundColor = "red";
 }
-//add event listener to the search box to know what the user is typing
+
+// add event listener to the search box to know what the user is typing
 searchBox.addEventListener("input", searchEngine);
 function searchEngine(e) {
   console.log(e.target.value);
-  //creating the state of the link
+  // create the state of the link
   searchInput = e.target.value;
 }
 
-//add event listener to the search button to know when the user clicks on it
+// add event listener to the search button to know when the user clicks on it
 searchButton.addEventListener("click", Navigate);
-//creating the function to open the link in a new tab
+// create the function to open the link in a new tab
 function Navigate() {
   if (searchInput === undefined) {
     alert("Please enter a search value");
     return;
   }
+  if (link === undefined) {
+    alert("Please select a search engine");
+    return;
+  }
   window.open(link, "_blank");
 }
 
-//add event listener to the cards to know when the user clicks on anyone of them
+// add event listener to the cards to know when the user clicks on anyone of
+// them
 for (let i = 0; i < data.length; i++) {
   data[i].addEventListener("click", cardClick);
 }
 
-//creating the function to get the data from the cards
+// create the function to get the data from the cards
 function cardClick(e) {
-  let search, searchEngine;
-  console.log(e.target);
+  let searchUrl, searchEngine;
+  console.log(e.target); //DEBUG
   if (e.target.tagName === "p") {
-    search = e.target.parentNode.getAttribute("data-search");
+    searchUrl = e.target.parentNode.getAttribute("data-url");
     searchEngine = e.target.parentNode.getAttribute("data-engine");
   } else {
-    search = e.target.getAttribute("data-search");
+    searchUrl = e.target.getAttribute("data-url");
     searchEngine = e.target.getAttribute("data-engine");
   }
-  console.log({ searchEngine, search, searchInput });
-  link = getURL(searchEngine, search, searchInput);
+  console.log({ searchEngine, searchUrl, searchInput }); //DEBUG
+  link = getURL(searchEngine, searchUrl, searchInput);
   console.log(link);
 }
 
-//creating the function to get the link and build the search query from the card that the user clicked on
-function getURL(value, search, input) {
+// create the function to get the link and build the search query from the
+// card that the user clicked on
+function getURL(value, searchUrl, input) {
   switch (value) {
-    case "ccmixter":
-      return `${search}${input}&search_type=any&search_in=all`;
-    case "europeana":
-      return `${search}${input}`;
-    case "flickr":
-      return `${search}${input}`;
-    case "google":
-      return `${search}${input}`;
-    case "googleimages":
-      return `${search}${input}`;
-    case "jamendo":
-      return `${search}${input}`;
-    default:
+    case null:
+    case "":
       return "Invalid value";
-    case "openclipart":
-      return `${search}${input}`;
-    case "soundcloud":
-      return `${search}${input}`;
-    case "wikipedia-commons":
-      return `${search}${input}`;
-    case "youtube":
-      return `${search}${input}`;
+    default:
+      return `${searchUrl}${input}`;
   }
 }
