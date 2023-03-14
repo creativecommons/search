@@ -141,13 +141,14 @@
     </header>
     <main>
       <span id="main-content-marker"></span>
-      <form class="body-cont">
+      <form id="searchForm" class="body-cont">
         <div class="body-first-sect">
           <div class="body-search">
             <h3>Find content you can share, use and remix.</h3>
             <input
               type="text"
-              id="search-value"
+              id="query"
+              name="query"
               value=""
               placeholder="Enter your search query" />
             <button
@@ -160,19 +161,11 @@
             <p>I want something that I can ...</p>
             <div>
               <div>
-                <input
-                  type="checkbox"
-                  id="comm"
-                  name="comm"
-                  value="comm" />
+                <input type="checkbox" id="commercial" name="commercial" />
                 <label for="comm"><em>use for commercial purposes</em></label>
               </div>
               <div>
-                <input
-                  type="checkbox"
-                  id="mod"
-                  name="mod"
-                  value="mod" />
+                <input type="checkbox" id="modify" name="modify" />
                 <label for="mod"><em>modify, adapt or build upon</em></label>
               </div>
             </div>
@@ -184,7 +177,7 @@
             <input
               type="radio"
               id="ccmixter"
-              name="search-engines"
+              name="search-engine"
               value="ccmixter"
               class="search-engines"
               data-engine="ccmixter"
@@ -199,7 +192,7 @@
             <input
               type="radio"
               id="europeana"
-              name="search-engines"
+              name="search-engine"
               value="europeana"
               data-engine="europeana"
               data-url="https://www.europeana.eu/en/search?page=1&view=grid&query=" />
@@ -213,7 +206,7 @@
             <input
               type="radio"
               id="flickr"
-              name="search-engines"
+              name="search-engine"
               value="flickr"
               data-object="engine"
               data-engine="flickr"
@@ -228,7 +221,7 @@
             <input
               type="radio"
               id="google"
-              name="search-engines"
+              name="search-engine"
               value="google"
               data-object="engine"
               data-engine="google"
@@ -243,7 +236,7 @@
             <input
               type="radio"
               id="googleimages"
-              name="search-engines"
+              name="search-engine"
               value="googleimages"
               data-object="engine"
               data-engine="googleimages"
@@ -258,7 +251,7 @@
             <input
               type="radio"
               id="jamendo"
-              name="search-engines"
+              name="search-engine"
               value="jamendo"
               data-object="engine"
               data-engine="jamendo"
@@ -273,7 +266,7 @@
             <input
               type="radio"
               id="openclipart"
-              name="search-engines"
+              name="search-engine"
               value="openclipart"
               data-object="engine"
               data-engine="openclipart"
@@ -288,11 +281,13 @@
             <input
               type="radio"
               id="openverse"
-              name="search-engines"
+              name="search-engine"
               value="openverse"
               class="search-engines"
               data-engine="openverse"
-              data-url="https://openverse.org/search/?q=" />
+              data-url="https://openverse.org/search/?q="
+              checked="checked"
+            />
             <label
               for="openverse"
               class="engines"
@@ -303,7 +298,7 @@
             <input
               type="radio"
               id="soundcloud"
-              name="search-engines"
+              name="search-engine"
               value="soundcloud"
               data-object="engine"
               data-engine="soundcloud"
@@ -318,7 +313,7 @@
             <input
               type="radio"
               id="wikipedia-commons"
-              name="search-engines"
+              name="search-engine"
               value="wikipedia-commons"
               data-object="engine"
               data-engine="wikipedia-commons"
@@ -333,7 +328,7 @@
             <input
               type="radio"
               id="youtube"
-              name="search-engines"
+              name="search-engine"
               value="youtube"
               data-object="engine"
               data-engine="youtube"
