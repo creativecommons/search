@@ -121,6 +121,17 @@ document.addEventListener("DOMContentLoaded", function(e){
             }
           break;
 
+          case "nappy":
+            rights = '';
+            if (form.commercial && form.modify) {
+              rights += '';
+            } else if (form.commercial) {
+              rights += '';
+            } else if (form.modify) {
+              rights += '';
+            }
+          break;
+
           case "openclipart":
             rights = '';
             if (form.commercial && form.modify) {
@@ -143,6 +154,21 @@ document.addEventListener("DOMContentLoaded", function(e){
             }
           break;
 
+          case "sketchfab":
+            rights = '';
+            if (form.commercial && form.modify) {
+              rights += "&features=downloadable"
+              + "&licenses=322a749bcfa841b29dff1e8a1bb74b0b" // Include CC BY license
+              + "&licenses=b9ddc40b93e34cdca1fc152f39b9f375" // Include CC BY-SA license
+              + "&licenses=7c23a1ba438d4306920229c12afcb5f9"; // Include CC0
+              
+            } else if (form.commercial) {
+              rights += '';
+            } else if (form.modify) {
+              rights += '';
+            }
+          break;
+
           case "soundcloud":
             rights = '';
             if (form.commercial && form.modify) {
@@ -151,6 +177,30 @@ document.addEventListener("DOMContentLoaded", function(e){
               rights += '&filter.license=to_use_commercially';
             } else if (form.modify) {
               rights += '&filter.license=to_share';
+            }
+          break;
+
+          case "thingiverse":
+          // currently defering to openverse since 
+          // thingiverse filtering is broken
+            rights = '&license_type=';
+            if (form.commercial && form.modify) {
+              rights += 'commercial,modification';
+            } else if (form.commercial) {
+              rights += '';
+            } else if (form.modify) {
+              rights += '';
+            }
+          break;
+
+          case "vimeo":
+            rights = '&license=';
+            if (form.commercial && form.modify) {
+              rights += 'by';
+            } else if (form.commercial) {
+              rights += '';
+            } else if (form.modify) {
+              rights += '';
             }
           break;
 
