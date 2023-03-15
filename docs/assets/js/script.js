@@ -50,6 +50,7 @@ document.addEventListener("DOMContentLoaded", function(e){
       let rights;
 
       // engine licenses logic alphabetically
+      // does nothing for now, will revisit later
 
       if (form.commercial || form.modify) {
         switch (form.searchEngine) {
@@ -57,22 +58,22 @@ document.addEventListener("DOMContentLoaded", function(e){
           case "ccmixter":
             rights = '';
             if (form.commercial && form.modify) {
-              rights += '';
+              rights += '&lic=by,sa,s,splus,pd,zero';
             } else if (form.commercial) {
-              rights += '';
+              rights += '&lic=open';
             } else if (form.modify) {
-              rights += '';
+              rights += '&lic=by,nc,sa,ncsa,s,splus,pd,zero';
             }
           break;
 
           case "europeana":
-            rights = '';
+            rights = '+AND+RIGHTS%3A*creative*+';
             if (form.commercial && form.modify) {
-              rights += '';
+              rights += 'AND+NOT+RIGHTS%3A*nc*+AND+NOT+RIGHTS%3A*nd*';
             } else if (form.commercial) {
-              rights += '';
+              rights += 'AND+NOT+RIGHTS%3A*nc*';
             } else if (form.modify) {
-              rights += '';
+              rights += 'AND+NOT+RIGHTS%3A*nd*';
             }
           break;
 
@@ -99,24 +100,24 @@ document.addEventListener("DOMContentLoaded", function(e){
           break;
 
           case "googleimages":
-            rights = '';
+            rights = '&as_rights=(cc_publicdomain|cc_attribute|cc_sharealike).-';
             if (form.commercial && form.modify) {
-              rights += '';
+              rights += '(cc_noncommercial|cc_nonderived)';
             } else if (form.commercial) {
-              rights += '';
+              rights += '(cc_noncommercial)';
             } else if (form.modify) {
-              rights += '';
+              rights += '(cc_nonderived)';
             }
           break;
 
           case "jamendo":
             rights = '';
             if (form.commercial && form.modify) {
-              rights += '';
+              rights += '-nc%20AND%20-nd';
             } else if (form.commercial) {
-              rights += '';
+              rights += '-nc';
             } else if (form.modify) {
-              rights += '';
+              rights += '-nd';
             }
           break;
 
@@ -145,11 +146,11 @@ document.addEventListener("DOMContentLoaded", function(e){
           case "soundcloud":
             rights = '';
             if (form.commercial && form.modify) {
-              rights += '';
+              rights += '&filter.license=to_modify_commercially';
             } else if (form.commercial) {
-              rights += '';
+              rights += '&filter.license=to_use_commercially';
             } else if (form.modify) {
-              rights += '';
+              rights += '&filter.license=to_share';
             }
           break;
 
