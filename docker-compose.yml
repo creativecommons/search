@@ -1,9 +1,9 @@
 # Also see:
 #   Dockerfile
 #
-# https://docs.docker.com/compose/compose-file/compose-file-v3/
+# https://docs.docker.com/compose/compose-file/compose-file-v2/
 
-version: "3.6"
+version: "2.4"
 
 services:
 
@@ -16,7 +16,9 @@ services:
     container_name: cc-search-portal
     ports:
       - "8080:80"
-    restart: always
+    restart: on-failure
     volumes:
+      # Mount site configuration directory
       - ./config:/usr/local/apache2/conf/config:ro
+      # Mount website directory
       - ./docs:/usr/local/apache2/htdocs:ro
