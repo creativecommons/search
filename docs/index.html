@@ -155,21 +155,25 @@
               placeholder="Enter your search query" />
             <button class="search-button">Search</button>
           </div>
-          <div class="search-checkbox" style="display: none;">
+          <div
+            class="search-checkbox"
+            style="display: none">
             <p>I want something that I can ...</p>
             <div>
               <div>
                 <input
                   type="checkbox"
                   id="commercial"
-                  name="commercial" checked />
+                  name="commercial"
+                  checked />
                 <label for="comm"><em>use for commercial purposes</em></label>
               </div>
               <div>
                 <input
                   type="checkbox"
                   id="modify"
-                  name="modify" checked />
+                  name="modify"
+                  checked />
                 <label for="mod"><em>modify, adapt or build upon</em></label>
               </div>
             </div>
@@ -269,6 +273,21 @@
 
             <input
               type="radio"
+              id="nappy"
+              name="search-engine"
+              value="nappy"
+              data-object="engine"
+              data-engine="nappy"
+              data-url="https://nappy.co/search/" />
+            <label
+              for="nappy"
+              class="engines"
+              >Nappy
+              <p>Image</p></label
+            >
+
+            <input
+              type="radio"
               id="openclipart"
               name="search-engine"
               value="openclipart"
@@ -301,6 +320,21 @@
 
             <input
               type="radio"
+              id="sketchfab"
+              name="search-engine"
+              value="sketchfab"
+              data-object="engine"
+              data-engine="sketchfab"
+              data-url="https://sketchfab.com/search?q=" />
+            <label
+              for="sketchfab"
+              class="engines"
+              >Sketchfab
+              <p>3D Model</p></label
+            >
+
+            <input
+              type="radio"
               id="soundcloud"
               name="search-engine"
               value="soundcloud"
@@ -312,6 +346,36 @@
               class="engines"
               >SoundCloud
               <p>Music</p></label
+            >
+
+            <input
+              type="radio"
+              id="thingiverse"
+              name="search-engine"
+              value="thingiverse"
+              data-object="engine"
+              data-engine="thingiverse"
+              data-url="https://openverse.org/search/image?source=thingiverse&q=" />
+            <label
+              for="thingiverse"
+              class="engines"
+              >Thingiverse
+              <p>3D Model</p></label
+            >
+
+            <input
+              type="radio"
+              id="vimeo"
+              name="search-engine"
+              value="vimeo"
+              data-object="engine"
+              data-engine="vimeo"
+              data-url="https://vimeo.com/search?&q=" />
+            <label
+              for="vimeo"
+              class="engines"
+              >Vimeo
+              <p>Video</p></label
             >
 
             <input
