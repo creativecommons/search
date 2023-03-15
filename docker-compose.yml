@@ -7,13 +7,13 @@ version: "2.4"
 
 services:
 
-  static:
-    build: .
+  web:
+    build: dev/web
     command: sh -c "
       echo 'Starting static webserver at http://127.0.0.1:8080/'
       && httpd-foreground
       "
-    container_name: cc-search-portal
+    container_name: cc-search-web
     ports:
       - "8080:80"
     restart: on-failure
@@ -22,3 +22,14 @@ services:
       - ./config:/usr/local/apache2/conf/config:ro
       # Mount website directory
       - ./docs:/usr/local/apache2/htdocs:ro
+
+
+  # Example commands using this service:
+  #   docker compose run node prettier --write docs/index.html
+  node:
+    build: dev/node
+    container_name: cc-search-node
+    volumes:
+      # Mount repository to working directory
+      - ./:/opt
+    working_dir: /opt
