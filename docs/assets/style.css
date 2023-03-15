@@ -138,4 +138,5 @@ body > footer {
 
 body > footer a {
   color: var(--vocabulary-brand-color-turquoise);
+  text-decoration: none;
 }
