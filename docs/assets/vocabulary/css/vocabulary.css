@@ -1,0 +1,613 @@
+/* 
+This is a prototype file for Vocabulary, 
+that may be later ported into Vocabulary 
+proper.
+*/
+
+@import 'vendor/normalize.css';
+@import 'library-vars.css';
+
+/* utilities */
+.skip-to-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: -1000px;
+    
+}
+
+.skip-to-content:focus {
+    margin: 0;  
+}
+
+/* typography */
+
+body {
+    /* font-family: Arial;   */
+    font-weight: 400;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* still questionable as a rule */
+h2, h3 {
+    text-transform: uppercase;
+}
+
+/* ************************* */
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    /* padding: 0 var(--vocabulary-page-edges-space); */
+}
+
+.masthead {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: baseline;
+    position: relative;
+
+    width: 100%;
+    /* padding-top: 3%; */
+    padding-top: 40px;
+    margin: 0 var(--vocabulary-page-edges-space);
+}
+
+.masthead h1 {
+    margin: 0;
+}
+
+.masthead .identity-logo {
+    display: inline-block;
+    text-indent: -1000px;
+    vertical-align: bottom;
+    height: 50px;
+    width: 191px;
+    
+    
+    /* allows for color manipulation of svg */
+    background-color: black;
+    -webkit-mask-image: url('../../svg/cc/logos/cc/logomark.svg');
+    mask-image: url('../../svg/cc/logos/cc/logomark.svg');
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    cursor: pointer;
+
+    /* standard pattern for setting logo in lieu of background color manipulation */
+    /* background: url('../../svg/cc/logos/cc/logomark.svg') left top no-repeat; */
+}
+
+.masthead .identity-logo:hover {
+    background-color: var(--vocabulary-neutral-color-dark-gray);
+    
+}
+
+/* TODO: needs focus outline to be fixed */
+.masthead .identity-logo:focus {
+    border: 2px solid purple;
+}
+
+.masthead .primary-menu {
+    /* margin-top: 45px; */
+    /* vertical-align: bottom; */
+    
+}
+
+.masthead .primary-menu ul {
+    display: flex;
+    justify-content: space-around; 
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.masthead .primary-menu ul li {
+    margin-top: 5px;
+    margin-left: 20px;
+    
+}
+
+.masthead .primary-menu ul li a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: var(--vocabulary-brand-typeset-nav-family);
+    font-weight: var(--vocabulary-brand-typeset-nav-weight);
+    font-size: 1.1em;
+    letter-spacing: 0.02em;
+    color: var(--vocabulary-brand-typeset-nav-color);
+}
+
+.masthead .primary-menu ul li a:hover {
+    color: black;
+}
+
+button.expand-menu {
+    display: none;
+}
+
+.ancilliary-menu {
+    position: absolute;
+    top: 0;
+    /* right: var(--vocabulary-page-edges-space); */
+    right: 0;
+
+    font-family: "Source Sans Pro";
+    font-style: normal;
+    font-weight: 600; 
+    font-size: .8em;
+}
+
+.ancilliary-menu ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.ancilliary-menu ul li {
+    margin-left: 10px;
+}
+.ancilliary-menu ul li a {
+    /* generalize this */
+    display: inline-block;
+}
+
+.ancilliary-menu ul li a, 
+.ancilliary-menu ul li button {
+    margin-top: 10px;
+}
+
+.ancilliary-menu ul li button:hover {
+    cursor: pointer;
+}
+
+.ancilliary-menu button.locale {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+
+
+    background:  var(--vocabulary-neutral-color-lighter-gray);
+    border: none;
+}
+
+.ancilliary-menu button.locale.icon-attach:before {
+    --icon-sprite: var(--fa-globe);
+    --icon-sprite-size: .8em;
+
+    margin-right: .8em;
+
+    opacity: .3;
+}
+
+.ancilliary-menu a.donate {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+
+    text-decoration: none;
+    background: var(--vocabulary-brand-color-soft-tomato);
+    color: var(--vocabulary-brand-color-dark-tomato);
+    border-radius: 3px;
+}
+
+.ancilliary-menu a.donate.icon-attach:before {
+    --icon-sprite: var(--fa-heart);
+    --icon-sprite-color: var(--vocabulary-brand-color-dark-tomato);   
+     --icon-sprite-size: .8em;
+
+    margin-right: .8em;
+}
+
+.ancilliary-menu button.explore {
+    margin-top: 0;
+    padding-top: 14px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    background: black;
+    color: white;
+    border: none;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.explore-panel {
+    order: -1;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 40px var(--vocabulary-page-edges-space) 60px var(--vocabulary-page-edges-space);
+
+    background: black;
+    color: white;
+}
+
+.explore-panel aside {
+    margin-right: 20px;
+}
+
+.explore-panel aside .identity-logo {
+    display: inline-block;
+    text-indent: -1000px;
+    vertical-align: bottom;
+    height: 50px;
+    width: 191px;
+    
+    
+    /* allows for color manipulation of svg */
+    background-color: white;
+    -webkit-mask-image: url('../../svg/cc/logos/cc/logomark.svg');
+    mask-image: url('../../svg/cc/logos/cc/logomark.svg');
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    cursor: pointer;
+
+    /* standard pattern for setting logo in lieu of background color manipulation */
+    /* background: url('../../svg/cc/logos/cc/logomark.svg') left top no-repeat; */
+
+}
+
+.explore-panel aside h2 {
+    font-family: 'Roboto Condensed';
+    font-style: normal;
+    font-weight: 700;
+
+}
+
+.explore-panel aside p {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+}
+
+.explore-panel .explore-menu {
+    width: 100%;
+
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+
+}
+
+.explore-panel .explore-menu ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+}
+
+.explore-panel nav ul li a {
+    display: block;
+
+    color: var(--vocabulary-brand-color-turquoise);
+    text-decoration: none;
+    font-weight: 700;
+    /* margin-bottom: .8em; */
+
+
+}
+
+.explore-panel nav ul li p {
+    font-weight: inherit;
+    line-height: 1.5;
+
+}
+
+
+
+
+body > footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+    "logo nav nav nav"
+    "contact subscribe subscribe donate"
+    "contact license license donate";
+    gap: 40px;
+    padding: 20px var(--vocabulary-page-edges-space);
+    padding-bottom: 40px;
+
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400; 
+    color: white;
+    background: black;
+}
+
+body > footer h2 {
+    font-family: 'Roboto Condensed';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.25em;
+}
+
+body > footer a:link {
+    color: var(--vocabulary-brand-color-turquoise);
+}
+
+body > footer p {
+    line-height: 1.5;
+}
+
+/* needs to be moved to be broader in general specificity scope */
+body > footer p a:link {
+    /* better hyperlink underline typesetting inspired by Tufte CSS */
+    --underline-color: var(--vocabulary-brand-color-turquoise);
+    --underline-background-color: black;
+
+    text-decoration: none;
+
+    /* adapted from Tufte.css -- Copyright (c) 2014 Dave Liepmann -- https://github.com/edwardtufte/tufte-css -- https://github.com/edwardtufte/tufte-css/blob/gh-pages/LICENSE */
+    background: -webkit-linear-gradient(var( --underline-color), var( --underline-color)), -webkit-linear-gradient(var( --underline-color), var( --underline-color)), -webkit-linear-gradient(currentColor, currentColor);
+    background: linear-gradient(var( --underline-color), var( --underline-color)), linear-gradient(var( --underline-color), var( --underline-color)), linear-gradient(currentColor, currentColor);
+    -webkit-background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
+    -moz-background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
+    background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
+    background-repeat: no-repeat, no-repeat, repeat-x;
+    text-shadow: 0.03em 0 var(--underline-background-color), -0.03em 0 var(--underline-background-color), 0 0.03em var(--underline-background-color), 0 -0.03em var(--underline-background-color), 0.06em 0 var(--underline-background-color), -0.06em 0 var(--underline-background-color), 0.09em 0 var(--underline-background-color), -0.09em 0 var(--underline-background-color), 0.12em 0 var(--underline-background-color), -0.12em 0 var(--underline-background-color), 0.15em 0 var(--underline-background-color), -0.15em 0 var(--underline-background-color);
+    background-position: 0% 93%, 100% 93%, 0% 93%;
+    /* background-position-y: 87%, 87%, 87%; */
+
+}
+
+body > footer .identity-logo {
+    grid-area: logo;
+    display: inline-block;
+    text-indent: -1000px;
+    vertical-align: bottom;
+    height: 50px;
+    width: 191px;
+    
+    
+    /* allows for color manipulation of svg */
+    background-color: white;
+    -webkit-mask-image: url('../../svg/cc/logos/cc/logomark.svg');
+    mask-image: url('../../svg/cc/logos/cc/logomark.svg');
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    cursor: pointer;
+
+    /* standard pattern for setting logo in lieu of background color manipulation */
+    /* background: url('../../svg/cc/logos/cc/logomark.svg') left top no-repeat; */
+}
+
+body > footer .identity-logo:hover {
+    background-color: var(--vocabulary-brand-color-turquoise);
+}
+
+body > footer .footer-menu {
+    grid-area: nav;
+    
+    font-size: 1.3em;
+    font-weight: 700;
+}
+
+body > footer .footer-menu ul {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+body > footer .footer-menu ul li a {
+    text-decoration: none;
+    color: var(--vocabulary-brand-color-turquoise);
+
+}
+
+body > footer .contact {
+    grid-area: contact;
+}
+
+body > footer .contact .social-menu ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    margin-top: 3em;
+
+    list-style: none;
+
+}
+
+body > footer .contact .social-menu ul li {
+    margin-right: 1.5em;
+}
+
+body > footer .social-menu li a {
+    --icon-sprite-color: white;
+    --icon-sprite-size: 1.9em;
+}
+
+body > footer .subscribe {
+    grid-area: subscribe;
+}
+
+body > footer .donate {
+    grid-area: donate;
+}
+
+body > footer .donate a.donate {
+    display: inline-flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+
+    text-transform: uppercase;
+    font-family: 'Roboto Condensed';
+    font-size: 1.5em;
+    line-height: 1em;
+    font-style: normal;
+    font-weight: 700;
+    border: none;
+    border-radius: 4px;
+    color: black;
+    background: var(--vocabulary-brand-color-gold);  
+}
+
+body > footer .donate a.donate:hover {
+    cursor: pointer;
+
+    background-color: rgb(248, 204, 44);
+}
+
+/* set the icon settings */
+body > footer .donate a.donate.icon-attach:before {
+    /* --icon-sprite: var(--cc-heart-filled); */
+    --icon-sprite-color: black;
+    --icon-sprite-size: 1.2em;
+
+    margin-right: .3em;
+}
+
+body > footer .license {
+    grid-area: license;
+}
+
+body > footer .license img path {
+    fill: white;
+    /* width: 1.2em; */
+}
+
+body > footer .license svg {
+    display: inline;
+    width: 1.9em;
+    height: 1.9em;
+    margin-right: .3em;
+}
+
+
+
+
+/* ************************* */
+
+.data-points ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 0;
+    padding: 0;
+
+    list-style-type: none;
+}
+
+.data-points .data-point {
+    display: flex;
+    flex-direction: column;
+}
+
+.data-points .data-point .stat {
+    order: 3;
+}
+
+.topic-summary {
+    display: grid;
+    grid-template:
+        "title graphic graphic"
+        "description graphic graphic"
+        "button graphic graphic";
+}
+
+.topic-summary h2 {
+    grid-area: title;
+}
+
+.topic-summary img {
+    grid-area: graphic;
+
+    background: black;
+    width: 100%;
+}
+
+.topic-summary p {
+    grid-area: description;
+}
+
+.topic-summary a {
+    grid-area: button;
+}
+
+@media (max-width: 705px) {
+
+    .masthead {
+        padding-top: 60px;
+    }
+    .primary-menu {
+        display: none;
+    }
+    .ancilliary-menu {
+        /* display: none; */
+    }
+
+    button.expand-menu {
+        display: inline-block;
+    }
+
+}
+
+@media (max-width: 680px) {
+
+    .explore-panel {
+        flex-wrap: wrap;
+    }
+
+    body > footer {
+        display: block;
+    }
+}
+
+@media (max-width: 580px) {
+    .explore-panel .explore-menu ul {
+        grid-template-columns: 1fr 1fr;
+        /* display: flex;
+        flex-direction: column;
+        flex-wrap: wrap; */
+    }
+
+    body > footer .footer-menu ul {
+        display: block;
+    }
+}
+
+@media (max-width:400px) {
+
+    .explore-panel .explore-menu ul {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+}
+
+
+
+
+
+
+/* temp */
+
+.explore-panel {
+    display: none;
+    
+}
+
+.explore-panel.expand {
+    display: inherit;
+    transition: display 2s ease-in-out;
+}
+
+
+article, footer, article.topic-summary {
+    display: none;
+}

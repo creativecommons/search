@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>CC Search Portal</title>
+    <link
+      rel="stylesheet"
+      href="assets/vocabulary/css/vocabulary.css" />
+    <link
+      rel="stylesheet"
+      href="assets/style.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/favicon/apple-touch-icon.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/favicon/favicon-32x32.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/favicon/favicon-16x16.png" />
+    <link
+      rel="manifest"
+      href="site.webmanifest" />
+  </head>
+  <body>
+    <a
+      class="skip-to-content"
+      href="#main-content-marker"
+      >Skip to content</a
+    >
+    <header>
+      <div class="masthead">
+        <h1>
+          <a
+            class="identity-logo"
+            href="."
+            >Creative Commons</a
+          >
+        </h1>
+        <nav class="ancilliary-menu">
+          <ul>
+            <li>
+              <a
+                class="donate icon-attach fa-heart"
+                href="https://www.classy.org/give/313412/#!/donation/checkout?c_src=website&c_src2=top-of-page-banner"
+                target="_blank"
+                >Donate</a
+              >
+            </li>
+            <li><button class="explore">Explore CC</button></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="explore-panel">
+        <!-- (optional main CC logo, p, link on non-home site back to main site) -->
+        <!-- <aside>
+            <a class="identity-logo" href="#">Creative Commons</a>
+            <h2>Our Work Relies On You!</h2>
+            <p>Help us keep the internet free and open.</p>
+        </aside> -->
+
+        <nav class="explore-menu">
+          <ul>
+            <li>
+              <a
+                href="https://network.creativecommons.org/"
+                target="_blank"
+                >Global Network</a
+              >
+              <p>Join a global community working to strengthen the Commons</p>
+            </li>
+            <li>
+              <a
+                href="https://certificate.creativecommons.org/"
+                target="_blank"
+                >Certificate</a
+              >
+              <p>
+                Become an expert in creating and engaging with openly licensed
+                materials
+              </p>
+            </li>
+            <li>
+              <a
+                href="https://summit.creativecommons.org/"
+                target="_blank"
+                >Global Summit</a
+              >
+              <p>
+                Attend our annual event, promoting the power of open licensing
+              </p>
+            </li>
+            <li>
+              <a
+                href="https://creativecommons.org/choose"
+                target="_blank"
+                >Chooser</a
+              >
+              <p>Get help choosing the appropriate license for your work</p>
+            </li>
+            <!--
+                <li>
+                    <a href="#" target="_blank">Search Portal</a>
+                    <p>Find engines to search openly licensed material for creative and educational reuse</p>
+                </li>
+                -->
+            <li>
+              <a
+                href="https://opensource.creativecommons.org/"
+                target="_blank"
+                >Open Source</a
+              >
+              <p>
+                Help us build products that maximize creativity and innovation
+              </p>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <!--
+      <nav class="navbar">
+        <div class="navbar-brand">
+          <a href="/">
+            <img src="assets/images/cc-logo.svg" alt="cc logo" />
+          </a>
+        </div>
+      </nav>
+-->
+    </header>
+    <main>
+      <span id="main-content-marker"></span>
+      <form
+        id="searchForm"
+        class="body-cont">
+        <div class="body-first-sect">
+          <div class="body-search">
+            <h3>Find content you can share, use, and remix.</h3>
+            <input
+              type="text"
+              id="query"
+              name="query"
+              value=""
+              placeholder="Enter your search query" />
+            <button class="search-button">Search</button>
+          </div>
+          <div
+            class="search-checkbox"
+            style="display: none">
+            <p>I want something that I can ...</p>
+            <div>
+              <div>
+                <input
+                  type="checkbox"
+                  id="commercial"
+                  name="commercial"
+                  checked />
+                <label for="comm"><em>use for commercial purposes</em></label>
+              </div>
+              <div>
+                <input
+                  type="checkbox"
+                  id="modify"
+                  name="modify"
+                  checked />
+                <label for="mod"><em>modify, adapt or build upon</em></label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="body-second-sect">
+          <p><strong>Search using:</strong></p>
+          <div class="search-engines">
+            <input
+              type="radio"
+              id="ccmixter"
+              name="search-engine"
+              value="ccmixter"
+              class="search-engines"
+              data-engine="ccmixter"
+              data-url="http://ccmixter.org/search?search_type=any&search_in=all&search_text=" />
+            <label
+              for="ccmixter"
+              class="engines"
+              >ccMixter
+              <p>Music</p>
+            </label>
+
+            <input
+              type="radio"
+              id="europeana"
+              name="search-engine"
+              value="europeana"
+              data-engine="europeana"
+              data-url="https://www.europeana.eu/en/search?page=1&view=grid&query=" />
+            <label
+              for="europeana"
+              class="engines"
+              >Europeana
+              <p>Media</p></label
+            >
+
+            <input
+              type="radio"
+              id="flickr"
+              name="search-engine"
+              value="flickr"
+              data-object="engine"
+              data-engine="flickr"
+              data-url="https://flickr.com/search/?=&text=" />
+            <label
+              for="flickr"
+              class="engines"
+              >Flickr
+              <p>Media</p></label
+            >
+
+            <input
+              type="radio"
+              id="google"
+              name="search-engine"
+              value="google"
+              data-object="engine"
+              data-engine="google"
+              data-url="https://www.google.com/search?q=" />
+            <label
+              for="google"
+              class="engines"
+              >Google
+              <p>Web</p></label
+            >
+
+            <input
+              type="radio"
+              id="googleimages"
+              name="search-engine"
+              value="googleimages"
+              data-object="engine"
+              data-engine="googleimages"
+              data-url="https://www.google.com/search?site=imghp&tbm=isch&q=" />
+            <label
+              for="googleimages"
+              class="engines"
+              >Google Images
+              <p>Image</p></label
+            >
+
+            <input
+              type="radio"
+              id="jamendo"
+              name="search-engine"
+              value="jamendo"
+              data-object="engine"
+              data-engine="jamendo"
+              data-url="https://licensing.jamendo.com/en/royalty-free-music/search?qs=query=" />
+            <label
+              for="jamendo"
+              class="engines"
+              >Jamendo
+              <p>Music</p></label
+            >
+
+            <input
+              type="radio"
+              id="nappy"
+              name="search-engine"
+              value="nappy"
+              data-object="engine"
+              data-engine="nappy"
+              data-url="https://nappy.co/search/" />
+            <label
+              for="nappy"
+              class="engines"
+              >Nappy
+              <p>Image</p></label
+            >
+
+            <input
+              type="radio"
+              id="openclipart"
+              name="search-engine"
+              value="openclipart"
+              data-object="engine"
+              data-engine="openclipart"
+              data-url="https://openclipart.org/search/?query=" />
+            <label
+              for="openclipart"
+              class="engines"
+              >Open Clip Art
+              <p>Image</p></label
+            >
+
+            <input
+              type="radio"
+              id="openverse"
+              name="search-engine"
+              value="openverse"
+              class="search-engines"
+              data-engine="openverse"
+              data-url="https://openverse.org/search/?q="
+              checked="checked" />
+            <label
+              id="openverse-label"
+              for="openverse"
+              class="engines"
+              >Openverse
+              <p>Media</p>
+            </label>
+
+            <input
+              type="radio"
+              id="sketchfab"
+              name="search-engine"
+              value="sketchfab"
+              data-object="engine"
+              data-engine="sketchfab"
+              data-url="https://sketchfab.com/search?q=" />
+            <label
+              for="sketchfab"
+              class="engines"
+              >Sketchfab
+              <p>3D Model</p></label
+            >
+
+            <input
+              type="radio"
+              id="soundcloud"
+              name="search-engine"
+              value="soundcloud"
+              data-object="engine"
+              data-engine="soundcloud"
+              data-url="https://soundcloud.com/search?q=" />
+            <label
+              for="soundcloud"
+              class="engines"
+              >SoundCloud
+              <p>Music</p></label
+            >
+
+            <input
+              type="radio"
+              id="thingiverse"
+              name="search-engine"
+              value="thingiverse"
+              data-object="engine"
+              data-engine="thingiverse"
+              data-url="https://openverse.org/search/image?source=thingiverse&q=" />
+            <label
+              for="thingiverse"
+              class="engines"
+              >Thingiverse
+              <p>3D Model</p></label
+            >
+
+            <input
+              type="radio"
+              id="vimeo"
+              name="search-engine"
+              value="vimeo"
+              data-object="engine"
+              data-engine="vimeo"
+              data-url="https://vimeo.com/search?&q=" />
+            <label
+              for="vimeo"
+              class="engines"
+              >Vimeo
+              <p>Video</p></label
+            >
+
+            <input
+              type="radio"
+              id="wikipedia-commons"
+              name="search-engine"
+              value="wikipedia-commons"
+              data-object="engine"
+              data-engine="wikipedia-commons"
+              data-url="https://commons.wikimedia.org/w/index.php?search=" />
+            <label
+              for="wikipedia-commons"
+              class="engines"
+              >Wikipedia Commons
+              <p>Media</p></label
+            >
+
+            <input
+              type="radio"
+              id="youtube"
+              name="search-engine"
+              value="youtube"
+              data-object="engine"
+              data-engine="youtube"
+              data-url="https://www.youtube.com/results?search_query=" />
+            <label
+              for="youtube"
+              class="engines"
+              >YouTube
+              <p>Video</p></label
+            >
+          </div>
+        </div>
+      </form>
+    </main>
+
+    <footer>
+      <a
+        class="identity-logo"
+        href="https://creativecommons.org/"
+        target="_blank"
+        >Creative Commons</a
+      >
+
+      <nav class="footer-menu">
+        <ul>
+          <li>
+            <a
+              href="https://creativecommons.org/about/contact/"
+              target="_blank"
+              >Contact</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://mail.creativecommons.org/subscribe"
+              target="_blank"
+              >Newsletter</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://creativecommons.org/privacy/"
+              target="_blank"
+              >Privacy</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://creativecommons.org/policies/"
+              target="_blank"
+              >Policies</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://creativecommons.org/terms/"
+              target="_blank"
+              >Terms</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <div class="contact">
+        <!-- this area lacks a heading? -->
+        <h2>Contact Us</h2>
+        <p>
+          Creative Commons <br />
+          PO Box 1866, Mountain View, CA 94042
+        </p>
+        <p>
+          <a href="mailto:info@creativecommons.org"
+            >info@creativecommons.org</a
+          >
+        </p>
+        <p><a href="tel:+14154296753">+1-415-429-6753</a></p>
+
+        <nav class="social-menu">
+          <ul>
+            <!-- <li><a class="icon-replace fa-instagram" href="#">Instagram</a></li> -->
+            <li>
+              <a
+                class="icon-replace fa-twitter"
+                href="https://twitter.com/creativecommons"
+                target="_blank"
+                >Twitter</a
+              >
+            </li>
+            <li>
+              <a
+                class="icon-replace fa-mastodon"
+                href="https://mastodon.social/@creativecommons"
+                target="_blank"
+                >Mastodon</a
+              >
+            </li>
+            <li>
+              <a
+                class="icon-replace fa-facebook"
+                href="https://www.facebook.com/creativecommons"
+                target="_blank"
+                >Facebook</a
+              >
+            </li>
+            <li>
+              <a
+                class="icon-replace fa-linkedin"
+                href="https://www.linkedin.com/company/creative-commons/"
+                target="_blank"
+                >LinkedIn</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="subscribe">
+        <h2>Subscribe to our Newsletter</h2>
+        <form
+          action="https://creativecommons.us4.list-manage.com/subscribe/post?u=fd30364b6577b471373d6076c&amp;id=4603fe102a"
+          method="post"
+          id="mc-embedded-subscribe-form"
+          name="mc-embedded-subscribe-form"
+          class="validate newsletter"
+          target="_blank"
+          novalidate="">
+          <input
+            type="email"
+            value=""
+            name="EMAIL"
+            class="email input"
+            id="mce-EMAIL"
+            placeholder="Your email"
+            required="" />
+          <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+          <div
+            style="position: absolute; left: -5000px"
+            aria-hidden="true">
+            <input
+              type="text"
+              name="b_fd30364b6577b471373d6076c_4603fe102a"
+              tabindex="-1"
+              value="" />
+          </div>
+          <input
+            type="submit"
+            value="subscribe"
+            id="mc-embedded-subscribe"
+            class="button small" />
+        </form>
+      </div>
+
+      <div class="donate">
+        <h2>Support Our Work</h2>
+        <p>Our work relies on you! Help us keep the Internet free and open.</p>
+        <a
+          class="donate icon-attach cc-heart-filled"
+          href="https://www.classy.org/give/313412/#!/donation/checkout?c_src=website&c_src2=top-of-page-banner"
+          target="_blank"
+          >Donate Now</a
+        >
+      </div>
+
+      <div class="license">
+        <p>
+          Except where otherwise
+          <a
+            href="https://creativecommons.org/policies/#license"
+            target="_blank"
+            >noted</a
+          >, content on this site is licensed under a
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/"
+            target="_blank"
+            >Creative Commons Attribution 4.0 International license</a
+          >. Icons by
+          <a
+            href="https://fontawesome.com/"
+            target="_blank"
+            >Font Awesome</a
+          >.
+        </p>
+
+        <svg>
+          <use href="assets/svg/cc/icons/cc-icons.svg#cc-logo"></use>
+        </svg>
+        <svg>
+          <use href="assets/svg/cc/icons/cc-icons.svg#cc-by"></use>
+        </svg>
+      </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/vocabulary.js"></script>
+  </body>
+</html>
