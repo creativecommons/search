@@ -9,9 +9,9 @@ services:
 
   web:
     build: dev/web
-    command: sh -c "
+    command: /bin/bash -c "
       echo 'Starting static webserver at http://127.0.0.1:8080/'
-      && httpd-foreground
+      && /usr/local/bin/httpd-foreground
       "
     container_name: cc-search-web
     ports:
