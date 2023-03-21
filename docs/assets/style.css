@@ -136,6 +136,10 @@ body > footer {
 
 /* Vocabulary override */
 
+main a {
+  color: var(--vocabulary-brand-color-tomato);
+}
+
 body > footer a {
   color: var(--vocabulary-brand-color-turquoise);
   text-decoration: none;
