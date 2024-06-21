@@ -216,7 +216,7 @@ document.addEventListener("DOMContentLoaded", function(e){
           break;
 
           case "youtube":
-            rights = '';
+            rights = '&sp=EgIwAQ%253D%253D';
             if (form.commercial && form.modify) {
               rights += '';
             } else if (form.commercial) {
