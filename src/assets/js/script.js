@@ -143,6 +143,24 @@ document.addEventListener("DOMContentLoaded", function(e){
             }
           break;
 
+          case "opengameart":
+            rights = '&sort_by=count&sort_order=DESC'; // Just standard OGA search filters
+             if (form.commercial && form.modify) {
+               rights += '&field_art_licenses_tid[]=2&field_art_licenses_tid[]=17981'  // Include CC BY (3.0 and 4.0) licenses
+               + '&field_art_licenses_tid[]=17982&field_art_licenses_tid[]=3'  // Include CC BY-SA (3.0 and 4.0) licenses
+               + '&field_art_licenses_tid[]=4'  // Include CC0 license
+               
+               // I don't sure about permissiveness of OGA BY (3.0 and 4.0) licenses,
+               // so I decided to comment this line
+               //+ '&field_art_licenses_tid[]=10310&field_art_licenses_tid[]=31772'
+               ;
+             } else if (form.commercial) {
+               rights += '';
+             } else if (form.modify) {
+               rights += '';
+             }
+          break;
+            
           case "openverse":
             rights = '&license_type=';
             if (form.commercial && form.modify) {
