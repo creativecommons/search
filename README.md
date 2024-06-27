@@ -123,10 +123,10 @@ Use the following instructions to start the Project with docker compose.
    and type `CTRL + C`
 
 
-### Format HTML with Prettier
-
+### Format with Prettier
+Run the following command to format files with Prettier:
 ```shell
-docker compose run node prettier --write docs/index.html
+docker compose exec node prettier --write src/
 ```
 
 
