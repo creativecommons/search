@@ -1,4 +1,6 @@
 # https://prettier.io/docs/en/ignore.html
+
+# Ignore Vocabulary files (formatting handled upstream)
 src/assets/fonts/vocabulary
 src/assets/js/vocabulary.js
 src/assets/vocabulary
