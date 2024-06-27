@@ -1,6 +1,5 @@
 @charset "UTF-8";
-@import 'vocabulary/css/library-vars.css';
-
+@import "vocabulary/css/library-vars.css";
 
 /* BODY */
 
@@ -126,13 +125,11 @@
   border-width: 3px;
 }
 
-
 /* FOOTER */
 
 body > footer {
   margin-top: 80px;
 }
-
 
 /* Vocabulary override */
 
