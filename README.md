@@ -124,7 +124,7 @@ Use the following instructions to start the Project with docker compose.
 
 
 ### Format with Prettier
-
+Run the following command to format files with Prettier:
 ```shell
 docker compose exec node prettier --write src/
 ```

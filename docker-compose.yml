@@ -9,9 +9,10 @@ services:
     build:
       context: .
       dockerfile: dev/web/Dockerfile
+    # Use Bash instad of sh (Dash) for improved signal handling
     command: /bin/bash -c "
-      echo 'Starting static webserver at http://127.0.0.1:8080/'
-      && /usr/local/bin/httpd-foreground
+      echo 'Starting static webserver at http://127.0.0.1:8080/';
+      /usr/local/bin/httpd-foreground
       "
     container_name: cc-search-web
     ports:
@@ -30,10 +31,15 @@ services:
     build:
       context: .
       dockerfile: dev/node/Dockerfile
-    # continue running until shutdown (this allows docker compose exec which is
+    # Continue running until shutdown (this allows docker compose exec which is
     # much faster than docker compose run)
     # Thank you: https://serverfault.com/a/1084975
-    command: sh -c 'trap "exit" TERM; while true; do sleep 1; done'
+    command: /bin/sh -c "
+      trap 'exit' TERM;
+      echo 'Run the following command to format files with Prettier:';
+      echo '    docker compose exec node prettier --write src/';
+      while true; do sleep 1; done
+      "
     container_name: cc-search-node
     volumes:
       # Mount repository to working directory
