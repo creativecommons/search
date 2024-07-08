@@ -9,12 +9,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0" />
     <title>CC Search Portal</title>
-    <link
-      rel="stylesheet"
-      href="assets/vocabulary/css/vocabulary.css" />
-    <link
-      rel="stylesheet"
-      href="assets/style.css" />
+    <link rel="stylesheet" media="all" href="assets/css/style.css">
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -41,13 +36,8 @@
     >
     <header>
       <div class="masthead">
-        <h1>
-          <a
-            class="identity-logo"
-            href="."
-            >Creative Commons</a
-          >
-        </h1>
+        <h1><a class="identity-logo product" href="#">Search Portal</a></h1>
+        <button class="expand-menu">Menu</button>
         <nav class="ancilliary-menu">
           <ul>
             <li>
@@ -64,11 +54,11 @@
       </div>
       <div class="explore-panel">
         <!-- (optional main CC logo, p, link on non-home site back to main site) -->
-        <!-- <aside>
-            <a class="identity-logo" href="#">Creative Commons</a>
-            <h2>Our Work Relies On You!</h2>
-            <p>Help us keep the internet free and open.</p>
-        </aside> -->
+        <aside>
+          <a class="identity-logo" href="#">Creative Commons</a>
+          <h2>Our Work Relies On You!</h2>
+          <p>Help us keep the internet free and open.</p>
+      </aside>
 
         <nav class="explore-menu">
           <ul>
@@ -597,15 +587,16 @@
         </p>
 
         <svg>
-          <use href="assets/svg/cc/icons/cc-icons.svg#cc-logo"></use>
+          <use href="assets/vocabulary/svg/cc/icons/cc-icons.svg#cc-logo"></use>
         </svg>
         <svg>
-          <use href="assets/svg/cc/icons/cc-icons.svg#cc-by"></use>
+          <use href="assets/vocabulary/svg/cc/icons/cc-icons.svg#cc-by"></use>
         </svg>
       </div>
     </footer>
 
+    <script src="assets/vocabulary/js/vocabulary.js"></script>
     <script src="assets/js/script.js"></script>
-    <script src="assets/js/vocabulary.js"></script>
+    
   </body>
 </html>
