@@ -21,6 +21,10 @@
   align-items: center;
 }
 
+.body-search h3 {
+  margin-right: 1em;
+}
+
 .body-search input {
   -webkit-transition: 1s;
   border-radius: 8px 0 0 8px;
@@ -35,7 +39,7 @@
 }
 
 .body-search input:focus {
-  border: 2px solid #686666;
+  outline: 2px solid #686666;
 }
 
 .search-button {
@@ -133,11 +137,12 @@ body > footer {
 
 /* Vocabulary override */
 
+main {
+  width: initial;
+}
+
 main a {
   color: var(--vocabulary-brand-color-tomato);
 }
 
-body > footer a {
-  color: var(--vocabulary-brand-color-turquoise);
-  text-decoration: none;
-}
+
