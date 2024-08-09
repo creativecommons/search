@@ -1,10 +1,9 @@
-/* import vocabulary.css */
+/* Import vocabulary.css */
 @import "../vocabulary/css/vocabulary.css" layer(vocabulary);
 
 /* BODY */
 
 .body-cont {
-  /* max-width: 1000px; */
   margin: 0 auto;
   padding: 20px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -18,24 +17,27 @@
 
 .body-search {
   display: flex;
+  flex-direction: column; /* Stack items vertically by default */
   align-items: center;
+  gap: 10px; /* Add spacing between items */
 }
 
 .body-search h3 {
-  margin-right: 1em;
+  margin: 0; /* Remove margin to ensure better alignment */
+  text-align: center; /* Center align text */
 }
 
 .body-search input {
   -webkit-transition: 1s;
-  border-radius: 8px 0 0 8px;
+  border-radius: 8px;
   border: 1px solid #dfdfdf;
   font-size: 14px;
   font-weight: 400;
-  margin-top: 10px;
   outline: none;
   padding: 14px;
   transition: 1s;
-  width: 100%;
+  width: 100%; /* Full width on small screens */
+  box-sizing: border-box; /* Ensure padding is included in width calculation */
 }
 
 .body-search input:focus {
@@ -44,30 +46,31 @@
 
 .search-button {
   background-color: #000;
-  border-radius: 0 8px 8px 0;
+  border-radius: 8px;
   color: #fff;
   font-size: 14px;
   font-weight: 400;
-  margin-top: 10px;
   padding: 14px;
+  width: 100%; /* Full width on small screens */
 }
 
-.search-checkbox {
-  align-items: center;
-  display: flex;
-  gap: 16px;
-  margin-top: 20px;
-}
+/* Responsive Design */
+@media (min-width: 601px) {
+  .body-search {
+    flex-direction: row; /* Align items horizontally on larger screens */
+    align-items: center;
+  }
 
-.search-checkbox p {
-  color: #000;
-  font-size: 13px;
-  font-weight: 600;
-}
+  .body-search input {
+    border-radius: 8px 0 0 8px;
+    margin: 0;
+    width: auto; /* Adjust width to fit container */
+  }
 
-.search-checkbox label {
-  color: #404040;
-  font-size: 12px;
+  .search-button {
+    border-radius: 0 8px 8px 0;
+    width: auto; /* Adjust width to fit container */
+  }
 }
 
 .body-second-sect {
@@ -98,6 +101,7 @@
 .search-engines input[type="radio"] {
   display: none;
 }
+
 .search-engines input[type="radio"]:checked + label {
   background: #e7eeff;
   border-color: #cedcff;
@@ -144,5 +148,3 @@ main {
 main a {
   color: var(--vocabulary-brand-color-tomato);
 }
-
-
