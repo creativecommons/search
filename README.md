@@ -35,19 +35,18 @@ For information on learning and installing the prerequisite technologies for thi
 
 Use the following instructions to start the Project with docker compose.
 
-1. Install Docker (https://docs.docker.com/engine/install/)
-2. Navigate to the creativecommon/search Project that you have cloned
-3. **Run the containers**
+1. Navigate to the creativecommon/search Project that you have cloned
+2. **Run the containers**
 
    ```shell
    docker compose up
    ```
 
-4. After running the Above command, Docker will use the docker-compose.yml file
+3. After running the Above command, Docker will use the docker-compose.yml file
    and Build a local enivronment for you
-5. Navigate to http://localhost:8080 in your browser and the app would be
+4. Navigate to http://localhost:8080 in your browser and the app would be
    running.
-6. **stop the containers**
+5. **stop the containers**
 
    To stop the app from running, simply open an another instance of terminal
    and type
