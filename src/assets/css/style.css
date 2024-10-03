@@ -54,6 +54,37 @@
   width: 100%; /* Full width on small screens */
 }
 
+.search-info {
+  border-radius: 5px;
+  margin-top: 5rem;
+  padding: 0rem 0rem 2rem 3rem;
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+}
+
+.search-info h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0 15rem 1rem 0rem;
+  text-transform: uppercase;
+  background-color: #636060;
+  color: white;
+  padding-left: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.search-info p {
+  max-width: 50%;
+  font-size: 1.3rem;
+  margin: 0;
+  color: rgb(21, 20, 20);
+}
+
+.search-info .strong {
+  color: rgba(245, 245, 83, 0.937);
+}
+
 /* Responsive Design */
 @media (min-width: 601px) {
   .body-search {
