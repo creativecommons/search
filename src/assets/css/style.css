@@ -6,6 +6,7 @@
 .body-cont {
   margin: 0 auto;
   padding: 20px;
+
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
 }
@@ -17,27 +18,28 @@
 
 .body-search {
   display: flex;
-  flex-direction: column; /* Stack items vertically by default */
+  flex-direction: column;
   align-items: center;
-  gap: 10px; /* Add spacing between items */
+  gap: 10px;
 }
 
 .body-search h3 {
-  margin: 0; /* Remove margin to ensure better alignment */
-  text-align: center; /* Center align text */
+  margin: 0;
+  text-align: center;
 }
 
 .body-search input {
-  -webkit-transition: 1s;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px;
   border-radius: 8px;
   border: 1px solid #dfdfdf;
   font-size: 14px;
   font-weight: 400;
   outline: none;
-  padding: 14px;
+  
+  -webkit-transition: 1s;
   transition: 1s;
-  width: 100%; /* Full width on small screens */
-  box-sizing: border-box; /* Ensure padding is included in width calculation */
 }
 
 .body-search input:focus {
@@ -45,43 +47,45 @@
 }
 
 .search-button {
-  background-color: #000;
+  width: 100%;
+  padding: 14px;
   border-radius: 8px;
+  
+  background-color: #000;
   color: #fff;
   font-size: 14px;
   font-weight: 400;
-  padding: 14px;
-  width: 100%; /* Full width on small screens */
 }
 
 /* Responsive Design */
 @media (min-width: 601px) {
   .body-search {
-    flex-direction: row; /* Align items horizontally on larger screens */
+    flex-direction: row;
     align-items: center;
   }
 
   .body-search input {
-    border-radius: 8px 0 0 8px;
+    width: auto;
     margin: 0;
-    width: auto; /* Adjust width to fit container */
+    border-radius: 8px 0 0 8px;
   }
 
   .search-button {
+    width: auto;
     border-radius: 0 8px 8px 0;
-    width: auto; /* Adjust width to fit container */
   }
 }
 
 .body-second-sect {
-  margin-top: 20px;
   margin: 0 auto;
+  margin-top: 20px;
   max-width: 943px;
 }
 
 .body-second-sect p {
-  font-size: 13px;
   margin-bottom: 8px;
+  
+  font-size: 13px;
 }
 
 .search-engines {
@@ -91,11 +95,12 @@
 }
 
 .engines {
-  border-radius: 6px;
-  border: 1px solid #ddd;
-  cursor: pointer;
   display: block;
   padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  
+  cursor: pointer;
 }
 
 .search-engines input[type="radio"] {
@@ -108,9 +113,9 @@
 }
 
 .search-engines label {
-  color: #333;
   font-size: 13px;
   font-weight: 600;
+  color: #333;
 }
 
 .engines h3 {
@@ -118,11 +123,12 @@
 }
 
 .engines p {
+  margin: 0;
+  padding-top: 8px;
+  
   color: #404040;
   font-size: 10px;
   font-weight: 400;
-  padding-top: 8px;
-  margin: 0;
 }
 
 .engines:hover {
