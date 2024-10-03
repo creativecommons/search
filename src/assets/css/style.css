@@ -54,6 +54,26 @@
   width: 100%; /* Full width on small screens */
 }
 
+.button-effect {
+  background-color: #007bff; 
+  color: white; 
+  border: none;
+  border-radius: 5px;
+  cursor: pointer; 
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.button-effect:hover {
+  background-color: #0056b3; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.button-effect:active {
+  background-color: #004494; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+  transform: translateY(2px);
+}
+
 /* Responsive Design */
 @media (min-width: 601px) {
   .body-search {
