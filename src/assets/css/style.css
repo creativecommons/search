@@ -52,8 +52,12 @@
   font-weight: 400;
   padding: 14px;
   width: 100%; /* Full width on small screens */
+  transition: transform 0.22s;
 }
-
+.search-button:hover {
+  transform: scale(1.1, 1.1);
+  filter: invert(0.1);
+}
 /* Responsive Design */
 @media (min-width: 601px) {
   .body-search {
