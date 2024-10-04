@@ -74,6 +74,21 @@
   transform: translateY(2px);
 }
 
+#explore{
+    margin-top: 0;
+    padding-top: 16px;
+    padding-bottom: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    background: black;
+    color: white;
+    border: none;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+
 /* Responsive Design */
 @media (min-width: 601px) {
   .body-search {
