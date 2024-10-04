@@ -22,6 +22,11 @@
   gap: 10px; /* Add spacing between items */
 }
 
+.content-search {
+  font-size: 0;
+  
+}
+
 .body-search h3 {
   margin: 0; /* Remove margin to ensure better alignment */
   text-align: center; /* Center align text */
