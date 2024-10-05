@@ -53,6 +53,10 @@
   padding: 14px;
   width: 100%; /* Full width on small screens */
 }
+.search-button:hover{
+  background-color: #BDBDBD;
+  color: #000;
+}
 
 /* Responsive Design */
 @media (min-width: 601px) {
