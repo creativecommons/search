@@ -338,7 +338,15 @@ button.expand-menu {
 
     margin-right: .8em;
 }
+.ancilliary-menu a.donate:hover{
+    background: var(--vocabulary-brand-color-dark-tomato);
+    color: var(--vocabulary-brand-color-soft-tomato);
 
+}
+.ancilliary-menu a.donate.icon-attach:hover:before {
+    --icon-sprite-color: var(--vocabulary-brand-color-soft-tomato);
+
+}
 .ancilliary-menu a.search {
     display: inline-flex;
     align-items: center;
