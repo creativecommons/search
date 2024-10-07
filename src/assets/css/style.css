@@ -77,6 +77,12 @@
 .cc-highlight {
   color: rgb(251, 212, 60);
 }
+
+@media (max-width: 600px) {
+  .description p {
+    max-width: 100%;
+  }
+}
 /* Responsive Design */
 @media (min-width: 601px) {
   .body-search {
