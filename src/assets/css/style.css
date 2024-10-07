@@ -57,6 +57,7 @@
   font-weight: 400;
   padding: 14px;
   width: 100%; /* Full width on small screens */
+  cursor: pointer;
 }
 
 /* Responsive Design */
