@@ -66,6 +66,7 @@
     border-radius: 8px 0 0 8px;
     margin: 0;
     width: auto; /* Adjust width to fit container */
+    margin-right: -10px; /* Remove space before the search button */
   }
 
   .search-button {
