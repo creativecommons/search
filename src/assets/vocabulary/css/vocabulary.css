@@ -178,7 +178,7 @@ body > header {
 /* style product identity typesetting */
 .masthead .identity-logo.product {
     width: initial;
-    position: relative;
+    position: relative; 
     text-indent: 42px;
     padding-top: 7px;
     box-sizing: border-box;
@@ -1806,7 +1806,7 @@ main > header {
     padding-top: 2em;
     padding-bottom: 1em;
     position: relative;
-
+   
     text-align: center;
 }
 
@@ -1814,11 +1814,11 @@ main > header:before {
     width: 100vw;
     height: 100%;
     position: absolute;
-    left: -33.333%;
+    /* left: -33.333%; */
     top: 0;
     z-index: -1;
     content: "";
-
+    
     background: #F5F5F5;
 }
 
