@@ -329,6 +329,7 @@ button.expand-menu {
     background: var(--vocabulary-brand-color-soft-tomato);
     color: var(--vocabulary-brand-color-dark-tomato);
     border-radius: 3px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .ancilliary-menu a.donate.icon-attach:before {
@@ -371,6 +372,7 @@ button.expand-menu {
     border: none;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .explore-panel {
@@ -2622,6 +2624,7 @@ body > footer .license svg {
         font-weight: 700;
         font-size: 1em;
         padding: .5rem 1rem;
+        transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     .primary-menu {

@@ -53,6 +53,27 @@
   padding: 14px;
   width: 100%; /* Full width on small screens */
   cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: #333;
+  color: white; 
+}
+
+.ancilliary-menu a.donate:hover {
+  background-color: #d17a6d;
+  color: #FEEDE9; 
+}
+
+.ancilliary-menu button.explore:hover {
+  background-color: #404040;
+  color: white;
+}
+
+button.expand-menu:hover {
+  background-color: #666;
+  color: white;
 }
 
 /* Responsive Design */
