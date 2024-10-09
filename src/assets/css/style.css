@@ -19,12 +19,12 @@
   display: flex;
   flex-direction: column; /* Stack items vertically by default */
   align-items: center;
-  gap: 10px; /* Add spacing between items */
 }
 
 .body-search h3 {
   margin: 0; /* Remove margin to ensure better alignment */
   text-align: center; /* Center align text */
+  margin-right: 10px; /* Add space between the h3 and input */
 }
 
 .body-search input {
