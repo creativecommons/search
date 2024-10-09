@@ -148,3 +148,13 @@ main {
 main a {
   color: var(--vocabulary-brand-color-tomato);
 }
+/* Description section */
+.description{
+margin-top: 60px;
+max-width: 943px;
+margin: 0 auto 10px ;
+
+color: #333333;
+
+
+}
