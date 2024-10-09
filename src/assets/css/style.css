@@ -54,6 +54,10 @@
   width: 100%; /* Full width on small screens */
   cursor: pointer;
 }
+.search-button:hover{
+  background-color: #BDBDBD;
+  color: #000;
+}
 
 /* Responsive Design */
 @media (min-width: 601px) {
@@ -148,4 +152,9 @@ main {
 
 main a {
   color: var(--vocabulary-brand-color-tomato);
+}
+
+.footer-menu li:hover{
+  padding: 10px;
+  background-color: #ffff;
 }

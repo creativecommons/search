@@ -298,6 +298,8 @@ button.expand-menu {
 
 .ancilliary-menu ul li button:hover {
     cursor: pointer;
+    background-color: #FBE9E7;
+    color: #000;
 }
 
 .ancilliary-menu button.locale {
@@ -371,6 +373,7 @@ button.expand-menu {
     border: none;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
+    font-weight: 500;
 }
 
 .explore-panel {
