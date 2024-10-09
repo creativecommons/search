@@ -4,3 +4,5 @@ locale
 queries.txt*
 .history
 .vscode
+.DS_Store
+src/.DS_Store
