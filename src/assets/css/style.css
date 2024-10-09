@@ -55,6 +55,10 @@
   cursor: pointer;
 }
 
+.search-cont {
+  display: flex;
+}
+
 /* Responsive Design */
 @media (min-width: 601px) {
   .body-search {
