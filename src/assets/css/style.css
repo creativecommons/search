@@ -152,3 +152,8 @@ main {
 main a {
   color: var(--vocabulary-brand-color-tomato);
 }
+
+.footer-menu li:hover{
+  padding: 10px;
+  background-color: #ffff;
+}
