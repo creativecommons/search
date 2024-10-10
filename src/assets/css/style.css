@@ -4,148 +4,206 @@
 /* BODY */
 
 .body-cont {
+  /* Layout and positioning */
   margin: 0 auto;
   padding: 20px;
+
+  /* Visual configuration */
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
 }
 
 .body-first-sect {
+  /* Layout and positioning */
   display: grid;
   place-items: center;
+
+  /* No visual configuration */
 }
 
 .body-search {
+  /* Layout and positioning */
   display: flex;
   flex-direction: column; /* Stack items vertically by default */
   align-items: center;
   gap: 10px; /* Add spacing between items */
+
+  /* Visual configuration */
+  padding: 14px;
 }
 
 .body-search h3 {
-  margin: 0; /* Remove margin to ensure better alignment */
-  text-align: center; /* Center align text */
+  /* Layout and positioning */
+  margin: 0;
+
+  /* Visual configuration */
+  text-align: center;
 }
 
 .body-search input {
+  /* Layout and positioning */
+  width: 100%; /* Full width on small screens */
+  padding: 14px;
+
+  /* Visual configuration */
   -webkit-transition: 1s;
+  transition: 1s;
   border-radius: 8px;
   border: 1px solid #dfdfdf;
   font-size: 14px;
   font-weight: 400;
   outline: none;
-  padding: 14px;
-  transition: 1s;
-  width: 100%; /* Full width on small screens */
   box-sizing: border-box; /* Ensure padding is included in width calculation */
 }
 
 .body-search input:focus {
+  /* Visual configuration */
   outline: 2px solid #686666;
 }
 
 .search-button {
+  /* Layout and positioning */
+  width: 100%; /* Full width on small screens */
+  padding: 14px;
+
+  /* Visual configuration */
   background-color: #000;
   border-radius: 8px;
   color: #fff;
   font-size: 14px;
   font-weight: 400;
-  padding: 14px;
-  width: 100%; /* Full width on small screens */
-  cursor: pointer;
 }
 
 /* Responsive Design */
 @media (min-width: 601px) {
   .body-search {
+    /* Layout and positioning */
     flex-direction: row; /* Align items horizontally on larger screens */
     align-items: center;
   }
 
   .body-search input {
-    border-radius: 8px 0 0 8px;
-    margin: 0;
+    /* Layout and positioning */
     width: auto; /* Adjust width to fit container */
+    margin: 0;
+
+    /* Visual configuration */
+    border-radius: 8px 0 0 8px;
   }
 
   .search-button {
-    border-radius: 0 8px 8px 0;
+    /* Layout and positioning */
     width: auto; /* Adjust width to fit container */
+
+    /* Visual configuration */
+    border-radius: 0 8px 8px 0;
   }
 }
 
 .body-second-sect {
-  margin-top: 20px;
+  /* Layout and positioning */
   margin: 0 auto;
+  margin-top: 20px;
   max-width: 943px;
+
+  /* No visual configuration */
 }
 
 .body-second-sect p {
-  font-size: 13px;
+  /* Layout and positioning */
   margin-bottom: 8px;
+
+  /* Visual configuration */
+  font-size: 13px;
 }
 
 .search-engines {
+  /* Layout and positioning */
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+  /* No visual configuration */
 }
 
 .engines {
+  /* Layout and positioning */
+  display: block;
+  padding: 10px;
+
+  /* Visual configuration */
   border-radius: 6px;
   border: 1px solid #ddd;
   cursor: pointer;
-  display: block;
-  padding: 10px;
 }
 
 .search-engines input[type="radio"] {
+  /* Layout and positioning */
   display: none;
+
+  /* No visual configuration */
 }
 
 .search-engines input[type="radio"]:checked + label {
+  /* Visual configuration */
   background: #e7eeff;
   border-color: #cedcff;
 }
 
 .search-engines label {
+  /* Visual configuration */
   color: #333;
   font-size: 13px;
   font-weight: 600;
 }
 
 .engines h3 {
+  /* Layout and positioning */
   width: 100%;
+
+  /* No visual configuration */
 }
 
 .engines p {
+  /* Layout and positioning */
+  padding-top: 8px;
+  margin: 0;
+
+  /* Visual configuration */
   color: #404040;
   font-size: 10px;
   font-weight: 400;
-  padding-top: 8px;
-  margin: 0;
 }
 
 .engines:hover {
+  /* Visual configuration */
   background-color: #ddd;
 }
 
 #openverse-label {
+  /* Visual configuration */
   border-width: 3px;
 }
 
 /* FOOTER */
 
 body > footer {
+  /* Layout and positioning */
   margin-top: 80px;
+
+  /* No visual configuration */
 }
 
 /* Vocabulary override */
 
 main {
+  /* Layout and positioning */
   width: initial;
+
+  /* No visual configuration */
 }
 
 main a {
+  /* Visual configuration */
   color: var(--vocabulary-brand-color-tomato);
 }
