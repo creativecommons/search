@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     form.commercial = document.getElementById("commercial").checked;
     form.modify = document.getElementById("modify").checked;
     selectedEngine = document.querySelector(
-      'input[name="search-engine"]:checked'
+      'input[name="search-engine"]:checked',
     );
     form.searchEngine = selectedEngine.value;
     form.searchEngineURL = selectedEngine.dataset.url;
