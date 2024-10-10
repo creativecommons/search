@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     form.commercial = document.getElementById("commercial").checked;
     form.modify = document.getElementById("modify").checked;
     selectedEngine = document.querySelector(
-      'input[name="search-engine"]:checked',
+      'input[name="search-engine"]:checked'
     );
     form.searchEngine = selectedEngine.value;
     form.searchEngineURL = selectedEngine.dataset.url;
@@ -56,11 +56,11 @@ document.addEventListener("DOMContentLoaded", function (e) {
         case "ccmixter":
           rights = "";
           if (form.commercial && form.modify) {
-            rights += "&lic=by,sa,s,splus,pd,zero";
+            rights += "&lic=by,sa,s,splus,pd,cc0";
           } else if (form.commercial) {
             rights += "&lic=open";
           } else if (form.modify) {
-            rights += "&lic=by,nc,sa,ncsa,s,splus,pd,zero";
+            rights += "&lic=by,nc,sa,ncsa,s,splus,pd,cc0";
           }
           break;
 
