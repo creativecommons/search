@@ -1795,19 +1795,19 @@ main {
     margin: 0 auto;
     /* margin-top: 2em; */
     margin-bottom: 8em;
-    padding: 0 2em;
+    /* padding: 0 2em; */
 }
 
 main > header {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-bottom: 4em;
-    padding-top: 2em;
+    margin-bottom: 2em;
+    /* padding-top: 2em;
     padding-bottom: 1em;
     position: relative;
 
-    text-align: center;
+    text-align: center; */
 }
 
 main > header:before {
@@ -1819,7 +1819,7 @@ main > header:before {
     z-index: -1;
     content: "";
 
-    background: #F5F5F5;
+    /* background: #F5F5F5; */
 }
 
 main > header nav.breadcrumbs ol {
@@ -1887,7 +1887,7 @@ main > header h1 {
     width: 100%;
 
     font-family: 'Roboto Condensed';
-    font-size: 3.56em;
+    /* font-size: 3.56em; */
     font-style: normal;
     font-weight: 700;
     text-transform: uppercase;
@@ -1922,7 +1922,7 @@ main > header .byline {
     font-style: italic;
 }
 
-main h2 {
+/* main h2 {
     width: 100%;
 
     font-family: 'Roboto Condensed';
@@ -1931,7 +1931,7 @@ main h2 {
     font-size: 2.1em;
     text-transform: none;
 
-}
+}*/
 
 main h3 {
     font-family: 'Roboto Condensed';
@@ -1980,7 +1980,7 @@ main aside.opening p {
 
 main a {
      /* better hyperlink underline typesetting inspired by Tufte CSS */
-     --underline-color: var(--vocabulary-brand-color-dark-tomato);
+     /* --underline-color: var(--vocabulary-brand-color-dark-tomato); */
      --underline-background-color: white;
      color: var(--vocabulary-brand-color-dark-tomato);
      text-decoration: none;
@@ -1992,26 +1992,26 @@ main a {
      -moz-background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
      background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
      background-repeat: no-repeat, no-repeat, repeat-x;
-     text-shadow: 0.03em 0 var(--underline-background-color), -0.03em 0 var(--underline-background-color), 0 0.03em var(--underline-background-color), 0 -0.03em var(--underline-background-color), 0.06em 0 var(--underline-background-color), -0.06em 0 var(--underline-background-color), 0.09em 0 var(--underline-background-color), -0.09em 0 var(--underline-background-color), 0.12em 0 var(--underline-background-color), -0.12em 0 var(--underline-background-color), 0.15em 0 var(--underline-background-color), -0.15em 0 var(--underline-background-color);
+     /* text-shadow: 0.03em 0 var(--underline-background-color), -0.03em 0 var(--underline-background-color), 0 0.03em var(--underline-background-color), 0 -0.03em var(--underline-background-color), 0.06em 0 var(--underline-background-color), -0.06em 0 var(--underline-background-color), 0.09em 0 var(--underline-background-color), -0.09em 0 var(--underline-background-color), 0.12em 0 var(--underline-background-color), -0.12em 0 var(--underline-background-color), 0.15em 0 var(--underline-background-color), -0.15em 0 var(--underline-background-color); */
      background-position: 0% 93%, 100% 93%, 0% 93%;
      /* background-position-y: 87%, 87%, 87%; */
 }
 
 main p {
-    margin-bottom: 2em;
+    /* margin-bottom: 2em; */
 
     font-family: 'Source Sans Pro';
-    font-size: 1.5em;
+    /* font-size: 1.5em; */
     font-style: normal;
     font-weight: 400;
-    line-height: 150%;
+    /* line-height: 150%; */
 }
 
 main p:has(img) {
     overflow: hidden;
   }
 
-main ul, main ol {
+/* main ul, main ol {
     margin: 0 0 2em 1em;
     padding: 0;
 
@@ -2020,7 +2020,7 @@ main ul, main ol {
     font-style: normal;
     font-weight: 400;
     line-height: 150%;
-}
+} */
 
 main ul ul, main ol ol {
     font-size: 1.2rem;
