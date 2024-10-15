@@ -19,7 +19,6 @@
   display: flex;
   flex-direction: column; /* Stack items vertically by default */
   align-items: center;
-  gap: 10px; /* Add spacing between items */
 }
 
 .body-search h3 {
