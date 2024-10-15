@@ -149,3 +149,9 @@ main {
 main a {
   color: var(--vocabulary-brand-color-tomato);
 }
+
+.footer-menu li :hover{
+ background-color: #ffff;
+ padding: 10px 12px;
+ border-radius: 5px;
+}
