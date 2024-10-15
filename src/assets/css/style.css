@@ -149,3 +149,22 @@ main {
 main a {
   color: var(--vocabulary-brand-color-tomato);
 }
+/* Description section */
+.description{
+max-width: 943px;
+margin: 80px auto 0;
+text-align: center;
+
+
+
+}
+.description h3{
+  
+text-transform: uppercase;
+margin-bottom: 0;
+
+}
+.description p{
+color: #333333;
+margin-top: 8px;
+}
