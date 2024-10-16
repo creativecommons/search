@@ -44,6 +44,17 @@
   outline: 2px solid #686666;
 }
 
+.body-search-description {
+  margin-top: 20px;
+  margin: 0 auto;
+  max-width: 943px;
+}
+
+.body-search-description p {
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
 .search-button {
   background-color: #000;
   border-radius: 8px;
