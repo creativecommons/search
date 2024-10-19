@@ -24,6 +24,7 @@
 
 .body-search h3 {
   margin: 0; /* Remove margin to ensure better alignment */
+  margin-right: 10px; /* Add space between the h3 and input */
 
   text-align: center; /* Center align text */ 
 }
