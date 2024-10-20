@@ -21,6 +21,11 @@
   flex-direction: column; /* Stack items vertically by default */
   align-items: center;
 }
+@media (max-width: 600px) {  
+  .body-search {  
+      gap: 10px; /* Add space between input and button */  
+  }  
+}
 
 .body-search h3 {
   margin: 0; /* Remove margin to ensure better alignment */
