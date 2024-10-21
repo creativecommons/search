@@ -50,6 +50,7 @@
 .search-button {
   padding: 14px;
   width: 100%; /* Full width on small screens */
+  margin-top: 10px;
 
   background-color: #000;
   border-radius: 8px;
@@ -75,6 +76,7 @@
 
   .search-button {
     width: auto; /* Adjust width to fit container */
+    margin-top: 0;
 
     border-radius: 0 8px 8px 0;
   }
