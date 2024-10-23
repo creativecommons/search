@@ -58,6 +58,9 @@
   font-size: 14px;
   font-weight: 400;
   cursor: pointer;
+  border: none;
+  border-top: 1px solid black;;
+  border-bottom: 1px solid black;;
 }
 
 /* Responsive Design */
