@@ -67,6 +67,15 @@
   color: #FF0000; /* Red color for error */
   font-size: 0.9em;
   margin-top: 5px;
+  display: none;
+}
+
+.error-input, .error-input:focus {
+  border-color: #FF0000 !important; /* Red border for error */
+}
+
+.error-message-display {
+  display: block;
 }
 
 /* Responsive Design */
@@ -88,6 +97,9 @@
     margin-top: 0;
 
     border-radius: 0 8px 8px 0;
+  }
+  .error-message-display {
+    display: none !important;
   }
 }
 @media(min-width:480px) and (max-width:768px) {

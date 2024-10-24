@@ -1,18 +1,28 @@
 document.addEventListener("DOMContentLoaded", function (e) {
   const searchForm = document.getElementById("searchForm");
 
-  document.querySelector('.search-button').addEventListener('click', function(event) {
-    const queryInput = document.getElementById('query').value.trim();
+  const inputValidator = (event) => {
+    const queryInput = document.getElementById('query');
     const errorMessage = document.getElementById('error-message');
-  
-    if (!queryInput) {
+
+    // Validate input value
+    const hasInput = queryInput?.value.trim();
+
+    if (!hasInput) {
       event.preventDefault(); // Prevent form submission
       errorMessage.textContent = "Please enter a search term.";
-      errorMessage.style.display = "block";
+      errorMessage.classList.add('error-message-display');
+      queryInput?.classList.add('error-input');
     } else {
-      errorMessage.style.display = "none"; // Hide error if input is valid
+      errorMessage.classList.remove('error-message-display');
+      queryInput?.classList.remove('error-input');
     }
-  });
+  };
+
+  // Event listeners
+  document.querySelector('.search-button')?.addEventListener('click', inputValidator);
+  document.querySelector('#query')?.addEventListener('input', inputValidator);
+
 
   searchForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -44,10 +54,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
   // construct the URL
   function buildURL(form) {
-    if (form.query === "") {
-      alert("Please enter a search value");
-      return;
-    }
     if (form.searchEngineURL === undefined) {
       alert("Please select a search engine");
       return;
