@@ -30,11 +30,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
   }
 
   // construct the URL
-  function buildURL(form) {
-    if (form.query === "") {
-      alert("Please enter a search value");
-      return;
-    }
+  function buildURL(form) {    
     if (form.searchEngineURL === undefined) {
       alert("Please select a search engine");
       return;
