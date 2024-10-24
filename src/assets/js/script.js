@@ -1,6 +1,19 @@
 document.addEventListener("DOMContentLoaded", function (e) {
   const searchForm = document.getElementById("searchForm");
 
+  document.querySelector('.search-button').addEventListener('click', function(event) {
+    const queryInput = document.getElementById('query').value.trim();
+    const errorMessage = document.getElementById('error-message');
+  
+    if (!queryInput) {
+      event.preventDefault(); // Prevent form submission
+      errorMessage.textContent = "Please enter a search term.";
+      errorMessage.style.display = "block";
+    } else {
+      errorMessage.style.display = "none"; // Hide error if input is valid
+    }
+  });
+
   searchForm.addEventListener("submit", (e) => {
     e.preventDefault();
 

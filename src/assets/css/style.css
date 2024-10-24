@@ -59,6 +59,12 @@
   cursor: pointer;
 }
 
+.error-message {
+  color: #FF0000; /* Red color for error */
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
 /* Responsive Design */
 @media (min-width: 601px) {
   .body-search {
