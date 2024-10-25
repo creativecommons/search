@@ -98,9 +98,6 @@
 
     border-radius: 0 8px 8px 0;
   }
-  .error-message-display {
-    display: none !important;
-  }
 }
 @media(min-width:480px) and (max-width:768px) {
   .search-engines{
