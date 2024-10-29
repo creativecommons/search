@@ -74,6 +74,21 @@
   border-bottom: 1px solid black;;
 }
 
+.error-message {
+  color: #FF0000; /* Red color for error */
+  font-size: 0.9em;
+  margin-top: 5px;
+  display: none;
+}
+
+.error-input, .error-input:focus {
+  border-color: #FF0000 !important; /* Red border for error */
+}
+
+.error-message-display {
+  display: block;
+}
+
 /* Responsive Design */
 @media (min-width: 601px) {
   .body-search {
