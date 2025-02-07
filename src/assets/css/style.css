@@ -26,25 +26,7 @@
   margin: 0; /* Remove margin to ensure better alignment */
   margin-right: 10px; /* Add space between the h3 and input */
 
-  text-align: center; /* Center align text */ 
-}
-
-.body-search input {
-  width: 100%; /* Full width on small screens */
-  box-sizing: border-box; /* Ensure padding is included in width calculation */
-  padding: 14px;
-
-  -webkit-transition: 1s;
-  border-radius: 8px;
-  border: 1px solid #dfdfdf;
-  font-size: 14px;
-  font-weight: 400;
-  outline: none;
-  transition: 1s;
-}
-
-.body-search input:focus {
-  outline: 2px solid #686666;
+  text-align: center; /* Center align text */
 }
 
 .body-search-description {
@@ -70,8 +52,25 @@
   font-weight: 400;
   cursor: pointer;
   border: none;
-  border-top: 1px solid black;;
-  border-bottom: 1px solid black;;
+}
+
+.search-form input {
+  width: 100%; /* Full width on small screens */
+  box-sizing: border-box; /* Ensure padding is included in width calculation */
+  padding: 14px;
+
+  -webkit-transition: 1s;
+  border-radius: 8px;
+  border: 2px solid black;
+  font-size: 14px;
+  font-weight: 400;
+  outline: none;
+  transition: 1s;
+}
+
+.search-form input:focus {
+  outline: 2px solid #686666;
+  outline-offset: -2px; /* Adjust the offset to prevent size mismatch */
 }
 
 /* Responsive Design */
@@ -81,30 +80,43 @@
     align-items: center;
   }
 
-  .body-search input {
-    margin: 0;
-    width: auto; /* Adjust width to fit container */
+  .search-form {
+    display: flex;
+    width: 600px;
+  }
 
-    border-radius: 8px 0 0 8px;
+  .search-form input {
+    flex: 1; /* Input fills the available space */
+
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
   }
 
   .search-button {
-    width: auto; /* Adjust width to fit container */
-    margin-top: 0;
+    flex-shrink: 0; /* Prevent resizing of the button */
+    margin: 0;
+    width: auto;
+    padding: 0 20px;
 
-    border-radius: 0 8px 8px 0;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
   }
 }
-@media(min-width:480px) and (max-width:768px) {
-  .search-engines{
-    grid-template-columns: repeat(2,1fr);
-}
+
+@media (min-width: 480px) and (max-width: 768px) {
+  .search-engines {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-@media(min-width:768px) {
-  .search-engines{
-    grid-template-columns: repeat(3,1fr);
-}
+@media (min-width: 768px) {
+  .search-engines {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .body-second-sect {
