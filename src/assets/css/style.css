@@ -54,6 +54,10 @@
   border: none;
 }
 
+.search-form {
+  margin-top: 1.15rem;
+}
+
 .search-form input {
   width: 100%; /* Full width on small screens */
   box-sizing: border-box; /* Ensure padding is included in width calculation */
