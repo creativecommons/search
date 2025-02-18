@@ -2,6 +2,9 @@
 @import "../vocabulary/css/vocabulary.css" layer(vocabulary);
 
 /* BODY */
+body main {
+  display: block; /* To overide the display: grid; applied from vocabulary */
+}
 
 .body-cont {
   margin: 0 auto;
