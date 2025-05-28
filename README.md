@@ -1,6 +1,6 @@
 # search
 
-Creative Commons Search Portal
+Creative Commons (CC) Search Portal
 
 
 ## Code of Conduct
