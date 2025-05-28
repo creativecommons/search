@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
-		         xmlns:moz="http://www.mozilla.org/2006/browser/search/"> 
-  <ShortName>Creative Commons Search Portal</ShortName> 
+		         xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+  <ShortName>Creative Commons Search Portal</ShortName>
   <Developer>Creative Commons</Developer>
-  <Description>Creative Commons Search Portal</Description> 
+  <Description>Creative Commons Search Portal</Description>
   <Contact>webmaster@creativecommons.org</Contact>
-  <Url type="text/html" method="get" template="http://labs.creativecommons.org/demos/search/?q={searchTerms}"/> 
+  <Url type="text/html" method="get" template="http://labs.creativecommons.org/demos/search/?q={searchTerms}"/>
   <Image height="64" width="64" type="image/png">http://labs.creativecommons.org/demos/search/img/ccsearch_l.png</Image>
   <Image height="16" width="16" type="image/x-icon">http://labs.creativecommons.org/demos/search/img/ccsearch_s.ico</Image>
-  <InputEncoding>UTF-8</InputEncoding> 
-  <moz:SearchForm>http://labs.creativecommons.org/demos/search/</moz:SearchForm> 
-  <Url type="application/opensearchdescription+xml" rel="self" template="http://labs.creativecommons.org/demos/search/ccsearch.xml"/> 
+  <InputEncoding>UTF-8</InputEncoding>
+  <moz:SearchForm>http://labs.creativecommons.org/demos/search/</moz:SearchForm>
+  <Url type="application/opensearchdescription+xml" rel="self" template="http://labs.creativecommons.org/demos/search/ccsearch.xml"/>
 </OpenSearchDescription>
