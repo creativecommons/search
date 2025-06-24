@@ -126,16 +126,16 @@ document.addEventListener("DOMContentLoaded", function (e) {
           }
           break;
 
-        case "openclipart":
-          rights = "";
-          if (form.commercial && form.modify) {
-            rights += "";
-          } else if (form.commercial) {
-            rights += "";
-          } else if (form.modify) {
-            rights += "";
-          }
-          break;
+        // case "openclipart":
+        //   rights = "";
+        //   if (form.commercial && form.modify) {
+        //     rights += "";
+        //   } else if (form.commercial) {
+        //     rights += "";
+        //   } else if (form.modify) {
+        //     rights += "";
+        //   }
+        //   break;
 
         case "opengameart":
           rights = "&sort_by=count&sort_order=DESC"; // Just standard OGA search filters
