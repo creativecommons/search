@@ -216,7 +216,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
           }
           break;
 
-        case "wikipedia-commons":
+        case "wikimedia-commons":
           rights = "";
           if (form.commercial && form.modify) {
             rights += "";
