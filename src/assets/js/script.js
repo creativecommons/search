@@ -8,10 +8,10 @@ document.addEventListener("DOMContentLoaded", function (e) {
     console.log("captured cleanly!");
 
     let form = {};
-    form.query = document.getElementById("query").value;
+    form.query = document.getElementById("query").value.trim();
     form.commercial = document.getElementById("commercial").checked;
     form.modify = document.getElementById("modify").checked;
-    selectedEngine = document.querySelector(
+    let selectedEngine = document.querySelector(
       'input[name="search-engine"]:checked',
     );
     form.searchEngine = selectedEngine.value;
@@ -24,8 +24,15 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
   // navigate behavior
   function navigateTo(link) {
-    if (link) {
-      window.open(link, "_blank");
+    try {
+      // Validate the URL using the URL constructor
+      new URL(link); // If the URL is invalid, it will throw an error
+      if (link) {
+           window.open(link, "_blank");// If valid, open the link in a new tab
+         }
+       
+    } catch (error) {
+      console.error("Error occurred: ", error);
     }
   }
 
