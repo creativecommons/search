@@ -1,8 +1,9 @@
 document.addEventListener("DOMContentLoaded", function (e) {
   const searchForm = document.getElementById("searchForm");
 
-  searchForm.addEventListener("submit", (e) => {
-    e.preventDefault();
+  if (searchForm) {
+    searchForm.addEventListener("submit", (e) => {
+      e.preventDefault();
 
     // capture and process the submission
     console.log("captured cleanly!");
@@ -257,4 +258,4 @@ document.addEventListener("DOMContentLoaded", function (e) {
     }
     return rights;
   }
-});
+}});
