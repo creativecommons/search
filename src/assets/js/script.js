@@ -1,21 +1,34 @@
 document.addEventListener("DOMContentLoaded", function (e) {
   const searchForm = document.getElementById("searchForm");
 
-  searchForm.addEventListener("submit", (e) => {
-    e.preventDefault();
+  if (searchForm) {
+    searchForm.addEventListener("submit", (e) => {
+      e.preventDefault();
 
     // capture and process the submission
     console.log("captured cleanly!");
 
     let form = {};
-    form.query = document.getElementById("query").value;
-    form.commercial = document.getElementById("commercial").checked;
-    form.modify = document.getElementById("modify").checked;
-    selectedEngine = document.querySelector(
+    const queryEl = document.getElementById("query");
+    if (queryEl) {
+      return;
+    }
+    form.query = queryEl.value.trim();
+    if (!form.query) {
+      alert("Please enter a search query");
+      return;
+    }
+    const commercialEl = document.getElementById("commerical");
+    const modifyEl = document.getElementById("modify");
+    form.commerical = commercialEl ? commercialEl.checked : false;
+    form.modify = modifyEl ? modifyEl.checked : false;
+    const selectedEngine = document.querySelector(
       'input[name="search-engine"]:checked',
     );
-    form.searchEngine = selectedEngine.value;
-    form.searchEngineURL = selectedEngine.dataset.url;
+    if (selectedEngine) {
+      form.searchEngine = selectedEngine.value;
+      form.searchEngineURL = selectedEngine.dataset.url;
+    }
 
     // build URL & navigate to link
     let link = buildURL(form);
@@ -257,4 +270,4 @@ document.addEventListener("DOMContentLoaded", function (e) {
     }
     return rights;
   }
-});
+}});
