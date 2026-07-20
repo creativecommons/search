@@ -1,1 +1,8 @@
 /search q=:query  https://openverse.org/search/?referrer=creativecommons.org&q=:query  302
+
+# Privacy-friendly analytics by Plausible
+############  ###################################################  ######
+# Source      # Target                                             # Code
+############  ###################################################  ######
+/p/script.js  https://plausible.io/js/pa-J6LunIiubQRDGT-zbgKpk.js  200
+/p/api/event  https://plausible.io/api/event                       200
